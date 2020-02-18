@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="L01 VolPVOF_DLC_OL"
   DTS:PackageType="5"
-  DTS:VersionBuild="10"
-  DTS:VersionGUID="{7503BE9B-A951-47B7-9D87-E7D970732EED}">
+  DTS:VersionBuild="13"
+  DTS:VersionGUID="{965179A1-6736-4DD8-A7EE-37ABD181A9EB}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -27,7 +27,7 @@
           <DTS:Password
             DTS:Name="Password"
             Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAuR1Gdsnx50KES8/66vqaKwAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAAAr2g3OPjcNbNIAP/9e8k9FJ+6ZEcPLP180bbWBpwg3WAAAAAAOgAAAAAIAACAAAAClRIPUvTZXg5/k/c0r9voK7cSwIoYHoPse5TP+POr8tSAAAADhKrtbpciSide97knKG6uPYZvqW/XBIj6xja3xWtsoXEAAAAD0iOiBi1kFfTeQDq3cxF+0ff9evH6+yO99TqnrWLuK0P82bA7Q2MKMIUAcRmOHRGt8J7rvEpG7nyFV1eWa26rL</DTS:Password>
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAuR1Gdsnx50KES8/66vqaKwAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAAC09gp9T4BBSk14vOpRMVR/V56uMONfdXDJI7kuCBJGpwAAAAAOgAAAAAIAACAAAAAQH3ILzFTmuW12OiEgsfcWwu7eeKuo+hxgYw4gOnjtXCAAAAAFpaIQGkcLKFHOxi3iNzz7zAzzNNPn3enrp0G9UGRYW0AAAACia+9EHRpJ9+b9zWuw3TnErr5mecK/bB73kzoknjpiDcoX9kdPXREHniQuUvhdt6EppLQXjsvNrIPHoDtH2HSg</DTS:Password>
         </DTS:ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
@@ -47,7 +47,7 @@
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{B0A6DED8-D396-4314-9395-B6A259A17D81}"
-          SQLTask:SqlStatementSource="update VolumenTrimDLC set&#xA;VolumenTrimDLC.OrphEstrLin= 0&#xA;FROM lukerVen.SD.JerarquiaProducto JerarquiaProducto, lukerVen.PVOF.VolumenTrimDLC VolumenTrimDLC&#xA;WHERE JerarquiaProducto.Categoria = VolumenTrimDLC.Categoria AND JerarquiaProducto.Linea = VolumenTrimDLC.Linea AND JerarquiaProducto.Marca = VolumenTrimDLC.Marca" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          SQLTask:SqlStatementSource="update VolumenTrimDLC_OL set&#xA;VolumenTrimDLC_OL.OrphEstrLin= 0&#xA;FROM lukerVen.tmp.BaseEstadisticaBcTDLC_AL BaseEstadisticaBcTDLC_AL, lukerVen.PVOF.VolumenTrimDLC_OL VolumenTrimDLC_OL&#xA;WHERE BaseEstadisticaBcTDLC_AL.Categoria = VolumenTrimDLC_OL.Categoria AND BaseEstadisticaBcTDLC_AL.Director_Canal = VolumenTrimDLC_OL.Director_Canal AND BaseEstadisticaBcTDLC_AL.Lider_Regional = VolumenTrimDLC_OL.Lider_Regional AND BaseEstadisticaBcTDLC_AL.Linea = VolumenTrimDLC_OL.Linea AND BaseEstadisticaBcTDLC_AL.Marca = VolumenTrimDLC_OL.Marca AND BaseEstadisticaBcTDLC_AL.Nombre_Oficina_Ventas = VolumenTrimDLC_OL.Nombre_Oficina_Ventas &#xA;AND BaseEstadisticaBcTDLC_AL.NombreCanalAgrupado = VolumenTrimDLC_OL.NombreCanalAgrupado AND VolumenTrimDLC_OL.PeriodoAAMM = BaseEstadisticaBcTDLC_AL.Periodo&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
@@ -67,13 +67,13 @@
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
-      DTS:refId="Package\load vol from stgn"
+      DTS:refId="Package\load vol from stgn ol"
       DTS:CreationName="Microsoft.Pipeline"
       DTS:Description="Tarea Flujo de datos"
       DTS:DTSID="{B6DE4DAB-6AD0-4360-98B5-7B473F2196C8}"
       DTS:ExecutableType="Microsoft.Pipeline"
       DTS:LocaleID="-1"
-      DTS:ObjectName="load vol from stgn"
+      DTS:ObjectName="load vol from stgn ol"
       DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
       <DTS:Variables />
       <DTS:ObjectData>
@@ -81,11 +81,11 @@
           version="1">
           <components>
             <component
-              refId="Package\load vol from stgn\load from stgn"
+              refId="Package\load vol from stgn ol\load from stgn Of Li"
               componentClassID="Microsoft.OLEDBSource"
               contactInfo="Origen de OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;7"
               description="Origen de OLE DB"
-              name="load from stgn"
+              name="load from stgn Of Li"
               usesDispositions="true"
               version="7">
               <properties>
@@ -131,7 +131,7 @@ FROM lukerVen.dbo.xppt_pvofconsdirlincanoflid xppt_pvofconsdirlincanoflid</prope
               </properties>
               <connections>
                 <connection
-                  refId="Package\load vol from stgn\load from stgn.Connections[OleDbConnection]"
+                  refId="Package\load vol from stgn ol\load from stgn Of Li.Connections[OleDbConnection]"
                   connectionManagerID="Package.ConnectionManagers[192.168.5.23\B2C.lukerVen.ASSUser]"
                   connectionManagerRefId="Package.ConnectionManagers[192.168.5.23\B2C.lukerVen.ASSUser]"
                   description="La conexión de tiempo de ejecución OLE DB usada para obtener acceso a la base de datos."
@@ -139,299 +139,299 @@ FROM lukerVen.dbo.xppt_pvofconsdirlincanoflid xppt_pvofconsdirlincanoflid</prope
               </connections>
               <outputs>
                 <output
-                  refId="Package\load vol from stgn\load from stgn.Outputs[Salida de origen de OLE DB]"
+                  refId="Package\load vol from stgn ol\load from stgn Of Li.Outputs[Salida de origen de OLE DB]"
                   name="Salida de origen de OLE DB">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\load vol from stgn\load from stgn.Outputs[Salida de origen de OLE DB].Columns[PeriodoAAMM]"
+                      refId="Package\load vol from stgn ol\load from stgn Of Li.Outputs[Salida de origen de OLE DB].Columns[PeriodoAAMM]"
                       dataType="wstr"
                       errorOrTruncationOperation="Conversión"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\load vol from stgn\load from stgn.Outputs[Salida de origen de OLE DB].ExternalColumns[PeriodoAAMM]"
+                      externalMetadataColumnId="Package\load vol from stgn ol\load from stgn Of Li.Outputs[Salida de origen de OLE DB].ExternalColumns[PeriodoAAMM]"
                       length="6"
-                      lineageId="Package\load vol from stgn\load from stgn.Outputs[Salida de origen de OLE DB].Columns[PeriodoAAMM]"
+                      lineageId="Package\load vol from stgn ol\load from stgn Of Li.Outputs[Salida de origen de OLE DB].Columns[PeriodoAAMM]"
                       name="PeriodoAAMM"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\load vol from stgn\load from stgn.Outputs[Salida de origen de OLE DB].Columns[Director_Canal]"
+                      refId="Package\load vol from stgn ol\load from stgn Of Li.Outputs[Salida de origen de OLE DB].Columns[Director_Canal]"
                       dataType="wstr"
                       errorOrTruncationOperation="Conversión"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\load vol from stgn\load from stgn.Outputs[Salida de origen de OLE DB].ExternalColumns[Director_Canal]"
+                      externalMetadataColumnId="Package\load vol from stgn ol\load from stgn Of Li.Outputs[Salida de origen de OLE DB].ExternalColumns[Director_Canal]"
                       length="40"
-                      lineageId="Package\load vol from stgn\load from stgn.Outputs[Salida de origen de OLE DB].Columns[Director_Canal]"
+                      lineageId="Package\load vol from stgn ol\load from stgn Of Li.Outputs[Salida de origen de OLE DB].Columns[Director_Canal]"
                       name="Director_Canal"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\load vol from stgn\load from stgn.Outputs[Salida de origen de OLE DB].Columns[Linea]"
+                      refId="Package\load vol from stgn ol\load from stgn Of Li.Outputs[Salida de origen de OLE DB].Columns[Linea]"
                       dataType="wstr"
                       errorOrTruncationOperation="Conversión"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\load vol from stgn\load from stgn.Outputs[Salida de origen de OLE DB].ExternalColumns[Linea]"
+                      externalMetadataColumnId="Package\load vol from stgn ol\load from stgn Of Li.Outputs[Salida de origen de OLE DB].ExternalColumns[Linea]"
                       length="40"
-                      lineageId="Package\load vol from stgn\load from stgn.Outputs[Salida de origen de OLE DB].Columns[Linea]"
+                      lineageId="Package\load vol from stgn ol\load from stgn Of Li.Outputs[Salida de origen de OLE DB].Columns[Linea]"
                       name="Linea"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\load vol from stgn\load from stgn.Outputs[Salida de origen de OLE DB].Columns[NombreCanalAgrupado]"
+                      refId="Package\load vol from stgn ol\load from stgn Of Li.Outputs[Salida de origen de OLE DB].Columns[NombreCanalAgrupado]"
                       dataType="wstr"
                       errorOrTruncationOperation="Conversión"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\load vol from stgn\load from stgn.Outputs[Salida de origen de OLE DB].ExternalColumns[NombreCanalAgrupado]"
+                      externalMetadataColumnId="Package\load vol from stgn ol\load from stgn Of Li.Outputs[Salida de origen de OLE DB].ExternalColumns[NombreCanalAgrupado]"
                       length="40"
-                      lineageId="Package\load vol from stgn\load from stgn.Outputs[Salida de origen de OLE DB].Columns[NombreCanalAgrupado]"
+                      lineageId="Package\load vol from stgn ol\load from stgn Of Li.Outputs[Salida de origen de OLE DB].Columns[NombreCanalAgrupado]"
                       name="NombreCanalAgrupado"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\load vol from stgn\load from stgn.Outputs[Salida de origen de OLE DB].Columns[Kilos1]"
+                      refId="Package\load vol from stgn ol\load from stgn Of Li.Outputs[Salida de origen de OLE DB].Columns[Kilos1]"
                       dataType="r8"
                       errorOrTruncationOperation="Conversión"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\load vol from stgn\load from stgn.Outputs[Salida de origen de OLE DB].ExternalColumns[Kilos1]"
-                      lineageId="Package\load vol from stgn\load from stgn.Outputs[Salida de origen de OLE DB].Columns[Kilos1]"
+                      externalMetadataColumnId="Package\load vol from stgn ol\load from stgn Of Li.Outputs[Salida de origen de OLE DB].ExternalColumns[Kilos1]"
+                      lineageId="Package\load vol from stgn ol\load from stgn Of Li.Outputs[Salida de origen de OLE DB].Columns[Kilos1]"
                       name="Kilos1"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\load vol from stgn\load from stgn.Outputs[Salida de origen de OLE DB].Columns[Kilos2]"
+                      refId="Package\load vol from stgn ol\load from stgn Of Li.Outputs[Salida de origen de OLE DB].Columns[Kilos2]"
                       dataType="r8"
                       errorOrTruncationOperation="Conversión"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\load vol from stgn\load from stgn.Outputs[Salida de origen de OLE DB].ExternalColumns[Kilos2]"
-                      lineageId="Package\load vol from stgn\load from stgn.Outputs[Salida de origen de OLE DB].Columns[Kilos2]"
+                      externalMetadataColumnId="Package\load vol from stgn ol\load from stgn Of Li.Outputs[Salida de origen de OLE DB].ExternalColumns[Kilos2]"
+                      lineageId="Package\load vol from stgn ol\load from stgn Of Li.Outputs[Salida de origen de OLE DB].Columns[Kilos2]"
                       name="Kilos2"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\load vol from stgn\load from stgn.Outputs[Salida de origen de OLE DB].Columns[Kilos3]"
+                      refId="Package\load vol from stgn ol\load from stgn Of Li.Outputs[Salida de origen de OLE DB].Columns[Kilos3]"
                       dataType="r8"
                       errorOrTruncationOperation="Conversión"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\load vol from stgn\load from stgn.Outputs[Salida de origen de OLE DB].ExternalColumns[Kilos3]"
-                      lineageId="Package\load vol from stgn\load from stgn.Outputs[Salida de origen de OLE DB].Columns[Kilos3]"
+                      externalMetadataColumnId="Package\load vol from stgn ol\load from stgn Of Li.Outputs[Salida de origen de OLE DB].ExternalColumns[Kilos3]"
+                      lineageId="Package\load vol from stgn ol\load from stgn Of Li.Outputs[Salida de origen de OLE DB].Columns[Kilos3]"
                       name="Kilos3"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\load vol from stgn\load from stgn.Outputs[Salida de origen de OLE DB].Columns[OrphEstrLin]"
+                      refId="Package\load vol from stgn ol\load from stgn Of Li.Outputs[Salida de origen de OLE DB].Columns[OrphEstrLin]"
                       codePage="1252"
                       dataType="str"
                       errorOrTruncationOperation="Conversión"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\load vol from stgn\load from stgn.Outputs[Salida de origen de OLE DB].ExternalColumns[OrphEstrLin]"
+                      externalMetadataColumnId="Package\load vol from stgn ol\load from stgn Of Li.Outputs[Salida de origen de OLE DB].ExternalColumns[OrphEstrLin]"
                       length="1"
-                      lineageId="Package\load vol from stgn\load from stgn.Outputs[Salida de origen de OLE DB].Columns[OrphEstrLin]"
+                      lineageId="Package\load vol from stgn ol\load from stgn Of Li.Outputs[Salida de origen de OLE DB].Columns[OrphEstrLin]"
                       name="OrphEstrLin"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\load vol from stgn\load from stgn.Outputs[Salida de origen de OLE DB].Columns[OrphVol]"
+                      refId="Package\load vol from stgn ol\load from stgn Of Li.Outputs[Salida de origen de OLE DB].Columns[OrphVol]"
                       codePage="1252"
                       dataType="str"
                       errorOrTruncationOperation="Conversión"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\load vol from stgn\load from stgn.Outputs[Salida de origen de OLE DB].ExternalColumns[OrphVol]"
+                      externalMetadataColumnId="Package\load vol from stgn ol\load from stgn Of Li.Outputs[Salida de origen de OLE DB].ExternalColumns[OrphVol]"
                       length="1"
-                      lineageId="Package\load vol from stgn\load from stgn.Outputs[Salida de origen de OLE DB].Columns[OrphVol]"
+                      lineageId="Package\load vol from stgn ol\load from stgn Of Li.Outputs[Salida de origen de OLE DB].Columns[OrphVol]"
                       name="OrphVol"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\load vol from stgn\load from stgn.Outputs[Salida de origen de OLE DB].Columns[Categoria]"
+                      refId="Package\load vol from stgn ol\load from stgn Of Li.Outputs[Salida de origen de OLE DB].Columns[Categoria]"
                       dataType="wstr"
                       errorOrTruncationOperation="Conversión"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\load vol from stgn\load from stgn.Outputs[Salida de origen de OLE DB].ExternalColumns[Categoria]"
+                      externalMetadataColumnId="Package\load vol from stgn ol\load from stgn Of Li.Outputs[Salida de origen de OLE DB].ExternalColumns[Categoria]"
                       length="40"
-                      lineageId="Package\load vol from stgn\load from stgn.Outputs[Salida de origen de OLE DB].Columns[Categoria]"
+                      lineageId="Package\load vol from stgn ol\load from stgn Of Li.Outputs[Salida de origen de OLE DB].Columns[Categoria]"
                       name="Categoria"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\load vol from stgn\load from stgn.Outputs[Salida de origen de OLE DB].Columns[Marca]"
+                      refId="Package\load vol from stgn ol\load from stgn Of Li.Outputs[Salida de origen de OLE DB].Columns[Marca]"
                       dataType="wstr"
                       errorOrTruncationOperation="Conversión"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\load vol from stgn\load from stgn.Outputs[Salida de origen de OLE DB].ExternalColumns[Marca]"
+                      externalMetadataColumnId="Package\load vol from stgn ol\load from stgn Of Li.Outputs[Salida de origen de OLE DB].ExternalColumns[Marca]"
                       length="40"
-                      lineageId="Package\load vol from stgn\load from stgn.Outputs[Salida de origen de OLE DB].Columns[Marca]"
+                      lineageId="Package\load vol from stgn ol\load from stgn Of Li.Outputs[Salida de origen de OLE DB].Columns[Marca]"
                       name="Marca"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\load vol from stgn\load from stgn.Outputs[Salida de origen de OLE DB].Columns[Nombre_Oficina_Ventas]"
+                      refId="Package\load vol from stgn ol\load from stgn Of Li.Outputs[Salida de origen de OLE DB].Columns[Nombre_Oficina_Ventas]"
                       dataType="wstr"
                       errorOrTruncationOperation="Conversión"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\load vol from stgn\load from stgn.Outputs[Salida de origen de OLE DB].ExternalColumns[Nombre_Oficina_Ventas]"
+                      externalMetadataColumnId="Package\load vol from stgn ol\load from stgn Of Li.Outputs[Salida de origen de OLE DB].ExternalColumns[Nombre_Oficina_Ventas]"
                       length="20"
-                      lineageId="Package\load vol from stgn\load from stgn.Outputs[Salida de origen de OLE DB].Columns[Nombre_Oficina_Ventas]"
+                      lineageId="Package\load vol from stgn ol\load from stgn Of Li.Outputs[Salida de origen de OLE DB].Columns[Nombre_Oficina_Ventas]"
                       name="Nombre_Oficina_Ventas"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\load vol from stgn\load from stgn.Outputs[Salida de origen de OLE DB].Columns[Lider_Regional]"
+                      refId="Package\load vol from stgn ol\load from stgn Of Li.Outputs[Salida de origen de OLE DB].Columns[Lider_Regional]"
                       dataType="wstr"
                       errorOrTruncationOperation="Conversión"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\load vol from stgn\load from stgn.Outputs[Salida de origen de OLE DB].ExternalColumns[Lider_Regional]"
+                      externalMetadataColumnId="Package\load vol from stgn ol\load from stgn Of Li.Outputs[Salida de origen de OLE DB].ExternalColumns[Lider_Regional]"
                       length="35"
-                      lineageId="Package\load vol from stgn\load from stgn.Outputs[Salida de origen de OLE DB].Columns[Lider_Regional]"
+                      lineageId="Package\load vol from stgn ol\load from stgn Of Li.Outputs[Salida de origen de OLE DB].Columns[Lider_Regional]"
                       name="Lider_Regional"
                       truncationRowDisposition="FailComponent" />
                   </outputColumns>
                   <externalMetadataColumns
                     isUsed="True">
                     <externalMetadataColumn
-                      refId="Package\load vol from stgn\load from stgn.Outputs[Salida de origen de OLE DB].ExternalColumns[PeriodoAAMM]"
+                      refId="Package\load vol from stgn ol\load from stgn Of Li.Outputs[Salida de origen de OLE DB].ExternalColumns[PeriodoAAMM]"
                       dataType="wstr"
                       length="6"
                       name="PeriodoAAMM" />
                     <externalMetadataColumn
-                      refId="Package\load vol from stgn\load from stgn.Outputs[Salida de origen de OLE DB].ExternalColumns[Director_Canal]"
+                      refId="Package\load vol from stgn ol\load from stgn Of Li.Outputs[Salida de origen de OLE DB].ExternalColumns[Director_Canal]"
                       dataType="wstr"
                       length="40"
                       name="Director_Canal" />
                     <externalMetadataColumn
-                      refId="Package\load vol from stgn\load from stgn.Outputs[Salida de origen de OLE DB].ExternalColumns[Linea]"
+                      refId="Package\load vol from stgn ol\load from stgn Of Li.Outputs[Salida de origen de OLE DB].ExternalColumns[Linea]"
                       dataType="wstr"
                       length="40"
                       name="Linea" />
                     <externalMetadataColumn
-                      refId="Package\load vol from stgn\load from stgn.Outputs[Salida de origen de OLE DB].ExternalColumns[NombreCanalAgrupado]"
+                      refId="Package\load vol from stgn ol\load from stgn Of Li.Outputs[Salida de origen de OLE DB].ExternalColumns[NombreCanalAgrupado]"
                       dataType="wstr"
                       length="40"
                       name="NombreCanalAgrupado" />
                     <externalMetadataColumn
-                      refId="Package\load vol from stgn\load from stgn.Outputs[Salida de origen de OLE DB].ExternalColumns[Kilos1]"
+                      refId="Package\load vol from stgn ol\load from stgn Of Li.Outputs[Salida de origen de OLE DB].ExternalColumns[Kilos1]"
                       dataType="r8"
                       name="Kilos1" />
                     <externalMetadataColumn
-                      refId="Package\load vol from stgn\load from stgn.Outputs[Salida de origen de OLE DB].ExternalColumns[Kilos2]"
+                      refId="Package\load vol from stgn ol\load from stgn Of Li.Outputs[Salida de origen de OLE DB].ExternalColumns[Kilos2]"
                       dataType="r8"
                       name="Kilos2" />
                     <externalMetadataColumn
-                      refId="Package\load vol from stgn\load from stgn.Outputs[Salida de origen de OLE DB].ExternalColumns[Kilos3]"
+                      refId="Package\load vol from stgn ol\load from stgn Of Li.Outputs[Salida de origen de OLE DB].ExternalColumns[Kilos3]"
                       dataType="r8"
                       name="Kilos3" />
                     <externalMetadataColumn
-                      refId="Package\load vol from stgn\load from stgn.Outputs[Salida de origen de OLE DB].ExternalColumns[OrphEstrLin]"
+                      refId="Package\load vol from stgn ol\load from stgn Of Li.Outputs[Salida de origen de OLE DB].ExternalColumns[OrphEstrLin]"
                       codePage="1252"
                       dataType="str"
                       length="1"
                       name="OrphEstrLin" />
                     <externalMetadataColumn
-                      refId="Package\load vol from stgn\load from stgn.Outputs[Salida de origen de OLE DB].ExternalColumns[OrphVol]"
+                      refId="Package\load vol from stgn ol\load from stgn Of Li.Outputs[Salida de origen de OLE DB].ExternalColumns[OrphVol]"
                       codePage="1252"
                       dataType="str"
                       length="1"
                       name="OrphVol" />
                     <externalMetadataColumn
-                      refId="Package\load vol from stgn\load from stgn.Outputs[Salida de origen de OLE DB].ExternalColumns[Categoria]"
+                      refId="Package\load vol from stgn ol\load from stgn Of Li.Outputs[Salida de origen de OLE DB].ExternalColumns[Categoria]"
                       dataType="wstr"
                       length="40"
                       name="Categoria" />
                     <externalMetadataColumn
-                      refId="Package\load vol from stgn\load from stgn.Outputs[Salida de origen de OLE DB].ExternalColumns[Marca]"
+                      refId="Package\load vol from stgn ol\load from stgn Of Li.Outputs[Salida de origen de OLE DB].ExternalColumns[Marca]"
                       dataType="wstr"
                       length="40"
                       name="Marca" />
                     <externalMetadataColumn
-                      refId="Package\load vol from stgn\load from stgn.Outputs[Salida de origen de OLE DB].ExternalColumns[Nombre_Oficina_Ventas]"
+                      refId="Package\load vol from stgn ol\load from stgn Of Li.Outputs[Salida de origen de OLE DB].ExternalColumns[Nombre_Oficina_Ventas]"
                       dataType="wstr"
                       length="20"
                       name="Nombre_Oficina_Ventas" />
                     <externalMetadataColumn
-                      refId="Package\load vol from stgn\load from stgn.Outputs[Salida de origen de OLE DB].ExternalColumns[Lider_Regional]"
+                      refId="Package\load vol from stgn ol\load from stgn Of Li.Outputs[Salida de origen de OLE DB].ExternalColumns[Lider_Regional]"
                       dataType="wstr"
                       length="35"
                       name="Lider_Regional" />
                   </externalMetadataColumns>
                 </output>
                 <output
-                  refId="Package\load vol from stgn\load from stgn.Outputs[Salida de error de origen de OLE DB]"
+                  refId="Package\load vol from stgn ol\load from stgn Of Li.Outputs[Salida de error de origen de OLE DB]"
                   isErrorOut="true"
                   name="Salida de error de origen de OLE DB">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\load vol from stgn\load from stgn.Outputs[Salida de error de origen de OLE DB].Columns[PeriodoAAMM]"
+                      refId="Package\load vol from stgn ol\load from stgn Of Li.Outputs[Salida de error de origen de OLE DB].Columns[PeriodoAAMM]"
                       dataType="wstr"
                       length="6"
-                      lineageId="Package\load vol from stgn\load from stgn.Outputs[Salida de error de origen de OLE DB].Columns[PeriodoAAMM]"
+                      lineageId="Package\load vol from stgn ol\load from stgn Of Li.Outputs[Salida de error de origen de OLE DB].Columns[PeriodoAAMM]"
                       name="PeriodoAAMM" />
                     <outputColumn
-                      refId="Package\load vol from stgn\load from stgn.Outputs[Salida de error de origen de OLE DB].Columns[Director_Canal]"
+                      refId="Package\load vol from stgn ol\load from stgn Of Li.Outputs[Salida de error de origen de OLE DB].Columns[Director_Canal]"
                       dataType="wstr"
                       length="40"
-                      lineageId="Package\load vol from stgn\load from stgn.Outputs[Salida de error de origen de OLE DB].Columns[Director_Canal]"
+                      lineageId="Package\load vol from stgn ol\load from stgn Of Li.Outputs[Salida de error de origen de OLE DB].Columns[Director_Canal]"
                       name="Director_Canal" />
                     <outputColumn
-                      refId="Package\load vol from stgn\load from stgn.Outputs[Salida de error de origen de OLE DB].Columns[Categoria]"
+                      refId="Package\load vol from stgn ol\load from stgn Of Li.Outputs[Salida de error de origen de OLE DB].Columns[Categoria]"
                       dataType="wstr"
                       length="40"
-                      lineageId="Package\load vol from stgn\load from stgn.Outputs[Salida de error de origen de OLE DB].Columns[Categoria]"
+                      lineageId="Package\load vol from stgn ol\load from stgn Of Li.Outputs[Salida de error de origen de OLE DB].Columns[Categoria]"
                       name="Categoria" />
                     <outputColumn
-                      refId="Package\load vol from stgn\load from stgn.Outputs[Salida de error de origen de OLE DB].Columns[Marca]"
+                      refId="Package\load vol from stgn ol\load from stgn Of Li.Outputs[Salida de error de origen de OLE DB].Columns[Marca]"
                       dataType="wstr"
                       length="40"
-                      lineageId="Package\load vol from stgn\load from stgn.Outputs[Salida de error de origen de OLE DB].Columns[Marca]"
+                      lineageId="Package\load vol from stgn ol\load from stgn Of Li.Outputs[Salida de error de origen de OLE DB].Columns[Marca]"
                       name="Marca" />
                     <outputColumn
-                      refId="Package\load vol from stgn\load from stgn.Outputs[Salida de error de origen de OLE DB].Columns[Linea]"
+                      refId="Package\load vol from stgn ol\load from stgn Of Li.Outputs[Salida de error de origen de OLE DB].Columns[Linea]"
                       dataType="wstr"
                       length="40"
-                      lineageId="Package\load vol from stgn\load from stgn.Outputs[Salida de error de origen de OLE DB].Columns[Linea]"
+                      lineageId="Package\load vol from stgn ol\load from stgn Of Li.Outputs[Salida de error de origen de OLE DB].Columns[Linea]"
                       name="Linea" />
                     <outputColumn
-                      refId="Package\load vol from stgn\load from stgn.Outputs[Salida de error de origen de OLE DB].Columns[NombreCanalAgrupado]"
+                      refId="Package\load vol from stgn ol\load from stgn Of Li.Outputs[Salida de error de origen de OLE DB].Columns[NombreCanalAgrupado]"
                       dataType="wstr"
                       length="40"
-                      lineageId="Package\load vol from stgn\load from stgn.Outputs[Salida de error de origen de OLE DB].Columns[NombreCanalAgrupado]"
+                      lineageId="Package\load vol from stgn ol\load from stgn Of Li.Outputs[Salida de error de origen de OLE DB].Columns[NombreCanalAgrupado]"
                       name="NombreCanalAgrupado" />
                     <outputColumn
-                      refId="Package\load vol from stgn\load from stgn.Outputs[Salida de error de origen de OLE DB].Columns[Nombre_Oficina_Ventas]"
+                      refId="Package\load vol from stgn ol\load from stgn Of Li.Outputs[Salida de error de origen de OLE DB].Columns[Nombre_Oficina_Ventas]"
                       dataType="wstr"
                       length="20"
-                      lineageId="Package\load vol from stgn\load from stgn.Outputs[Salida de error de origen de OLE DB].Columns[Nombre_Oficina_Ventas]"
+                      lineageId="Package\load vol from stgn ol\load from stgn Of Li.Outputs[Salida de error de origen de OLE DB].Columns[Nombre_Oficina_Ventas]"
                       name="Nombre_Oficina_Ventas" />
                     <outputColumn
-                      refId="Package\load vol from stgn\load from stgn.Outputs[Salida de error de origen de OLE DB].Columns[Lider_Regional]"
+                      refId="Package\load vol from stgn ol\load from stgn Of Li.Outputs[Salida de error de origen de OLE DB].Columns[Lider_Regional]"
                       dataType="wstr"
                       length="35"
-                      lineageId="Package\load vol from stgn\load from stgn.Outputs[Salida de error de origen de OLE DB].Columns[Lider_Regional]"
+                      lineageId="Package\load vol from stgn ol\load from stgn Of Li.Outputs[Salida de error de origen de OLE DB].Columns[Lider_Regional]"
                       name="Lider_Regional" />
                     <outputColumn
-                      refId="Package\load vol from stgn\load from stgn.Outputs[Salida de error de origen de OLE DB].Columns[Kilos1]"
+                      refId="Package\load vol from stgn ol\load from stgn Of Li.Outputs[Salida de error de origen de OLE DB].Columns[Kilos1]"
                       dataType="r8"
-                      lineageId="Package\load vol from stgn\load from stgn.Outputs[Salida de error de origen de OLE DB].Columns[Kilos1]"
+                      lineageId="Package\load vol from stgn ol\load from stgn Of Li.Outputs[Salida de error de origen de OLE DB].Columns[Kilos1]"
                       name="Kilos1" />
                     <outputColumn
-                      refId="Package\load vol from stgn\load from stgn.Outputs[Salida de error de origen de OLE DB].Columns[Kilos2]"
+                      refId="Package\load vol from stgn ol\load from stgn Of Li.Outputs[Salida de error de origen de OLE DB].Columns[Kilos2]"
                       dataType="r8"
-                      lineageId="Package\load vol from stgn\load from stgn.Outputs[Salida de error de origen de OLE DB].Columns[Kilos2]"
+                      lineageId="Package\load vol from stgn ol\load from stgn Of Li.Outputs[Salida de error de origen de OLE DB].Columns[Kilos2]"
                       name="Kilos2" />
                     <outputColumn
-                      refId="Package\load vol from stgn\load from stgn.Outputs[Salida de error de origen de OLE DB].Columns[Kilos3]"
+                      refId="Package\load vol from stgn ol\load from stgn Of Li.Outputs[Salida de error de origen de OLE DB].Columns[Kilos3]"
                       dataType="r8"
-                      lineageId="Package\load vol from stgn\load from stgn.Outputs[Salida de error de origen de OLE DB].Columns[Kilos3]"
+                      lineageId="Package\load vol from stgn ol\load from stgn Of Li.Outputs[Salida de error de origen de OLE DB].Columns[Kilos3]"
                       name="Kilos3" />
                     <outputColumn
-                      refId="Package\load vol from stgn\load from stgn.Outputs[Salida de error de origen de OLE DB].Columns[OrphEstrLin]"
+                      refId="Package\load vol from stgn ol\load from stgn Of Li.Outputs[Salida de error de origen de OLE DB].Columns[OrphEstrLin]"
                       codePage="1252"
                       dataType="str"
                       length="1"
-                      lineageId="Package\load vol from stgn\load from stgn.Outputs[Salida de error de origen de OLE DB].Columns[OrphEstrLin]"
+                      lineageId="Package\load vol from stgn ol\load from stgn Of Li.Outputs[Salida de error de origen de OLE DB].Columns[OrphEstrLin]"
                       name="OrphEstrLin" />
                     <outputColumn
-                      refId="Package\load vol from stgn\load from stgn.Outputs[Salida de error de origen de OLE DB].Columns[OrphVol]"
+                      refId="Package\load vol from stgn ol\load from stgn Of Li.Outputs[Salida de error de origen de OLE DB].Columns[OrphVol]"
                       codePage="1252"
                       dataType="str"
                       length="1"
-                      lineageId="Package\load vol from stgn\load from stgn.Outputs[Salida de error de origen de OLE DB].Columns[OrphVol]"
+                      lineageId="Package\load vol from stgn ol\load from stgn Of Li.Outputs[Salida de error de origen de OLE DB].Columns[OrphVol]"
                       name="OrphVol" />
                     <outputColumn
-                      refId="Package\load vol from stgn\load from stgn.Outputs[Salida de error de origen de OLE DB].Columns[ErrorCode]"
+                      refId="Package\load vol from stgn ol\load from stgn Of Li.Outputs[Salida de error de origen de OLE DB].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\load vol from stgn\load from stgn.Outputs[Salida de error de origen de OLE DB].Columns[ErrorCode]"
+                      lineageId="Package\load vol from stgn ol\load from stgn Of Li.Outputs[Salida de error de origen de OLE DB].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\load vol from stgn\load from stgn.Outputs[Salida de error de origen de OLE DB].Columns[ErrorColumn]"
+                      refId="Package\load vol from stgn ol\load from stgn Of Li.Outputs[Salida de error de origen de OLE DB].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\load vol from stgn\load from stgn.Outputs[Salida de error de origen de OLE DB].Columns[ErrorColumn]"
+                      lineageId="Package\load vol from stgn ol\load from stgn Of Li.Outputs[Salida de error de origen de OLE DB].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -440,11 +440,11 @@ FROM lukerVen.dbo.xppt_pvofconsdirlincanoflid xppt_pvofconsdirlincanoflid</prope
               </outputs>
             </component>
             <component
-              refId="Package\load vol from stgn\VolumenTrimDLC"
+              refId="Package\load vol from stgn ol\VolumenTrimDLC Of Lid"
               componentClassID="Microsoft.OLEDBDestination"
               contactInfo="Destino de OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;4"
               description="Destino de OLE DB"
-              name="VolumenTrimDLC"
+              name="VolumenTrimDLC Of Lid"
               usesDispositions="true"
               version="4">
               <properties>
@@ -497,7 +497,7 @@ FROM lukerVen.dbo.xppt_pvofconsdirlincanoflid xppt_pvofconsdirlincanoflid</prope
               </properties>
               <connections>
                 <connection
-                  refId="Package\load vol from stgn\VolumenTrimDLC.Connections[OleDbConnection]"
+                  refId="Package\load vol from stgn ol\VolumenTrimDLC Of Lid.Connections[OleDbConnection]"
                   connectionManagerID="Package.ConnectionManagers[192.168.5.23\B2C.lukerVen.ASSUser]"
                   connectionManagerRefId="Package.ConnectionManagers[192.168.5.23\B2C.lukerVen.ASSUser]"
                   description="La conexión de tiempo de ejecución OLE DB usada para obtener acceso a la base de datos."
@@ -505,166 +505,166 @@ FROM lukerVen.dbo.xppt_pvofconsdirlincanoflid xppt_pvofconsdirlincanoflid</prope
               </connections>
               <inputs>
                 <input
-                  refId="Package\load vol from stgn\VolumenTrimDLC.Inputs[Entrada de destino de OLE DB]"
+                  refId="Package\load vol from stgn ol\VolumenTrimDLC Of Lid.Inputs[Entrada de destino de OLE DB]"
                   errorOrTruncationOperation="Insertar"
                   errorRowDisposition="FailComponent"
                   hasSideEffects="true"
                   name="Entrada de destino de OLE DB">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\load vol from stgn\VolumenTrimDLC.Inputs[Entrada de destino de OLE DB].Columns[PeriodoAAMM]"
+                      refId="Package\load vol from stgn ol\VolumenTrimDLC Of Lid.Inputs[Entrada de destino de OLE DB].Columns[PeriodoAAMM]"
                       cachedDataType="wstr"
                       cachedLength="6"
                       cachedName="PeriodoAAMM"
-                      externalMetadataColumnId="Package\load vol from stgn\VolumenTrimDLC.Inputs[Entrada de destino de OLE DB].ExternalColumns[PeriodoAAMM]"
-                      lineageId="Package\load vol from stgn\load from stgn.Outputs[Salida de origen de OLE DB].Columns[PeriodoAAMM]" />
+                      externalMetadataColumnId="Package\load vol from stgn ol\VolumenTrimDLC Of Lid.Inputs[Entrada de destino de OLE DB].ExternalColumns[PeriodoAAMM]"
+                      lineageId="Package\load vol from stgn ol\load from stgn Of Li.Outputs[Salida de origen de OLE DB].Columns[PeriodoAAMM]" />
                     <inputColumn
-                      refId="Package\load vol from stgn\VolumenTrimDLC.Inputs[Entrada de destino de OLE DB].Columns[Director_Canal]"
+                      refId="Package\load vol from stgn ol\VolumenTrimDLC Of Lid.Inputs[Entrada de destino de OLE DB].Columns[Director_Canal]"
                       cachedDataType="wstr"
                       cachedLength="40"
                       cachedName="Director_Canal"
-                      externalMetadataColumnId="Package\load vol from stgn\VolumenTrimDLC.Inputs[Entrada de destino de OLE DB].ExternalColumns[Director_Canal]"
-                      lineageId="Package\load vol from stgn\load from stgn.Outputs[Salida de origen de OLE DB].Columns[Director_Canal]" />
+                      externalMetadataColumnId="Package\load vol from stgn ol\VolumenTrimDLC Of Lid.Inputs[Entrada de destino de OLE DB].ExternalColumns[Director_Canal]"
+                      lineageId="Package\load vol from stgn ol\load from stgn Of Li.Outputs[Salida de origen de OLE DB].Columns[Director_Canal]" />
                     <inputColumn
-                      refId="Package\load vol from stgn\VolumenTrimDLC.Inputs[Entrada de destino de OLE DB].Columns[Linea]"
+                      refId="Package\load vol from stgn ol\VolumenTrimDLC Of Lid.Inputs[Entrada de destino de OLE DB].Columns[Linea]"
                       cachedDataType="wstr"
                       cachedLength="40"
                       cachedName="Linea"
-                      externalMetadataColumnId="Package\load vol from stgn\VolumenTrimDLC.Inputs[Entrada de destino de OLE DB].ExternalColumns[Linea]"
-                      lineageId="Package\load vol from stgn\load from stgn.Outputs[Salida de origen de OLE DB].Columns[Linea]" />
+                      externalMetadataColumnId="Package\load vol from stgn ol\VolumenTrimDLC Of Lid.Inputs[Entrada de destino de OLE DB].ExternalColumns[Linea]"
+                      lineageId="Package\load vol from stgn ol\load from stgn Of Li.Outputs[Salida de origen de OLE DB].Columns[Linea]" />
                     <inputColumn
-                      refId="Package\load vol from stgn\VolumenTrimDLC.Inputs[Entrada de destino de OLE DB].Columns[NombreCanalAgrupado]"
+                      refId="Package\load vol from stgn ol\VolumenTrimDLC Of Lid.Inputs[Entrada de destino de OLE DB].Columns[NombreCanalAgrupado]"
                       cachedDataType="wstr"
                       cachedLength="40"
                       cachedName="NombreCanalAgrupado"
-                      externalMetadataColumnId="Package\load vol from stgn\VolumenTrimDLC.Inputs[Entrada de destino de OLE DB].ExternalColumns[NombreCanalAgrupado]"
-                      lineageId="Package\load vol from stgn\load from stgn.Outputs[Salida de origen de OLE DB].Columns[NombreCanalAgrupado]" />
+                      externalMetadataColumnId="Package\load vol from stgn ol\VolumenTrimDLC Of Lid.Inputs[Entrada de destino de OLE DB].ExternalColumns[NombreCanalAgrupado]"
+                      lineageId="Package\load vol from stgn ol\load from stgn Of Li.Outputs[Salida de origen de OLE DB].Columns[NombreCanalAgrupado]" />
                     <inputColumn
-                      refId="Package\load vol from stgn\VolumenTrimDLC.Inputs[Entrada de destino de OLE DB].Columns[Kilos1]"
+                      refId="Package\load vol from stgn ol\VolumenTrimDLC Of Lid.Inputs[Entrada de destino de OLE DB].Columns[Kilos1]"
                       cachedDataType="r8"
                       cachedName="Kilos1"
-                      externalMetadataColumnId="Package\load vol from stgn\VolumenTrimDLC.Inputs[Entrada de destino de OLE DB].ExternalColumns[Kilos1]"
-                      lineageId="Package\load vol from stgn\load from stgn.Outputs[Salida de origen de OLE DB].Columns[Kilos1]" />
+                      externalMetadataColumnId="Package\load vol from stgn ol\VolumenTrimDLC Of Lid.Inputs[Entrada de destino de OLE DB].ExternalColumns[Kilos1]"
+                      lineageId="Package\load vol from stgn ol\load from stgn Of Li.Outputs[Salida de origen de OLE DB].Columns[Kilos1]" />
                     <inputColumn
-                      refId="Package\load vol from stgn\VolumenTrimDLC.Inputs[Entrada de destino de OLE DB].Columns[Kilos2]"
+                      refId="Package\load vol from stgn ol\VolumenTrimDLC Of Lid.Inputs[Entrada de destino de OLE DB].Columns[Kilos2]"
                       cachedDataType="r8"
                       cachedName="Kilos2"
-                      externalMetadataColumnId="Package\load vol from stgn\VolumenTrimDLC.Inputs[Entrada de destino de OLE DB].ExternalColumns[Kilos2]"
-                      lineageId="Package\load vol from stgn\load from stgn.Outputs[Salida de origen de OLE DB].Columns[Kilos2]" />
+                      externalMetadataColumnId="Package\load vol from stgn ol\VolumenTrimDLC Of Lid.Inputs[Entrada de destino de OLE DB].ExternalColumns[Kilos2]"
+                      lineageId="Package\load vol from stgn ol\load from stgn Of Li.Outputs[Salida de origen de OLE DB].Columns[Kilos2]" />
                     <inputColumn
-                      refId="Package\load vol from stgn\VolumenTrimDLC.Inputs[Entrada de destino de OLE DB].Columns[Kilos3]"
+                      refId="Package\load vol from stgn ol\VolumenTrimDLC Of Lid.Inputs[Entrada de destino de OLE DB].Columns[Kilos3]"
                       cachedDataType="r8"
                       cachedName="Kilos3"
-                      externalMetadataColumnId="Package\load vol from stgn\VolumenTrimDLC.Inputs[Entrada de destino de OLE DB].ExternalColumns[Kilos3]"
-                      lineageId="Package\load vol from stgn\load from stgn.Outputs[Salida de origen de OLE DB].Columns[Kilos3]" />
+                      externalMetadataColumnId="Package\load vol from stgn ol\VolumenTrimDLC Of Lid.Inputs[Entrada de destino de OLE DB].ExternalColumns[Kilos3]"
+                      lineageId="Package\load vol from stgn ol\load from stgn Of Li.Outputs[Salida de origen de OLE DB].Columns[Kilos3]" />
                     <inputColumn
-                      refId="Package\load vol from stgn\VolumenTrimDLC.Inputs[Entrada de destino de OLE DB].Columns[OrphEstrLin]"
+                      refId="Package\load vol from stgn ol\VolumenTrimDLC Of Lid.Inputs[Entrada de destino de OLE DB].Columns[OrphEstrLin]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="1"
                       cachedName="OrphEstrLin"
-                      externalMetadataColumnId="Package\load vol from stgn\VolumenTrimDLC.Inputs[Entrada de destino de OLE DB].ExternalColumns[OrphEstrLin]"
-                      lineageId="Package\load vol from stgn\load from stgn.Outputs[Salida de origen de OLE DB].Columns[OrphEstrLin]" />
+                      externalMetadataColumnId="Package\load vol from stgn ol\VolumenTrimDLC Of Lid.Inputs[Entrada de destino de OLE DB].ExternalColumns[OrphEstrLin]"
+                      lineageId="Package\load vol from stgn ol\load from stgn Of Li.Outputs[Salida de origen de OLE DB].Columns[OrphEstrLin]" />
                     <inputColumn
-                      refId="Package\load vol from stgn\VolumenTrimDLC.Inputs[Entrada de destino de OLE DB].Columns[OrphVol]"
+                      refId="Package\load vol from stgn ol\VolumenTrimDLC Of Lid.Inputs[Entrada de destino de OLE DB].Columns[OrphVol]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="1"
                       cachedName="OrphVol"
-                      externalMetadataColumnId="Package\load vol from stgn\VolumenTrimDLC.Inputs[Entrada de destino de OLE DB].ExternalColumns[OrphVol]"
-                      lineageId="Package\load vol from stgn\load from stgn.Outputs[Salida de origen de OLE DB].Columns[OrphVol]" />
+                      externalMetadataColumnId="Package\load vol from stgn ol\VolumenTrimDLC Of Lid.Inputs[Entrada de destino de OLE DB].ExternalColumns[OrphVol]"
+                      lineageId="Package\load vol from stgn ol\load from stgn Of Li.Outputs[Salida de origen de OLE DB].Columns[OrphVol]" />
                     <inputColumn
-                      refId="Package\load vol from stgn\VolumenTrimDLC.Inputs[Entrada de destino de OLE DB].Columns[Categoria]"
+                      refId="Package\load vol from stgn ol\VolumenTrimDLC Of Lid.Inputs[Entrada de destino de OLE DB].Columns[Categoria]"
                       cachedDataType="wstr"
                       cachedLength="40"
                       cachedName="Categoria"
-                      externalMetadataColumnId="Package\load vol from stgn\VolumenTrimDLC.Inputs[Entrada de destino de OLE DB].ExternalColumns[Categoria]"
-                      lineageId="Package\load vol from stgn\load from stgn.Outputs[Salida de origen de OLE DB].Columns[Categoria]" />
+                      externalMetadataColumnId="Package\load vol from stgn ol\VolumenTrimDLC Of Lid.Inputs[Entrada de destino de OLE DB].ExternalColumns[Categoria]"
+                      lineageId="Package\load vol from stgn ol\load from stgn Of Li.Outputs[Salida de origen de OLE DB].Columns[Categoria]" />
                     <inputColumn
-                      refId="Package\load vol from stgn\VolumenTrimDLC.Inputs[Entrada de destino de OLE DB].Columns[Marca]"
+                      refId="Package\load vol from stgn ol\VolumenTrimDLC Of Lid.Inputs[Entrada de destino de OLE DB].Columns[Marca]"
                       cachedDataType="wstr"
                       cachedLength="40"
                       cachedName="Marca"
-                      externalMetadataColumnId="Package\load vol from stgn\VolumenTrimDLC.Inputs[Entrada de destino de OLE DB].ExternalColumns[Marca]"
-                      lineageId="Package\load vol from stgn\load from stgn.Outputs[Salida de origen de OLE DB].Columns[Marca]" />
+                      externalMetadataColumnId="Package\load vol from stgn ol\VolumenTrimDLC Of Lid.Inputs[Entrada de destino de OLE DB].ExternalColumns[Marca]"
+                      lineageId="Package\load vol from stgn ol\load from stgn Of Li.Outputs[Salida de origen de OLE DB].Columns[Marca]" />
                     <inputColumn
-                      refId="Package\load vol from stgn\VolumenTrimDLC.Inputs[Entrada de destino de OLE DB].Columns[Nombre_Oficina_Ventas]"
+                      refId="Package\load vol from stgn ol\VolumenTrimDLC Of Lid.Inputs[Entrada de destino de OLE DB].Columns[Nombre_Oficina_Ventas]"
                       cachedDataType="wstr"
                       cachedLength="20"
                       cachedName="Nombre_Oficina_Ventas"
-                      externalMetadataColumnId="Package\load vol from stgn\VolumenTrimDLC.Inputs[Entrada de destino de OLE DB].ExternalColumns[Nombre_Oficina_Ventas]"
-                      lineageId="Package\load vol from stgn\load from stgn.Outputs[Salida de origen de OLE DB].Columns[Nombre_Oficina_Ventas]" />
+                      externalMetadataColumnId="Package\load vol from stgn ol\VolumenTrimDLC Of Lid.Inputs[Entrada de destino de OLE DB].ExternalColumns[Nombre_Oficina_Ventas]"
+                      lineageId="Package\load vol from stgn ol\load from stgn Of Li.Outputs[Salida de origen de OLE DB].Columns[Nombre_Oficina_Ventas]" />
                     <inputColumn
-                      refId="Package\load vol from stgn\VolumenTrimDLC.Inputs[Entrada de destino de OLE DB].Columns[Lider_Regional]"
+                      refId="Package\load vol from stgn ol\VolumenTrimDLC Of Lid.Inputs[Entrada de destino de OLE DB].Columns[Lider_Regional]"
                       cachedDataType="wstr"
                       cachedLength="35"
                       cachedName="Lider_Regional"
-                      externalMetadataColumnId="Package\load vol from stgn\VolumenTrimDLC.Inputs[Entrada de destino de OLE DB].ExternalColumns[Lider_Regional]"
-                      lineageId="Package\load vol from stgn\load from stgn.Outputs[Salida de origen de OLE DB].Columns[Lider_Regional]" />
+                      externalMetadataColumnId="Package\load vol from stgn ol\VolumenTrimDLC Of Lid.Inputs[Entrada de destino de OLE DB].ExternalColumns[Lider_Regional]"
+                      lineageId="Package\load vol from stgn ol\load from stgn Of Li.Outputs[Salida de origen de OLE DB].Columns[Lider_Regional]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
                     <externalMetadataColumn
-                      refId="Package\load vol from stgn\VolumenTrimDLC.Inputs[Entrada de destino de OLE DB].ExternalColumns[PeriodoAAMM]"
+                      refId="Package\load vol from stgn ol\VolumenTrimDLC Of Lid.Inputs[Entrada de destino de OLE DB].ExternalColumns[PeriodoAAMM]"
                       dataType="wstr"
                       length="6"
                       name="PeriodoAAMM" />
                     <externalMetadataColumn
-                      refId="Package\load vol from stgn\VolumenTrimDLC.Inputs[Entrada de destino de OLE DB].ExternalColumns[Director_Canal]"
+                      refId="Package\load vol from stgn ol\VolumenTrimDLC Of Lid.Inputs[Entrada de destino de OLE DB].ExternalColumns[Director_Canal]"
                       dataType="wstr"
                       length="40"
                       name="Director_Canal" />
                     <externalMetadataColumn
-                      refId="Package\load vol from stgn\VolumenTrimDLC.Inputs[Entrada de destino de OLE DB].ExternalColumns[Linea]"
+                      refId="Package\load vol from stgn ol\VolumenTrimDLC Of Lid.Inputs[Entrada de destino de OLE DB].ExternalColumns[Linea]"
                       dataType="wstr"
                       length="40"
                       name="Linea" />
                     <externalMetadataColumn
-                      refId="Package\load vol from stgn\VolumenTrimDLC.Inputs[Entrada de destino de OLE DB].ExternalColumns[NombreCanalAgrupado]"
+                      refId="Package\load vol from stgn ol\VolumenTrimDLC Of Lid.Inputs[Entrada de destino de OLE DB].ExternalColumns[NombreCanalAgrupado]"
                       dataType="wstr"
                       length="40"
                       name="NombreCanalAgrupado" />
                     <externalMetadataColumn
-                      refId="Package\load vol from stgn\VolumenTrimDLC.Inputs[Entrada de destino de OLE DB].ExternalColumns[Kilos1]"
+                      refId="Package\load vol from stgn ol\VolumenTrimDLC Of Lid.Inputs[Entrada de destino de OLE DB].ExternalColumns[Kilos1]"
                       dataType="r8"
                       name="Kilos1" />
                     <externalMetadataColumn
-                      refId="Package\load vol from stgn\VolumenTrimDLC.Inputs[Entrada de destino de OLE DB].ExternalColumns[Kilos2]"
+                      refId="Package\load vol from stgn ol\VolumenTrimDLC Of Lid.Inputs[Entrada de destino de OLE DB].ExternalColumns[Kilos2]"
                       dataType="r8"
                       name="Kilos2" />
                     <externalMetadataColumn
-                      refId="Package\load vol from stgn\VolumenTrimDLC.Inputs[Entrada de destino de OLE DB].ExternalColumns[Kilos3]"
+                      refId="Package\load vol from stgn ol\VolumenTrimDLC Of Lid.Inputs[Entrada de destino de OLE DB].ExternalColumns[Kilos3]"
                       dataType="r8"
                       name="Kilos3" />
                     <externalMetadataColumn
-                      refId="Package\load vol from stgn\VolumenTrimDLC.Inputs[Entrada de destino de OLE DB].ExternalColumns[OrphEstrLin]"
+                      refId="Package\load vol from stgn ol\VolumenTrimDLC Of Lid.Inputs[Entrada de destino de OLE DB].ExternalColumns[OrphEstrLin]"
                       codePage="1252"
                       dataType="str"
                       length="1"
                       name="OrphEstrLin" />
                     <externalMetadataColumn
-                      refId="Package\load vol from stgn\VolumenTrimDLC.Inputs[Entrada de destino de OLE DB].ExternalColumns[OrphVol]"
+                      refId="Package\load vol from stgn ol\VolumenTrimDLC Of Lid.Inputs[Entrada de destino de OLE DB].ExternalColumns[OrphVol]"
                       codePage="1252"
                       dataType="str"
                       length="1"
                       name="OrphVol" />
                     <externalMetadataColumn
-                      refId="Package\load vol from stgn\VolumenTrimDLC.Inputs[Entrada de destino de OLE DB].ExternalColumns[Categoria]"
+                      refId="Package\load vol from stgn ol\VolumenTrimDLC Of Lid.Inputs[Entrada de destino de OLE DB].ExternalColumns[Categoria]"
                       dataType="wstr"
                       length="40"
                       name="Categoria" />
                     <externalMetadataColumn
-                      refId="Package\load vol from stgn\VolumenTrimDLC.Inputs[Entrada de destino de OLE DB].ExternalColumns[Marca]"
+                      refId="Package\load vol from stgn ol\VolumenTrimDLC Of Lid.Inputs[Entrada de destino de OLE DB].ExternalColumns[Marca]"
                       dataType="wstr"
                       length="40"
                       name="Marca" />
                     <externalMetadataColumn
-                      refId="Package\load vol from stgn\VolumenTrimDLC.Inputs[Entrada de destino de OLE DB].ExternalColumns[Nombre_Oficina_Ventas]"
+                      refId="Package\load vol from stgn ol\VolumenTrimDLC Of Lid.Inputs[Entrada de destino de OLE DB].ExternalColumns[Nombre_Oficina_Ventas]"
                       dataType="wstr"
                       length="20"
                       name="Nombre_Oficina_Ventas" />
                     <externalMetadataColumn
-                      refId="Package\load vol from stgn\VolumenTrimDLC.Inputs[Entrada de destino de OLE DB].ExternalColumns[Lider_Regional]"
+                      refId="Package\load vol from stgn ol\VolumenTrimDLC Of Lid.Inputs[Entrada de destino de OLE DB].ExternalColumns[Lider_Regional]"
                       dataType="wstr"
                       length="35"
                       name="Lider_Regional" />
@@ -673,22 +673,22 @@ FROM lukerVen.dbo.xppt_pvofconsdirlincanoflid xppt_pvofconsdirlincanoflid</prope
               </inputs>
               <outputs>
                 <output
-                  refId="Package\load vol from stgn\VolumenTrimDLC.Outputs[Salida de error de destino de OLE DB]"
+                  refId="Package\load vol from stgn ol\VolumenTrimDLC Of Lid.Outputs[Salida de error de destino de OLE DB]"
                   exclusionGroup="1"
                   isErrorOut="true"
                   name="Salida de error de destino de OLE DB"
-                  synchronousInputId="Package\load vol from stgn\VolumenTrimDLC.Inputs[Entrada de destino de OLE DB]">
+                  synchronousInputId="Package\load vol from stgn ol\VolumenTrimDLC Of Lid.Inputs[Entrada de destino de OLE DB]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\load vol from stgn\VolumenTrimDLC.Outputs[Salida de error de destino de OLE DB].Columns[ErrorCode]"
+                      refId="Package\load vol from stgn ol\VolumenTrimDLC Of Lid.Outputs[Salida de error de destino de OLE DB].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\load vol from stgn\VolumenTrimDLC.Outputs[Salida de error de destino de OLE DB].Columns[ErrorCode]"
+                      lineageId="Package\load vol from stgn ol\VolumenTrimDLC Of Lid.Outputs[Salida de error de destino de OLE DB].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\load vol from stgn\VolumenTrimDLC.Outputs[Salida de error de destino de OLE DB].Columns[ErrorColumn]"
+                      refId="Package\load vol from stgn ol\VolumenTrimDLC Of Lid.Outputs[Salida de error de destino de OLE DB].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\load vol from stgn\VolumenTrimDLC.Outputs[Salida de error de destino de OLE DB].Columns[ErrorColumn]"
+                      lineageId="Package\load vol from stgn ol\VolumenTrimDLC Of Lid.Outputs[Salida de error de destino de OLE DB].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -699,22 +699,22 @@ FROM lukerVen.dbo.xppt_pvofconsdirlincanoflid xppt_pvofconsdirlincanoflid</prope
           </components>
           <paths>
             <path
-              refId="Package\load vol from stgn.Paths[Salida de origen de OLE DB]"
-              endId="Package\load vol from stgn\VolumenTrimDLC.Inputs[Entrada de destino de OLE DB]"
+              refId="Package\load vol from stgn ol.Paths[Salida de origen de OLE DB]"
+              endId="Package\load vol from stgn ol\VolumenTrimDLC Of Lid.Inputs[Entrada de destino de OLE DB]"
               name="Salida de origen de OLE DB"
-              startId="Package\load vol from stgn\load from stgn.Outputs[Salida de origen de OLE DB]" />
+              startId="Package\load vol from stgn ol\load from stgn Of Li.Outputs[Salida de origen de OLE DB]" />
           </paths>
         </pipeline>
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
-      DTS:refId="Package\trnc tbl"
+      DTS:refId="Package\trnc tbl Ofi Lid"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="Tarea Ejecutar SQL"
       DTS:DTSID="{B07B0D40-2CA5-4880-8A5A-D1F0D4DB2840}"
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
-      DTS:ObjectName="trnc tbl"
+      DTS:ObjectName="trnc tbl Ofi Lid"
       DTS:ThreadHint="0">
       <DTS:Variables />
       <DTS:ObjectData>
@@ -729,15 +729,15 @@ FROM lukerVen.dbo.xppt_pvofconsdirlincanoflid xppt_pvofconsdirlincanoflid</prope
       DTS:refId="Package.PrecedenceConstraints[Restricción]"
       DTS:CreationName=""
       DTS:DTSID="{CB83C953-220E-4BC4-92E6-0AD72EB140F3}"
-      DTS:From="Package\trnc tbl"
+      DTS:From="Package\trnc tbl Ofi Lid"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Restricción"
-      DTS:To="Package\load vol from stgn" />
+      DTS:To="Package\load vol from stgn ol" />
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Restricción 1]"
       DTS:CreationName=""
       DTS:DTSID="{6ECF6D05-2866-4ACA-BC19-8F68DCF749A0}"
-      DTS:From="Package\load vol from stgn"
+      DTS:From="Package\load vol from stgn ol"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Restricción 1"
       DTS:To="Package\jeraquia huerfana" />
@@ -748,7 +748,7 @@ FROM lukerVen.dbo.xppt_pvofconsdirlincanoflid xppt_pvofconsdirlincanoflid</prope
       DTS:From="Package\jerarquia ventas pos"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Restricción 2"
-      DTS:To="Package\trnc tbl" />
+      DTS:To="Package\trnc tbl Ofi Lid" />
   </DTS:PrecedenceConstraints>
   <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
 <!--Esta sección CDATA contiene la información de diseño del paquete. Esta sección incluye información como, por ejemplo, las coordenadas (x,y), el ancho y el alto.-->
@@ -765,22 +765,22 @@ FROM lukerVen.dbo.xppt_pvofconsdirlincanoflid xppt_pvofconsdirlincanoflid</prope
         <NodeLayout
           Size="161.6,41.6"
           Id="Package\jeraquia huerfana"
-          TopLeft="11.9,310.3" />
+          TopLeft="12.3,310.3" />
         <NodeLayout
           Size="174.4,41.6"
           Id="Package\jerarquia ventas pos"
-          TopLeft="5.5,5.49999999999995" />
+          TopLeft="5.89999999999999,5.49999999999995" />
         <NodeLayout
-          Size="164,41.6"
-          Id="Package\load vol from stgn"
-          TopLeft="10.7,208.7" />
+          Size="175.2,41.6"
+          Id="Package\load vol from stgn ol"
+          TopLeft="5.50000000000003,208.7" />
         <NodeLayout
-          Size="169.6,41.6"
-          Id="Package\trnc tbl"
-          TopLeft="7.90000000000002,107.1" />
+          Size="145.6,41.6"
+          Id="Package\trnc tbl Ofi Lid"
+          TopLeft="20.3,107.1" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Restricción]"
-          TopLeft="92.7,148.7">
+          TopLeft="93.1,148.7">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -802,7 +802,7 @@ FROM lukerVen.dbo.xppt_pvofconsdirlincanoflid xppt_pvofconsdirlincanoflid</prope
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Restricción 1]"
-          TopLeft="92.7,250.3">
+          TopLeft="93.1,250.3">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -824,7 +824,7 @@ FROM lukerVen.dbo.xppt_pvofconsdirlincanoflid xppt_pvofconsdirlincanoflid</prope
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Restricción 2]"
-          TopLeft="92.7,47.1">
+          TopLeft="93.1,47.1">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -848,32 +848,44 @@ FROM lukerVen.dbo.xppt_pvofconsdirlincanoflid xppt_pvofconsdirlincanoflid</prope
     </LayoutInfo>
   </Package>
   <TaskHost
-    design-time-name="Package\load vol from stgn">
+    design-time-name="Package\load vol from stgn ol">
     <LayoutInfo>
       <GraphLayout
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="160,41.6"
-          Id="Package\load vol from stgn\VolumenTrimDLC"
+          Size="191.2,41.6"
+          Id="Package\load vol from stgn ol\VolumenTrimDLC Of Lid"
           TopLeft="80.5714299435518,178.023531908478" />
         <NodeLayout
-          Size="147.2,41.6"
-          Id="Package\load vol from stgn\load from stgn"
+          Size="172,41.6"
+          Id="Package\load vol from stgn ol\load from stgn Of Li"
           TopLeft="80.0000013623919,75.8588245933031" />
         <EdgeLayout
-          Id="Package\load vol from stgn.Paths[Salida de origen de OLE DB]"
-          TopLeft="157.085715652972,117.458824593303">
+          Id="Package\load vol from stgn ol.Paths[Salida de origen de OLE DB]"
+          TopLeft="166.000001362392,117.458824593303">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,60.5647073151744"
+              EndConnector="10.1714285811599,60.5647073151749"
               Start="0,0"
-              End="0,53.0647073151744">
+              End="10.1714285811599,53.0647073151749">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,53.0647073151744" />
+                    End="0,26.2823536575875" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,26.2823536575875"
+                    Point2="0,30.2823536575875"
+                    Point3="4,30.2823536575875" />
+                  <mssgle:LineSegment
+                    End="6.17142858115994,30.2823536575875" />
+                  <mssgle:CubicBezierSegment
+                    Point1="6.17142858115994,30.2823536575875"
+                    Point2="10.1714285811599,30.2823536575875"
+                    Point3="10.1714285811599,34.2823536575875" />
+                  <mssgle:LineSegment
+                    End="10.1714285811599,53.0647073151749" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -886,7 +898,7 @@ FROM lukerVen.dbo.xppt_pvofconsdirlincanoflid xppt_pvofconsdirlincanoflid</prope
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\load vol from stgn\load from stgn">
+    design-time-name="Package\load vol from stgn ol\load from stgn Of Li">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -894,7 +906,7 @@ FROM lukerVen.dbo.xppt_pvofconsdirlincanoflid xppt_pvofconsdirlincanoflid</prope
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\load vol from stgn\VolumenTrimDLC">
+    design-time-name="Package\load vol from stgn ol\VolumenTrimDLC Of Lid">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>

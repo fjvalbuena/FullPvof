@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="C01 BaseEstadisticaConv"
   DTS:PackageType="5"
-  DTS:VersionBuild="25"
-  DTS:VersionGUID="{8BF788EC-A1ED-430E-8BA9-8D004C4AECAF}">
+  DTS:VersionBuild="29"
+  DTS:VersionGUID="{EBAAC709-3668-4F58-B316-808E038BD912}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -27,7 +27,7 @@
           <DTS:Password
             DTS:Name="Password"
             Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAuR1Gdsnx50KES8/66vqaKwAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAAD/zDVe2ao8IcnMSBmnT+mh2IHQldLr7n8pnIEOms+pBgAAAAAOgAAAAAIAACAAAACyS+vKHMf7fTih6asb/EnHaazI+RatA3X0W+o4nYm4GSAAAABvYZ5m/6oRSxIis8geNVuuOGPJSELZWm4nZrWq3B+zYkAAAADsxkcCe2v3t3qTCsmUxlPXJODMoiVoIGTWdas5F779p7LABKAEeSUJhQ62zawxhTRBochcI4KwSbvzQSdYB8TY</DTS:Password>
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAuR1Gdsnx50KES8/66vqaKwAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAAAREm2zw4hzH056JMr4ZbB+D1VOS/2UBR2u9HWC1nUPnwAAAAAOgAAAAAIAACAAAADmL2bhFXiKd0TKBrCMZmMukYiFa5nZ3uGR5WUa1s5j0iAAAAC8t3nxDa1IBnz3o3jfr/cauqK8mQ1QIJUz1bVLCq4bXEAAAAA7hcocjlNLTX3zBUbaxfTaYlOblL4p29DFGmuljR4MRoPGOo2Lk+vcBZTgLJnb4yDtt4Fx/kc5kgS6NIajoiAa</DTS:Password>
         </DTS:ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
@@ -530,13 +530,13 @@ GROUP BY BaseEstadisticaB1.Periodo, BaseEstadisticaB1.Cod_Cliente, Productos.Jer
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
-      DTS:refId="Package\totales - contextos"
+      DTS:refId="Package\totales - contextos AL"
       DTS:CreationName="Microsoft.Pipeline"
       DTS:Description="Tarea Flujo de datos"
-      DTS:DTSID="{083B077C-B2E0-4868-A93E-4FAD34F66E64}"
+      DTS:DTSID="{bd68ef14-75d0-42fd-bf3d-1915cca77eea}"
       DTS:ExecutableType="Microsoft.Pipeline"
       DTS:LocaleID="-1"
-      DTS:ObjectName="totales - contextos"
+      DTS:ObjectName="totales - contextos AL"
       DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
       <DTS:Variables />
       <DTS:ObjectData>
@@ -544,7 +544,596 @@ GROUP BY BaseEstadisticaB1.Periodo, BaseEstadisticaB1.Cod_Cliente, Productos.Jer
           version="1">
           <components>
             <component
-              refId="Package\totales - contextos\BaseEstadisticaBcTDLC"
+              refId="Package\totales - contextos AL\BaseEstadisticaBcTDLC"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="Destino de OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;4"
+              description="Destino de OLE DB"
+              name="BaseEstadisticaBcTDLC"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowset">[tmp].[BaseEstadisticaBcTDLC_AL]</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica la variable que contiene el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Comando SQL para ejecutar."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica la página de códigos de columna para utilizar cuando la información de página de códigos no está disponible en el origen de datos."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Fuerza el uso del valor de la propiedad DefaultCodePage al describir datos de caracteres."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el modo utilizado para obtener acceso a la base de datos."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si los valores proporcionados para columnas de identidad se van a copiar al destino. Si es False, los valores de las columnas de identidad se generan automáticamente en el destino. Solo se aplica si está activada la carga rápida."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si las columnas que contienen NULL tendrán NULL insertado en el destino. Si es False, las columnas que contienen NULL tendrán sus valores predeterminados insertados en el destino. Solo se aplica si está activada la carga rápida."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica opciones para usar con la carga rápida. Solo se aplica si está activada la carga rápida."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica cuándo se emiten confirmaciones durante la inserción de datos. El valor 0 especifica que se emitirá una confirmación al final de la inserción de datos. Solo se aplica si está activada la carga rápida."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\totales - contextos AL\BaseEstadisticaBcTDLC.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[192.168.5.23\B2C.lukerVen.ASSUser]"
+                  connectionManagerRefId="Package.ConnectionManagers[192.168.5.23\B2C.lukerVen.ASSUser]"
+                  description="La conexión de tiempo de ejecución OLE DB usada para obtener acceso a la base de datos."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\totales - contextos AL\BaseEstadisticaBcTDLC.Inputs[Entrada de destino de OLE DB]"
+                  errorOrTruncationOperation="Insertar"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrada de destino de OLE DB">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\totales - contextos AL\BaseEstadisticaBcTDLC.Inputs[Entrada de destino de OLE DB].Columns[Periodo]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="6"
+                      cachedName="Periodo"
+                      externalMetadataColumnId="Package\totales - contextos AL\BaseEstadisticaBcTDLC.Inputs[Entrada de destino de OLE DB].ExternalColumns[Periodo]"
+                      lineageId="Package\totales - contextos AL\total DLC AL.Outputs[Salida de origen de OLE DB].Columns[Periodo]" />
+                    <inputColumn
+                      refId="Package\totales - contextos AL\BaseEstadisticaBcTDLC.Inputs[Entrada de destino de OLE DB].Columns[Director_Canal]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="40"
+                      cachedName="Director_Canal"
+                      externalMetadataColumnId="Package\totales - contextos AL\BaseEstadisticaBcTDLC.Inputs[Entrada de destino de OLE DB].ExternalColumns[Director_Canal]"
+                      lineageId="Package\totales - contextos AL\total DLC AL.Outputs[Salida de origen de OLE DB].Columns[Director_Canal]" />
+                    <inputColumn
+                      refId="Package\totales - contextos AL\BaseEstadisticaBcTDLC.Inputs[Entrada de destino de OLE DB].Columns[NombreCanalAgrupado]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="40"
+                      cachedName="NombreCanalAgrupado"
+                      externalMetadataColumnId="Package\totales - contextos AL\BaseEstadisticaBcTDLC.Inputs[Entrada de destino de OLE DB].ExternalColumns[NombreCanalAgrupado]"
+                      lineageId="Package\totales - contextos AL\total DLC AL.Outputs[Salida de origen de OLE DB].Columns[NombreCanalAgrupado]" />
+                    <inputColumn
+                      refId="Package\totales - contextos AL\BaseEstadisticaBcTDLC.Inputs[Entrada de destino de OLE DB].Columns[Nombre_GCliente_AD2]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="20"
+                      cachedName="Nombre_GCliente_AD2"
+                      externalMetadataColumnId="Package\totales - contextos AL\BaseEstadisticaBcTDLC.Inputs[Entrada de destino de OLE DB].ExternalColumns[Nombre_GCliente_AD2]"
+                      lineageId="Package\totales - contextos AL\total DLC AL.Outputs[Salida de origen de OLE DB].Columns[Nombre_GCliente_AD2]" />
+                    <inputColumn
+                      refId="Package\totales - contextos AL\BaseEstadisticaBcTDLC.Inputs[Entrada de destino de OLE DB].Columns[Categoria]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="40"
+                      cachedName="Categoria"
+                      externalMetadataColumnId="Package\totales - contextos AL\BaseEstadisticaBcTDLC.Inputs[Entrada de destino de OLE DB].ExternalColumns[Categoria]"
+                      lineageId="Package\totales - contextos AL\total DLC AL.Outputs[Salida de origen de OLE DB].Columns[Categoria]" />
+                    <inputColumn
+                      refId="Package\totales - contextos AL\BaseEstadisticaBcTDLC.Inputs[Entrada de destino de OLE DB].Columns[Marca]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="40"
+                      cachedName="Marca"
+                      externalMetadataColumnId="Package\totales - contextos AL\BaseEstadisticaBcTDLC.Inputs[Entrada de destino de OLE DB].ExternalColumns[Marca]"
+                      lineageId="Package\totales - contextos AL\total DLC AL.Outputs[Salida de origen de OLE DB].Columns[Marca]" />
+                    <inputColumn
+                      refId="Package\totales - contextos AL\BaseEstadisticaBcTDLC.Inputs[Entrada de destino de OLE DB].Columns[Linea]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="40"
+                      cachedName="Linea"
+                      externalMetadataColumnId="Package\totales - contextos AL\BaseEstadisticaBcTDLC.Inputs[Entrada de destino de OLE DB].ExternalColumns[Linea]"
+                      lineageId="Package\totales - contextos AL\total DLC AL.Outputs[Salida de origen de OLE DB].Columns[Linea]" />
+                    <inputColumn
+                      refId="Package\totales - contextos AL\BaseEstadisticaBcTDLC.Inputs[Entrada de destino de OLE DB].Columns[Kilos]"
+                      cachedDataType="r8"
+                      cachedName="Kilos"
+                      externalMetadataColumnId="Package\totales - contextos AL\BaseEstadisticaBcTDLC.Inputs[Entrada de destino de OLE DB].ExternalColumns[Kilos]"
+                      lineageId="Package\totales - contextos AL\total DLC AL.Outputs[Salida de origen de OLE DB].Columns[Kilos]" />
+                    <inputColumn
+                      refId="Package\totales - contextos AL\BaseEstadisticaBcTDLC.Inputs[Entrada de destino de OLE DB].Columns[Nombre_Oficina_Ventas]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="20"
+                      cachedName="Nombre_Oficina_Ventas"
+                      externalMetadataColumnId="Package\totales - contextos AL\BaseEstadisticaBcTDLC.Inputs[Entrada de destino de OLE DB].ExternalColumns[Nombre_Oficina_Ventas]"
+                      lineageId="Package\totales - contextos AL\total DLC AL.Outputs[Salida de origen de OLE DB].Columns[Nombre_Oficina_Ventas]" />
+                    <inputColumn
+                      refId="Package\totales - contextos AL\BaseEstadisticaBcTDLC.Inputs[Entrada de destino de OLE DB].Columns[Lider_Regional]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="35"
+                      cachedName="Lider_Regional"
+                      externalMetadataColumnId="Package\totales - contextos AL\BaseEstadisticaBcTDLC.Inputs[Entrada de destino de OLE DB].ExternalColumns[Lider_Regional]"
+                      lineageId="Package\totales - contextos AL\total DLC AL.Outputs[Salida de origen de OLE DB].Columns[Lider_Regional]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\totales - contextos AL\BaseEstadisticaBcTDLC.Inputs[Entrada de destino de OLE DB].ExternalColumns[Periodo]"
+                      codePage="1252"
+                      dataType="str"
+                      length="6"
+                      name="Periodo" />
+                    <externalMetadataColumn
+                      refId="Package\totales - contextos AL\BaseEstadisticaBcTDLC.Inputs[Entrada de destino de OLE DB].ExternalColumns[Director_Canal]"
+                      codePage="1252"
+                      dataType="str"
+                      length="40"
+                      name="Director_Canal" />
+                    <externalMetadataColumn
+                      refId="Package\totales - contextos AL\BaseEstadisticaBcTDLC.Inputs[Entrada de destino de OLE DB].ExternalColumns[NombreCanalAgrupado]"
+                      codePage="1252"
+                      dataType="str"
+                      length="40"
+                      name="NombreCanalAgrupado" />
+                    <externalMetadataColumn
+                      refId="Package\totales - contextos AL\BaseEstadisticaBcTDLC.Inputs[Entrada de destino de OLE DB].ExternalColumns[Nombre_GCliente_AD2]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="Nombre_GCliente_AD2" />
+                    <externalMetadataColumn
+                      refId="Package\totales - contextos AL\BaseEstadisticaBcTDLC.Inputs[Entrada de destino de OLE DB].ExternalColumns[Categoria]"
+                      codePage="1252"
+                      dataType="str"
+                      length="40"
+                      name="Categoria" />
+                    <externalMetadataColumn
+                      refId="Package\totales - contextos AL\BaseEstadisticaBcTDLC.Inputs[Entrada de destino de OLE DB].ExternalColumns[Marca]"
+                      codePage="1252"
+                      dataType="str"
+                      length="40"
+                      name="Marca" />
+                    <externalMetadataColumn
+                      refId="Package\totales - contextos AL\BaseEstadisticaBcTDLC.Inputs[Entrada de destino de OLE DB].ExternalColumns[Linea]"
+                      codePage="1252"
+                      dataType="str"
+                      length="40"
+                      name="Linea" />
+                    <externalMetadataColumn
+                      refId="Package\totales - contextos AL\BaseEstadisticaBcTDLC.Inputs[Entrada de destino de OLE DB].ExternalColumns[Kilos]"
+                      dataType="r8"
+                      name="Kilos" />
+                    <externalMetadataColumn
+                      refId="Package\totales - contextos AL\BaseEstadisticaBcTDLC.Inputs[Entrada de destino de OLE DB].ExternalColumns[Nombre_Oficina_Ventas]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="Nombre_Oficina_Ventas" />
+                    <externalMetadataColumn
+                      refId="Package\totales - contextos AL\BaseEstadisticaBcTDLC.Inputs[Entrada de destino de OLE DB].ExternalColumns[Lider_Regional]"
+                      codePage="1252"
+                      dataType="str"
+                      length="35"
+                      name="Lider_Regional" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\totales - contextos AL\BaseEstadisticaBcTDLC.Outputs[Salida de error de destino de OLE DB]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Salida de error de destino de OLE DB"
+                  synchronousInputId="Package\totales - contextos AL\BaseEstadisticaBcTDLC.Inputs[Entrada de destino de OLE DB]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\totales - contextos AL\BaseEstadisticaBcTDLC.Outputs[Salida de error de destino de OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\totales - contextos AL\BaseEstadisticaBcTDLC.Outputs[Salida de error de destino de OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\totales - contextos AL\BaseEstadisticaBcTDLC.Outputs[Salida de error de destino de OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\totales - contextos AL\BaseEstadisticaBcTDLC.Outputs[Salida de error de destino de OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\totales - contextos AL\total DLC AL"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="Origen de OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;7"
+              description="Origen de OLE DB"
+              name="total DLC AL"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowset"></property>
+                <property
+                  dataType="System.String"
+                  description="Especifica la variable que contiene el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Comando SQL para ejecutar."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">SELECT BaseEstadisticaBc.Periodo, BaseEstadisticaBc.Director_Canal, BaseEstadisticaBc.NombreCanalAgrupado, BaseEstadisticaBc.Nombre_GCliente_AD2, BaseEstadisticaBc.Categoria, BaseEstadisticaBc.Marca, BaseEstadisticaBc.Linea, BaseEstadisticaBc.Nombre_Oficina_Ventas, BaseEstadisticaBc.Lider_Regional, Sum(BaseEstadisticaBc.Kilos) AS 'Kilos'
+FROM lukerVen.PVOF.BaseEstadisticaBc BaseEstadisticaBc
+GROUP BY BaseEstadisticaBc.Periodo, BaseEstadisticaBc.Director_Canal, BaseEstadisticaBc.NombreCanalAgrupado, BaseEstadisticaBc.Nombre_GCliente_AD2, BaseEstadisticaBc.Categoria, BaseEstadisticaBc.Marca, BaseEstadisticaBc.Linea, BaseEstadisticaBc.Nombre_Oficina_Ventas, BaseEstadisticaBc.Lider_Regional
+ORDER BY BaseEstadisticaBc.NombreCanalAgrupado</property>
+                <property
+                  dataType="System.String"
+                  description="Variable que contiene el comando SQL para ejecutar."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica la página de códigos de columna para utilizar cuando la información de página de códigos no está disponible en el origen de datos."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Fuerza el uso del valor de la propiedad DefaultCodePage al describir datos de caracteres."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el modo utilizado para obtener acceso a la base de datos."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="Asignaciones entre los parámetros del comando SQL y las variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\totales - contextos AL\total DLC AL.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[192.168.5.23\B2C.lukerVen.ASSUser]"
+                  connectionManagerRefId="Package.ConnectionManagers[192.168.5.23\B2C.lukerVen.ASSUser]"
+                  description="La conexión de tiempo de ejecución OLE DB usada para obtener acceso a la base de datos."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\totales - contextos AL\total DLC AL.Outputs[Salida de origen de OLE DB]"
+                  name="Salida de origen de OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\totales - contextos AL\total DLC AL.Outputs[Salida de origen de OLE DB].Columns[Periodo]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\totales - contextos AL\total DLC AL.Outputs[Salida de origen de OLE DB].ExternalColumns[Periodo]"
+                      length="6"
+                      lineageId="Package\totales - contextos AL\total DLC AL.Outputs[Salida de origen de OLE DB].Columns[Periodo]"
+                      name="Periodo"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\totales - contextos AL\total DLC AL.Outputs[Salida de origen de OLE DB].Columns[Director_Canal]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\totales - contextos AL\total DLC AL.Outputs[Salida de origen de OLE DB].ExternalColumns[Director_Canal]"
+                      length="40"
+                      lineageId="Package\totales - contextos AL\total DLC AL.Outputs[Salida de origen de OLE DB].Columns[Director_Canal]"
+                      name="Director_Canal"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\totales - contextos AL\total DLC AL.Outputs[Salida de origen de OLE DB].Columns[NombreCanalAgrupado]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\totales - contextos AL\total DLC AL.Outputs[Salida de origen de OLE DB].ExternalColumns[NombreCanalAgrupado]"
+                      length="40"
+                      lineageId="Package\totales - contextos AL\total DLC AL.Outputs[Salida de origen de OLE DB].Columns[NombreCanalAgrupado]"
+                      name="NombreCanalAgrupado"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\totales - contextos AL\total DLC AL.Outputs[Salida de origen de OLE DB].Columns[Nombre_GCliente_AD2]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\totales - contextos AL\total DLC AL.Outputs[Salida de origen de OLE DB].ExternalColumns[Nombre_GCliente_AD2]"
+                      length="20"
+                      lineageId="Package\totales - contextos AL\total DLC AL.Outputs[Salida de origen de OLE DB].Columns[Nombre_GCliente_AD2]"
+                      name="Nombre_GCliente_AD2"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\totales - contextos AL\total DLC AL.Outputs[Salida de origen de OLE DB].Columns[Categoria]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\totales - contextos AL\total DLC AL.Outputs[Salida de origen de OLE DB].ExternalColumns[Categoria]"
+                      length="40"
+                      lineageId="Package\totales - contextos AL\total DLC AL.Outputs[Salida de origen de OLE DB].Columns[Categoria]"
+                      name="Categoria"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\totales - contextos AL\total DLC AL.Outputs[Salida de origen de OLE DB].Columns[Marca]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\totales - contextos AL\total DLC AL.Outputs[Salida de origen de OLE DB].ExternalColumns[Marca]"
+                      length="40"
+                      lineageId="Package\totales - contextos AL\total DLC AL.Outputs[Salida de origen de OLE DB].Columns[Marca]"
+                      name="Marca"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\totales - contextos AL\total DLC AL.Outputs[Salida de origen de OLE DB].Columns[Linea]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\totales - contextos AL\total DLC AL.Outputs[Salida de origen de OLE DB].ExternalColumns[Linea]"
+                      length="40"
+                      lineageId="Package\totales - contextos AL\total DLC AL.Outputs[Salida de origen de OLE DB].Columns[Linea]"
+                      name="Linea"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\totales - contextos AL\total DLC AL.Outputs[Salida de origen de OLE DB].Columns[Kilos]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\totales - contextos AL\total DLC AL.Outputs[Salida de origen de OLE DB].ExternalColumns[Kilos]"
+                      lineageId="Package\totales - contextos AL\total DLC AL.Outputs[Salida de origen de OLE DB].Columns[Kilos]"
+                      name="Kilos"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\totales - contextos AL\total DLC AL.Outputs[Salida de origen de OLE DB].Columns[Nombre_Oficina_Ventas]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\totales - contextos AL\total DLC AL.Outputs[Salida de origen de OLE DB].ExternalColumns[Nombre_Oficina_Ventas]"
+                      length="20"
+                      lineageId="Package\totales - contextos AL\total DLC AL.Outputs[Salida de origen de OLE DB].Columns[Nombre_Oficina_Ventas]"
+                      name="Nombre_Oficina_Ventas"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\totales - contextos AL\total DLC AL.Outputs[Salida de origen de OLE DB].Columns[Lider_Regional]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\totales - contextos AL\total DLC AL.Outputs[Salida de origen de OLE DB].ExternalColumns[Lider_Regional]"
+                      length="35"
+                      lineageId="Package\totales - contextos AL\total DLC AL.Outputs[Salida de origen de OLE DB].Columns[Lider_Regional]"
+                      name="Lider_Regional"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\totales - contextos AL\total DLC AL.Outputs[Salida de origen de OLE DB].ExternalColumns[Periodo]"
+                      codePage="1252"
+                      dataType="str"
+                      length="6"
+                      name="Periodo" />
+                    <externalMetadataColumn
+                      refId="Package\totales - contextos AL\total DLC AL.Outputs[Salida de origen de OLE DB].ExternalColumns[Director_Canal]"
+                      codePage="1252"
+                      dataType="str"
+                      length="40"
+                      name="Director_Canal" />
+                    <externalMetadataColumn
+                      refId="Package\totales - contextos AL\total DLC AL.Outputs[Salida de origen de OLE DB].ExternalColumns[NombreCanalAgrupado]"
+                      codePage="1252"
+                      dataType="str"
+                      length="40"
+                      name="NombreCanalAgrupado" />
+                    <externalMetadataColumn
+                      refId="Package\totales - contextos AL\total DLC AL.Outputs[Salida de origen de OLE DB].ExternalColumns[Nombre_GCliente_AD2]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="Nombre_GCliente_AD2" />
+                    <externalMetadataColumn
+                      refId="Package\totales - contextos AL\total DLC AL.Outputs[Salida de origen de OLE DB].ExternalColumns[Categoria]"
+                      codePage="1252"
+                      dataType="str"
+                      length="40"
+                      name="Categoria" />
+                    <externalMetadataColumn
+                      refId="Package\totales - contextos AL\total DLC AL.Outputs[Salida de origen de OLE DB].ExternalColumns[Marca]"
+                      codePage="1252"
+                      dataType="str"
+                      length="40"
+                      name="Marca" />
+                    <externalMetadataColumn
+                      refId="Package\totales - contextos AL\total DLC AL.Outputs[Salida de origen de OLE DB].ExternalColumns[Linea]"
+                      codePage="1252"
+                      dataType="str"
+                      length="40"
+                      name="Linea" />
+                    <externalMetadataColumn
+                      refId="Package\totales - contextos AL\total DLC AL.Outputs[Salida de origen de OLE DB].ExternalColumns[Kilos]"
+                      dataType="r8"
+                      name="Kilos" />
+                    <externalMetadataColumn
+                      refId="Package\totales - contextos AL\total DLC AL.Outputs[Salida de origen de OLE DB].ExternalColumns[Nombre_Oficina_Ventas]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="Nombre_Oficina_Ventas" />
+                    <externalMetadataColumn
+                      refId="Package\totales - contextos AL\total DLC AL.Outputs[Salida de origen de OLE DB].ExternalColumns[Lider_Regional]"
+                      codePage="1252"
+                      dataType="str"
+                      length="35"
+                      name="Lider_Regional" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\totales - contextos AL\total DLC AL.Outputs[Salida de error de origen de OLE DB]"
+                  isErrorOut="true"
+                  name="Salida de error de origen de OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\totales - contextos AL\total DLC AL.Outputs[Salida de error de origen de OLE DB].Columns[Periodo]"
+                      codePage="1252"
+                      dataType="str"
+                      length="6"
+                      lineageId="Package\totales - contextos AL\total DLC AL.Outputs[Salida de error de origen de OLE DB].Columns[Periodo]"
+                      name="Periodo" />
+                    <outputColumn
+                      refId="Package\totales - contextos AL\total DLC AL.Outputs[Salida de error de origen de OLE DB].Columns[Director_Canal]"
+                      codePage="1252"
+                      dataType="str"
+                      length="40"
+                      lineageId="Package\totales - contextos AL\total DLC AL.Outputs[Salida de error de origen de OLE DB].Columns[Director_Canal]"
+                      name="Director_Canal" />
+                    <outputColumn
+                      refId="Package\totales - contextos AL\total DLC AL.Outputs[Salida de error de origen de OLE DB].Columns[NombreCanalAgrupado]"
+                      codePage="1252"
+                      dataType="str"
+                      length="40"
+                      lineageId="Package\totales - contextos AL\total DLC AL.Outputs[Salida de error de origen de OLE DB].Columns[NombreCanalAgrupado]"
+                      name="NombreCanalAgrupado" />
+                    <outputColumn
+                      refId="Package\totales - contextos AL\total DLC AL.Outputs[Salida de error de origen de OLE DB].Columns[Nombre_GCliente_AD2]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      lineageId="Package\totales - contextos AL\total DLC AL.Outputs[Salida de error de origen de OLE DB].Columns[Nombre_GCliente_AD2]"
+                      name="Nombre_GCliente_AD2" />
+                    <outputColumn
+                      refId="Package\totales - contextos AL\total DLC AL.Outputs[Salida de error de origen de OLE DB].Columns[Categoria]"
+                      codePage="1252"
+                      dataType="str"
+                      length="40"
+                      lineageId="Package\totales - contextos AL\total DLC AL.Outputs[Salida de error de origen de OLE DB].Columns[Categoria]"
+                      name="Categoria" />
+                    <outputColumn
+                      refId="Package\totales - contextos AL\total DLC AL.Outputs[Salida de error de origen de OLE DB].Columns[Marca]"
+                      codePage="1252"
+                      dataType="str"
+                      length="40"
+                      lineageId="Package\totales - contextos AL\total DLC AL.Outputs[Salida de error de origen de OLE DB].Columns[Marca]"
+                      name="Marca" />
+                    <outputColumn
+                      refId="Package\totales - contextos AL\total DLC AL.Outputs[Salida de error de origen de OLE DB].Columns[Linea]"
+                      codePage="1252"
+                      dataType="str"
+                      length="40"
+                      lineageId="Package\totales - contextos AL\total DLC AL.Outputs[Salida de error de origen de OLE DB].Columns[Linea]"
+                      name="Linea" />
+                    <outputColumn
+                      refId="Package\totales - contextos AL\total DLC AL.Outputs[Salida de error de origen de OLE DB].Columns[Nombre_Oficina_Ventas]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      lineageId="Package\totales - contextos AL\total DLC AL.Outputs[Salida de error de origen de OLE DB].Columns[Nombre_Oficina_Ventas]"
+                      name="Nombre_Oficina_Ventas" />
+                    <outputColumn
+                      refId="Package\totales - contextos AL\total DLC AL.Outputs[Salida de error de origen de OLE DB].Columns[Lider_Regional]"
+                      codePage="1252"
+                      dataType="str"
+                      length="35"
+                      lineageId="Package\totales - contextos AL\total DLC AL.Outputs[Salida de error de origen de OLE DB].Columns[Lider_Regional]"
+                      name="Lider_Regional" />
+                    <outputColumn
+                      refId="Package\totales - contextos AL\total DLC AL.Outputs[Salida de error de origen de OLE DB].Columns[Kilos]"
+                      dataType="r8"
+                      lineageId="Package\totales - contextos AL\total DLC AL.Outputs[Salida de error de origen de OLE DB].Columns[Kilos]"
+                      name="Kilos" />
+                    <outputColumn
+                      refId="Package\totales - contextos AL\total DLC AL.Outputs[Salida de error de origen de OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\totales - contextos AL\total DLC AL.Outputs[Salida de error de origen de OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\totales - contextos AL\total DLC AL.Outputs[Salida de error de origen de OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\totales - contextos AL\total DLC AL.Outputs[Salida de error de origen de OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\totales - contextos AL.Paths[Salida de origen de OLE DB]"
+              endId="Package\totales - contextos AL\BaseEstadisticaBcTDLC.Inputs[Entrada de destino de OLE DB]"
+              name="Salida de origen de OLE DB"
+              startId="Package\totales - contextos AL\total DLC AL.Outputs[Salida de origen de OLE DB]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\totales - contextos DCL"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Tarea Flujo de datos"
+      DTS:DTSID="{083B077C-B2E0-4868-A93E-4FAD34F66E64}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="totales - contextos DCL"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\totales - contextos DCL\BaseEstadisticaBcTDLC"
               componentClassID="Microsoft.OLEDBDestination"
               contactInfo="Destino de OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;4"
               description="Destino de OLE DB"
@@ -601,7 +1190,7 @@ GROUP BY BaseEstadisticaB1.Periodo, BaseEstadisticaB1.Cod_Cliente, Productos.Jer
               </properties>
               <connections>
                 <connection
-                  refId="Package\totales - contextos\BaseEstadisticaBcTDLC.Connections[OleDbConnection]"
+                  refId="Package\totales - contextos DCL\BaseEstadisticaBcTDLC.Connections[OleDbConnection]"
                   connectionManagerID="Package.ConnectionManagers[192.168.5.23\B2C.lukerVen.ASSUser]"
                   connectionManagerRefId="Package.ConnectionManagers[192.168.5.23\B2C.lukerVen.ASSUser]"
                   description="La conexión de tiempo de ejecución OLE DB usada para obtener acceso a la base de datos."
@@ -609,121 +1198,121 @@ GROUP BY BaseEstadisticaB1.Periodo, BaseEstadisticaB1.Cod_Cliente, Productos.Jer
               </connections>
               <inputs>
                 <input
-                  refId="Package\totales - contextos\BaseEstadisticaBcTDLC.Inputs[Entrada de destino de OLE DB]"
+                  refId="Package\totales - contextos DCL\BaseEstadisticaBcTDLC.Inputs[Entrada de destino de OLE DB]"
                   errorOrTruncationOperation="Insertar"
                   errorRowDisposition="FailComponent"
                   hasSideEffects="true"
                   name="Entrada de destino de OLE DB">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\totales - contextos\BaseEstadisticaBcTDLC.Inputs[Entrada de destino de OLE DB].Columns[Periodo]"
+                      refId="Package\totales - contextos DCL\BaseEstadisticaBcTDLC.Inputs[Entrada de destino de OLE DB].Columns[Periodo]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="6"
                       cachedName="Periodo"
-                      externalMetadataColumnId="Package\totales - contextos\BaseEstadisticaBcTDLC.Inputs[Entrada de destino de OLE DB].ExternalColumns[Periodo]"
-                      lineageId="Package\totales - contextos\total DLC.Outputs[Salida de origen de OLE DB].Columns[Periodo]" />
+                      externalMetadataColumnId="Package\totales - contextos DCL\BaseEstadisticaBcTDLC.Inputs[Entrada de destino de OLE DB].ExternalColumns[Periodo]"
+                      lineageId="Package\totales - contextos DCL\total DLC.Outputs[Salida de origen de OLE DB].Columns[Periodo]" />
                     <inputColumn
-                      refId="Package\totales - contextos\BaseEstadisticaBcTDLC.Inputs[Entrada de destino de OLE DB].Columns[Director_Canal]"
+                      refId="Package\totales - contextos DCL\BaseEstadisticaBcTDLC.Inputs[Entrada de destino de OLE DB].Columns[Director_Canal]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="40"
                       cachedName="Director_Canal"
-                      externalMetadataColumnId="Package\totales - contextos\BaseEstadisticaBcTDLC.Inputs[Entrada de destino de OLE DB].ExternalColumns[Director_Canal]"
-                      lineageId="Package\totales - contextos\total DLC.Outputs[Salida de origen de OLE DB].Columns[Director_Canal]" />
+                      externalMetadataColumnId="Package\totales - contextos DCL\BaseEstadisticaBcTDLC.Inputs[Entrada de destino de OLE DB].ExternalColumns[Director_Canal]"
+                      lineageId="Package\totales - contextos DCL\total DLC.Outputs[Salida de origen de OLE DB].Columns[Director_Canal]" />
                     <inputColumn
-                      refId="Package\totales - contextos\BaseEstadisticaBcTDLC.Inputs[Entrada de destino de OLE DB].Columns[NombreCanalAgrupado]"
+                      refId="Package\totales - contextos DCL\BaseEstadisticaBcTDLC.Inputs[Entrada de destino de OLE DB].Columns[NombreCanalAgrupado]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="40"
                       cachedName="NombreCanalAgrupado"
-                      externalMetadataColumnId="Package\totales - contextos\BaseEstadisticaBcTDLC.Inputs[Entrada de destino de OLE DB].ExternalColumns[NombreCanalAgrupado]"
-                      lineageId="Package\totales - contextos\total DLC.Outputs[Salida de origen de OLE DB].Columns[NombreCanalAgrupado]" />
+                      externalMetadataColumnId="Package\totales - contextos DCL\BaseEstadisticaBcTDLC.Inputs[Entrada de destino de OLE DB].ExternalColumns[NombreCanalAgrupado]"
+                      lineageId="Package\totales - contextos DCL\total DLC.Outputs[Salida de origen de OLE DB].Columns[NombreCanalAgrupado]" />
                     <inputColumn
-                      refId="Package\totales - contextos\BaseEstadisticaBcTDLC.Inputs[Entrada de destino de OLE DB].Columns[Nombre_GCliente_AD2]"
+                      refId="Package\totales - contextos DCL\BaseEstadisticaBcTDLC.Inputs[Entrada de destino de OLE DB].Columns[Nombre_GCliente_AD2]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="20"
                       cachedName="Nombre_GCliente_AD2"
-                      externalMetadataColumnId="Package\totales - contextos\BaseEstadisticaBcTDLC.Inputs[Entrada de destino de OLE DB].ExternalColumns[Nombre_GCliente_AD2]"
-                      lineageId="Package\totales - contextos\total DLC.Outputs[Salida de origen de OLE DB].Columns[Nombre_GCliente_AD2]" />
+                      externalMetadataColumnId="Package\totales - contextos DCL\BaseEstadisticaBcTDLC.Inputs[Entrada de destino de OLE DB].ExternalColumns[Nombre_GCliente_AD2]"
+                      lineageId="Package\totales - contextos DCL\total DLC.Outputs[Salida de origen de OLE DB].Columns[Nombre_GCliente_AD2]" />
                     <inputColumn
-                      refId="Package\totales - contextos\BaseEstadisticaBcTDLC.Inputs[Entrada de destino de OLE DB].Columns[Categoria]"
+                      refId="Package\totales - contextos DCL\BaseEstadisticaBcTDLC.Inputs[Entrada de destino de OLE DB].Columns[Categoria]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="40"
                       cachedName="Categoria"
-                      externalMetadataColumnId="Package\totales - contextos\BaseEstadisticaBcTDLC.Inputs[Entrada de destino de OLE DB].ExternalColumns[Categoria]"
-                      lineageId="Package\totales - contextos\total DLC.Outputs[Salida de origen de OLE DB].Columns[Categoria]" />
+                      externalMetadataColumnId="Package\totales - contextos DCL\BaseEstadisticaBcTDLC.Inputs[Entrada de destino de OLE DB].ExternalColumns[Categoria]"
+                      lineageId="Package\totales - contextos DCL\total DLC.Outputs[Salida de origen de OLE DB].Columns[Categoria]" />
                     <inputColumn
-                      refId="Package\totales - contextos\BaseEstadisticaBcTDLC.Inputs[Entrada de destino de OLE DB].Columns[Marca]"
+                      refId="Package\totales - contextos DCL\BaseEstadisticaBcTDLC.Inputs[Entrada de destino de OLE DB].Columns[Marca]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="40"
                       cachedName="Marca"
-                      externalMetadataColumnId="Package\totales - contextos\BaseEstadisticaBcTDLC.Inputs[Entrada de destino de OLE DB].ExternalColumns[Marca]"
-                      lineageId="Package\totales - contextos\total DLC.Outputs[Salida de origen de OLE DB].Columns[Marca]" />
+                      externalMetadataColumnId="Package\totales - contextos DCL\BaseEstadisticaBcTDLC.Inputs[Entrada de destino de OLE DB].ExternalColumns[Marca]"
+                      lineageId="Package\totales - contextos DCL\total DLC.Outputs[Salida de origen de OLE DB].Columns[Marca]" />
                     <inputColumn
-                      refId="Package\totales - contextos\BaseEstadisticaBcTDLC.Inputs[Entrada de destino de OLE DB].Columns[Linea]"
+                      refId="Package\totales - contextos DCL\BaseEstadisticaBcTDLC.Inputs[Entrada de destino de OLE DB].Columns[Linea]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="40"
                       cachedName="Linea"
-                      externalMetadataColumnId="Package\totales - contextos\BaseEstadisticaBcTDLC.Inputs[Entrada de destino de OLE DB].ExternalColumns[Linea]"
-                      lineageId="Package\totales - contextos\total DLC.Outputs[Salida de origen de OLE DB].Columns[Linea]" />
+                      externalMetadataColumnId="Package\totales - contextos DCL\BaseEstadisticaBcTDLC.Inputs[Entrada de destino de OLE DB].ExternalColumns[Linea]"
+                      lineageId="Package\totales - contextos DCL\total DLC.Outputs[Salida de origen de OLE DB].Columns[Linea]" />
                     <inputColumn
-                      refId="Package\totales - contextos\BaseEstadisticaBcTDLC.Inputs[Entrada de destino de OLE DB].Columns[Kilos]"
+                      refId="Package\totales - contextos DCL\BaseEstadisticaBcTDLC.Inputs[Entrada de destino de OLE DB].Columns[Kilos]"
                       cachedDataType="r8"
                       cachedName="Kilos"
-                      externalMetadataColumnId="Package\totales - contextos\BaseEstadisticaBcTDLC.Inputs[Entrada de destino de OLE DB].ExternalColumns[Kilos]"
-                      lineageId="Package\totales - contextos\total DLC.Outputs[Salida de origen de OLE DB].Columns[Kilos]" />
+                      externalMetadataColumnId="Package\totales - contextos DCL\BaseEstadisticaBcTDLC.Inputs[Entrada de destino de OLE DB].ExternalColumns[Kilos]"
+                      lineageId="Package\totales - contextos DCL\total DLC.Outputs[Salida de origen de OLE DB].Columns[Kilos]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
                     <externalMetadataColumn
-                      refId="Package\totales - contextos\BaseEstadisticaBcTDLC.Inputs[Entrada de destino de OLE DB].ExternalColumns[Periodo]"
+                      refId="Package\totales - contextos DCL\BaseEstadisticaBcTDLC.Inputs[Entrada de destino de OLE DB].ExternalColumns[Periodo]"
                       codePage="1252"
                       dataType="str"
                       length="6"
                       name="Periodo" />
                     <externalMetadataColumn
-                      refId="Package\totales - contextos\BaseEstadisticaBcTDLC.Inputs[Entrada de destino de OLE DB].ExternalColumns[Director_Canal]"
+                      refId="Package\totales - contextos DCL\BaseEstadisticaBcTDLC.Inputs[Entrada de destino de OLE DB].ExternalColumns[Director_Canal]"
                       codePage="1252"
                       dataType="str"
                       length="40"
                       name="Director_Canal" />
                     <externalMetadataColumn
-                      refId="Package\totales - contextos\BaseEstadisticaBcTDLC.Inputs[Entrada de destino de OLE DB].ExternalColumns[NombreCanalAgrupado]"
+                      refId="Package\totales - contextos DCL\BaseEstadisticaBcTDLC.Inputs[Entrada de destino de OLE DB].ExternalColumns[NombreCanalAgrupado]"
                       codePage="1252"
                       dataType="str"
                       length="40"
                       name="NombreCanalAgrupado" />
                     <externalMetadataColumn
-                      refId="Package\totales - contextos\BaseEstadisticaBcTDLC.Inputs[Entrada de destino de OLE DB].ExternalColumns[Nombre_GCliente_AD2]"
+                      refId="Package\totales - contextos DCL\BaseEstadisticaBcTDLC.Inputs[Entrada de destino de OLE DB].ExternalColumns[Nombre_GCliente_AD2]"
                       codePage="1252"
                       dataType="str"
                       length="20"
                       name="Nombre_GCliente_AD2" />
                     <externalMetadataColumn
-                      refId="Package\totales - contextos\BaseEstadisticaBcTDLC.Inputs[Entrada de destino de OLE DB].ExternalColumns[Categoria]"
+                      refId="Package\totales - contextos DCL\BaseEstadisticaBcTDLC.Inputs[Entrada de destino de OLE DB].ExternalColumns[Categoria]"
                       codePage="1252"
                       dataType="str"
                       length="40"
                       name="Categoria" />
                     <externalMetadataColumn
-                      refId="Package\totales - contextos\BaseEstadisticaBcTDLC.Inputs[Entrada de destino de OLE DB].ExternalColumns[Marca]"
+                      refId="Package\totales - contextos DCL\BaseEstadisticaBcTDLC.Inputs[Entrada de destino de OLE DB].ExternalColumns[Marca]"
                       codePage="1252"
                       dataType="str"
                       length="40"
                       name="Marca" />
                     <externalMetadataColumn
-                      refId="Package\totales - contextos\BaseEstadisticaBcTDLC.Inputs[Entrada de destino de OLE DB].ExternalColumns[Linea]"
+                      refId="Package\totales - contextos DCL\BaseEstadisticaBcTDLC.Inputs[Entrada de destino de OLE DB].ExternalColumns[Linea]"
                       codePage="1252"
                       dataType="str"
                       length="40"
                       name="Linea" />
                     <externalMetadataColumn
-                      refId="Package\totales - contextos\BaseEstadisticaBcTDLC.Inputs[Entrada de destino de OLE DB].ExternalColumns[Kilos]"
+                      refId="Package\totales - contextos DCL\BaseEstadisticaBcTDLC.Inputs[Entrada de destino de OLE DB].ExternalColumns[Kilos]"
                       dataType="r8"
                       name="Kilos" />
                   </externalMetadataColumns>
@@ -731,22 +1320,22 @@ GROUP BY BaseEstadisticaB1.Periodo, BaseEstadisticaB1.Cod_Cliente, Productos.Jer
               </inputs>
               <outputs>
                 <output
-                  refId="Package\totales - contextos\BaseEstadisticaBcTDLC.Outputs[Salida de error de destino de OLE DB]"
+                  refId="Package\totales - contextos DCL\BaseEstadisticaBcTDLC.Outputs[Salida de error de destino de OLE DB]"
                   exclusionGroup="1"
                   isErrorOut="true"
                   name="Salida de error de destino de OLE DB"
-                  synchronousInputId="Package\totales - contextos\BaseEstadisticaBcTDLC.Inputs[Entrada de destino de OLE DB]">
+                  synchronousInputId="Package\totales - contextos DCL\BaseEstadisticaBcTDLC.Inputs[Entrada de destino de OLE DB]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\totales - contextos\BaseEstadisticaBcTDLC.Outputs[Salida de error de destino de OLE DB].Columns[ErrorCode]"
+                      refId="Package\totales - contextos DCL\BaseEstadisticaBcTDLC.Outputs[Salida de error de destino de OLE DB].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\totales - contextos\BaseEstadisticaBcTDLC.Outputs[Salida de error de destino de OLE DB].Columns[ErrorCode]"
+                      lineageId="Package\totales - contextos DCL\BaseEstadisticaBcTDLC.Outputs[Salida de error de destino de OLE DB].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\totales - contextos\BaseEstadisticaBcTDLC.Outputs[Salida de error de destino de OLE DB].Columns[ErrorColumn]"
+                      refId="Package\totales - contextos DCL\BaseEstadisticaBcTDLC.Outputs[Salida de error de destino de OLE DB].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\totales - contextos\BaseEstadisticaBcTDLC.Outputs[Salida de error de destino de OLE DB].Columns[ErrorColumn]"
+                      lineageId="Package\totales - contextos DCL\BaseEstadisticaBcTDLC.Outputs[Salida de error de destino de OLE DB].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -755,7 +1344,7 @@ GROUP BY BaseEstadisticaB1.Periodo, BaseEstadisticaB1.Cod_Cliente, Productos.Jer
               </outputs>
             </component>
             <component
-              refId="Package\totales - contextos\total DLC"
+              refId="Package\totales - contextos DCL\total DLC"
               componentClassID="Microsoft.OLEDBSource"
               contactInfo="Origen de OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;7"
               description="Origen de OLE DB"
@@ -807,7 +1396,7 @@ ORDER BY BaseEstadisticaBc.NombreCanalAgrupado</property>
               </properties>
               <connections>
                 <connection
-                  refId="Package\totales - contextos\total DLC.Connections[OleDbConnection]"
+                  refId="Package\totales - contextos DCL\total DLC.Connections[OleDbConnection]"
                   connectionManagerID="Package.ConnectionManagers[192.168.5.23\B2C.lukerVen.ASSUser]"
                   connectionManagerRefId="Package.ConnectionManagers[192.168.5.23\B2C.lukerVen.ASSUser]"
                   description="La conexión de tiempo de ejecución OLE DB usada para obtener acceso a la base de datos."
@@ -815,215 +1404,215 @@ ORDER BY BaseEstadisticaBc.NombreCanalAgrupado</property>
               </connections>
               <outputs>
                 <output
-                  refId="Package\totales - contextos\total DLC.Outputs[Salida de origen de OLE DB]"
+                  refId="Package\totales - contextos DCL\total DLC.Outputs[Salida de origen de OLE DB]"
                   name="Salida de origen de OLE DB">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\totales - contextos\total DLC.Outputs[Salida de origen de OLE DB].Columns[Periodo]"
+                      refId="Package\totales - contextos DCL\total DLC.Outputs[Salida de origen de OLE DB].Columns[Periodo]"
                       codePage="1252"
                       dataType="str"
                       errorOrTruncationOperation="Conversión"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\totales - contextos\total DLC.Outputs[Salida de origen de OLE DB].ExternalColumns[Periodo]"
+                      externalMetadataColumnId="Package\totales - contextos DCL\total DLC.Outputs[Salida de origen de OLE DB].ExternalColumns[Periodo]"
                       length="6"
-                      lineageId="Package\totales - contextos\total DLC.Outputs[Salida de origen de OLE DB].Columns[Periodo]"
+                      lineageId="Package\totales - contextos DCL\total DLC.Outputs[Salida de origen de OLE DB].Columns[Periodo]"
                       name="Periodo"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\totales - contextos\total DLC.Outputs[Salida de origen de OLE DB].Columns[Director_Canal]"
+                      refId="Package\totales - contextos DCL\total DLC.Outputs[Salida de origen de OLE DB].Columns[Director_Canal]"
                       codePage="1252"
                       dataType="str"
                       errorOrTruncationOperation="Conversión"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\totales - contextos\total DLC.Outputs[Salida de origen de OLE DB].ExternalColumns[Director_Canal]"
+                      externalMetadataColumnId="Package\totales - contextos DCL\total DLC.Outputs[Salida de origen de OLE DB].ExternalColumns[Director_Canal]"
                       length="40"
-                      lineageId="Package\totales - contextos\total DLC.Outputs[Salida de origen de OLE DB].Columns[Director_Canal]"
+                      lineageId="Package\totales - contextos DCL\total DLC.Outputs[Salida de origen de OLE DB].Columns[Director_Canal]"
                       name="Director_Canal"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\totales - contextos\total DLC.Outputs[Salida de origen de OLE DB].Columns[NombreCanalAgrupado]"
+                      refId="Package\totales - contextos DCL\total DLC.Outputs[Salida de origen de OLE DB].Columns[NombreCanalAgrupado]"
                       codePage="1252"
                       dataType="str"
                       errorOrTruncationOperation="Conversión"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\totales - contextos\total DLC.Outputs[Salida de origen de OLE DB].ExternalColumns[NombreCanalAgrupado]"
+                      externalMetadataColumnId="Package\totales - contextos DCL\total DLC.Outputs[Salida de origen de OLE DB].ExternalColumns[NombreCanalAgrupado]"
                       length="40"
-                      lineageId="Package\totales - contextos\total DLC.Outputs[Salida de origen de OLE DB].Columns[NombreCanalAgrupado]"
+                      lineageId="Package\totales - contextos DCL\total DLC.Outputs[Salida de origen de OLE DB].Columns[NombreCanalAgrupado]"
                       name="NombreCanalAgrupado"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\totales - contextos\total DLC.Outputs[Salida de origen de OLE DB].Columns[Nombre_GCliente_AD2]"
+                      refId="Package\totales - contextos DCL\total DLC.Outputs[Salida de origen de OLE DB].Columns[Nombre_GCliente_AD2]"
                       codePage="1252"
                       dataType="str"
                       errorOrTruncationOperation="Conversión"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\totales - contextos\total DLC.Outputs[Salida de origen de OLE DB].ExternalColumns[Nombre_GCliente_AD2]"
+                      externalMetadataColumnId="Package\totales - contextos DCL\total DLC.Outputs[Salida de origen de OLE DB].ExternalColumns[Nombre_GCliente_AD2]"
                       length="20"
-                      lineageId="Package\totales - contextos\total DLC.Outputs[Salida de origen de OLE DB].Columns[Nombre_GCliente_AD2]"
+                      lineageId="Package\totales - contextos DCL\total DLC.Outputs[Salida de origen de OLE DB].Columns[Nombre_GCliente_AD2]"
                       name="Nombre_GCliente_AD2"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\totales - contextos\total DLC.Outputs[Salida de origen de OLE DB].Columns[Categoria]"
+                      refId="Package\totales - contextos DCL\total DLC.Outputs[Salida de origen de OLE DB].Columns[Categoria]"
                       codePage="1252"
                       dataType="str"
                       errorOrTruncationOperation="Conversión"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\totales - contextos\total DLC.Outputs[Salida de origen de OLE DB].ExternalColumns[Categoria]"
+                      externalMetadataColumnId="Package\totales - contextos DCL\total DLC.Outputs[Salida de origen de OLE DB].ExternalColumns[Categoria]"
                       length="40"
-                      lineageId="Package\totales - contextos\total DLC.Outputs[Salida de origen de OLE DB].Columns[Categoria]"
+                      lineageId="Package\totales - contextos DCL\total DLC.Outputs[Salida de origen de OLE DB].Columns[Categoria]"
                       name="Categoria"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\totales - contextos\total DLC.Outputs[Salida de origen de OLE DB].Columns[Marca]"
+                      refId="Package\totales - contextos DCL\total DLC.Outputs[Salida de origen de OLE DB].Columns[Marca]"
                       codePage="1252"
                       dataType="str"
                       errorOrTruncationOperation="Conversión"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\totales - contextos\total DLC.Outputs[Salida de origen de OLE DB].ExternalColumns[Marca]"
+                      externalMetadataColumnId="Package\totales - contextos DCL\total DLC.Outputs[Salida de origen de OLE DB].ExternalColumns[Marca]"
                       length="40"
-                      lineageId="Package\totales - contextos\total DLC.Outputs[Salida de origen de OLE DB].Columns[Marca]"
+                      lineageId="Package\totales - contextos DCL\total DLC.Outputs[Salida de origen de OLE DB].Columns[Marca]"
                       name="Marca"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\totales - contextos\total DLC.Outputs[Salida de origen de OLE DB].Columns[Linea]"
+                      refId="Package\totales - contextos DCL\total DLC.Outputs[Salida de origen de OLE DB].Columns[Linea]"
                       codePage="1252"
                       dataType="str"
                       errorOrTruncationOperation="Conversión"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\totales - contextos\total DLC.Outputs[Salida de origen de OLE DB].ExternalColumns[Linea]"
+                      externalMetadataColumnId="Package\totales - contextos DCL\total DLC.Outputs[Salida de origen de OLE DB].ExternalColumns[Linea]"
                       length="40"
-                      lineageId="Package\totales - contextos\total DLC.Outputs[Salida de origen de OLE DB].Columns[Linea]"
+                      lineageId="Package\totales - contextos DCL\total DLC.Outputs[Salida de origen de OLE DB].Columns[Linea]"
                       name="Linea"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\totales - contextos\total DLC.Outputs[Salida de origen de OLE DB].Columns[Kilos]"
+                      refId="Package\totales - contextos DCL\total DLC.Outputs[Salida de origen de OLE DB].Columns[Kilos]"
                       dataType="r8"
                       errorOrTruncationOperation="Conversión"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\totales - contextos\total DLC.Outputs[Salida de origen de OLE DB].ExternalColumns[Kilos]"
-                      lineageId="Package\totales - contextos\total DLC.Outputs[Salida de origen de OLE DB].Columns[Kilos]"
+                      externalMetadataColumnId="Package\totales - contextos DCL\total DLC.Outputs[Salida de origen de OLE DB].ExternalColumns[Kilos]"
+                      lineageId="Package\totales - contextos DCL\total DLC.Outputs[Salida de origen de OLE DB].Columns[Kilos]"
                       name="Kilos"
                       truncationRowDisposition="FailComponent" />
                   </outputColumns>
                   <externalMetadataColumns
                     isUsed="True">
                     <externalMetadataColumn
-                      refId="Package\totales - contextos\total DLC.Outputs[Salida de origen de OLE DB].ExternalColumns[Periodo]"
+                      refId="Package\totales - contextos DCL\total DLC.Outputs[Salida de origen de OLE DB].ExternalColumns[Periodo]"
                       codePage="1252"
                       dataType="str"
                       length="6"
                       name="Periodo" />
                     <externalMetadataColumn
-                      refId="Package\totales - contextos\total DLC.Outputs[Salida de origen de OLE DB].ExternalColumns[Director_Canal]"
+                      refId="Package\totales - contextos DCL\total DLC.Outputs[Salida de origen de OLE DB].ExternalColumns[Director_Canal]"
                       codePage="1252"
                       dataType="str"
                       length="40"
                       name="Director_Canal" />
                     <externalMetadataColumn
-                      refId="Package\totales - contextos\total DLC.Outputs[Salida de origen de OLE DB].ExternalColumns[NombreCanalAgrupado]"
+                      refId="Package\totales - contextos DCL\total DLC.Outputs[Salida de origen de OLE DB].ExternalColumns[NombreCanalAgrupado]"
                       codePage="1252"
                       dataType="str"
                       length="40"
                       name="NombreCanalAgrupado" />
                     <externalMetadataColumn
-                      refId="Package\totales - contextos\total DLC.Outputs[Salida de origen de OLE DB].ExternalColumns[Nombre_GCliente_AD2]"
+                      refId="Package\totales - contextos DCL\total DLC.Outputs[Salida de origen de OLE DB].ExternalColumns[Nombre_GCliente_AD2]"
                       codePage="1252"
                       dataType="str"
                       length="20"
                       name="Nombre_GCliente_AD2" />
                     <externalMetadataColumn
-                      refId="Package\totales - contextos\total DLC.Outputs[Salida de origen de OLE DB].ExternalColumns[Categoria]"
+                      refId="Package\totales - contextos DCL\total DLC.Outputs[Salida de origen de OLE DB].ExternalColumns[Categoria]"
                       codePage="1252"
                       dataType="str"
                       length="40"
                       name="Categoria" />
                     <externalMetadataColumn
-                      refId="Package\totales - contextos\total DLC.Outputs[Salida de origen de OLE DB].ExternalColumns[Marca]"
+                      refId="Package\totales - contextos DCL\total DLC.Outputs[Salida de origen de OLE DB].ExternalColumns[Marca]"
                       codePage="1252"
                       dataType="str"
                       length="40"
                       name="Marca" />
                     <externalMetadataColumn
-                      refId="Package\totales - contextos\total DLC.Outputs[Salida de origen de OLE DB].ExternalColumns[Linea]"
+                      refId="Package\totales - contextos DCL\total DLC.Outputs[Salida de origen de OLE DB].ExternalColumns[Linea]"
                       codePage="1252"
                       dataType="str"
                       length="40"
                       name="Linea" />
                     <externalMetadataColumn
-                      refId="Package\totales - contextos\total DLC.Outputs[Salida de origen de OLE DB].ExternalColumns[Kilos]"
+                      refId="Package\totales - contextos DCL\total DLC.Outputs[Salida de origen de OLE DB].ExternalColumns[Kilos]"
                       dataType="r8"
                       name="Kilos" />
                   </externalMetadataColumns>
                 </output>
                 <output
-                  refId="Package\totales - contextos\total DLC.Outputs[Salida de error de origen de OLE DB]"
+                  refId="Package\totales - contextos DCL\total DLC.Outputs[Salida de error de origen de OLE DB]"
                   isErrorOut="true"
                   name="Salida de error de origen de OLE DB">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\totales - contextos\total DLC.Outputs[Salida de error de origen de OLE DB].Columns[Periodo]"
+                      refId="Package\totales - contextos DCL\total DLC.Outputs[Salida de error de origen de OLE DB].Columns[Periodo]"
                       codePage="1252"
                       dataType="str"
                       length="6"
-                      lineageId="Package\totales - contextos\total DLC.Outputs[Salida de error de origen de OLE DB].Columns[Periodo]"
+                      lineageId="Package\totales - contextos DCL\total DLC.Outputs[Salida de error de origen de OLE DB].Columns[Periodo]"
                       name="Periodo" />
                     <outputColumn
-                      refId="Package\totales - contextos\total DLC.Outputs[Salida de error de origen de OLE DB].Columns[Director_Canal]"
+                      refId="Package\totales - contextos DCL\total DLC.Outputs[Salida de error de origen de OLE DB].Columns[Director_Canal]"
                       codePage="1252"
                       dataType="str"
                       length="40"
-                      lineageId="Package\totales - contextos\total DLC.Outputs[Salida de error de origen de OLE DB].Columns[Director_Canal]"
+                      lineageId="Package\totales - contextos DCL\total DLC.Outputs[Salida de error de origen de OLE DB].Columns[Director_Canal]"
                       name="Director_Canal" />
                     <outputColumn
-                      refId="Package\totales - contextos\total DLC.Outputs[Salida de error de origen de OLE DB].Columns[NombreCanalAgrupado]"
+                      refId="Package\totales - contextos DCL\total DLC.Outputs[Salida de error de origen de OLE DB].Columns[NombreCanalAgrupado]"
                       codePage="1252"
                       dataType="str"
                       length="40"
-                      lineageId="Package\totales - contextos\total DLC.Outputs[Salida de error de origen de OLE DB].Columns[NombreCanalAgrupado]"
+                      lineageId="Package\totales - contextos DCL\total DLC.Outputs[Salida de error de origen de OLE DB].Columns[NombreCanalAgrupado]"
                       name="NombreCanalAgrupado" />
                     <outputColumn
-                      refId="Package\totales - contextos\total DLC.Outputs[Salida de error de origen de OLE DB].Columns[Nombre_GCliente_AD2]"
+                      refId="Package\totales - contextos DCL\total DLC.Outputs[Salida de error de origen de OLE DB].Columns[Nombre_GCliente_AD2]"
                       codePage="1252"
                       dataType="str"
                       length="20"
-                      lineageId="Package\totales - contextos\total DLC.Outputs[Salida de error de origen de OLE DB].Columns[Nombre_GCliente_AD2]"
+                      lineageId="Package\totales - contextos DCL\total DLC.Outputs[Salida de error de origen de OLE DB].Columns[Nombre_GCliente_AD2]"
                       name="Nombre_GCliente_AD2" />
                     <outputColumn
-                      refId="Package\totales - contextos\total DLC.Outputs[Salida de error de origen de OLE DB].Columns[Categoria]"
+                      refId="Package\totales - contextos DCL\total DLC.Outputs[Salida de error de origen de OLE DB].Columns[Categoria]"
                       codePage="1252"
                       dataType="str"
                       length="40"
-                      lineageId="Package\totales - contextos\total DLC.Outputs[Salida de error de origen de OLE DB].Columns[Categoria]"
+                      lineageId="Package\totales - contextos DCL\total DLC.Outputs[Salida de error de origen de OLE DB].Columns[Categoria]"
                       name="Categoria" />
                     <outputColumn
-                      refId="Package\totales - contextos\total DLC.Outputs[Salida de error de origen de OLE DB].Columns[Marca]"
+                      refId="Package\totales - contextos DCL\total DLC.Outputs[Salida de error de origen de OLE DB].Columns[Marca]"
                       codePage="1252"
                       dataType="str"
                       length="40"
-                      lineageId="Package\totales - contextos\total DLC.Outputs[Salida de error de origen de OLE DB].Columns[Marca]"
+                      lineageId="Package\totales - contextos DCL\total DLC.Outputs[Salida de error de origen de OLE DB].Columns[Marca]"
                       name="Marca" />
                     <outputColumn
-                      refId="Package\totales - contextos\total DLC.Outputs[Salida de error de origen de OLE DB].Columns[Linea]"
+                      refId="Package\totales - contextos DCL\total DLC.Outputs[Salida de error de origen de OLE DB].Columns[Linea]"
                       codePage="1252"
                       dataType="str"
                       length="40"
-                      lineageId="Package\totales - contextos\total DLC.Outputs[Salida de error de origen de OLE DB].Columns[Linea]"
+                      lineageId="Package\totales - contextos DCL\total DLC.Outputs[Salida de error de origen de OLE DB].Columns[Linea]"
                       name="Linea" />
                     <outputColumn
-                      refId="Package\totales - contextos\total DLC.Outputs[Salida de error de origen de OLE DB].Columns[Kilos]"
+                      refId="Package\totales - contextos DCL\total DLC.Outputs[Salida de error de origen de OLE DB].Columns[Kilos]"
                       dataType="r8"
-                      lineageId="Package\totales - contextos\total DLC.Outputs[Salida de error de origen de OLE DB].Columns[Kilos]"
+                      lineageId="Package\totales - contextos DCL\total DLC.Outputs[Salida de error de origen de OLE DB].Columns[Kilos]"
                       name="Kilos" />
                     <outputColumn
-                      refId="Package\totales - contextos\total DLC.Outputs[Salida de error de origen de OLE DB].Columns[ErrorCode]"
+                      refId="Package\totales - contextos DCL\total DLC.Outputs[Salida de error de origen de OLE DB].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\totales - contextos\total DLC.Outputs[Salida de error de origen de OLE DB].Columns[ErrorCode]"
+                      lineageId="Package\totales - contextos DCL\total DLC.Outputs[Salida de error de origen de OLE DB].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\totales - contextos\total DLC.Outputs[Salida de error de origen de OLE DB].Columns[ErrorColumn]"
+                      refId="Package\totales - contextos DCL\total DLC.Outputs[Salida de error de origen de OLE DB].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\totales - contextos\total DLC.Outputs[Salida de error de origen de OLE DB].Columns[ErrorColumn]"
+                      lineageId="Package\totales - contextos DCL\total DLC.Outputs[Salida de error de origen de OLE DB].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -1034,10 +1623,10 @@ ORDER BY BaseEstadisticaBc.NombreCanalAgrupado</property>
           </components>
           <paths>
             <path
-              refId="Package\totales - contextos.Paths[Salida de origen de OLE DB]"
-              endId="Package\totales - contextos\BaseEstadisticaBcTDLC.Inputs[Entrada de destino de OLE DB]"
+              refId="Package\totales - contextos DCL.Paths[Salida de origen de OLE DB]"
+              endId="Package\totales - contextos DCL\BaseEstadisticaBcTDLC.Inputs[Entrada de destino de OLE DB]"
               name="Salida de origen de OLE DB"
-              startId="Package\totales - contextos\total DLC.Outputs[Salida de origen de OLE DB]" />
+              startId="Package\totales - contextos DCL\total DLC.Outputs[Salida de origen de OLE DB]" />
           </paths>
         </pipeline>
       </DTS:ObjectData>
@@ -1071,7 +1660,7 @@ ORDER BY BaseEstadisticaBc.NombreCanalAgrupado</property>
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{B14F8D7C-877B-480D-B1F8-29A89D98D78C}"
-          SQLTask:SqlStatementSource="&#xA;truncate table [lukerVen].[tmp].[BaseEstadisticaBcTDLC]&#xA;&#xA;GO&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          SQLTask:SqlStatementSource="&#xA;truncate table [lukerVen].[tmp].[BaseEstadisticaBcTDLC]&#xA;&#xA;GO&#xA;truncate table  [lukerVen].[tmp].[BaseEstadisticaBcTDLC_AL]&#xA;go" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
@@ -1115,7 +1704,7 @@ ORDER BY BaseEstadisticaBc.NombreCanalAgrupado</property>
       DTS:From="Package\trnc tbl"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Restricción 2"
-      DTS:To="Package\totales - contextos" />
+      DTS:To="Package\totales - contextos DCL" />
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Restricción 3]"
       DTS:CreationName=""
@@ -1128,7 +1717,7 @@ ORDER BY BaseEstadisticaBc.NombreCanalAgrupado</property>
       DTS:refId="Package.PrecedenceConstraints[Restricción 4]"
       DTS:CreationName=""
       DTS:DTSID="{9BF691F8-4E55-43A6-AEC0-8FA25656EC15}"
-      DTS:From="Package\totales - contextos"
+      DTS:From="Package\totales - contextos DCL"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Restricción 4"
       DTS:To="Package\volumen hurfano" />
@@ -1140,6 +1729,30 @@ ORDER BY BaseEstadisticaBc.NombreCanalAgrupado</property>
       DTS:LogicalAnd="True"
       DTS:ObjectName="Restricción 5"
       DTS:To="Package\trnc tbl" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Restricción 6]"
+      DTS:CreationName=""
+      DTS:DTSID="{B095877E-5C07-47BC-8225-74838024D10C}"
+      DTS:From="Package\trnc tbl"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Restricción 6"
+      DTS:To="Package\totales - contextos AL" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Restricción 7]"
+      DTS:CreationName=""
+      DTS:DTSID="{CE667290-4F97-456B-B259-4202D2352F10}"
+      DTS:From="Package\totales - contextos DCL"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Restricción 7"
+      DTS:To="Package\totales - contextos AL" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Restricción 8]"
+      DTS:CreationName=""
+      DTS:DTSID="{CB007F91-4245-4B7C-BA3E-4FF9DADD9E7D}"
+      DTS:From="Package\totales - contextos AL"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Restricción 8"
+      DTS:To="Package\volumen hurfano" />
   </DTS:PrecedenceConstraints>
   <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
 <!--Esta sección CDATA contiene la información de diseño del paquete. Esta sección incluye información como, por ejemplo, las coordenadas (x,y), el ancho y el alto.-->
@@ -1152,38 +1765,38 @@ ORDER BY BaseEstadisticaBc.NombreCanalAgrupado</property>
     design-time-name="Package">
     <LayoutInfo>
       <GraphLayout
-        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="162.4,41.6"
           Id="Package\Clones Estadistica"
-          TopLeft="37.9,310.3" />
+          TopLeft="173.3,310.3" />
         <NodeLayout
           Size="227.2,41.6"
           Id="Package\Foto Canal agrupado y Jer Prod"
-          TopLeft="5.50000000000003,208.7" />
+          TopLeft="140.9,208.7" />
         <NodeLayout
           Size="161.6,41.6"
           Id="Package\load Periodo base"
-          TopLeft="38.3,107.1" />
+          TopLeft="173.7,107.1" />
         <NodeLayout
-          Size="165.6,41.6"
-          Id="Package\totales - contextos"
-          TopLeft="36.3000000000001,513.5" />
+          Size="188,41.6"
+          Id="Package\totales - contextos DCL"
+          TopLeft="5.50000000000006,513.5" />
         <NodeLayout
           Size="190.4,41.6"
           Id="Package\trctbl Estadistica base C"
-          TopLeft="23.9,5.49999999999995" />
+          TopLeft="159.3,5.49999999999995" />
         <NodeLayout
           Size="112,41.6"
           Id="Package\trnc tbl"
-          TopLeft="63.1000000000001,411.9" />
+          TopLeft="198.5,411.9" />
         <NodeLayout
           Size="158.4,41.6"
           Id="Package\volumen hurfano"
-          TopLeft="39.9000000000001,615.1" />
+          TopLeft="20.3000000000001,716.699999999999" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Restricción]"
-          TopLeft="119.1,47.1">
+          TopLeft="254.5,47.1">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -1205,18 +1818,18 @@ ORDER BY BaseEstadisticaBc.NombreCanalAgrupado</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Restricción 1]"
-          TopLeft="119.1,148.7">
+          TopLeft="254.5,148.7">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,60"
+              EndConnector="0,59.9999999999999"
               Start="0,0"
-              End="0,52.5">
+              End="0,52.4999999999999">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,52.5" />
+                    End="0,52.4999999999999" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -1227,18 +1840,30 @@ ORDER BY BaseEstadisticaBc.NombreCanalAgrupado</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Restricción 2]"
-          TopLeft="119.1,453.5">
+          TopLeft="237.166666666667,453.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,59.9999999999999"
+              EndConnector="-137.666666666667,59.9999999999999"
               Start="0,0"
-              End="0,52.4999999999999">
+              End="-137.666666666667,52.4999999999999">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,52.4999999999999" />
+                    End="0,20.5070422535211" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,20.5070422535211"
+                    Point2="0,24.5070422535211"
+                    Point3="-4,24.5070422535211" />
+                  <mssgle:LineSegment
+                    End="-133.666666666667,24.5070422535211" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-133.666666666667,24.5070422535211"
+                    Point2="-137.666666666667,24.5070422535211"
+                    Point3="-137.666666666667,28.5070422535211" />
+                  <mssgle:LineSegment
+                    End="-137.666666666667,52.4999999999999" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -1249,18 +1874,18 @@ ORDER BY BaseEstadisticaBc.NombreCanalAgrupado</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Restricción 3]"
-          TopLeft="119.1,250.3">
+          TopLeft="254.5,250.3">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,60"
+              EndConnector="0,59.9999999999999"
               Start="0,0"
-              End="0,52.5">
+              End="0,52.4999999999999">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,52.5" />
+                    End="0,52.4999999999999" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -1271,7 +1896,29 @@ ORDER BY BaseEstadisticaBc.NombreCanalAgrupado</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Restricción 4]"
-          TopLeft="119.1,555.1">
+          TopLeft="71.9666666666667,555.1">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,161.6"
+              Start="0,0"
+              End="0,154.1">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,154.1" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Restricción 5]"
+          TopLeft="254.5,351.9">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -1291,20 +1938,104 @@ ORDER BY BaseEstadisticaBc.NombreCanalAgrupado</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
+        <NodeLayout
+          Size="180.8,41.6"
+          Id="Package\totales - contextos AL"
+          TopLeft="164.1,615.099999999999" />
         <EdgeLayout
-          Id="Package.PrecedenceConstraints[Restricción 5]"
-          TopLeft="119.1,351.9">
+          Id="Package.PrecedenceConstraints[Restricción 6]"
+          TopLeft="271.833333333333,453.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,59.9999999999999"
+              EndConnector="11.4666666666667,161.6"
               Start="0,0"
-              End="0,52.4999999999999">
+              End="11.4666666666667,154.1">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,52.4999999999999" />
+                    End="0,77.3336200276454" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,77.3336200276454"
+                    Point2="0,81.3336200276454"
+                    Point3="4,81.3336200276454" />
+                  <mssgle:LineSegment
+                    End="7.4666666666667,81.3336200276454" />
+                  <mssgle:CubicBezierSegment
+                    Point1="7.4666666666667,81.3336200276454"
+                    Point2="11.4666666666667,81.3336200276454"
+                    Point3="11.4666666666667,85.3336200276454" />
+                  <mssgle:LineSegment
+                    End="11.4666666666667,154.1" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Restricción 7]"
+          TopLeft="129.5,555.1">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="96.2,59.9999999999999"
+              Start="0,0"
+              End="96.2,52.4999999999999">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,25.9875604699377" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,25.9875604699377"
+                    Point2="0,29.9875604699377"
+                    Point3="4,29.9875604699377" />
+                  <mssgle:LineSegment
+                    End="92.2,29.9875604699377" />
+                  <mssgle:CubicBezierSegment
+                    Point1="92.2,29.9875604699377"
+                    Point2="96.2,29.9875604699377"
+                    Point3="96.2,33.9875604699377" />
+                  <mssgle:LineSegment
+                    End="96.2,52.4999999999999" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Restricción 8]"
+          TopLeft="254.5,656.699999999999">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-129.933333333333,59.9999999999999"
+              Start="0,0"
+              End="-129.933333333333,52.4999999999999">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,31.6399999999999" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,31.6399999999999"
+                    Point2="0,35.6399999999999"
+                    Point3="-4,35.6399999999999" />
+                  <mssgle:LineSegment
+                    End="-125.933333333333,35.6399999999999" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-125.933333333333,35.6399999999999"
+                    Point2="-129.933333333333,35.6399999999999"
+                    Point3="-129.933333333333,39.6399999999999" />
+                  <mssgle:LineSegment
+                    End="-129.933333333333,52.4999999999999" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -1376,21 +2107,82 @@ ORDER BY BaseEstadisticaBc.NombreCanalAgrupado</property>
     </Properties>
   </PipelineComponentMetadata>
   <TaskHost
-    design-time-name="Package\totales - contextos">
+    design-time-name="Package\totales - contextos DCL">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="186.4,41.6"
+          Id="Package\totales - contextos DCL\BaseEstadisticaBcTDLC"
+          TopLeft="68.8,147.2" />
+        <NodeLayout
+          Size="121.6,41.6"
+          Id="Package\totales - contextos DCL\total DLC"
+          TopLeft="94.4,56" />
+        <EdgeLayout
+          Id="Package\totales - contextos DCL.Paths[Salida de origen de OLE DB]"
+          TopLeft="158.6,97.6">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,49.6"
+              Start="0,0"
+              End="0,42.1">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,42.1" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\totales - contextos DCL\BaseEstadisticaBcTDLC">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\totales - contextos DCL\total DLC">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\totales - contextos AL">
     <LayoutInfo>
       <GraphLayout
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="186.4,41.6"
-          Id="Package\totales - contextos\BaseEstadisticaBcTDLC"
+          Id="Package\totales - contextos AL\BaseEstadisticaBcTDLC"
           TopLeft="68.8,147.2" />
         <NodeLayout
-          Size="121.6,41.6"
-          Id="Package\totales - contextos\total DLC"
+          Size="136.8,41.6"
+          Id="Package\totales - contextos AL\total DLC AL"
           TopLeft="94.4,56" />
         <EdgeLayout
-          Id="Package\totales - contextos.Paths[Salida de origen de OLE DB]"
-          TopLeft="158.6,97.6">
+          Id="Package\totales - contextos AL.Paths[Salida de origen de OLE DB]"
+          TopLeft="162.4,97.6">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -1414,7 +2206,7 @@ ORDER BY BaseEstadisticaBc.NombreCanalAgrupado</property>
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\totales - contextos\BaseEstadisticaBcTDLC">
+    design-time-name="Package\totales - contextos AL\BaseEstadisticaBcTDLC">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -1427,7 +2219,7 @@ ORDER BY BaseEstadisticaBc.NombreCanalAgrupado</property>
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\totales - contextos\total DLC">
+    design-time-name="Package\totales - contextos AL\total DLC AL">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
