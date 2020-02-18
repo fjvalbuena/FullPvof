@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="C01 BaseEstadisticaConv"
   DTS:PackageType="5"
-  DTS:VersionBuild="23"
-  DTS:VersionGUID="{72A881DC-38E9-46B1-9CE5-097FFA242397}">
+  DTS:VersionBuild="25"
+  DTS:VersionGUID="{8BF788EC-A1ED-430E-8BA9-8D004C4AECAF}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -27,7 +27,7 @@
           <DTS:Password
             DTS:Name="Password"
             Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAuR1Gdsnx50KES8/66vqaKwAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAACWH9WzlS2xBsgI/kp84+OwGKySqKKi0Ay15kRnRWo8uAAAAAAOgAAAAAIAACAAAADUAHpNI/U0wKWpFsUwrqaECqjH28Sa5stbWpLnIWkk6iAAAABgdqblq1rwRv8F/XKJzQqpmfAqNcF5NQzeUKcup7vwckAAAACEHCrSaDTyhxKvMrzcqTZ4b88erPpj/N+yZ+q6jnr+F10jcW/0y/m7dSGPAw7ZY8aPGFdSv3mRk9XIuEPKf4qx</DTS:Password>
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAuR1Gdsnx50KES8/66vqaKwAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAAD/zDVe2ao8IcnMSBmnT+mh2IHQldLr7n8pnIEOms+pBgAAAAAOgAAAAAIAACAAAACyS+vKHMf7fTih6asb/EnHaazI+RatA3X0W+o4nYm4GSAAAABvYZ5m/6oRSxIis8geNVuuOGPJSELZWm4nZrWq3B+zYkAAAADsxkcCe2v3t3qTCsmUxlPXJODMoiVoIGTWdas5F779p7LABKAEeSUJhQ62zawxhTRBochcI4KwSbvzQSdYB8TY</DTS:Password>
         </DTS:ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
@@ -63,7 +63,7 @@
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{B14F8D7C-877B-480D-B1F8-29A89D98D78C}"
-          SQLTask:SqlStatementSource="/**&#xA;&#x9;Shoot jerarquias&#xA;**/&#xA;update BaseEstadisticaBc set &#xA;  BaseEstadisticaBc.Director_Canal= ClientesVW.Director_Canal&#xA;, BaseEstadisticaBc.Cod_Canal= ClientesVW.Cod_Canal&#xA;, BaseEstadisticaBc.Nombre_GCliente_AD2= ClientesVW.Nombre_GCliente_AD2&#xA;, BaseEstadisticaBc.Categoria= Productos.Categoria&#xA;, BaseEstadisticaBc.Marca= Productos.Marca&#xA;, BaseEstadisticaBc.Linea= Productos.Linea&#xA;FROM lukerVen.PVOF.BaseEstadisticaBc BaseEstadisticaBc&#xA;, lukerVen.SD.ClientesVW ClientesVW, lukerVen.SD.Productos Productos&#xA;WHERE BaseEstadisticaBc.Cod_Cliente = ClientesVW.Cod_Cliente &#xA;AND Productos.Cod_SKU = BaseEstadisticaBc.Cod_SKU&#xA;&#xA;-- Canal Agrupado&#xA;&#xA;update BaseEstadisticaBc set &#xA;BaseEstadisticaBc.NombreCanalAgrupado= xppt_canalagrupado.NombreCanalAgrupado&#xA;FROM lukerVen.PVOF.BaseEstadisticaBc BaseEstadisticaBc&#xA;, lukerVen.dbo.xppt_canalagrupado xppt_canalagrupado&#xA;WHERE BaseEstadisticaBc.Cod_Canal = xppt_canalagrupado.Cod_Canal &#xA;AND BaseEstadisticaBc.Director_Canal = xppt_canalagrupado.Director_Canal&#xA;&#xA;-- agrupa gclientes&#xA;update BaseEstadisticaBc set&#xA;BaseEstadisticaBc.Nombre_GCliente_AD2= xppt_gcliente_ad2_agrupado.Nombre_Agrupado_AD2&#xA;FROM lukerVen.PVOF.BaseEstadisticaBc BaseEstadisticaBc&#xA;, lukerVen.dbo.xppt_gcliente_ad2_agrupado xppt_gcliente_ad2_agrupado&#xA;WHERE BaseEstadisticaBc.Nombre_GCliente_AD2 = xppt_gcliente_ad2_agrupado.Nombre_GCliente_AD2 &#xA;AND ((BaseEstadisticaBc.Cod_Canal='14'))&#xA;&#xA;&#xA;--- Linea agrupada&#xA;&#xA;update BaseEstadisticaBc set&#xA;BaseEstadisticaBc.Linea= xppt_linea_agrupada.Linea_Agrupada&#xA;FROM lukerVen.PVOF.BaseEstadisticaBc BaseEstadisticaBc&#xA;, lukerVen.dbo.xppt_linea_agrupada xppt_linea_agrupada&#xA;WHERE BaseEstadisticaBc.Linea = xppt_linea_agrupada.Linea" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          SQLTask:SqlStatementSource="/**&#xA;&#x9;Shoot jerarquias&#xA;**/&#xA;update BaseEstadisticaBc set &#xA;  BaseEstadisticaBc.Director_Canal= ClientesVW.Director_Canal&#xA;, BaseEstadisticaBc.Cod_Canal= ClientesVW.Cod_Canal&#xA;, BaseEstadisticaBc.Nombre_GCliente_AD2= ClientesVW.Nombre_GCliente_AD2&#xA;, BaseEstadisticaBc.Categoria= Productos.Categoria&#xA;, BaseEstadisticaBc.Marca= Productos.Marca&#xA;, BaseEstadisticaBc.Linea= Productos.Linea&#xA;&#xA;, BaseEstadisticaBc.Nombre_Oficina_Ventas= ClientesVW.Nombre_Oficina_Ventas&#xA;, BaseEstadisticaBc.Lider_Regional= ClientesVW.Lider_Regional&#xA;&#xA;FROM lukerVen.PVOF.BaseEstadisticaBc BaseEstadisticaBc&#xA;, lukerVen.SD.ClientesVW ClientesVW, lukerVen.SD.Productos Productos&#xA;WHERE BaseEstadisticaBc.Cod_Cliente = ClientesVW.Cod_Cliente &#xA;AND Productos.Cod_SKU = BaseEstadisticaBc.Cod_SKU&#xA;&#xA;-- Canal Agrupado&#xA;&#xA;update BaseEstadisticaBc set &#xA;BaseEstadisticaBc.NombreCanalAgrupado= xppt_canalagrupado.NombreCanalAgrupado&#xA;FROM lukerVen.PVOF.BaseEstadisticaBc BaseEstadisticaBc&#xA;, lukerVen.dbo.xppt_canalagrupado xppt_canalagrupado&#xA;WHERE BaseEstadisticaBc.Cod_Canal = xppt_canalagrupado.Cod_Canal &#xA;AND BaseEstadisticaBc.Director_Canal = xppt_canalagrupado.Director_Canal&#xA;&#xA;-- agrupa gclientes&#xA;update BaseEstadisticaBc set&#xA;BaseEstadisticaBc.Nombre_GCliente_AD2= xppt_gcliente_ad2_agrupado.Nombre_Agrupado_AD2&#xA;FROM lukerVen.PVOF.BaseEstadisticaBc BaseEstadisticaBc&#xA;, lukerVen.dbo.xppt_gcliente_ad2_agrupado xppt_gcliente_ad2_agrupado&#xA;WHERE BaseEstadisticaBc.Nombre_GCliente_AD2 = xppt_gcliente_ad2_agrupado.Nombre_GCliente_AD2 &#xA;AND ((BaseEstadisticaBc.Cod_Canal='14'))&#xA;&#xA;&#xA;--- Linea agrupada&#xA;&#xA;update BaseEstadisticaBc set&#xA;BaseEstadisticaBc.Linea= xppt_linea_agrupada.Linea_Agrupada&#xA;FROM lukerVen.PVOF.BaseEstadisticaBc BaseEstadisticaBc&#xA;, lukerVen.dbo.xppt_linea_agrupada xppt_linea_agrupada&#xA;WHERE BaseEstadisticaBc.Linea = xppt_linea_agrupada.Linea" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
@@ -269,6 +269,18 @@
                       dataType="str"
                       length="40"
                       name="Linea" />
+                    <externalMetadataColumn
+                      refId="Package\load Periodo base\BaseEstadisticaBc.Inputs[Entrada de destino de OLE DB].ExternalColumns[Nombre_Oficina_Ventas]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="Nombre_Oficina_Ventas" />
+                    <externalMetadataColumn
+                      refId="Package\load Periodo base\BaseEstadisticaBc.Inputs[Entrada de destino de OLE DB].ExternalColumns[Lider_Regional]"
+                      codePage="1252"
+                      dataType="str"
+                      length="35"
+                      name="Lider_Regional" />
                   </externalMetadataColumns>
                 </input>
               </inputs>

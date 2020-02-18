@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="L01 VolPVOF_DLC_OL"
   DTS:PackageType="5"
-  DTS:VersionBuild="9"
-  DTS:VersionGUID="{28009ED5-93B7-4EB6-8EB6-094BA3A54A99}">
+  DTS:VersionBuild="10"
+  DTS:VersionGUID="{7503BE9B-A951-47B7-9D87-E7D970732EED}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -27,7 +27,7 @@
           <DTS:Password
             DTS:Name="Password"
             Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAuR1Gdsnx50KES8/66vqaKwAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAABsjMKDovAMEx+gY2DA5E6XsKTbkX7g/uiPLWU7N3+BXgAAAAAOgAAAAAIAACAAAADpVUMl555wx0XaEqBV6GiIfqmk7X3pBoR+sJpcW1NnkyAAAACsJOnhJzfZQBBml/6Cif/cGZCq0OouGhrA3F8LHifgN0AAAABAfzY81FJcJTqPYDXel1DfF21/PA9b/Lly6uOIEmCuDYgn7UmTzlwyI/htzeEC498ccD+jo/ZHoaU9k15zL8hO</DTS:Password>
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAuR1Gdsnx50KES8/66vqaKwAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAAAr2g3OPjcNbNIAP/9e8k9FJ+6ZEcPLP180bbWBpwg3WAAAAAAOgAAAAAIAACAAAAClRIPUvTZXg5/k/c0r9voK7cSwIoYHoPse5TP+POr8tSAAAADhKrtbpciSide97knKG6uPYZvqW/XBIj6xja3xWtsoXEAAAAD0iOiBi1kFfTeQDq3cxF+0ff9evH6+yO99TqnrWLuK0P82bA7Q2MKMIUAcRmOHRGt8J7rvEpG7nyFV1eWa26rL</DTS:Password>
         </DTS:ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
@@ -105,8 +105,8 @@
                   dataType="System.String"
                   description="Comando SQL para ejecutar."
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">SELECT xppt_pvof_cons_dir_lin_can.PeriodoAAMM, xppt_pvof_cons_dir_lin_can.Director_Canal, xppt_pvof_cons_dir_lin_can.Categoria, xppt_pvof_cons_dir_lin_can.Marca, xppt_pvof_cons_dir_lin_can.Linea, xppt_pvof_cons_dir_lin_can.NombreCanalAgrupado, xppt_pvof_cons_dir_lin_can.Nombre_GCliente_AD2, xppt_pvof_cons_dir_lin_can.Kilos1, xppt_pvof_cons_dir_lin_can.Kilos2, xppt_pvof_cons_dir_lin_can.Kilos3, '' AS 'OrphEstrLin', '' AS 'OrphVol'
-FROM lukerVen.dbo.xppt_pvof_cons_dir_lin_can xppt_pvof_cons_dir_lin_can</property>
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">SELECT xppt_pvofconsdirlincanoflid.PeriodoAAMM, xppt_pvofconsdirlincanoflid.Director_Canal, xppt_pvofconsdirlincanoflid.Categoria, xppt_pvofconsdirlincanoflid.Marca, xppt_pvofconsdirlincanoflid.Linea, xppt_pvofconsdirlincanoflid.NombreCanalAgrupado, xppt_pvofconsdirlincanoflid.Nombre_Oficina_Ventas, xppt_pvofconsdirlincanoflid.Lider_Regional, xppt_pvofconsdirlincanoflid.Kilos1, xppt_pvofconsdirlincanoflid.Kilos2, xppt_pvofconsdirlincanoflid.Kilos3, '' AS 'OrphEstrLin', '' AS 'OrphVol'
+FROM lukerVen.dbo.xppt_pvofconsdirlincanoflid xppt_pvofconsdirlincanoflid</property>
                 <property
                   dataType="System.String"
                   description="Variable que contiene el comando SQL para ejecutar."
@@ -183,16 +183,6 @@ FROM lukerVen.dbo.xppt_pvof_cons_dir_lin_can xppt_pvof_cons_dir_lin_can</propert
                       name="NombreCanalAgrupado"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\load vol from stgn\load from stgn.Outputs[Salida de origen de OLE DB].Columns[Nombre_GCliente_AD2]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Conversión"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\load vol from stgn\load from stgn.Outputs[Salida de origen de OLE DB].ExternalColumns[Nombre_GCliente_AD2]"
-                      length="40"
-                      lineageId="Package\load vol from stgn\load from stgn.Outputs[Salida de origen de OLE DB].Columns[Nombre_GCliente_AD2]"
-                      name="Nombre_GCliente_AD2"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
                       refId="Package\load vol from stgn\load from stgn.Outputs[Salida de origen de OLE DB].Columns[Kilos1]"
                       dataType="r8"
                       errorOrTruncationOperation="Conversión"
@@ -261,6 +251,26 @@ FROM lukerVen.dbo.xppt_pvof_cons_dir_lin_can xppt_pvof_cons_dir_lin_can</propert
                       lineageId="Package\load vol from stgn\load from stgn.Outputs[Salida de origen de OLE DB].Columns[Marca]"
                       name="Marca"
                       truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\load vol from stgn\load from stgn.Outputs[Salida de origen de OLE DB].Columns[Nombre_Oficina_Ventas]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\load vol from stgn\load from stgn.Outputs[Salida de origen de OLE DB].ExternalColumns[Nombre_Oficina_Ventas]"
+                      length="20"
+                      lineageId="Package\load vol from stgn\load from stgn.Outputs[Salida de origen de OLE DB].Columns[Nombre_Oficina_Ventas]"
+                      name="Nombre_Oficina_Ventas"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\load vol from stgn\load from stgn.Outputs[Salida de origen de OLE DB].Columns[Lider_Regional]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\load vol from stgn\load from stgn.Outputs[Salida de origen de OLE DB].ExternalColumns[Lider_Regional]"
+                      length="35"
+                      lineageId="Package\load vol from stgn\load from stgn.Outputs[Salida de origen de OLE DB].Columns[Lider_Regional]"
+                      name="Lider_Regional"
+                      truncationRowDisposition="FailComponent" />
                   </outputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -284,11 +294,6 @@ FROM lukerVen.dbo.xppt_pvof_cons_dir_lin_can xppt_pvof_cons_dir_lin_can</propert
                       dataType="wstr"
                       length="40"
                       name="NombreCanalAgrupado" />
-                    <externalMetadataColumn
-                      refId="Package\load vol from stgn\load from stgn.Outputs[Salida de origen de OLE DB].ExternalColumns[Nombre_GCliente_AD2]"
-                      dataType="wstr"
-                      length="40"
-                      name="Nombre_GCliente_AD2" />
                     <externalMetadataColumn
                       refId="Package\load vol from stgn\load from stgn.Outputs[Salida de origen de OLE DB].ExternalColumns[Kilos1]"
                       dataType="r8"
@@ -323,6 +328,16 @@ FROM lukerVen.dbo.xppt_pvof_cons_dir_lin_can xppt_pvof_cons_dir_lin_can</propert
                       dataType="wstr"
                       length="40"
                       name="Marca" />
+                    <externalMetadataColumn
+                      refId="Package\load vol from stgn\load from stgn.Outputs[Salida de origen de OLE DB].ExternalColumns[Nombre_Oficina_Ventas]"
+                      dataType="wstr"
+                      length="20"
+                      name="Nombre_Oficina_Ventas" />
+                    <externalMetadataColumn
+                      refId="Package\load vol from stgn\load from stgn.Outputs[Salida de origen de OLE DB].ExternalColumns[Lider_Regional]"
+                      dataType="wstr"
+                      length="35"
+                      name="Lider_Regional" />
                   </externalMetadataColumns>
                 </output>
                 <output
@@ -367,11 +382,17 @@ FROM lukerVen.dbo.xppt_pvof_cons_dir_lin_can xppt_pvof_cons_dir_lin_can</propert
                       lineageId="Package\load vol from stgn\load from stgn.Outputs[Salida de error de origen de OLE DB].Columns[NombreCanalAgrupado]"
                       name="NombreCanalAgrupado" />
                     <outputColumn
-                      refId="Package\load vol from stgn\load from stgn.Outputs[Salida de error de origen de OLE DB].Columns[Nombre_GCliente_AD2]"
+                      refId="Package\load vol from stgn\load from stgn.Outputs[Salida de error de origen de OLE DB].Columns[Nombre_Oficina_Ventas]"
                       dataType="wstr"
-                      length="40"
-                      lineageId="Package\load vol from stgn\load from stgn.Outputs[Salida de error de origen de OLE DB].Columns[Nombre_GCliente_AD2]"
-                      name="Nombre_GCliente_AD2" />
+                      length="20"
+                      lineageId="Package\load vol from stgn\load from stgn.Outputs[Salida de error de origen de OLE DB].Columns[Nombre_Oficina_Ventas]"
+                      name="Nombre_Oficina_Ventas" />
+                    <outputColumn
+                      refId="Package\load vol from stgn\load from stgn.Outputs[Salida de error de origen de OLE DB].Columns[Lider_Regional]"
+                      dataType="wstr"
+                      length="35"
+                      lineageId="Package\load vol from stgn\load from stgn.Outputs[Salida de error de origen de OLE DB].Columns[Lider_Regional]"
+                      name="Lider_Regional" />
                     <outputColumn
                       refId="Package\load vol from stgn\load from stgn.Outputs[Salida de error de origen de OLE DB].Columns[Kilos1]"
                       dataType="r8"
@@ -434,7 +455,7 @@ FROM lukerVen.dbo.xppt_pvof_cons_dir_lin_can xppt_pvof_cons_dir_lin_can</propert
                 <property
                   dataType="System.String"
                   description="Especifica el nombre del objeto de base de datos usado para abrir un conjunto de filas."
-                  name="OpenRowset">[PVOF].[VolumenTrimDLC]</property>
+                  name="OpenRowset">[PVOF].[VolumenTrimDLC_OL]</property>
                 <property
                   dataType="System.String"
                   description="Especifica la variable que contiene el nombre del objeto de base de datos usado para abrir un conjunto de filas."
@@ -519,13 +540,6 @@ FROM lukerVen.dbo.xppt_pvof_cons_dir_lin_can xppt_pvof_cons_dir_lin_can</propert
                       externalMetadataColumnId="Package\load vol from stgn\VolumenTrimDLC.Inputs[Entrada de destino de OLE DB].ExternalColumns[NombreCanalAgrupado]"
                       lineageId="Package\load vol from stgn\load from stgn.Outputs[Salida de origen de OLE DB].Columns[NombreCanalAgrupado]" />
                     <inputColumn
-                      refId="Package\load vol from stgn\VolumenTrimDLC.Inputs[Entrada de destino de OLE DB].Columns[Nombre_GCliente_AD2]"
-                      cachedDataType="wstr"
-                      cachedLength="40"
-                      cachedName="Nombre_GCliente_AD2"
-                      externalMetadataColumnId="Package\load vol from stgn\VolumenTrimDLC.Inputs[Entrada de destino de OLE DB].ExternalColumns[Nombre_GCliente_AD2]"
-                      lineageId="Package\load vol from stgn\load from stgn.Outputs[Salida de origen de OLE DB].Columns[Nombre_GCliente_AD2]" />
-                    <inputColumn
                       refId="Package\load vol from stgn\VolumenTrimDLC.Inputs[Entrada de destino de OLE DB].Columns[Kilos1]"
                       cachedDataType="r8"
                       cachedName="Kilos1"
@@ -573,6 +587,20 @@ FROM lukerVen.dbo.xppt_pvof_cons_dir_lin_can xppt_pvof_cons_dir_lin_can</propert
                       cachedName="Marca"
                       externalMetadataColumnId="Package\load vol from stgn\VolumenTrimDLC.Inputs[Entrada de destino de OLE DB].ExternalColumns[Marca]"
                       lineageId="Package\load vol from stgn\load from stgn.Outputs[Salida de origen de OLE DB].Columns[Marca]" />
+                    <inputColumn
+                      refId="Package\load vol from stgn\VolumenTrimDLC.Inputs[Entrada de destino de OLE DB].Columns[Nombre_Oficina_Ventas]"
+                      cachedDataType="wstr"
+                      cachedLength="20"
+                      cachedName="Nombre_Oficina_Ventas"
+                      externalMetadataColumnId="Package\load vol from stgn\VolumenTrimDLC.Inputs[Entrada de destino de OLE DB].ExternalColumns[Nombre_Oficina_Ventas]"
+                      lineageId="Package\load vol from stgn\load from stgn.Outputs[Salida de origen de OLE DB].Columns[Nombre_Oficina_Ventas]" />
+                    <inputColumn
+                      refId="Package\load vol from stgn\VolumenTrimDLC.Inputs[Entrada de destino de OLE DB].Columns[Lider_Regional]"
+                      cachedDataType="wstr"
+                      cachedLength="35"
+                      cachedName="Lider_Regional"
+                      externalMetadataColumnId="Package\load vol from stgn\VolumenTrimDLC.Inputs[Entrada de destino de OLE DB].ExternalColumns[Lider_Regional]"
+                      lineageId="Package\load vol from stgn\load from stgn.Outputs[Salida de origen de OLE DB].Columns[Lider_Regional]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -596,11 +624,6 @@ FROM lukerVen.dbo.xppt_pvof_cons_dir_lin_can xppt_pvof_cons_dir_lin_can</propert
                       dataType="wstr"
                       length="40"
                       name="NombreCanalAgrupado" />
-                    <externalMetadataColumn
-                      refId="Package\load vol from stgn\VolumenTrimDLC.Inputs[Entrada de destino de OLE DB].ExternalColumns[Nombre_GCliente_AD2]"
-                      dataType="wstr"
-                      length="40"
-                      name="Nombre_GCliente_AD2" />
                     <externalMetadataColumn
                       refId="Package\load vol from stgn\VolumenTrimDLC.Inputs[Entrada de destino de OLE DB].ExternalColumns[Kilos1]"
                       dataType="r8"
@@ -635,6 +658,16 @@ FROM lukerVen.dbo.xppt_pvof_cons_dir_lin_can xppt_pvof_cons_dir_lin_can</propert
                       dataType="wstr"
                       length="40"
                       name="Marca" />
+                    <externalMetadataColumn
+                      refId="Package\load vol from stgn\VolumenTrimDLC.Inputs[Entrada de destino de OLE DB].ExternalColumns[Nombre_Oficina_Ventas]"
+                      dataType="wstr"
+                      length="20"
+                      name="Nombre_Oficina_Ventas" />
+                    <externalMetadataColumn
+                      refId="Package\load vol from stgn\VolumenTrimDLC.Inputs[Entrada de destino de OLE DB].ExternalColumns[Lider_Regional]"
+                      dataType="wstr"
+                      length="35"
+                      name="Lider_Regional" />
                   </externalMetadataColumns>
                 </input>
               </inputs>
@@ -818,7 +851,7 @@ FROM lukerVen.dbo.xppt_pvof_cons_dir_lin_can xppt_pvof_cons_dir_lin_can</propert
     design-time-name="Package\load vol from stgn">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="160,41.6"
           Id="Package\load vol from stgn\VolumenTrimDLC"
@@ -846,9 +879,7 @@ FROM lukerVen.dbo.xppt_pvof_cons_dir_lin_can xppt_pvof_cons_dir_lin_can</propert
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
