@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="C00 BaseEstadistica"
   DTS:PackageType="5"
-  DTS:VersionBuild="5"
-  DTS:VersionGUID="{3F54B3B3-4891-4278-B88F-9A09706D0854}">
+  DTS:VersionBuild="6"
+  DTS:VersionGUID="{8EF808F1-78C8-4646-A22C-D47813E5079A}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -27,7 +27,7 @@
           <DTS:Password
             DTS:Name="Password"
             Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAuR1Gdsnx50KES8/66vqaKwAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAACdbMEAHKMqjPoGg7CWUnXGsUpEqgClj4JqRvu3NK292gAAAAAOgAAAAAIAACAAAAAR6C9Z0hr6pq+qfzjinJUurtaQ5WrdCtKCkASe34R37CAAAABo/jZLqnh3FVxroJs49p76vONgiqb1Z6RHCfbib1Uu/UAAAADby6EuWDkm57k2UcbEiLrypTD7V5mRypPNmDJ5nGCUfdrfPun1q8I0L/Pfi5jO8BT80WFTl3OvL6J/fE24KZKY</DTS:Password>
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAuR1Gdsnx50KES8/66vqaKwAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAADnS/wqGFfMLSF/aflechtXK7eCacjy+JUq/gNocwCIXAAAAAAOgAAAAAIAACAAAABWlFgNV3cJ/t3me1dAQuRopJC571Xo9JnsrCw9ZqBJyCAAAACnWVZ4vmsrCwLaaGmN8nI7U0HtvjDQlY+hvxAKmO1g80AAAADWFMAAKW4oNxzwiTkC+uyLNii7XRrrFuCVEGqQdNuDdp4GielZKBTPekFglP6NWOmentD8bfzbQtWMvtlHVR8C</DTS:Password>
         </DTS:ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
@@ -35,13 +35,13 @@
   <DTS:Variables />
   <DTS:Executables>
     <DTS:Executable
-      DTS:refId="Package\Explo trim"
+      DTS:refId="Package\Explo trim Gen"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="Tarea Ejecutar SQL"
       DTS:DTSID="{90269547-05EE-4DB8-8554-A0650B9AEECC}"
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
-      DTS:ObjectName="Explo trim"
+      DTS:ObjectName="Explo trim Gen"
       DTS:ThreadHint="0">
       <DTS:Variables />
       <DTS:ObjectData>
@@ -64,8 +64,8 @@
       <GraphLayout
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
         <NodeLayout
-          Size="125.6,41.6"
-          Id="Package\Explo trim"
+          Size="148,41.6"
+          Id="Package\Explo trim Gen"
           TopLeft="44.0000007493156,45.270588870197" />
       </GraphLayout>
     </LayoutInfo>
