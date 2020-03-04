@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="C01 BaseEstadisticaConv"
   DTS:PackageType="5"
-  DTS:VersionBuild="48"
-  DTS:VersionGUID="{4F160FA6-ECF6-44E6-8DC0-C080FBF19E7A}">
+  DTS:VersionBuild="51"
+  DTS:VersionGUID="{D4B8DED7-4BA4-42D8-96B5-3CC9EE648D4C}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -27,7 +27,7 @@
           <DTS:Password
             DTS:Name="Password"
             Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAuR1Gdsnx50KES8/66vqaKwAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAABdhy6lrCWaxRf+ZXUrgsx/8nXxbdfyLL32PkLgQSGNkgAAAAAOgAAAAAIAACAAAACRRhzCZfPWFh3/JToI7QVUGXIC2bt7N685NHI4JoKjhiAAAACImi4YRUMJr55ILN65tjXr0EXU14gNcfbSMibDWU68cEAAAAC2v1HFE5HhBd2bpcC/wZF451HtzbhbxoZ7V2LMIiMk9UZRet+zEsca1HiF8JwANg4W2bu5DpULXoJvZPaVtOxc</DTS:Password>
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAuR1Gdsnx50KES8/66vqaKwAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAACePHgOrrW61VAKXwrtkVxkvcWZrcl0SxCtNDxbOGPQNgAAAAAOgAAAAAIAACAAAACrxAVTBL/rk+1MzUTSlOjndHQiwFEVOz0cRFU7q1xFNSAAAABpKm0Ek909rVt4IO3OsGlOJsRncCFOWysDPywnKF++sUAAAAA7s2O11lQGITEv8zPGDXYbQ7eetEh01Kjn1u52A0eOF+WmFe/++RkNIkspv5cU6xjtVPKpwMyvy+PZ0UcRbCwn</DTS:Password>
         </DTS:ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
@@ -47,7 +47,7 @@
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{B14F8D7C-877B-480D-B1F8-29A89D98D78C}"
-          SQLTask:SqlStatementSource="/**&#xA;     global orphan&#xA;**/&#xA;-- can&#xA;insert into lukerVen.PVOF.BaseEstadisticaBc&#xA;SELECT BaseEstadisticaBc.Periodo, 'cln0', BaseEstadisticaBc.Cod_Cliente, BaseEstadisticaBc.Director_Canal, BaseEstadisticaBc.Cod_Canal, BaseEstadisticaBc.NombreCanalAgrupado, BaseEstadisticaBc.Nombre_GCliente_AD2, Productos.JerarquiaProducto, Productos.Cod_SKU, Productos.Categoria, Productos.Marca, Productos.Linea, BaseEstadisticaBc.Kilos&#xA;, BaseEstadisticaBc.Nombre_Oficina_Ventas,BaseEstadisticaBc.Lider_Regional&#xA;FROM lukerVen.PVOF.BaseEstadisticaBc BaseEstadisticaBc, lukerVen.SD.Productos Productos, lukerVen.dbo.xppt_clones_estadistica xppt_clones_estadistica&#xA;WHERE xppt_clones_estadistica.Cod_Canal_Clonar = BaseEstadisticaBc.Cod_Canal AND ((right('00000000000000000'+Cod_SKU_Clonar,18)=BaseEstadisticaBc.Cod_SKU) AND (right('00000000000000000'+xppt_clones_estadistica.Cod_SKU_Orphn,18)=Productos.Cod_SKU) AND (xppt_clones_estadistica.Cod_Cliente_Clonar In ('','nan')) AND (xppt_clones_estadistica.Nombre_GCliente_AD2_Clonar In ('','nan')))&#xA;and xppt_clones_estadistica.Nombre_Oficina_Ventas  In ('','nan') and xppt_clones_estadistica.Lider_Regional In ('','nan')&#xA;&#xA;--Nombre_GCliente_AD2_Clonar&#xA;insert into lukerVen.PVOF.BaseEstadisticaBc&#xA;SELECT BaseEstadisticaBc.Periodo, 'cln0', BaseEstadisticaBc.Cod_Cliente, BaseEstadisticaBc.Director_Canal, BaseEstadisticaBc.Cod_Canal, BaseEstadisticaBc.NombreCanalAgrupado, BaseEstadisticaBc.Nombre_GCliente_AD2, Productos.JerarquiaProducto, Productos.Cod_SKU, Productos.Categoria, Productos.Marca, Productos.Linea, BaseEstadisticaBc.Kilos&#xA;, BaseEstadisticaBc.Nombre_Oficina_Ventas,BaseEstadisticaBc.Lider_Regional&#xA;FROM lukerVen.PVOF.BaseEstadisticaBc BaseEstadisticaBc, lukerVen.SD.Productos Productos, lukerVen.dbo.xppt_clones_estadistica xppt_clones_estadistica&#xA;WHERE xppt_clones_estadistica.Cod_Canal_Clonar = BaseEstadisticaBc.Cod_Canal AND BaseEstadisticaBc.Nombre_GCliente_AD2 = xppt_clones_estadistica.Nombre_GCliente_AD2_Clonar AND ((right('00000000000000000'+Cod_SKU_Clonar,18)=BaseEstadisticaBc.Cod_SKU) AND (right('00000000000000000'+xppt_clones_estadistica.Cod_SKU_Orphn,18)=Productos.Cod_SKU) AND (xppt_clones_estadistica.Cod_Cliente_Clonar In ('','nan')))&#xA;and xppt_clones_estadistica.Nombre_Oficina_Ventas  In ('','nan') and xppt_clones_estadistica.Lider_Regional In ('','nan')&#xA;&#xA;&#xA;--koba&#xA;insert into lukerVen.PVOF.BaseEstadisticaBc&#xA;SELECT BaseEstadisticaBc.Periodo, BaseEstadisticaBc.Origen, BaseEstadisticaBc.Cod_Cliente, 'ESPITIA ARIAS NARDA GINETH', '14', 'Moderno', 'Koba Colombia SAS', BaseEstadisticaBc.JerarquiaProducto, BaseEstadisticaBc.Cod_SKU, BaseEstadisticaBc.Categoria, BaseEstadisticaBc.Marca, BaseEstadisticaBc.Linea, BaseEstadisticaBc.Kilos&#xA;, BaseEstadisticaBc.Nombre_Oficina_Ventas,BaseEstadisticaBc.Lider_Regional&#xA;FROM lukerVen.PVOF.BaseEstadisticaBc BaseEstadisticaBc, lukerVen.SD.Clientes Clientes&#xA;WHERE Clientes.Cod_Cliente = BaseEstadisticaBc.Cod_Cliente AND ((BaseEstadisticaBc.Cod_Canal In ('16')) AND (BaseEstadisticaBc.Marca In ('Chocolate Sol','luker')) AND (Clientes.Nombre_Cliente='KOBA COLOMBIA SAS'))&#xA;&#xA;/**&#xA;     fphse2 orphan&#xA;**/&#xA;-- can plus ofi lider context&#xA;insert into lukerVen.PVOF.BaseEstadisticaBc&#xA;SELECT BaseEstadisticaBc.Periodo, 'cln0', BaseEstadisticaBc.Cod_Cliente, BaseEstadisticaBc.Director_Canal, BaseEstadisticaBc.Cod_Canal, BaseEstadisticaBc.NombreCanalAgrupado, BaseEstadisticaBc.Nombre_GCliente_AD2, Productos.JerarquiaProducto, Productos.Cod_SKU, Productos.Categoria, Productos.Marca, Productos.Linea, BaseEstadisticaBc.Kilos, BaseEstadisticaBc.Nombre_Oficina_Ventas, BaseEstadisticaBc.Lider_Regional&#xA;FROM lukerVen.PVOF.BaseEstadisticaBc BaseEstadisticaBc, lukerVen.SD.Productos Productos, lukerVen.dbo.xppt_clones_estadistica xppt_clones_estadistica&#xA;WHERE xppt_clones_estadistica.Cod_Canal_Clonar = BaseEstadisticaBc.Cod_Canal AND BaseEstadisticaBc.Lider_Regional = xppt_clones_estadistica.Lider_Regional AND BaseEstadisticaBc.Nombre_Oficina_Ventas = xppt_clones_estadistica.Nombre_Oficina_Ventas AND ((right('00000000000000000'+Cod_SKU_Clonar,18)=BaseEstadisticaBc.Cod_SKU) AND (right('00000000000000000'+xppt_clones_estadistica.Cod_SKU_Orphn,18)=Productos.Cod_SKU) AND (xppt_clones_estadistica.Cod_Cliente_Clonar In ('','nan')) AND (xppt_clones_estadistica.Nombre_GCliente_AD2_Clonar In ('','nan')))&#xA;&#xA;&#xA;--Nombre_GCliente_AD2_Clonar_Oficina&#xA;insert into lukerVen.PVOF.BaseEstadisticaBc&#xA;SELECT BaseEstadisticaBc.Periodo, 'cln0', BaseEstadisticaBc.Cod_Cliente, BaseEstadisticaBc.Director_Canal, BaseEstadisticaBc.Cod_Canal, BaseEstadisticaBc.NombreCanalAgrupado, BaseEstadisticaBc.Nombre_GCliente_AD2, Productos.JerarquiaProducto, Productos.Cod_SKU, Productos.Categoria, Productos.Marca, Productos.Linea, BaseEstadisticaBc.Kilos&#xA;, BaseEstadisticaBc.Nombre_Oficina_Ventas,BaseEstadisticaBc.Lider_Regional&#xA;FROM lukerVen.PVOF.BaseEstadisticaBc BaseEstadisticaBc, lukerVen.SD.Productos Productos, lukerVen.dbo.xppt_clones_estadistica xppt_clones_estadistica&#xA;WHERE xppt_clones_estadistica.Cod_Canal_Clonar = BaseEstadisticaBc.Cod_Canal AND BaseEstadisticaBc.Nombre_GCliente_AD2 = xppt_clones_estadistica.Nombre_GCliente_AD2_Clonar AND ((right('00000000000000000'+Cod_SKU_Clonar,18)=BaseEstadisticaBc.Cod_SKU) AND (right('00000000000000000'+xppt_clones_estadistica.Cod_SKU_Orphn,18)=Productos.Cod_SKU) AND (xppt_clones_estadistica.Cod_Cliente_Clonar In ('','nan')))&#xA;and xppt_clones_estadistica.Nombre_Oficina_Ventas not  In ('','nan') and xppt_clones_estadistica.Lider_Regional In ('','nan')" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          SQLTask:SqlStatementSource="--- de distri a tat&#xA;insert into lukerVen.PVOF.BaseEstadisticaBc&#xA;&#xA;SELECT BaseEstadisticaBc.Periodo&#xA;, 'cln1'&#xA;, xppt_cambiodistriatat.Cod_Cliente_Nueva_Razon&#xA;, xppt_cambiodistriatat.Director_Canal_NR&#xA;, xppt_cambiodistriatat.Cod_Canal_NR&#xA;, xppt_canalagrupado.NombreCanalAgrupado&#xA;, ''&#xA;, BaseEstadisticaBc.JerarquiaProducto&#xA;, BaseEstadisticaBc.Cod_SKU&#xA;, BaseEstadisticaBc.Categoria&#xA;, BaseEstadisticaBc.Marca&#xA;, BaseEstadisticaBc.Linea&#xA;, BaseEstadisticaBc.Kilos*xppt_cambiodistriatat.Porcentaje&#xA;, xppt_cambiodistriatat.Nombre_Oficina_Ventas_NR&#xA;, xppt_cambiodistriatat.Lider_Regional_NR&#xA;FROM lukerVen.PVOF.BaseEstadisticaBc BaseEstadisticaBc, lukerVen.tmp.xppt_cambiodistriatat xppt_cambiodistriatat, lukerVen.dbo.xppt_canalagrupado xppt_canalagrupado&#xA;WHERE BaseEstadisticaBc.Cod_Cliente = xppt_cambiodistriatat.Cod_Cliente &#xA;AND xppt_cambiodistriatat.Cod_Canal_NR = xppt_canalagrupado.Cod_Canal &#xA;AND xppt_cambiodistriatat.Director_Canal_NR = xppt_canalagrupado.Director_Canal&#xA;-- contrap&#xA;insert into lukerVen.PVOF.BaseEstadisticaBc&#xA;SELECT BaseEstadisticaBc.Periodo, '-', BaseEstadisticaBc.Cod_Cliente, BaseEstadisticaBc.Director_Canal, BaseEstadisticaBc.Cod_Canal, BaseEstadisticaBc.NombreCanalAgrupado, BaseEstadisticaBc.Nombre_GCliente_AD2, BaseEstadisticaBc.JerarquiaProducto, BaseEstadisticaBc.Cod_SKU, BaseEstadisticaBc.Categoria, BaseEstadisticaBc.Marca, BaseEstadisticaBc.Linea, -BaseEstadisticaBc.Kilos, BaseEstadisticaBc.Nombre_Oficina_Ventas, BaseEstadisticaBc.Lider_Regional&#xA;FROM lukerVen.PVOF.BaseEstadisticaBc BaseEstadisticaBc, lukerVen.tmp.xppt_cambiodistriatat_exclu_estad xppt_cambiodistriatat_exclu_estad&#xA;WHERE BaseEstadisticaBc.Cod_Cliente = xppt_cambiodistriatat_exclu_estad.Cod_Cliente AND ((BaseEstadisticaBc.Origen=''))&#xA;&#xA;/**&#xA;     global orphan&#xA;**/&#xA;&#xA;-- can&#xA;insert into lukerVen.PVOF.BaseEstadisticaBc&#xA;SELECT BaseEstadisticaBc.Periodo, 'cln0', BaseEstadisticaBc.Cod_Cliente, BaseEstadisticaBc.Director_Canal, BaseEstadisticaBc.Cod_Canal, BaseEstadisticaBc.NombreCanalAgrupado, BaseEstadisticaBc.Nombre_GCliente_AD2, Productos.JerarquiaProducto, Productos.Cod_SKU, Productos.Categoria, Productos.Marca, Productos.Linea, BaseEstadisticaBc.Kilos&#xA;, BaseEstadisticaBc.Nombre_Oficina_Ventas,BaseEstadisticaBc.Lider_Regional&#xA;FROM lukerVen.PVOF.BaseEstadisticaBc BaseEstadisticaBc, lukerVen.SD.Productos Productos, lukerVen.dbo.xppt_clones_estadistica xppt_clones_estadistica&#xA;WHERE xppt_clones_estadistica.Cod_Canal_Clonar = BaseEstadisticaBc.Cod_Canal AND ((right('00000000000000000'+Cod_SKU_Clonar,18)=BaseEstadisticaBc.Cod_SKU) AND (right('00000000000000000'+xppt_clones_estadistica.Cod_SKU_Orphn,18)=Productos.Cod_SKU) AND (xppt_clones_estadistica.Cod_Cliente_Clonar In ('','nan')) AND (xppt_clones_estadistica.Nombre_GCliente_AD2_Clonar In ('','nan')))&#xA;and xppt_clones_estadistica.Nombre_Oficina_Ventas  In ('','nan') and xppt_clones_estadistica.Lider_Regional In ('','nan')&#xA;&#xA;--Nombre_GCliente_AD2_Clonar&#xA;insert into lukerVen.PVOF.BaseEstadisticaBc&#xA;SELECT BaseEstadisticaBc.Periodo, 'cln0', BaseEstadisticaBc.Cod_Cliente, BaseEstadisticaBc.Director_Canal, BaseEstadisticaBc.Cod_Canal, BaseEstadisticaBc.NombreCanalAgrupado, BaseEstadisticaBc.Nombre_GCliente_AD2, Productos.JerarquiaProducto, Productos.Cod_SKU, Productos.Categoria, Productos.Marca, Productos.Linea, BaseEstadisticaBc.Kilos&#xA;, BaseEstadisticaBc.Nombre_Oficina_Ventas,BaseEstadisticaBc.Lider_Regional&#xA;FROM lukerVen.PVOF.BaseEstadisticaBc BaseEstadisticaBc, lukerVen.SD.Productos Productos, lukerVen.dbo.xppt_clones_estadistica xppt_clones_estadistica&#xA;WHERE xppt_clones_estadistica.Cod_Canal_Clonar = BaseEstadisticaBc.Cod_Canal AND BaseEstadisticaBc.Nombre_GCliente_AD2 = xppt_clones_estadistica.Nombre_GCliente_AD2_Clonar AND ((right('00000000000000000'+Cod_SKU_Clonar,18)=BaseEstadisticaBc.Cod_SKU) AND (right('00000000000000000'+xppt_clones_estadistica.Cod_SKU_Orphn,18)=Productos.Cod_SKU) AND (xppt_clones_estadistica.Cod_Cliente_Clonar In ('','nan')))&#xA;and xppt_clones_estadistica.Nombre_Oficina_Ventas  In ('','nan') and xppt_clones_estadistica.Lider_Regional In ('','nan')&#xA;&#xA;&#xA;--koba&#xA;insert into lukerVen.PVOF.BaseEstadisticaBc&#xA;SELECT BaseEstadisticaBc.Periodo, BaseEstadisticaBc.Origen, BaseEstadisticaBc.Cod_Cliente, 'ESPITIA ARIAS NARDA GINETH', '14', 'Moderno', 'Koba Colombia SAS', BaseEstadisticaBc.JerarquiaProducto, BaseEstadisticaBc.Cod_SKU, BaseEstadisticaBc.Categoria, BaseEstadisticaBc.Marca, BaseEstadisticaBc.Linea, BaseEstadisticaBc.Kilos&#xA;, BaseEstadisticaBc.Nombre_Oficina_Ventas,BaseEstadisticaBc.Lider_Regional&#xA;FROM lukerVen.PVOF.BaseEstadisticaBc BaseEstadisticaBc, lukerVen.SD.Clientes Clientes&#xA;WHERE Clientes.Cod_Cliente = BaseEstadisticaBc.Cod_Cliente AND ((BaseEstadisticaBc.Cod_Canal In ('16')) AND (BaseEstadisticaBc.Marca In ('Chocolate Sol','luker')) AND (Clientes.Nombre_Cliente='KOBA COLOMBIA SAS'))&#xA;&#xA;/**&#xA;     fphse2 orphan&#xA;**/&#xA;-- can plus ofi lider context&#xA;insert into lukerVen.PVOF.BaseEstadisticaBc&#xA;SELECT BaseEstadisticaBc.Periodo, 'cln0', BaseEstadisticaBc.Cod_Cliente, BaseEstadisticaBc.Director_Canal, BaseEstadisticaBc.Cod_Canal, BaseEstadisticaBc.NombreCanalAgrupado, BaseEstadisticaBc.Nombre_GCliente_AD2, Productos.JerarquiaProducto, Productos.Cod_SKU, Productos.Categoria, Productos.Marca, Productos.Linea, BaseEstadisticaBc.Kilos, BaseEstadisticaBc.Nombre_Oficina_Ventas, BaseEstadisticaBc.Lider_Regional&#xA;FROM lukerVen.PVOF.BaseEstadisticaBc BaseEstadisticaBc, lukerVen.SD.Productos Productos, lukerVen.dbo.xppt_clones_estadistica xppt_clones_estadistica&#xA;WHERE xppt_clones_estadistica.Cod_Canal_Clonar = BaseEstadisticaBc.Cod_Canal AND BaseEstadisticaBc.Lider_Regional = xppt_clones_estadistica.Lider_Regional AND BaseEstadisticaBc.Nombre_Oficina_Ventas = xppt_clones_estadistica.Nombre_Oficina_Ventas AND ((right('00000000000000000'+Cod_SKU_Clonar,18)=BaseEstadisticaBc.Cod_SKU) AND (right('00000000000000000'+xppt_clones_estadistica.Cod_SKU_Orphn,18)=Productos.Cod_SKU) AND (xppt_clones_estadistica.Cod_Cliente_Clonar In ('','nan')) AND (xppt_clones_estadistica.Nombre_GCliente_AD2_Clonar In ('','nan')))&#xA;&#xA;&#xA;--Nombre_GCliente_AD2_Clonar_Oficina&#xA;insert into lukerVen.PVOF.BaseEstadisticaBc&#xA;SELECT BaseEstadisticaBc.Periodo, 'cln0', BaseEstadisticaBc.Cod_Cliente, BaseEstadisticaBc.Director_Canal, BaseEstadisticaBc.Cod_Canal, BaseEstadisticaBc.NombreCanalAgrupado, BaseEstadisticaBc.Nombre_GCliente_AD2, Productos.JerarquiaProducto, Productos.Cod_SKU, Productos.Categoria, Productos.Marca, Productos.Linea, BaseEstadisticaBc.Kilos&#xA;, BaseEstadisticaBc.Nombre_Oficina_Ventas,BaseEstadisticaBc.Lider_Regional&#xA;FROM lukerVen.PVOF.BaseEstadisticaBc BaseEstadisticaBc, lukerVen.SD.Productos Productos, lukerVen.dbo.xppt_clones_estadistica xppt_clones_estadistica&#xA;WHERE xppt_clones_estadistica.Cod_Canal_Clonar = BaseEstadisticaBc.Cod_Canal AND BaseEstadisticaBc.Nombre_GCliente_AD2 = xppt_clones_estadistica.Nombre_GCliente_AD2_Clonar AND ((right('00000000000000000'+Cod_SKU_Clonar,18)=BaseEstadisticaBc.Cod_SKU) AND (right('00000000000000000'+xppt_clones_estadistica.Cod_SKU_Orphn,18)=Productos.Cod_SKU) AND (xppt_clones_estadistica.Cod_Cliente_Clonar In ('','nan')))&#xA;and xppt_clones_estadistica.Nombre_Oficina_Ventas not  In ('','nan') and xppt_clones_estadistica.Lider_Regional In ('','nan')" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
@@ -79,7 +79,7 @@
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{B14F8D7C-877B-480D-B1F8-29A89D98D78C}"
-          SQLTask:SqlStatementSource="&#xA;/**&#xA;   AMIGOS DE LA CASA Y VENTAS POS&#xA;**/&#xA;update JerCliente set JerCliente.NombreNodoJerarquia= 'PULIDO CHALA MARCELA VIVIANA'&#xA;FROM lukerVen.SD.JerCliente JerCliente&#xA;WHERE (JerCliente.JerCliente = 'J1') OR (JerCliente.JerCliente = 'K1')&#xA;and JerCliente.NombreNodoJerarquia= 'PULIDO CHALA MARCELA VIVIANA'&#xA;&#xA;update Clientes set&#xA;Clientes.Director_Canal= 'PULIDO CHALA MARCELA VIVIANA'&#xA;FROM lukerVen.SD.Clientes Clientes&#xA;WHERE (Clientes.Cod_Cliente Like 'J1%')&#xA;and Clientes.Director_Canal&lt;&gt; 'PULIDO CHALA MARCELA VIVIANA'&#xA;&#xA;update Clientes set&#xA;Clientes.Director_Canal= 'PULIDO CHALA MARCELA VIVIANA'&#xA;FROM lukerVen.SD.Clientes Clientes&#xA;WHERE (Clientes.Cod_Canal='22')&#xA;and Clientes.Director_Canal&lt;&gt; 'PULIDO CHALA MARCELA VIVIANA'" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          SQLTask:SqlStatementSource="ERRRRR&#xA;/**&#xA;   AMIGOS DE LA CASA Y VENTAS POS&#xA;**/&#xA;update JerCliente set JerCliente.NombreNodoJerarquia= 'PULIDO CHALA MARCELA VIVIANA'&#xA;FROM lukerVen.SD.JerCliente JerCliente&#xA;WHERE (JerCliente.JerCliente = 'J1') OR (JerCliente.JerCliente = 'K1')&#xA;and JerCliente.NombreNodoJerarquia= 'PULIDO CHALA MARCELA VIVIANA'&#xA;&#xA;update Clientes set&#xA;Clientes.Director_Canal= 'PULIDO CHALA MARCELA VIVIANA'&#xA;FROM lukerVen.SD.Clientes Clientes&#xA;WHERE (Clientes.Cod_Cliente Like 'J1%')&#xA;and Clientes.Director_Canal&lt;&gt; 'PULIDO CHALA MARCELA VIVIANA'&#xA;&#xA;update Clientes set&#xA;Clientes.Director_Canal= 'PULIDO CHALA MARCELA VIVIANA'&#xA;FROM lukerVen.SD.Clientes Clientes&#xA;WHERE (Clientes.Cod_Canal='22')&#xA;and Clientes.Director_Canal&lt;&gt; 'PULIDO CHALA MARCELA VIVIANA'" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
@@ -2373,9 +2373,21 @@ ORDER BY BaseEstadisticaBc.NombreCanalAgrupado</property>
           Id="Package\Foto Canal agrupado y Jer Prod"
           TopLeft="5.50000000000004,310.3" />
         <NodeLayout
+          Size="174.4,41.6"
+          Id="Package\jerarquia ventas pos"
+          TopLeft="31.9,5.49999999999995" />
+        <NodeLayout
+          Size="159.2,41.6"
+          Id="Package\Jerarquias clones"
+          TopLeft="39.5000000000001,513.5" />
+        <NodeLayout
           Size="161.6,41.6"
           Id="Package\load Periodo base"
           TopLeft="38.3,208.7" />
+        <NodeLayout
+          Size="192,41.6"
+          Id="Package\totales - contextos 1423"
+          TopLeft="23.1000000000001,919.899999999999" />
         <NodeLayout
           Size="180.8,41.6"
           Id="Package\totales - contextos AL"
@@ -2441,6 +2453,28 @@ ORDER BY BaseEstadisticaBc.NombreCanalAgrupado</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
+          Id="Package.PrecedenceConstraints[Restricción 10]"
+          TopLeft="119.1,555.1">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,59.9999999999999"
+              Start="0,0"
+              End="0,52.4999999999999">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.4999999999999" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
           Id="Package.PrecedenceConstraints[Restricción 2]"
           TopLeft="119.1,656.699999999999">
           <EdgeLayout.Curve>
@@ -2485,32 +2519,6 @@ ORDER BY BaseEstadisticaBc.NombreCanalAgrupado</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package.PrecedenceConstraints[Restricción 7]"
-          TopLeft="119.1,758.299999999999">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,59.9999999999999"
-              Start="0,0"
-              End="0,52.4999999999999">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,52.4999999999999" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="192,41.6"
-          Id="Package\totales - contextos 1423"
-          TopLeft="23.1000000000001,919.899999999999" />
-        <EdgeLayout
           Id="Package.PrecedenceConstraints[Restricción 4]"
           TopLeft="119.1,859.899999999999">
           <EdgeLayout.Curve>
@@ -2554,10 +2562,28 @@ ORDER BY BaseEstadisticaBc.NombreCanalAgrupado</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="174.4,41.6"
-          Id="Package\jerarquia ventas pos"
-          TopLeft="31.9,5.49999999999995" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Restricción 7]"
+          TopLeft="119.1,758.299999999999">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,59.9999999999999"
+              Start="0,0"
+              End="0,52.4999999999999">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.4999999999999" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Restricción 8]"
           TopLeft="119.1,47.1">
@@ -2580,35 +2606,9 @@ ORDER BY BaseEstadisticaBc.NombreCanalAgrupado</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="159.2,41.6"
-          Id="Package\Jerarquias clones"
-          TopLeft="39.5000000000001,513.5" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Restricción 9]"
           TopLeft="119.1,453.5">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,59.9999999999999"
-              Start="0,0"
-              End="0,52.4999999999999">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,52.4999999999999" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package.PrecedenceConstraints[Restricción 10]"
-          TopLeft="119.1,555.1">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -2684,6 +2684,64 @@ ORDER BY BaseEstadisticaBc.NombreCanalAgrupado</property>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
     design-time-name="Package\load Periodo base\EstCon Razon Soc y Promociones">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\totales - contextos 1423">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="209.6,41.6"
+          Id="Package\totales - contextos 1423\BaseEstadisticaBcTDLC1423"
+          TopLeft="68.8,147.2" />
+        <NodeLayout
+          Size="136.8,41.6"
+          Id="Package\totales - contextos 1423\total DLC AL"
+          TopLeft="94.4,56" />
+        <EdgeLayout
+          Id="Package\totales - contextos 1423.Paths[Salida de origen de OLE DB]"
+          TopLeft="162.8,97.6">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="10.8,49.6"
+              Start="0,0"
+              End="10.8,42.1">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20.8" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,20.8"
+                    Point2="0,24.8"
+                    Point3="4,24.8" />
+                  <mssgle:LineSegment
+                    End="6.79999999999998,24.8" />
+                  <mssgle:CubicBezierSegment
+                    Point1="6.79999999999998,24.8"
+                    Point2="10.8,24.8"
+                    Point3="10.8,28.8" />
+                  <mssgle:LineSegment
+                    End="10.8,42.1" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\totales - contextos 1423\total DLC AL">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -2816,64 +2874,6 @@ ORDER BY BaseEstadisticaBc.NombreCanalAgrupado</property>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
     design-time-name="Package\totales - contextos DCL\total DLC">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <TaskHost
-    design-time-name="Package\totales - contextos 1423">
-    <LayoutInfo>
-      <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
-        <NodeLayout
-          Size="209.6,41.6"
-          Id="Package\totales - contextos 1423\BaseEstadisticaBcTDLC1423"
-          TopLeft="68.8,147.2" />
-        <NodeLayout
-          Size="136.8,41.6"
-          Id="Package\totales - contextos 1423\total DLC AL"
-          TopLeft="94.4,56" />
-        <EdgeLayout
-          Id="Package\totales - contextos 1423.Paths[Salida de origen de OLE DB]"
-          TopLeft="162.8,97.6">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="10.8,49.6"
-              Start="0,0"
-              End="10.8,42.1">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,20.8" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,20.8"
-                    Point2="0,24.8"
-                    Point3="4,24.8" />
-                  <mssgle:LineSegment
-                    End="6.79999999999998,24.8" />
-                  <mssgle:CubicBezierSegment
-                    Point1="6.79999999999998,24.8"
-                    Point2="10.8,24.8"
-                    Point3="10.8,28.8" />
-                  <mssgle:LineSegment
-                    End="10.8,42.1" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-      </GraphLayout>
-    </LayoutInfo>
-  </TaskHost>
-  <PipelineComponentMetadata
-    design-time-name="Package\totales - contextos 1423\total DLC AL">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>

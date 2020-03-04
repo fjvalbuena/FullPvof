@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="L01 VolPVOF_DLC_OL"
   DTS:PackageType="5"
-  DTS:VersionBuild="13"
-  DTS:VersionGUID="{965179A1-6736-4DD8-A7EE-37ABD181A9EB}">
+  DTS:VersionBuild="15"
+  DTS:VersionGUID="{C3846BAC-1840-4F25-89D7-2B1EC439E585}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -27,7 +27,7 @@
           <DTS:Password
             DTS:Name="Password"
             Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAuR1Gdsnx50KES8/66vqaKwAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAAC09gp9T4BBSk14vOpRMVR/V56uMONfdXDJI7kuCBJGpwAAAAAOgAAAAAIAACAAAAAQH3ILzFTmuW12OiEgsfcWwu7eeKuo+hxgYw4gOnjtXCAAAAAFpaIQGkcLKFHOxi3iNzz7zAzzNNPn3enrp0G9UGRYW0AAAACia+9EHRpJ9+b9zWuw3TnErr5mecK/bB73kzoknjpiDcoX9kdPXREHniQuUvhdt6EppLQXjsvNrIPHoDtH2HSg</DTS:Password>
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAuR1Gdsnx50KES8/66vqaKwAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAABIk2HGsJVM6HlrDgSaUzBXeHehtpHK2VzUyTx4eAl73gAAAAAOgAAAAAIAACAAAACpyvePnpYqBSGYKjDo5nvXeTshJ/gIw/dmpW+DQYF+MyAAAAAgqOxpx7pras2oXJOiunSBB2OvS8n6zKuLuqtW0j0smUAAAAC17eBpZRfBhjD84Q0alm8pIEzvFZT0uvF6tCN1MAkzp0/d6WkKmbicag/C71o908AtybsjRKmJ/ixUyCqE0WU8</DTS:Password>
         </DTS:ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
@@ -47,7 +47,7 @@
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{B0A6DED8-D396-4314-9395-B6A259A17D81}"
-          SQLTask:SqlStatementSource="update VolumenTrimDLC_OL set&#xA;VolumenTrimDLC_OL.OrphEstrLin= 0&#xA;FROM lukerVen.tmp.BaseEstadisticaBcTDLC_AL BaseEstadisticaBcTDLC_AL, lukerVen.PVOF.VolumenTrimDLC_OL VolumenTrimDLC_OL&#xA;WHERE BaseEstadisticaBcTDLC_AL.Categoria = VolumenTrimDLC_OL.Categoria AND BaseEstadisticaBcTDLC_AL.Director_Canal = VolumenTrimDLC_OL.Director_Canal AND BaseEstadisticaBcTDLC_AL.Lider_Regional = VolumenTrimDLC_OL.Lider_Regional AND BaseEstadisticaBcTDLC_AL.Linea = VolumenTrimDLC_OL.Linea AND BaseEstadisticaBcTDLC_AL.Marca = VolumenTrimDLC_OL.Marca AND BaseEstadisticaBcTDLC_AL.Nombre_Oficina_Ventas = VolumenTrimDLC_OL.Nombre_Oficina_Ventas &#xA;AND BaseEstadisticaBcTDLC_AL.NombreCanalAgrupado = VolumenTrimDLC_OL.NombreCanalAgrupado AND VolumenTrimDLC_OL.PeriodoAAMM = BaseEstadisticaBcTDLC_AL.Periodo&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          SQLTask:SqlStatementSource="update VolumenTrimDLC_OL set&#xA;VolumenTrimDLC_OL.OrphEstrLin= 0&#xA;FROM lukerVen.tmp.BaseEstadisticaBcTDLC_AL BaseEstadisticaBcTDLC_AL, lukerVen.PVOF.VolumenTrimDLC_OL VolumenTrimDLC_OL&#xA;WHERE BaseEstadisticaBcTDLC_AL.Categoria = VolumenTrimDLC_OL.Categoria AND BaseEstadisticaBcTDLC_AL.Director_Canal = VolumenTrimDLC_OL.Director_Canal AND BaseEstadisticaBcTDLC_AL.Lider_Regional = VolumenTrimDLC_OL.Lider_Regional AND BaseEstadisticaBcTDLC_AL.Linea = VolumenTrimDLC_OL.Linea AND BaseEstadisticaBcTDLC_AL.Marca = VolumenTrimDLC_OL.Marca AND BaseEstadisticaBcTDLC_AL.Nombre_Oficina_Ventas = VolumenTrimDLC_OL.Nombre_Oficina_Ventas &#xA;AND BaseEstadisticaBcTDLC_AL.NombreCanalAgrupado = VolumenTrimDLC_OL.NombreCanalAgrupado AND VolumenTrimDLC_OL.PeriodoAAMM = BaseEstadisticaBcTDLC_AL.Periodo&#xA;and BaseEstadisticaBcTDLC_AL.Kilos&lt;&gt;0" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
@@ -105,8 +105,16 @@
                   dataType="System.String"
                   description="Comando SQL para ejecutar."
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">SELECT xppt_pvofconsdirlincanoflid.PeriodoAAMM, xppt_pvofconsdirlincanoflid.Director_Canal, xppt_pvofconsdirlincanoflid.Categoria, xppt_pvofconsdirlincanoflid.Marca, xppt_pvofconsdirlincanoflid.Linea, xppt_pvofconsdirlincanoflid.NombreCanalAgrupado, xppt_pvofconsdirlincanoflid.Nombre_Oficina_Ventas, xppt_pvofconsdirlincanoflid.Lider_Regional, xppt_pvofconsdirlincanoflid.Kilos1, xppt_pvofconsdirlincanoflid.Kilos2, xppt_pvofconsdirlincanoflid.Kilos3, '' AS 'OrphEstrLin', '' AS 'OrphVol'
-FROM lukerVen.dbo.xppt_pvofconsdirlincanoflid xppt_pvofconsdirlincanoflid</property>
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">SELECT xppt_pvofconsdirlincanoflid.PeriodoAAMM, xppt_pvofconsdirlincanoflid.Director_Canal, xppt_pvofconsdirlincanoflid.Categoria, xppt_pvofconsdirlincanoflid.Marca, xppt_pvofconsdirlincanoflid.Linea, xppt_pvofconsdirlincanoflid.NombreCanalAgrupado, xppt_pvofconsdirlincanoflid.Nombre_Oficina_Ventas, xppt_pvofconsdirlincanoflid.Lider_Regional
+, sum(xppt_pvofconsdirlincanoflid.Kilos1) Kilos1
+, sum(xppt_pvofconsdirlincanoflid.Kilos2) Kilos2
+, sum(xppt_pvofconsdirlincanoflid.Kilos3) Kilos3
+, '' AS 'OrphEstrLin', '' AS 'OrphVol'
+FROM lukerVen.dbo.xppt_pvofconsdirlincanoflid xppt_pvofconsdirlincanoflid
+group by
+xppt_pvofconsdirlincanoflid.PeriodoAAMM, xppt_pvofconsdirlincanoflid.Director_Canal, xppt_pvofconsdirlincanoflid.Categoria
+, xppt_pvofconsdirlincanoflid.Marca, xppt_pvofconsdirlincanoflid.Linea, xppt_pvofconsdirlincanoflid.NombreCanalAgrupado
+, xppt_pvofconsdirlincanoflid.Nombre_Oficina_Ventas, xppt_pvofconsdirlincanoflid.Lider_Regional</property>
                 <property
                   dataType="System.String"
                   description="Variable que contiene el comando SQL para ejecutar."
@@ -853,13 +861,13 @@ FROM lukerVen.dbo.xppt_pvofconsdirlincanoflid xppt_pvofconsdirlincanoflid</prope
       <GraphLayout
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="191.2,41.6"
-          Id="Package\load vol from stgn ol\VolumenTrimDLC Of Lid"
-          TopLeft="80.5714299435518,178.023531908478" />
-        <NodeLayout
           Size="172,41.6"
           Id="Package\load vol from stgn ol\load from stgn Of Li"
           TopLeft="80.0000013623919,75.8588245933031" />
+        <NodeLayout
+          Size="191.2,41.6"
+          Id="Package\load vol from stgn ol\VolumenTrimDLC Of Lid"
+          TopLeft="80.5714299435518,178.023531908478" />
         <EdgeLayout
           Id="Package\load vol from stgn ol.Paths[Salida de origen de OLE DB]"
           TopLeft="166.000001362392,117.458824593303">

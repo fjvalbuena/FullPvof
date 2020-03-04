@@ -1,0 +1,679 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="2/13/2020 2:32:57 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="LAPTOP-MFGK5CPU"
+  DTS:CreatorName="LAPTOP-MFGK5CPU\fvalb"
+  DTS:DTSID="{9A5DCD1B-5C4B-449C-B80D-6689E706C2B8}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.1300.371"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="C00 BaseEstadistica"
+  DTS:PackageType="5"
+  DTS:VersionBuild="4"
+  DTS:VersionGUID="{DF259328-7279-41D4-9747-90FE57B33AA1}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[192.168.5.23\B2C.lukerVen.ASSUser]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{C506684D-3787-4769-AEE6-43F1D50F46AF}"
+      DTS:ObjectName="192.168.5.23\B2C.lukerVen.ASSUser">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=192.168.5.23\B2C;User ID=ASSUser;Initial Catalog=lukerVen;Provider=SQLNCLI11.1;Persist Security Info=True;Auto Translate=False;">
+          <DTS:Password
+            DTS:Name="Password"
+            Sensitive="1"
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAuR1Gdsnx50KES8/66vqaKwAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAADgx0sDBUQA3ileXJGN2td366RctN1f1MkKMoiRX1W66AAAAAAOgAAAAAIAACAAAAAV6glad5V6jGFrMOAtFWJmeqRDTv8Gc+gFgIPHm3C/KiAAAAAwSO7ltr37AMS8lm0AG31VwQwjf6elGDXQKzJCuWU9rkAAAADQmzYWhZo4I+3rqsVh+GUYS30ejF6c+4R05peqcjqbYhnPLznHOi2SyOAdOajIc31z7oAWZAFgIS2ZaC907A4J</DTS:Password>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\load Periodo base"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Tarea Flujo de datos"
+      DTS:DTSID="{62B4D71F-F881-4633-8EDB-9E978C140771}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="load Periodo base"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\load Periodo base\BaseEstadisticaB0"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="Destino de OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;4"
+              description="Destino de OLE DB"
+              name="BaseEstadisticaB0"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowset">[PVOF].[BaseEstadisticaB0]</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica la variable que contiene el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Comando SQL para ejecutar."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica la página de códigos de columna para utilizar cuando la información de página de códigos no está disponible en el origen de datos."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Fuerza el uso del valor de la propiedad DefaultCodePage al describir datos de caracteres."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el modo utilizado para obtener acceso a la base de datos."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si los valores proporcionados para columnas de identidad se van a copiar al destino. Si es False, los valores de las columnas de identidad se generan automáticamente en el destino. Solo se aplica si está activada la carga rápida."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si las columnas que contienen NULL tendrán NULL insertado en el destino. Si es False, las columnas que contienen NULL tendrán sus valores predeterminados insertados en el destino. Solo se aplica si está activada la carga rápida."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica opciones para usar con la carga rápida. Solo se aplica si está activada la carga rápida."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica cuándo se emiten confirmaciones durante la inserción de datos. El valor 0 especifica que se emitirá una confirmación al final de la inserción de datos. Solo se aplica si está activada la carga rápida."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\load Periodo base\BaseEstadisticaB0.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[192.168.5.23\B2C.lukerVen.ASSUser]"
+                  connectionManagerRefId="Package.ConnectionManagers[192.168.5.23\B2C.lukerVen.ASSUser]"
+                  description="La conexión de tiempo de ejecución OLE DB usada para obtener acceso a la base de datos."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\load Periodo base\BaseEstadisticaB0.Inputs[Entrada de destino de OLE DB]"
+                  errorOrTruncationOperation="Insertar"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrada de destino de OLE DB">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\load Periodo base\BaseEstadisticaB0.Inputs[Entrada de destino de OLE DB].Columns[Cod_Cliente]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="Cod_Cliente"
+                      externalMetadataColumnId="Package\load Periodo base\BaseEstadisticaB0.Inputs[Entrada de destino de OLE DB].ExternalColumns[Cod_Cliente]"
+                      lineageId="Package\load Periodo base\Sel FactW.Outputs[Salida de origen de OLE DB].Columns[Cod_Cliente]" />
+                    <inputColumn
+                      refId="Package\load Periodo base\BaseEstadisticaB0.Inputs[Entrada de destino de OLE DB].Columns[JerarquiaProducto]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="18"
+                      cachedName="JerarquiaProducto"
+                      externalMetadataColumnId="Package\load Periodo base\BaseEstadisticaB0.Inputs[Entrada de destino de OLE DB].ExternalColumns[JerarquiaProducto]"
+                      lineageId="Package\load Periodo base\Sel FactW.Outputs[Salida de origen de OLE DB].Columns[JerarquiaProducto]" />
+                    <inputColumn
+                      refId="Package\load Periodo base\BaseEstadisticaB0.Inputs[Entrada de destino de OLE DB].Columns[Cod_SKU]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="18"
+                      cachedName="Cod_SKU"
+                      externalMetadataColumnId="Package\load Periodo base\BaseEstadisticaB0.Inputs[Entrada de destino de OLE DB].ExternalColumns[Cod_SKU]"
+                      lineageId="Package\load Periodo base\Sel FactW.Outputs[Salida de origen de OLE DB].Columns[Cod_SKU]" />
+                    <inputColumn
+                      refId="Package\load Periodo base\BaseEstadisticaB0.Inputs[Entrada de destino de OLE DB].Columns[FechaPedido]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="8"
+                      cachedName="FechaPedido"
+                      externalMetadataColumnId="Package\load Periodo base\BaseEstadisticaB0.Inputs[Entrada de destino de OLE DB].ExternalColumns[FechaPedido]"
+                      lineageId="Package\load Periodo base\Sel FactW.Outputs[Salida de origen de OLE DB].Columns[FechaPedido]" />
+                    <inputColumn
+                      refId="Package\load Periodo base\BaseEstadisticaB0.Inputs[Entrada de destino de OLE DB].Columns[Kilos]"
+                      cachedDataType="numeric"
+                      cachedName="Kilos"
+                      cachedPrecision="38"
+                      cachedScale="3"
+                      externalMetadataColumnId="Package\load Periodo base\BaseEstadisticaB0.Inputs[Entrada de destino de OLE DB].ExternalColumns[Kilos]"
+                      lineageId="Package\load Periodo base\Sel FactW.Outputs[Salida de origen de OLE DB].Columns[Kilos]" />
+                    <inputColumn
+                      refId="Package\load Periodo base\BaseEstadisticaB0.Inputs[Entrada de destino de OLE DB].Columns[PedidoNum]"
+                      cachedDataType="i8"
+                      cachedName="PedidoNum"
+                      externalMetadataColumnId="Package\load Periodo base\BaseEstadisticaB0.Inputs[Entrada de destino de OLE DB].ExternalColumns[PedidoNum]"
+                      lineageId="Package\load Periodo base\Sel FactW.Outputs[Salida de origen de OLE DB].Columns[PedidoNum]" />
+                    <inputColumn
+                      refId="Package\load Periodo base\BaseEstadisticaB0.Inputs[Entrada de destino de OLE DB].Columns[PeriodoAAMM]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="6"
+                      cachedName="PeriodoAAMM"
+                      externalMetadataColumnId="Package\load Periodo base\BaseEstadisticaB0.Inputs[Entrada de destino de OLE DB].ExternalColumns[Periodo]"
+                      lineageId="Package\load Periodo base\Sel FactW.Outputs[Salida de origen de OLE DB].Columns[PeriodoAAMM]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\load Periodo base\BaseEstadisticaB0.Inputs[Entrada de destino de OLE DB].ExternalColumns[Periodo]"
+                      codePage="1252"
+                      dataType="str"
+                      length="6"
+                      name="Periodo" />
+                    <externalMetadataColumn
+                      refId="Package\load Periodo base\BaseEstadisticaB0.Inputs[Entrada de destino de OLE DB].ExternalColumns[Cod_Cliente]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="Cod_Cliente" />
+                    <externalMetadataColumn
+                      refId="Package\load Periodo base\BaseEstadisticaB0.Inputs[Entrada de destino de OLE DB].ExternalColumns[JerarquiaProducto]"
+                      codePage="1252"
+                      dataType="str"
+                      length="18"
+                      name="JerarquiaProducto" />
+                    <externalMetadataColumn
+                      refId="Package\load Periodo base\BaseEstadisticaB0.Inputs[Entrada de destino de OLE DB].ExternalColumns[Cod_SKU]"
+                      codePage="1252"
+                      dataType="str"
+                      length="18"
+                      name="Cod_SKU" />
+                    <externalMetadataColumn
+                      refId="Package\load Periodo base\BaseEstadisticaB0.Inputs[Entrada de destino de OLE DB].ExternalColumns[FechaPedido]"
+                      codePage="1252"
+                      dataType="str"
+                      length="8"
+                      name="FechaPedido" />
+                    <externalMetadataColumn
+                      refId="Package\load Periodo base\BaseEstadisticaB0.Inputs[Entrada de destino de OLE DB].ExternalColumns[Kilos]"
+                      dataType="numeric"
+                      name="Kilos"
+                      precision="38"
+                      scale="3" />
+                    <externalMetadataColumn
+                      refId="Package\load Periodo base\BaseEstadisticaB0.Inputs[Entrada de destino de OLE DB].ExternalColumns[PedidoNum]"
+                      dataType="i8"
+                      name="PedidoNum" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\load Periodo base\BaseEstadisticaB0.Outputs[Salida de error de destino de OLE DB]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Salida de error de destino de OLE DB"
+                  synchronousInputId="Package\load Periodo base\BaseEstadisticaB0.Inputs[Entrada de destino de OLE DB]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\load Periodo base\BaseEstadisticaB0.Outputs[Salida de error de destino de OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\load Periodo base\BaseEstadisticaB0.Outputs[Salida de error de destino de OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\load Periodo base\BaseEstadisticaB0.Outputs[Salida de error de destino de OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\load Periodo base\BaseEstadisticaB0.Outputs[Salida de error de destino de OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\load Periodo base\Sel FactW"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="Origen de OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;7"
+              description="Origen de OLE DB"
+              name="Sel FactW"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowset"></property>
+                <property
+                  dataType="System.String"
+                  description="Especifica la variable que contiene el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Comando SQL para ejecutar."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">declare @PeriodoPVO varchar(6), @PeriodoEstI date, @PeriodoEstF date
+
+SELECT 
+  @PeriodoPVO  = Parametros.PeriodoAAMM
+, @PeriodoEstI = Parametros.PeriodoEstI
+, @PeriodoEstF = Parametros.PeriodoEstF
+FROM lukerVen.PVOF.Parametros Parametros
+WHERE (Parametros.EstadoProceso='1')
+
+SELECT Parametros.PeriodoAAMM
+, Facturas.Cod_Cliente
+, Productos.JerarquiaProducto
+, Facturas.Cod_SKU
+, Facturas.FechaPedido
+, sum(Facturas.Kilos) as Kilos
+, ROW_NUMBER() OVER (PARTITION BY  Parametros.PeriodoAAMM
+, Facturas.Cod_Cliente
+
+, Facturas.Cod_SKU ORDER BY  Productos.JerarquiaProducto,FechaPedido) AS PedidoNum  
+FROM lukerVen.SD.[FacturasW] Facturas
+, lukerVen.PVOF.Parametros Parametros
+, lukerVen.SD.TipoDocumento TipoDocumento
+, lukerVen.SD.Productos Productos
+WHERE TipoDocumento.Cod_TipoFactura = Facturas.Cod_TipoFactura 
+AND ( (Parametros.EstadoProceso=1)
+AND (Facturas.FechaFactura&gt;=Parametros.PeriodoEstI) 
+AND (Facturas.FechaFactura&lt;=Parametros.PeriodoEstF) 
+AND (TipoDocumento.NombreTipoDocumento Like 'Factura%') 
+) and  Productos.Cod_SKU = Facturas.Cod_SKU
+-- no ventas completas
+AND not ( (Facturas.MotivoNV&lt;&gt;'') AND (Facturas.Unidades+Facturas.SUnidadesNV=00))
+group by 
+  Parametros.PeriodoAAMM
+, Productos.JerarquiaProducto
+, Facturas.Cod_Cliente
+, Facturas.FechaPedido
+, Facturas.Cod_SKU
+having sum(Facturas.Kilos) &lt;&gt;0
+order by 1,2,3,4,5</property>
+                <property
+                  dataType="System.String"
+                  description="Variable que contiene el comando SQL para ejecutar."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica la página de códigos de columna para utilizar cuando la información de página de códigos no está disponible en el origen de datos."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Fuerza el uso del valor de la propiedad DefaultCodePage al describir datos de caracteres."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el modo utilizado para obtener acceso a la base de datos."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="Asignaciones entre los parámetros del comando SQL y las variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\load Periodo base\Sel FactW.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[192.168.5.23\B2C.lukerVen.ASSUser]"
+                  connectionManagerRefId="Package.ConnectionManagers[192.168.5.23\B2C.lukerVen.ASSUser]"
+                  description="La conexión de tiempo de ejecución OLE DB usada para obtener acceso a la base de datos."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\load Periodo base\Sel FactW.Outputs[Salida de origen de OLE DB]"
+                  name="Salida de origen de OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\load Periodo base\Sel FactW.Outputs[Salida de origen de OLE DB].Columns[PeriodoAAMM]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\load Periodo base\Sel FactW.Outputs[Salida de origen de OLE DB].ExternalColumns[PeriodoAAMM]"
+                      length="6"
+                      lineageId="Package\load Periodo base\Sel FactW.Outputs[Salida de origen de OLE DB].Columns[PeriodoAAMM]"
+                      name="PeriodoAAMM"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\load Periodo base\Sel FactW.Outputs[Salida de origen de OLE DB].Columns[Cod_Cliente]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\load Periodo base\Sel FactW.Outputs[Salida de origen de OLE DB].ExternalColumns[Cod_Cliente]"
+                      length="10"
+                      lineageId="Package\load Periodo base\Sel FactW.Outputs[Salida de origen de OLE DB].Columns[Cod_Cliente]"
+                      name="Cod_Cliente"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\load Periodo base\Sel FactW.Outputs[Salida de origen de OLE DB].Columns[JerarquiaProducto]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\load Periodo base\Sel FactW.Outputs[Salida de origen de OLE DB].ExternalColumns[JerarquiaProducto]"
+                      length="18"
+                      lineageId="Package\load Periodo base\Sel FactW.Outputs[Salida de origen de OLE DB].Columns[JerarquiaProducto]"
+                      name="JerarquiaProducto"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\load Periodo base\Sel FactW.Outputs[Salida de origen de OLE DB].Columns[Cod_SKU]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\load Periodo base\Sel FactW.Outputs[Salida de origen de OLE DB].ExternalColumns[Cod_SKU]"
+                      length="18"
+                      lineageId="Package\load Periodo base\Sel FactW.Outputs[Salida de origen de OLE DB].Columns[Cod_SKU]"
+                      name="Cod_SKU"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\load Periodo base\Sel FactW.Outputs[Salida de origen de OLE DB].Columns[FechaPedido]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\load Periodo base\Sel FactW.Outputs[Salida de origen de OLE DB].ExternalColumns[FechaPedido]"
+                      length="8"
+                      lineageId="Package\load Periodo base\Sel FactW.Outputs[Salida de origen de OLE DB].Columns[FechaPedido]"
+                      name="FechaPedido"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\load Periodo base\Sel FactW.Outputs[Salida de origen de OLE DB].Columns[Kilos]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\load Periodo base\Sel FactW.Outputs[Salida de origen de OLE DB].ExternalColumns[Kilos]"
+                      lineageId="Package\load Periodo base\Sel FactW.Outputs[Salida de origen de OLE DB].Columns[Kilos]"
+                      name="Kilos"
+                      precision="38"
+                      scale="3"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\load Periodo base\Sel FactW.Outputs[Salida de origen de OLE DB].Columns[PedidoNum]"
+                      dataType="i8"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\load Periodo base\Sel FactW.Outputs[Salida de origen de OLE DB].ExternalColumns[PedidoNum]"
+                      lineageId="Package\load Periodo base\Sel FactW.Outputs[Salida de origen de OLE DB].Columns[PedidoNum]"
+                      name="PedidoNum"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\load Periodo base\Sel FactW.Outputs[Salida de origen de OLE DB].ExternalColumns[PeriodoAAMM]"
+                      codePage="1252"
+                      dataType="str"
+                      length="6"
+                      name="PeriodoAAMM" />
+                    <externalMetadataColumn
+                      refId="Package\load Periodo base\Sel FactW.Outputs[Salida de origen de OLE DB].ExternalColumns[Cod_Cliente]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="Cod_Cliente" />
+                    <externalMetadataColumn
+                      refId="Package\load Periodo base\Sel FactW.Outputs[Salida de origen de OLE DB].ExternalColumns[JerarquiaProducto]"
+                      codePage="1252"
+                      dataType="str"
+                      length="18"
+                      name="JerarquiaProducto" />
+                    <externalMetadataColumn
+                      refId="Package\load Periodo base\Sel FactW.Outputs[Salida de origen de OLE DB].ExternalColumns[Cod_SKU]"
+                      codePage="1252"
+                      dataType="str"
+                      length="18"
+                      name="Cod_SKU" />
+                    <externalMetadataColumn
+                      refId="Package\load Periodo base\Sel FactW.Outputs[Salida de origen de OLE DB].ExternalColumns[FechaPedido]"
+                      codePage="1252"
+                      dataType="str"
+                      length="8"
+                      name="FechaPedido" />
+                    <externalMetadataColumn
+                      refId="Package\load Periodo base\Sel FactW.Outputs[Salida de origen de OLE DB].ExternalColumns[Kilos]"
+                      dataType="numeric"
+                      name="Kilos"
+                      precision="38"
+                      scale="3" />
+                    <externalMetadataColumn
+                      refId="Package\load Periodo base\Sel FactW.Outputs[Salida de origen de OLE DB].ExternalColumns[PedidoNum]"
+                      dataType="i8"
+                      name="PedidoNum" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\load Periodo base\Sel FactW.Outputs[Salida de error de origen de OLE DB]"
+                  isErrorOut="true"
+                  name="Salida de error de origen de OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\load Periodo base\Sel FactW.Outputs[Salida de error de origen de OLE DB].Columns[PeriodoAAMM]"
+                      codePage="1252"
+                      dataType="str"
+                      length="6"
+                      lineageId="Package\load Periodo base\Sel FactW.Outputs[Salida de error de origen de OLE DB].Columns[PeriodoAAMM]"
+                      name="PeriodoAAMM" />
+                    <outputColumn
+                      refId="Package\load Periodo base\Sel FactW.Outputs[Salida de error de origen de OLE DB].Columns[Cod_Cliente]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      lineageId="Package\load Periodo base\Sel FactW.Outputs[Salida de error de origen de OLE DB].Columns[Cod_Cliente]"
+                      name="Cod_Cliente" />
+                    <outputColumn
+                      refId="Package\load Periodo base\Sel FactW.Outputs[Salida de error de origen de OLE DB].Columns[JerarquiaProducto]"
+                      codePage="1252"
+                      dataType="str"
+                      length="18"
+                      lineageId="Package\load Periodo base\Sel FactW.Outputs[Salida de error de origen de OLE DB].Columns[JerarquiaProducto]"
+                      name="JerarquiaProducto" />
+                    <outputColumn
+                      refId="Package\load Periodo base\Sel FactW.Outputs[Salida de error de origen de OLE DB].Columns[Cod_SKU]"
+                      codePage="1252"
+                      dataType="str"
+                      length="18"
+                      lineageId="Package\load Periodo base\Sel FactW.Outputs[Salida de error de origen de OLE DB].Columns[Cod_SKU]"
+                      name="Cod_SKU" />
+                    <outputColumn
+                      refId="Package\load Periodo base\Sel FactW.Outputs[Salida de error de origen de OLE DB].Columns[FechaPedido]"
+                      codePage="1252"
+                      dataType="str"
+                      length="8"
+                      lineageId="Package\load Periodo base\Sel FactW.Outputs[Salida de error de origen de OLE DB].Columns[FechaPedido]"
+                      name="FechaPedido" />
+                    <outputColumn
+                      refId="Package\load Periodo base\Sel FactW.Outputs[Salida de error de origen de OLE DB].Columns[Kilos]"
+                      dataType="numeric"
+                      lineageId="Package\load Periodo base\Sel FactW.Outputs[Salida de error de origen de OLE DB].Columns[Kilos]"
+                      name="Kilos"
+                      precision="38"
+                      scale="3" />
+                    <outputColumn
+                      refId="Package\load Periodo base\Sel FactW.Outputs[Salida de error de origen de OLE DB].Columns[PedidoNum]"
+                      dataType="i8"
+                      lineageId="Package\load Periodo base\Sel FactW.Outputs[Salida de error de origen de OLE DB].Columns[PedidoNum]"
+                      name="PedidoNum" />
+                    <outputColumn
+                      refId="Package\load Periodo base\Sel FactW.Outputs[Salida de error de origen de OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\load Periodo base\Sel FactW.Outputs[Salida de error de origen de OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\load Periodo base\Sel FactW.Outputs[Salida de error de origen de OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\load Periodo base\Sel FactW.Outputs[Salida de error de origen de OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\load Periodo base.Paths[Salida de origen de OLE DB]"
+              endId="Package\load Periodo base\BaseEstadisticaB0.Inputs[Entrada de destino de OLE DB]"
+              name="Salida de origen de OLE DB"
+              startId="Package\load Periodo base\Sel FactW.Outputs[Salida de origen de OLE DB]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\trctbl Estadistica base0"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Tarea Ejecutar SQL"
+      DTS:DTSID="{754FA82B-2FE4-41FE-B6BC-09D9A2BDA587}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="trctbl Estadistica base0"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{C506684D-3787-4769-AEE6-43F1D50F46AF}"
+          SQLTask:SqlStatementSource="truncate table  [lukerVen].[PVOF].[BaseEstadisticaB0]" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Restricción]"
+      DTS:CreationName=""
+      DTS:DTSID="{266928E8-860E-4D3E-946E-68E1E27A68C1}"
+      DTS:From="Package\trctbl Estadistica base0"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Restricción"
+      DTS:To="Package\load Periodo base" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--Esta sección CDATA contiene la información de diseño del paquete. Esta sección incluye información como, por ejemplo, las coordenadas (x,y), el ancho y el alto.-->
+<!--Si edita manualmente esta sección y comete un error, puede eliminarlo. -->
+<!--El paquete podrá cargarse normalmente, pero se perderá la información de diseño anterior y el diseñador reorganizará los elementos automáticamente en la superficie de diseño.-->
+<Objects
+  Version="8">
+  <!--Cada uno de los nodos siguientes contiene propiedades que no afectan al comportamiento en tiempo de ejecución.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="161.6,41.6"
+          Id="Package\load Periodo base"
+          TopLeft="43.6734701315099,113.526052012328" />
+        <NodeLayout
+          Size="159.2,41.6"
+          Id="Package\trctbl Estadistica base0"
+          TopLeft="44.5714293304755,44.6588241557349" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Restricción]"
+          TopLeft="124.322449730993,86.2588241557349">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,27.2672278565932"
+              Start="0,0"
+              End="0,19.7672278565932">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,19.7672278565932" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\load Periodo base">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="124.8,41.6"
+          Id="Package\load Periodo base\Sel FactW"
+          TopLeft="34.2857148695965,20.18823557725" />
+        <NodeLayout
+          Size="162.4,41.6"
+          Id="Package\load Periodo base\BaseEstadisticaB0"
+          TopLeft="23.4285718275576,91.7647071693183" />
+        <EdgeLayout
+          Id="Package\load Periodo base.Paths[Salida de origen de OLE DB]"
+          TopLeft="100.657143348577,61.78823557725">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,29.9764715920683"
+              Start="0,0"
+              End="0,22.4764715920683">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,22.4764715920683" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\load Periodo base\BaseEstadisticaB0">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\load Periodo base\Sel FactW">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="X01 ExploPVOF OfiDir"
   DTS:PackageType="5"
-  DTS:VersionBuild="9"
-  DTS:VersionGUID="{0ED0507D-219E-4622-8CF9-EF6E75006AD2}">
+  DTS:VersionBuild="10"
+  DTS:VersionGUID="{11D31B0E-A12A-44CF-9123-BA76E47D0E4B}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -27,7 +27,7 @@
           <DTS:Password
             DTS:Name="Password"
             Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAuR1Gdsnx50KES8/66vqaKwAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAAA6W1XDgzkv3YG/UHQyVFLik/aqscIugmaNb6mQZ57yugAAAAAOgAAAAAIAACAAAACSgaRVSbp9O+XW+2gS3celIZPwkACgqWSc4Py5KHp6BiAAAAB9nW6fqkA5yXzaOeqB0DIGwbQrfNPKG/eXpSa31WJ6e0AAAAAe6yUi0Ooo7FVJBhQaKx4AZSN6A2ZmCc2koNKd2wH6dTGgDtWkK8h3eKxp8lLKUms56/Yi81vJPYY+aqmccakb</DTS:Password>
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAuR1Gdsnx50KES8/66vqaKwAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAACj/1b04UnHGOAnVVh9ZVVhMZV0Nh3phhBa8FMedFDd9QAAAAAOgAAAAAIAACAAAADfJpZeVSHgKvO4z1Z8RN708DYtDRvQ0hu1Bd2XtB0OmiAAAAAaiM5Z/yGoLFRCOhHdUn/J4jdParzv62O0IqDI/zpiSEAAAACa3mCVFXN8Hc4boG2z0/EEPULKmdvX4pZIUQuFlFBMddvA+XjIl1lWUEAaZUjpSeNdyrv6RO79SMqsP00PzuGU</DTS:Password>
         </DTS:ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
@@ -35,13 +35,13 @@
   <DTS:Variables />
   <DTS:Executables>
     <DTS:Executable
-      DTS:refId="Package\Explo trim OfLi"
+      DTS:refId="Package\Explo trim OfLid"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="Tarea Ejecutar SQL"
       DTS:DTSID="{366DB492-4ACC-4C73-85DB-A4F686B0E4E8}"
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
-      DTS:ObjectName="Explo trim OfLi"
+      DTS:ObjectName="Explo trim OfLid"
       DTS:ThreadHint="0">
       <DTS:Variables />
       <DTS:ObjectData>
@@ -65,7 +65,7 @@
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
         <NodeLayout
           Size="148,41.6"
-          Id="Package\Explo trim OfLi"
+          Id="Package\Explo trim OfLid"
           TopLeft="44.0000007493156,45.270588870197" />
       </GraphLayout>
     </LayoutInfo>
