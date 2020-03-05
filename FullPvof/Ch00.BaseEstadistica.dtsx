@@ -1,4 +1,4 @@
-<?xml version="1.0"?>
+﻿<?xml version="1.0"?>
 <DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
   DTS:refId="Package"
   DTS:CreationDate="2/13/2020 2:32:57 PM"
@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="C00 BaseEstadistica"
   DTS:PackageType="5"
-  DTS:VersionBuild="4"
-  DTS:VersionGUID="{DF259328-7279-41D4-9747-90FE57B33AA1}">
+  DTS:VersionBuild="11"
+  DTS:VersionGUID="{49E81902-E454-435B-A0DD-C81EABFAEFBA}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -27,13 +27,29 @@
           <DTS:Password
             DTS:Name="Password"
             Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAuR1Gdsnx50KES8/66vqaKwAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAADgx0sDBUQA3ileXJGN2td366RctN1f1MkKMoiRX1W66AAAAAAOgAAAAAIAACAAAAAV6glad5V6jGFrMOAtFWJmeqRDTv8Gc+gFgIPHm3C/KiAAAAAwSO7ltr37AMS8lm0AG31VwQwjf6elGDXQKzJCuWU9rkAAAADQmzYWhZo4I+3rqsVh+GUYS30ejF6c+4R05peqcjqbYhnPLznHOi2SyOAdOajIc31z7oAWZAFgIS2ZaC907A4J</DTS:Password>
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAuR1Gdsnx50KES8/66vqaKwAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAABpVz5cBfWjwumpq0vC+abqihyLrVD5rsNr5MldUzLthQAAAAAOgAAAAAIAACAAAAACi93CC6vOvz9KvDaaLCoqc41hLtlWrVmRhCR60oyNICAAAACKePyp1vJX6qfA1NCAmSDBch/GqK+kG0K6coW4WlzdiUAAAADxvoL/sspbageqKsPKsRFD1UPgPsBgA80tasB+VYIpDorCdeZZbz6ESWIz9iVuWoD72CX51AN85J+vr1q5lHQU</DTS:Password>
         </DTS:ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
   </DTS:ConnectionManagers>
   <DTS:Variables />
   <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\distri to TAT"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Tarea Ejecutar SQL"
+      DTS:DTSID="{833244C6-A853-4542-B789-F01BB420D0E0}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="distri to TAT"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{C506684D-3787-4769-AEE6-43F1D50F46AF}"
+          SQLTask:SqlStatementSource="insert into lukerVen.hpvo.BaseEstadisticaHistoria&#xA;SELECT left(BaseEstadisticaHistoria.Periodo,5)+'b', BaseEstadisticaHistoria.Cod_Negocio, BaseEstadisticaHistoria.Cod_OrgVentas, xppt_cambiodistriatat.Cod_Cliente_Nueva_Razon, BaseEstadisticaHistoria.JerarquiaProducto, BaseEstadisticaHistoria.Cod_SKU, BaseEstadisticaHistoria.FechaFactura&#xA;, sum(BaseEstadisticaHistoria.Kilos* xppt_cambiodistriatat.Porcentaje)&#xA;, sum(BaseEstadisticaHistoria.ValorNeto* xppt_cambiodistriatat.Porcentaje)&#xA;FROM lukerVen.hpvo.BaseEstadisticaHistoria BaseEstadisticaHistoria, lukerVen.tmp.xppt_cambiodistriatat xppt_cambiodistriatat&#xA;WHERE xppt_cambiodistriatat.Cod_Cliente = BaseEstadisticaHistoria.Cod_Cliente&#xA;group by&#xA;left(BaseEstadisticaHistoria.Periodo,5)+'b', BaseEstadisticaHistoria.Cod_Negocio, BaseEstadisticaHistoria.Cod_OrgVentas, xppt_cambiodistriatat.Cod_Cliente_Nueva_Razon, BaseEstadisticaHistoria.JerarquiaProducto, BaseEstadisticaHistoria.Cod_SKU, BaseEstadisticaHistoria.FechaFactura&#xA;GO&#xA;&#xA;update BaseEstadisticaHistoria set&#xA;BaseEstadisticaHistoria.Periodo= 'toTAT'&#xA;FROM lukerVen.hpvo.BaseEstadisticaHistoria BaseEstadisticaHistoria, lukerVen.tmp.xppt_cambiodistriatat xppt_cambiodistriatat&#xA;WHERE xppt_cambiodistriatat.Cod_Cliente = BaseEstadisticaHistoria.Cod_Cliente&#xA;go" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
     <DTS:Executable
       DTS:refId="Package\load Periodo base"
       DTS:CreationName="Microsoft.Pipeline"
@@ -64,7 +80,7 @@
                 <property
                   dataType="System.String"
                   description="Especifica el nombre del objeto de base de datos usado para abrir un conjunto de filas."
-                  name="OpenRowset">[PVOF].[BaseEstadisticaB0]</property>
+                  name="OpenRowset">[hpvo].[BaseEstadisticaHistoria]</property>
                 <property
                   dataType="System.String"
                   description="Especifica la variable que contiene el nombre del objeto de base de datos usado para abrir un conjunto de filas."
@@ -145,14 +161,6 @@
                       externalMetadataColumnId="Package\load Periodo base\BaseEstadisticaB0.Inputs[Entrada de destino de OLE DB].ExternalColumns[Cod_SKU]"
                       lineageId="Package\load Periodo base\Sel FactW.Outputs[Salida de origen de OLE DB].Columns[Cod_SKU]" />
                     <inputColumn
-                      refId="Package\load Periodo base\BaseEstadisticaB0.Inputs[Entrada de destino de OLE DB].Columns[FechaPedido]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="8"
-                      cachedName="FechaPedido"
-                      externalMetadataColumnId="Package\load Periodo base\BaseEstadisticaB0.Inputs[Entrada de destino de OLE DB].ExternalColumns[FechaPedido]"
-                      lineageId="Package\load Periodo base\Sel FactW.Outputs[Salida de origen de OLE DB].Columns[FechaPedido]" />
-                    <inputColumn
                       refId="Package\load Periodo base\BaseEstadisticaB0.Inputs[Entrada de destino de OLE DB].Columns[Kilos]"
                       cachedDataType="numeric"
                       cachedName="Kilos"
@@ -161,12 +169,6 @@
                       externalMetadataColumnId="Package\load Periodo base\BaseEstadisticaB0.Inputs[Entrada de destino de OLE DB].ExternalColumns[Kilos]"
                       lineageId="Package\load Periodo base\Sel FactW.Outputs[Salida de origen de OLE DB].Columns[Kilos]" />
                     <inputColumn
-                      refId="Package\load Periodo base\BaseEstadisticaB0.Inputs[Entrada de destino de OLE DB].Columns[PedidoNum]"
-                      cachedDataType="i8"
-                      cachedName="PedidoNum"
-                      externalMetadataColumnId="Package\load Periodo base\BaseEstadisticaB0.Inputs[Entrada de destino de OLE DB].ExternalColumns[PedidoNum]"
-                      lineageId="Package\load Periodo base\Sel FactW.Outputs[Salida de origen de OLE DB].Columns[PedidoNum]" />
-                    <inputColumn
                       refId="Package\load Periodo base\BaseEstadisticaB0.Inputs[Entrada de destino de OLE DB].Columns[PeriodoAAMM]"
                       cachedCodepage="1252"
                       cachedDataType="str"
@@ -174,6 +176,36 @@
                       cachedName="PeriodoAAMM"
                       externalMetadataColumnId="Package\load Periodo base\BaseEstadisticaB0.Inputs[Entrada de destino de OLE DB].ExternalColumns[Periodo]"
                       lineageId="Package\load Periodo base\Sel FactW.Outputs[Salida de origen de OLE DB].Columns[PeriodoAAMM]" />
+                    <inputColumn
+                      refId="Package\load Periodo base\BaseEstadisticaB0.Inputs[Entrada de destino de OLE DB].Columns[Cod_Negocio]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="3"
+                      cachedName="Cod_Negocio"
+                      externalMetadataColumnId="Package\load Periodo base\BaseEstadisticaB0.Inputs[Entrada de destino de OLE DB].ExternalColumns[Cod_Negocio]"
+                      lineageId="Package\load Periodo base\Sel FactW.Outputs[Salida de origen de OLE DB].Columns[Cod_Negocio]" />
+                    <inputColumn
+                      refId="Package\load Periodo base\BaseEstadisticaB0.Inputs[Entrada de destino de OLE DB].Columns[Cod_OrgVentas]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="4"
+                      cachedName="Cod_OrgVentas"
+                      externalMetadataColumnId="Package\load Periodo base\BaseEstadisticaB0.Inputs[Entrada de destino de OLE DB].ExternalColumns[Cod_OrgVentas]"
+                      lineageId="Package\load Periodo base\Sel FactW.Outputs[Salida de origen de OLE DB].Columns[Cod_OrgVentas]" />
+                    <inputColumn
+                      refId="Package\load Periodo base\BaseEstadisticaB0.Inputs[Entrada de destino de OLE DB].Columns[FechaFactura]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="FechaFactura"
+                      externalMetadataColumnId="Package\load Periodo base\BaseEstadisticaB0.Inputs[Entrada de destino de OLE DB].ExternalColumns[FechaFactura]"
+                      lineageId="Package\load Periodo base\Sel FactW.Outputs[Salida de origen de OLE DB].Columns[FechaFactura]" />
+                    <inputColumn
+                      refId="Package\load Periodo base\BaseEstadisticaB0.Inputs[Entrada de destino de OLE DB].Columns[ValorNeto]"
+                      cachedDataType="numeric"
+                      cachedName="ValorNeto"
+                      cachedPrecision="38"
+                      cachedScale="5"
+                      externalMetadataColumnId="Package\load Periodo base\BaseEstadisticaB0.Inputs[Entrada de destino de OLE DB].ExternalColumns[ValorNeto]"
+                      lineageId="Package\load Periodo base\Sel FactW.Outputs[Salida de origen de OLE DB].Columns[ValorNeto]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -202,21 +234,33 @@
                       length="18"
                       name="Cod_SKU" />
                     <externalMetadataColumn
-                      refId="Package\load Periodo base\BaseEstadisticaB0.Inputs[Entrada de destino de OLE DB].ExternalColumns[FechaPedido]"
-                      codePage="1252"
-                      dataType="str"
-                      length="8"
-                      name="FechaPedido" />
-                    <externalMetadataColumn
                       refId="Package\load Periodo base\BaseEstadisticaB0.Inputs[Entrada de destino de OLE DB].ExternalColumns[Kilos]"
                       dataType="numeric"
                       name="Kilos"
                       precision="38"
                       scale="3" />
                     <externalMetadataColumn
-                      refId="Package\load Periodo base\BaseEstadisticaB0.Inputs[Entrada de destino de OLE DB].ExternalColumns[PedidoNum]"
-                      dataType="i8"
-                      name="PedidoNum" />
+                      refId="Package\load Periodo base\BaseEstadisticaB0.Inputs[Entrada de destino de OLE DB].ExternalColumns[Cod_Negocio]"
+                      codePage="1252"
+                      dataType="str"
+                      length="3"
+                      name="Cod_Negocio" />
+                    <externalMetadataColumn
+                      refId="Package\load Periodo base\BaseEstadisticaB0.Inputs[Entrada de destino de OLE DB].ExternalColumns[Cod_OrgVentas]"
+                      codePage="1252"
+                      dataType="str"
+                      length="4"
+                      name="Cod_OrgVentas" />
+                    <externalMetadataColumn
+                      refId="Package\load Periodo base\BaseEstadisticaB0.Inputs[Entrada de destino de OLE DB].ExternalColumns[FechaFactura]"
+                      dataType="dbDate"
+                      name="FechaFactura" />
+                    <externalMetadataColumn
+                      refId="Package\load Periodo base\BaseEstadisticaB0.Inputs[Entrada de destino de OLE DB].ExternalColumns[ValorNeto]"
+                      dataType="numeric"
+                      name="ValorNeto"
+                      precision="38"
+                      scale="3" />
                   </externalMetadataColumns>
                 </input>
               </inputs>
@@ -280,35 +324,41 @@ FROM lukerVen.PVOF.Parametros Parametros
 WHERE (Parametros.EstadoProceso='1')
 
 SELECT Parametros.PeriodoAAMM
-, Facturas.Cod_Cliente
+, CategoriaMarcaCanal.Cod_Negocio
+, Facturas.Cod_OrgVentas
+, CASE Clientes.Cod_Zona_Ventas WHEN '' THEN CASE isnull(EquivalenciaJerarquiaOrph.Cod_Cliente, '') WHEN '' THEN Facturas.Cod_Cliente ELSE isnull(EquivalenciaJerarquiaOrph.Cod_Cliente, '') END ELSE Facturas.Cod_Cliente END AS Cod_Cliente
 , Productos.JerarquiaProducto
 , Facturas.Cod_SKU
-, Facturas.FechaPedido
+, max(Facturas.FechaFactura) FechaFactura
 , sum(Facturas.Kilos) as Kilos
-, ROW_NUMBER() OVER (PARTITION BY  Parametros.PeriodoAAMM
-, Facturas.Cod_Cliente
-
-, Facturas.Cod_SKU ORDER BY  Productos.JerarquiaProducto,FechaPedido) AS PedidoNum  
-FROM lukerVen.SD.[FacturasW] Facturas
+, sum(Facturas.ValorNeto) as ValorNeto
+FROM        SD.FacturasW AS Facturas INNER JOIN
+                  SD.CanalDistribucion ON Facturas.Cod_Canal = SD.CanalDistribucion.Cod_Canal INNER JOIN
+                  SD.Productos ON Facturas.Cod_SKU = SD.Productos.Cod_SKU INNER JOIN
+                  SD.CategoriaMarcaCanal ON SD.Productos.Aliado = SD.CategoriaMarcaCanal.Aliado AND SD.Productos.Categoria = SD.CategoriaMarcaCanal.Categoria AND SD.Productos.Marca = SD.CategoriaMarcaCanal.Marca AND 
+                  Facturas.Cod_Canal = SD.CategoriaMarcaCanal.Cod_Canal AND Facturas.Cod_OrgVentas = SD.CategoriaMarcaCanal.Cod_OrgVentas INNER JOIN
+                  SD.MotivosNoVenta ON Facturas.Cod_MotivoNoVenta = SD.MotivosNoVenta.Cod_Motivo LEFT OUTER JOIN
+                  SD.Clientes ON Facturas.Cod_Cliente = SD.Clientes.Cod_Cliente LEFT OUTER JOIN
+                  SD.AliasSKU ON Facturas.Cod_SKU = SD.AliasSKU.Cod_SKU LEFT OUTER JOIN
+                  SD.EquivalenciaJerarquiaOrph AS EquivalenciaJerarquiaOrph ON EquivalenciaJerarquiaOrph.Cod_Canal = Facturas.Cod_Canal AND EquivalenciaJerarquiaOrph.Cod_GCliente = Facturas.Cod_GCliente AND 
+                  Facturas.SalesOffice = EquivalenciaJerarquiaOrph.Cod_Oficina_Ventas
+				  inner join lukerVen.SD.TipoDocumento TipoDocumento  on TipoDocumento.Cod_TipoFactura = Facturas.Cod_TipoFactura 
 , lukerVen.PVOF.Parametros Parametros
-, lukerVen.SD.TipoDocumento TipoDocumento
-, lukerVen.SD.Productos Productos
-WHERE TipoDocumento.Cod_TipoFactura = Facturas.Cod_TipoFactura 
-AND ( (Parametros.EstadoProceso=1)
-AND (Facturas.FechaFactura&gt;=Parametros.PeriodoEstI) 
-AND (Facturas.FechaFactura&lt;=Parametros.PeriodoEstF) 
-AND (TipoDocumento.NombreTipoDocumento Like 'Factura%') 
-) and  Productos.Cod_SKU = Facturas.Cod_SKU
--- no ventas completas
-AND not ( (Facturas.MotivoNV&lt;&gt;'') AND (Facturas.Unidades+Facturas.SUnidadesNV=00))
+
+where  ( (Parametros.EstadoProceso=1)
+AND (year(Facturas.FechaFactura)+1&gt;=left(@PeriodoPVO,4)) 
+ 
+)
 group by 
-  Parametros.PeriodoAAMM
+Parametros.PeriodoAAMM
+, CategoriaMarcaCanal.Cod_Negocio
+, Facturas.Cod_OrgVentas
+, CASE Clientes.Cod_Zona_Ventas WHEN '' THEN CASE isnull(EquivalenciaJerarquiaOrph.Cod_Cliente, '') WHEN '' THEN Facturas.Cod_Cliente ELSE isnull(EquivalenciaJerarquiaOrph.Cod_Cliente, '') END ELSE Facturas.Cod_Cliente END 
 , Productos.JerarquiaProducto
-, Facturas.Cod_Cliente
-, Facturas.FechaPedido
 , Facturas.Cod_SKU
-having sum(Facturas.Kilos) &lt;&gt;0
-order by 1,2,3,4,5</property>
+, year(Facturas.FechaFactura)
+, month(Facturas.FechaFactura)
+having sum(Facturas.Kilos) &lt;&gt;0 or  sum(Facturas.ValorNeto)  &lt;&gt;0</property>
                 <property
                   dataType="System.String"
                   description="Variable que contiene el comando SQL para ejecutar."
@@ -389,17 +439,6 @@ order by 1,2,3,4,5</property>
                       name="Cod_SKU"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\load Periodo base\Sel FactW.Outputs[Salida de origen de OLE DB].Columns[FechaPedido]"
-                      codePage="1252"
-                      dataType="str"
-                      errorOrTruncationOperation="Conversión"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\load Periodo base\Sel FactW.Outputs[Salida de origen de OLE DB].ExternalColumns[FechaPedido]"
-                      length="8"
-                      lineageId="Package\load Periodo base\Sel FactW.Outputs[Salida de origen de OLE DB].Columns[FechaPedido]"
-                      name="FechaPedido"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
                       refId="Package\load Periodo base\Sel FactW.Outputs[Salida de origen de OLE DB].Columns[Kilos]"
                       dataType="numeric"
                       errorOrTruncationOperation="Conversión"
@@ -411,13 +450,46 @@ order by 1,2,3,4,5</property>
                       scale="3"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\load Periodo base\Sel FactW.Outputs[Salida de origen de OLE DB].Columns[PedidoNum]"
-                      dataType="i8"
+                      refId="Package\load Periodo base\Sel FactW.Outputs[Salida de origen de OLE DB].Columns[Cod_Negocio]"
+                      codePage="1252"
+                      dataType="str"
                       errorOrTruncationOperation="Conversión"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\load Periodo base\Sel FactW.Outputs[Salida de origen de OLE DB].ExternalColumns[PedidoNum]"
-                      lineageId="Package\load Periodo base\Sel FactW.Outputs[Salida de origen de OLE DB].Columns[PedidoNum]"
-                      name="PedidoNum"
+                      externalMetadataColumnId="Package\load Periodo base\Sel FactW.Outputs[Salida de origen de OLE DB].ExternalColumns[Cod_Negocio]"
+                      length="3"
+                      lineageId="Package\load Periodo base\Sel FactW.Outputs[Salida de origen de OLE DB].Columns[Cod_Negocio]"
+                      name="Cod_Negocio"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\load Periodo base\Sel FactW.Outputs[Salida de origen de OLE DB].Columns[Cod_OrgVentas]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\load Periodo base\Sel FactW.Outputs[Salida de origen de OLE DB].ExternalColumns[Cod_OrgVentas]"
+                      length="4"
+                      lineageId="Package\load Periodo base\Sel FactW.Outputs[Salida de origen de OLE DB].Columns[Cod_OrgVentas]"
+                      name="Cod_OrgVentas"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\load Periodo base\Sel FactW.Outputs[Salida de origen de OLE DB].Columns[FechaFactura]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\load Periodo base\Sel FactW.Outputs[Salida de origen de OLE DB].ExternalColumns[FechaFactura]"
+                      lineageId="Package\load Periodo base\Sel FactW.Outputs[Salida de origen de OLE DB].Columns[FechaFactura]"
+                      name="FechaFactura"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\load Periodo base\Sel FactW.Outputs[Salida de origen de OLE DB].Columns[ValorNeto]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\load Periodo base\Sel FactW.Outputs[Salida de origen de OLE DB].ExternalColumns[ValorNeto]"
+                      lineageId="Package\load Periodo base\Sel FactW.Outputs[Salida de origen de OLE DB].Columns[ValorNeto]"
+                      name="ValorNeto"
+                      precision="38"
+                      scale="5"
                       truncationRowDisposition="FailComponent" />
                   </outputColumns>
                   <externalMetadataColumns
@@ -447,21 +519,33 @@ order by 1,2,3,4,5</property>
                       length="18"
                       name="Cod_SKU" />
                     <externalMetadataColumn
-                      refId="Package\load Periodo base\Sel FactW.Outputs[Salida de origen de OLE DB].ExternalColumns[FechaPedido]"
-                      codePage="1252"
-                      dataType="str"
-                      length="8"
-                      name="FechaPedido" />
-                    <externalMetadataColumn
                       refId="Package\load Periodo base\Sel FactW.Outputs[Salida de origen de OLE DB].ExternalColumns[Kilos]"
                       dataType="numeric"
                       name="Kilos"
                       precision="38"
                       scale="3" />
                     <externalMetadataColumn
-                      refId="Package\load Periodo base\Sel FactW.Outputs[Salida de origen de OLE DB].ExternalColumns[PedidoNum]"
-                      dataType="i8"
-                      name="PedidoNum" />
+                      refId="Package\load Periodo base\Sel FactW.Outputs[Salida de origen de OLE DB].ExternalColumns[Cod_Negocio]"
+                      codePage="1252"
+                      dataType="str"
+                      length="3"
+                      name="Cod_Negocio" />
+                    <externalMetadataColumn
+                      refId="Package\load Periodo base\Sel FactW.Outputs[Salida de origen de OLE DB].ExternalColumns[Cod_OrgVentas]"
+                      codePage="1252"
+                      dataType="str"
+                      length="4"
+                      name="Cod_OrgVentas" />
+                    <externalMetadataColumn
+                      refId="Package\load Periodo base\Sel FactW.Outputs[Salida de origen de OLE DB].ExternalColumns[FechaFactura]"
+                      dataType="dbTimeStamp"
+                      name="FechaFactura" />
+                    <externalMetadataColumn
+                      refId="Package\load Periodo base\Sel FactW.Outputs[Salida de origen de OLE DB].ExternalColumns[ValorNeto]"
+                      dataType="numeric"
+                      name="ValorNeto"
+                      precision="38"
+                      scale="5" />
                   </externalMetadataColumns>
                 </output>
                 <output
@@ -476,6 +560,20 @@ order by 1,2,3,4,5</property>
                       length="6"
                       lineageId="Package\load Periodo base\Sel FactW.Outputs[Salida de error de origen de OLE DB].Columns[PeriodoAAMM]"
                       name="PeriodoAAMM" />
+                    <outputColumn
+                      refId="Package\load Periodo base\Sel FactW.Outputs[Salida de error de origen de OLE DB].Columns[Cod_Negocio]"
+                      codePage="1252"
+                      dataType="str"
+                      length="3"
+                      lineageId="Package\load Periodo base\Sel FactW.Outputs[Salida de error de origen de OLE DB].Columns[Cod_Negocio]"
+                      name="Cod_Negocio" />
+                    <outputColumn
+                      refId="Package\load Periodo base\Sel FactW.Outputs[Salida de error de origen de OLE DB].Columns[Cod_OrgVentas]"
+                      codePage="1252"
+                      dataType="str"
+                      length="4"
+                      lineageId="Package\load Periodo base\Sel FactW.Outputs[Salida de error de origen de OLE DB].Columns[Cod_OrgVentas]"
+                      name="Cod_OrgVentas" />
                     <outputColumn
                       refId="Package\load Periodo base\Sel FactW.Outputs[Salida de error de origen de OLE DB].Columns[Cod_Cliente]"
                       codePage="1252"
@@ -498,12 +596,10 @@ order by 1,2,3,4,5</property>
                       lineageId="Package\load Periodo base\Sel FactW.Outputs[Salida de error de origen de OLE DB].Columns[Cod_SKU]"
                       name="Cod_SKU" />
                     <outputColumn
-                      refId="Package\load Periodo base\Sel FactW.Outputs[Salida de error de origen de OLE DB].Columns[FechaPedido]"
-                      codePage="1252"
-                      dataType="str"
-                      length="8"
-                      lineageId="Package\load Periodo base\Sel FactW.Outputs[Salida de error de origen de OLE DB].Columns[FechaPedido]"
-                      name="FechaPedido" />
+                      refId="Package\load Periodo base\Sel FactW.Outputs[Salida de error de origen de OLE DB].Columns[FechaFactura]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\load Periodo base\Sel FactW.Outputs[Salida de error de origen de OLE DB].Columns[FechaFactura]"
+                      name="FechaFactura" />
                     <outputColumn
                       refId="Package\load Periodo base\Sel FactW.Outputs[Salida de error de origen de OLE DB].Columns[Kilos]"
                       dataType="numeric"
@@ -512,10 +608,12 @@ order by 1,2,3,4,5</property>
                       precision="38"
                       scale="3" />
                     <outputColumn
-                      refId="Package\load Periodo base\Sel FactW.Outputs[Salida de error de origen de OLE DB].Columns[PedidoNum]"
-                      dataType="i8"
-                      lineageId="Package\load Periodo base\Sel FactW.Outputs[Salida de error de origen de OLE DB].Columns[PedidoNum]"
-                      name="PedidoNum" />
+                      refId="Package\load Periodo base\Sel FactW.Outputs[Salida de error de origen de OLE DB].Columns[ValorNeto]"
+                      dataType="numeric"
+                      lineageId="Package\load Periodo base\Sel FactW.Outputs[Salida de error de origen de OLE DB].Columns[ValorNeto]"
+                      name="ValorNeto"
+                      precision="38"
+                      scale="5" />
                     <outputColumn
                       refId="Package\load Periodo base\Sel FactW.Outputs[Salida de error de origen de OLE DB].Columns[ErrorCode]"
                       dataType="i4"
@@ -545,19 +643,19 @@ order by 1,2,3,4,5</property>
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
-      DTS:refId="Package\trctbl Estadistica base0"
+      DTS:refId="Package\trctbl Estadistica H"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="Tarea Ejecutar SQL"
       DTS:DTSID="{754FA82B-2FE4-41FE-B6BC-09D9A2BDA587}"
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
-      DTS:ObjectName="trctbl Estadistica base0"
+      DTS:ObjectName="trctbl Estadistica H"
       DTS:ThreadHint="0">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{C506684D-3787-4769-AEE6-43F1D50F46AF}"
-          SQLTask:SqlStatementSource="truncate table  [lukerVen].[PVOF].[BaseEstadisticaB0]" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          SQLTask:SqlStatementSource="truncate table  [lukerVen].[hpvo].[BaseEstadisticaHistoria]" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
   </DTS:Executables>
@@ -566,10 +664,18 @@ order by 1,2,3,4,5</property>
       DTS:refId="Package.PrecedenceConstraints[Restricción]"
       DTS:CreationName=""
       DTS:DTSID="{266928E8-860E-4D3E-946E-68E1E27A68C1}"
-      DTS:From="Package\trctbl Estadistica base0"
+      DTS:From="Package\trctbl Estadistica H"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Restricción"
       DTS:To="Package\load Periodo base" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Restricción 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{893BD0E2-1227-4A7B-BF31-2C7D0CAD7163}"
+      DTS:From="Package\load Periodo base"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Restricción 1"
+      DTS:To="Package\distri to TAT" />
   </DTS:PrecedenceConstraints>
   <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
 <!--Esta sección CDATA contiene la información de diseño del paquete. Esta sección incluye información como, por ejemplo, las coordenadas (x,y), el ancho y el alto.-->
@@ -582,29 +688,55 @@ order by 1,2,3,4,5</property>
     design-time-name="Package">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="161.6,41.6"
           Id="Package\load Periodo base"
           TopLeft="43.6734701315099,113.526052012328" />
         <NodeLayout
-          Size="159.2,41.6"
-          Id="Package\trctbl Estadistica base0"
+          Size="166.4,41.6"
+          Id="Package\trctbl Estadistica H"
           TopLeft="44.5714293304755,44.6588241557349" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Restricción]"
-          TopLeft="124.322449730993,86.2588241557349">
+          TopLeft="126.122449730993,86.2588241557349">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,27.2672278565932"
+              EndConnector="0,27.2672278565931"
               Start="0,0"
-              End="0,19.7672278565932">
+              End="0,19.7672278565931">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,19.7672278565932" />
+                    End="0,19.7672278565931" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="136,41.6"
+          Id="Package\distri to TAT"
+          TopLeft="51.4285723043948,189.035296768796" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Restricción 1]"
+          TopLeft="121.951021217952,155.126052012328">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,33.9092447564677"
+              Start="0,0"
+              End="0,26.4092447564677">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,26.4092447564677" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>

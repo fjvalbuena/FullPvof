@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="C01 BaseEstadisticaConv"
   DTS:PackageType="5"
-  DTS:VersionBuild="51"
-  DTS:VersionGUID="{D4B8DED7-4BA4-42D8-96B5-3CC9EE648D4C}">
+  DTS:VersionBuild="52"
+  DTS:VersionGUID="{2C22B45A-3F2D-4074-B1F3-7F4FEA028AA0}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -27,7 +27,7 @@
           <DTS:Password
             DTS:Name="Password"
             Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAuR1Gdsnx50KES8/66vqaKwAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAACePHgOrrW61VAKXwrtkVxkvcWZrcl0SxCtNDxbOGPQNgAAAAAOgAAAAAIAACAAAACrxAVTBL/rk+1MzUTSlOjndHQiwFEVOz0cRFU7q1xFNSAAAABpKm0Ek909rVt4IO3OsGlOJsRncCFOWysDPywnKF++sUAAAAA7s2O11lQGITEv8zPGDXYbQ7eetEh01Kjn1u52A0eOF+WmFe/++RkNIkspv5cU6xjtVPKpwMyvy+PZ0UcRbCwn</DTS:Password>
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAuR1Gdsnx50KES8/66vqaKwAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAACSXPrfMA6o4+YlnNadztPNr8NzMHYWAaiqE8JBb26qMgAAAAAOgAAAAAIAACAAAADdilP7AXcIIwS9g8sdpfKN3LG2TzKuik6rX3GIHpoR6iAAAADUjYAs3LVcHKK82vaeDfIloCZ2gWpnYOSvCYm1Yl0sjEAAAAC9RfFtuUaLX5i0eLEphjqHv50tjuX1TQUitKdr5LfMDndjWpoSF3r+6Aeg8M8dV3fkfAtBOJTUNMIy+JkvtPow</DTS:Password>
         </DTS:ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
@@ -79,7 +79,7 @@
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{B14F8D7C-877B-480D-B1F8-29A89D98D78C}"
-          SQLTask:SqlStatementSource="ERRRRR&#xA;/**&#xA;   AMIGOS DE LA CASA Y VENTAS POS&#xA;**/&#xA;update JerCliente set JerCliente.NombreNodoJerarquia= 'PULIDO CHALA MARCELA VIVIANA'&#xA;FROM lukerVen.SD.JerCliente JerCliente&#xA;WHERE (JerCliente.JerCliente = 'J1') OR (JerCliente.JerCliente = 'K1')&#xA;and JerCliente.NombreNodoJerarquia= 'PULIDO CHALA MARCELA VIVIANA'&#xA;&#xA;update Clientes set&#xA;Clientes.Director_Canal= 'PULIDO CHALA MARCELA VIVIANA'&#xA;FROM lukerVen.SD.Clientes Clientes&#xA;WHERE (Clientes.Cod_Cliente Like 'J1%')&#xA;and Clientes.Director_Canal&lt;&gt; 'PULIDO CHALA MARCELA VIVIANA'&#xA;&#xA;update Clientes set&#xA;Clientes.Director_Canal= 'PULIDO CHALA MARCELA VIVIANA'&#xA;FROM lukerVen.SD.Clientes Clientes&#xA;WHERE (Clientes.Cod_Canal='22')&#xA;and Clientes.Director_Canal&lt;&gt; 'PULIDO CHALA MARCELA VIVIANA'" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          SQLTask:SqlStatementSource="&#xA;/**&#xA;   AMIGOS DE LA CASA Y VENTAS POS&#xA;**/&#xA;update JerCliente set JerCliente.NombreNodoJerarquia= 'PULIDO CHALA MARCELA VIVIANA'&#xA;FROM lukerVen.SD.JerCliente JerCliente&#xA;WHERE (JerCliente.JerCliente = 'J1') OR (JerCliente.JerCliente = 'K1')&#xA;and JerCliente.NombreNodoJerarquia= 'PULIDO CHALA MARCELA VIVIANA'&#xA;&#xA;update Clientes set&#xA;Clientes.Director_Canal= 'PULIDO CHALA MARCELA VIVIANA'&#xA;FROM lukerVen.SD.Clientes Clientes&#xA;WHERE (Clientes.Cod_Cliente Like 'J1%')&#xA;and Clientes.Director_Canal&lt;&gt; 'PULIDO CHALA MARCELA VIVIANA'&#xA;&#xA;update Clientes set&#xA;Clientes.Director_Canal= 'PULIDO CHALA MARCELA VIVIANA'&#xA;FROM lukerVen.SD.Clientes Clientes&#xA;WHERE (Clientes.Cod_Canal='22')&#xA;and Clientes.Director_Canal&lt;&gt; 'PULIDO CHALA MARCELA VIVIANA'" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable

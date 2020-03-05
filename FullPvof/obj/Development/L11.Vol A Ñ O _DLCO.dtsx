@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="L11 Vol A Ñ O _DLCO"
   DTS:PackageType="5"
-  DTS:VersionBuild="17"
-  DTS:VersionGUID="{B8E0C40F-7A26-4880-B883-AE837C7DA492}">
+  DTS:VersionBuild="21"
+  DTS:VersionGUID="{95626402-C3BA-474E-9C16-B44A450B0756}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -27,7 +27,7 @@
           <DTS:Password
             DTS:Name="Password"
             Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAuR1Gdsnx50KES8/66vqaKwAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAAAgOl6kTOHpe1/cQvKYDE0oYIUw7ovwWaJugluCmNhmCQAAAAAOgAAAAAIAACAAAAARe8PDrjnwOo6fdkdWezw2mpka6yzbemz/xcJz8Ta1xiAAAACmPcq4tfvw7m+o4XU2Ax7uLDnEydHdMgSCPmbn/WjmwkAAAAAiJIuKZ1pLzMiqDC31AqRKL34BGPJQ8YGYIXaEgT1SvLPBGC/CbuQAnyhOQnd83jGJ/4p17Oe9yag3WYmfjKf3</DTS:Password>
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAuR1Gdsnx50KES8/66vqaKwAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAACG5cf9ZC0AwpGmCsjLYedKnukIQcFjbHfuccpNnyn+iAAAAAAOgAAAAAIAACAAAAA0sflvbsZmwM3AfjP24ki73Pelvzz299kq1f4ta2TE/yAAAAD50XPS92I0Jf3ZUvutPpc1WAmBJlUbAU5PB2RnoFtK/kAAAACjeYHmMK2cAPQC0gI+PSakGy7VZBfyKPoowWRdbtyZOGyGtgZ/w4pPb5J3wpZervGuynV4I9ZZPgUp0eYN8FI4</DTS:Password>
         </DTS:ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
@@ -42,7 +42,7 @@
           <DTS:Password
             DTS:Name="Password"
             Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAuR1Gdsnx50KES8/66vqaKwAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAAA9zJo++yajLwnotiEu151+zXBtXEQOaldDXrnNmJwVZgAAAAAOgAAAAAIAACAAAADVcxsz7E6tMkuO65U5Ytxk++ZoqlqjiEDz21WvWRA2xiAAAABLM8JiexPEnDoJQHUDS9cF7aBX0BwTvtZX8EpFJhEI/UAAAADYDZyGJGX+2rsPKTIe/xdlJNw7cfnJ/Iwx0hhOEjzmwhInjvVvCPNBIutxkoF43LqV2oVbYOGlq+u6eCxYdB7Z</DTS:Password>
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAuR1Gdsnx50KES8/66vqaKwAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAABykLArAYODb47iPTHEVumtfRTAy/jSedIf0zBzccR95QAAAAAOgAAAAAIAACAAAACYZuBwJ86eLgLGjBxnVspjmWh3roTrTe+sbaOYjqnKhSAAAACvjMSBVRuNthsdSyz2TgfI1BHlM4+mEueELEHFtlcYJEAAAADttfkNyFJ53uOhi2AOehVgj8RmMdD+UTGnZKr4GEBOvLnL9TbBu11SFT8VeaqedODovEiXoyqo1cMdhBE7goDy</DTS:Password>
         </DTS:ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
@@ -62,7 +62,7 @@
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{C3483A42-B494-4A07-8B08-CD32885098A7}"
-          SQLTask:SqlStatementSource="update VolumenYearDLCO set&#xA;&#x9;VolumenYearDLCO.OrphEstrLin= 0&#xA;, VolumenYearDLCO.OrphVol= 0&#xA;FROM lukerVen.tmp.BaseEstadisticaBcTDLCO BaseEstadisticaBcTDLCO&#xA;, lukerVen.PVOF.VolumenYearDLCO VolumenYearDLCO&#xA;WHERE BaseEstadisticaBcTDLCO.Categoria = VolumenYearDLCO.Categoria &#xA;AND BaseEstadisticaBcTDLCO.Director_Canal = VolumenYearDLCO.Director_Canal &#xA;AND BaseEstadisticaBcTDLCO.Linea = VolumenYearDLCO.Linea &#xA;AND BaseEstadisticaBcTDLCO.Marca = VolumenYearDLCO.Marca &#xA;AND BaseEstadisticaBcTDLCO.Nombre_GCliente_AD2 = VolumenYearDLCO.Nombre_GCliente_AD2 &#xA;AND BaseEstadisticaBcTDLCO.Nombre_Oficina_Ventas = VolumenYearDLCO.Nombre_Oficina_Ventas &#xA;AND BaseEstadisticaBcTDLCO.NombreCanalAgrupado = VolumenYearDLCO.NombreCanalAgrupado &#xA;AND ((VolumenYearDLCO.PeriodoAAMM='202000'))" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          SQLTask:SqlStatementSource="update VolumenYearDLCO set&#xA;&#x9;VolumenYearDLCO.OrphEstrLin= 0&#xA;, VolumenYearDLCO.OrphVol= 0&#xA;FROM lukerVen.tmp.BaseEstadisticaBcTDLCO BaseEstadisticaBcTDLCO&#xA;, lukerVen.PVOF.VolumenYearDLCO VolumenYearDLCO&#xA;WHERE BaseEstadisticaBcTDLCO.Categoria = VolumenYearDLCO.Categoria &#xA;AND BaseEstadisticaBcTDLCO.Director_Canal = VolumenYearDLCO.Director_Canal &#xA;AND BaseEstadisticaBcTDLCO.Linea = VolumenYearDLCO.Linea &#xA;AND BaseEstadisticaBcTDLCO.Marca = VolumenYearDLCO.Marca &#xA;AND BaseEstadisticaBcTDLCO.Nombre_GCliente_AD2 = VolumenYearDLCO.Nombre_GCliente_AD2 &#xA;AND BaseEstadisticaBcTDLCO.Nombre_Oficina_Ventas = VolumenYearDLCO.Nombre_Oficina_Ventas &#xA;AND BaseEstadisticaBcTDLCO.Cod_Canal = VolumenYearDLCO.Cod_Canal &#xA;AND ((VolumenYearDLCO.PeriodoAAMM='202000'))" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
@@ -73,7 +73,7 @@
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="jerarquia ventas pos"
-      DTS:ThreadHint="1">
+      DTS:ThreadHint="0">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
@@ -122,11 +122,14 @@
                   name="SqlCommand"
                   UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">SELECT 
 xppt_pvof_ano_dir_lin_canofi.PeriodoAAMM,
-xppt_pvof_ano_dir_lin_canofi.Director_Canal, xppt_pvof_ano_dir_lin_canofi.Linea, xppt_pvof_ano_dir_lin_canofi.NombreCanalAgrupado, xppt_pvof_ano_dir_lin_canofi.Nombre_GCliente_AD2, Sum(xppt_pvof_ano_dir_lin_canofi.Kilos1) AS 'Kilos1', Sum(xppt_pvof_ano_dir_lin_canofi.Kilos2) AS 'Kilos2', Sum(xppt_pvof_ano_dir_lin_canofi.Kilos3) AS 'Kilos3', Sum(xppt_pvof_ano_dir_lin_canofi.Kilos4) AS 'Kilos4', Sum(xppt_pvof_ano_dir_lin_canofi.Kilos5) AS 'Kilos5', Sum(xppt_pvof_ano_dir_lin_canofi.Kilos6) AS 'Kilos6', Sum(xppt_pvof_ano_dir_lin_canofi.Kilos7) AS 'Kilos7', Sum(xppt_pvof_ano_dir_lin_canofi.Kilos8) AS 'Kilos8', Sum(xppt_pvof_ano_dir_lin_canofi.Kilos9) AS 'Kilos9', Sum(xppt_pvof_ano_dir_lin_canofi.Kilos10) AS 'Kilos10', Sum(xppt_pvof_ano_dir_lin_canofi.Kilos11) AS 'Kilos11', Sum(xppt_pvof_ano_dir_lin_canofi.Kilos12) AS 'Kilos12', xppt_pvof_ano_dir_lin_canofi.EstructuraNegocio, xppt_pvof_ano_dir_lin_canofi.Categoria, xppt_pvof_ano_dir_lin_canofi.Marca, xppt_pvof_ano_dir_lin_canofi.Nombre_Oficina_Ventas
+xppt_pvof_ano_dir_lin_canofi.Director_Canal, xppt_pvof_ano_dir_lin_canofi.Linea, xppt_pvof_ano_dir_lin_canofi.NombreCanalAgrupado, xppt_pvof_ano_dir_lin_canofi.Nombre_GCliente_AD2
+,xppt_pvof_ano_dir_lin_canofi.Cod_Canal
+, Sum(xppt_pvof_ano_dir_lin_canofi.Kilos1) AS 'Kilos1', Sum(xppt_pvof_ano_dir_lin_canofi.Kilos2) AS 'Kilos2', Sum(xppt_pvof_ano_dir_lin_canofi.Kilos3) AS 'Kilos3', Sum(xppt_pvof_ano_dir_lin_canofi.Kilos4) AS 'Kilos4', Sum(xppt_pvof_ano_dir_lin_canofi.Kilos5) AS 'Kilos5', Sum(xppt_pvof_ano_dir_lin_canofi.Kilos6) AS 'Kilos6', Sum(xppt_pvof_ano_dir_lin_canofi.Kilos7) AS 'Kilos7', Sum(xppt_pvof_ano_dir_lin_canofi.Kilos8) AS 'Kilos8', Sum(xppt_pvof_ano_dir_lin_canofi.Kilos9) AS 'Kilos9', Sum(xppt_pvof_ano_dir_lin_canofi.Kilos10) AS 'Kilos10', Sum(xppt_pvof_ano_dir_lin_canofi.Kilos11) AS 'Kilos11', Sum(xppt_pvof_ano_dir_lin_canofi.Kilos12) AS 'Kilos12', xppt_pvof_ano_dir_lin_canofi.EstructuraNegocio, xppt_pvof_ano_dir_lin_canofi.Categoria, xppt_pvof_ano_dir_lin_canofi.Marca, xppt_pvof_ano_dir_lin_canofi.Nombre_Oficina_Ventas
 , '' AS 'OrphEstrLin', '' AS 'OrphVol'
 FROM lukerVen.dbo.xppt_pvof_ano_dir_lin_canofi xppt_pvof_ano_dir_lin_canofi
 GROUP BY xppt_pvof_ano_dir_lin_canofi.Director_Canal, xppt_pvof_ano_dir_lin_canofi.Linea, xppt_pvof_ano_dir_lin_canofi.NombreCanalAgrupado, xppt_pvof_ano_dir_lin_canofi.Nombre_GCliente_AD2, xppt_pvof_ano_dir_lin_canofi.EstructuraNegocio, xppt_pvof_ano_dir_lin_canofi.Categoria, xppt_pvof_ano_dir_lin_canofi.Marca, xppt_pvof_ano_dir_lin_canofi.Nombre_Oficina_Ventas
-, xppt_pvof_ano_dir_lin_canofi.PeriodoAAMM</property>
+, xppt_pvof_ano_dir_lin_canofi.PeriodoAAMM
+,xppt_pvof_ano_dir_lin_canofi.Cod_Canal</property>
                 <property
                   dataType="System.String"
                   description="Variable que contiene el comando SQL para ejecutar."
@@ -382,6 +385,16 @@ GROUP BY xppt_pvof_ano_dir_lin_canofi.Director_Canal, xppt_pvof_ano_dir_lin_cano
                       lineageId="Package\load vol from stgn\load from stgn.Outputs[Salida de origen de OLE DB].Columns[PeriodoAAMM]"
                       name="PeriodoAAMM"
                       truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\load vol from stgn\load from stgn.Outputs[Salida de origen de OLE DB].Columns[Cod_Canal]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\load vol from stgn\load from stgn.Outputs[Salida de origen de OLE DB].ExternalColumns[Cod_Canal]"
+                      length="2"
+                      lineageId="Package\load vol from stgn\load from stgn.Outputs[Salida de origen de OLE DB].Columns[Cod_Canal]"
+                      name="Cod_Canal"
+                      truncationRowDisposition="FailComponent" />
                   </outputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -490,6 +503,11 @@ GROUP BY xppt_pvof_ano_dir_lin_canofi.Director_Canal, xppt_pvof_ano_dir_lin_cano
                       dataType="wstr"
                       length="6"
                       name="PeriodoAAMM" />
+                    <externalMetadataColumn
+                      refId="Package\load vol from stgn\load from stgn.Outputs[Salida de origen de OLE DB].ExternalColumns[Cod_Canal]"
+                      dataType="wstr"
+                      length="2"
+                      name="Cod_Canal" />
                   </externalMetadataColumns>
                 </output>
                 <output
@@ -527,6 +545,12 @@ GROUP BY xppt_pvof_ano_dir_lin_canofi.Director_Canal, xppt_pvof_ano_dir_lin_cano
                       length="40"
                       lineageId="Package\load vol from stgn\load from stgn.Outputs[Salida de error de origen de OLE DB].Columns[Linea]"
                       name="Linea" />
+                    <outputColumn
+                      refId="Package\load vol from stgn\load from stgn.Outputs[Salida de error de origen de OLE DB].Columns[Cod_Canal]"
+                      dataType="wstr"
+                      length="2"
+                      lineageId="Package\load vol from stgn\load from stgn.Outputs[Salida de error de origen de OLE DB].Columns[Cod_Canal]"
+                      name="Cod_Canal" />
                     <outputColumn
                       refId="Package\load vol from stgn\load from stgn.Outputs[Salida de error de origen de OLE DB].Columns[NombreCanalAgrupado]"
                       dataType="wstr"
@@ -858,6 +882,13 @@ GROUP BY xppt_pvof_ano_dir_lin_canofi.Director_Canal, xppt_pvof_ano_dir_lin_cano
                       cachedName="PeriodoAAMM"
                       externalMetadataColumnId="Package\load vol from stgn\vol año.Inputs[Entrada de destino de OLE DB].ExternalColumns[PeriodoAAMM]"
                       lineageId="Package\load vol from stgn\load from stgn.Outputs[Salida de origen de OLE DB].Columns[PeriodoAAMM]" />
+                    <inputColumn
+                      refId="Package\load vol from stgn\vol año.Inputs[Entrada de destino de OLE DB].Columns[Cod_Canal]"
+                      cachedDataType="wstr"
+                      cachedLength="2"
+                      cachedName="Cod_Canal"
+                      externalMetadataColumnId="Package\load vol from stgn\vol año.Inputs[Entrada de destino de OLE DB].ExternalColumns[Cod_Canal]"
+                      lineageId="Package\load vol from stgn\load from stgn.Outputs[Salida de origen de OLE DB].Columns[Cod_Canal]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -961,6 +992,11 @@ GROUP BY xppt_pvof_ano_dir_lin_canofi.Director_Canal, xppt_pvof_ano_dir_lin_cano
                       dataType="str"
                       length="1"
                       name="OrphVol" />
+                    <externalMetadataColumn
+                      refId="Package\load vol from stgn\vol año.Inputs[Entrada de destino de OLE DB].ExternalColumns[Cod_Canal]"
+                      dataType="wstr"
+                      length="2"
+                      name="Cod_Canal" />
                   </externalMetadataColumns>
                 </input>
               </inputs>
@@ -1172,6 +1208,14 @@ GROUP BY xppt_pvof_ano_dir_lin_canofi.Director_Canal, xppt_pvof_ano_dir_lin_cano
                       cachedName="Nombre_Oficina_Ventas"
                       externalMetadataColumnId="Package\totales - contextos DCL\BaseEstadisticaBcTDLCO.Inputs[Entrada de destino de OLE DB].ExternalColumns[Nombre_Oficina_Ventas]"
                       lineageId="Package\totales - contextos DCL\total DLC.Outputs[Salida de origen de OLE DB].Columns[Nombre_Oficina_Ventas]" />
+                    <inputColumn
+                      refId="Package\totales - contextos DCL\BaseEstadisticaBcTDLCO.Inputs[Entrada de destino de OLE DB].Columns[Cod_Canal]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="2"
+                      cachedName="Cod_Canal"
+                      externalMetadataColumnId="Package\totales - contextos DCL\BaseEstadisticaBcTDLCO.Inputs[Entrada de destino de OLE DB].ExternalColumns[Cod_Canal]"
+                      lineageId="Package\totales - contextos DCL\total DLC.Outputs[Salida de origen de OLE DB].Columns[Cod_Canal]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -1227,6 +1271,12 @@ GROUP BY xppt_pvof_ano_dir_lin_canofi.Director_Canal, xppt_pvof_ano_dir_lin_cano
                       dataType="str"
                       length="20"
                       name="Nombre_Oficina_Ventas" />
+                    <externalMetadataColumn
+                      refId="Package\totales - contextos DCL\BaseEstadisticaBcTDLCO.Inputs[Entrada de destino de OLE DB].ExternalColumns[Cod_Canal]"
+                      codePage="1252"
+                      dataType="str"
+                      length="2"
+                      name="Cod_Canal" />
                   </externalMetadataColumns>
                 </input>
               </inputs>
@@ -1281,8 +1331,10 @@ GROUP BY xppt_pvof_ano_dir_lin_canofi.Director_Canal, xppt_pvof_ano_dir_lin_cano
                   description="Comando SQL para ejecutar."
                   name="SqlCommand"
                   UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">SELECT BaseEstadisticaBc.Periodo, BaseEstadisticaBc.Director_Canal, BaseEstadisticaBc.NombreCanalAgrupado, BaseEstadisticaBc.Nombre_GCliente_AD2, BaseEstadisticaBc.Categoria, BaseEstadisticaBc.Marca, BaseEstadisticaBc.Linea, BaseEstadisticaBc.Nombre_Oficina_Ventas, Sum(BaseEstadisticaBc.Kilos) AS 'Kilos'
+,BaseEstadisticaBc.Cod_Canal
 FROM lukerVen.PVOF.BaseEstadisticaBc BaseEstadisticaBc
 GROUP BY BaseEstadisticaBc.Periodo, BaseEstadisticaBc.Director_Canal, BaseEstadisticaBc.NombreCanalAgrupado, BaseEstadisticaBc.Nombre_GCliente_AD2, BaseEstadisticaBc.Categoria, BaseEstadisticaBc.Marca, BaseEstadisticaBc.Linea, BaseEstadisticaBc.Nombre_Oficina_Ventas
+,BaseEstadisticaBc.Cod_Canal
 ORDER BY BaseEstadisticaBc.NombreCanalAgrupado</property>
                 <property
                   dataType="System.String"
@@ -1416,6 +1468,17 @@ ORDER BY BaseEstadisticaBc.NombreCanalAgrupado</property>
                       lineageId="Package\totales - contextos DCL\total DLC.Outputs[Salida de origen de OLE DB].Columns[Nombre_Oficina_Ventas]"
                       name="Nombre_Oficina_Ventas"
                       truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\totales - contextos DCL\total DLC.Outputs[Salida de origen de OLE DB].Columns[Cod_Canal]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\totales - contextos DCL\total DLC.Outputs[Salida de origen de OLE DB].ExternalColumns[Cod_Canal]"
+                      length="2"
+                      lineageId="Package\totales - contextos DCL\total DLC.Outputs[Salida de origen de OLE DB].Columns[Cod_Canal]"
+                      name="Cod_Canal"
+                      truncationRowDisposition="FailComponent" />
                   </outputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -1471,6 +1534,12 @@ ORDER BY BaseEstadisticaBc.NombreCanalAgrupado</property>
                       dataType="str"
                       length="20"
                       name="Nombre_Oficina_Ventas" />
+                    <externalMetadataColumn
+                      refId="Package\totales - contextos DCL\total DLC.Outputs[Salida de origen de OLE DB].ExternalColumns[Cod_Canal]"
+                      codePage="1252"
+                      dataType="str"
+                      length="2"
+                      name="Cod_Canal" />
                   </externalMetadataColumns>
                 </output>
                 <output
@@ -1539,6 +1608,13 @@ ORDER BY BaseEstadisticaBc.NombreCanalAgrupado</property>
                       dataType="r8"
                       lineageId="Package\totales - contextos DCL\total DLC.Outputs[Salida de error de origen de OLE DB].Columns[Kilos]"
                       name="Kilos" />
+                    <outputColumn
+                      refId="Package\totales - contextos DCL\total DLC.Outputs[Salida de error de origen de OLE DB].Columns[Cod_Canal]"
+                      codePage="1252"
+                      dataType="str"
+                      length="2"
+                      lineageId="Package\totales - contextos DCL\total DLC.Outputs[Salida de error de origen de OLE DB].Columns[Cod_Canal]"
+                      name="Cod_Canal" />
                     <outputColumn
                       refId="Package\totales - contextos DCL\total DLC.Outputs[Salida de error de origen de OLE DB].Columns[ErrorCode]"
                       dataType="i4"
@@ -1634,14 +1710,29 @@ ORDER BY BaseEstadisticaBc.NombreCanalAgrupado</property>
       DTS:ObjectName="Restricción 3"
       DTS:To="Package\totales - contextos DCL" />
     <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Restricción 4]"
+      DTS:CreationName=""
+      DTS:DTSID="{1449B1F6-F030-4D27-86F7-26733EDBBF6B}"
+      DTS:From="Package\jerarquia ventas pos"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Restricción 4"
+      DTS:To="Package\pass" />
+    <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Restricción 5]"
       DTS:CreationName=""
       DTS:DTSID="{6E6EFB1D-19B6-4D6F-A4BC-2909972ED60A}"
       DTS:From="Package\pass"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Restricción 5"
-      DTS:To="Package\trunc tot estd"
-      DTS:Value="1" />
+      DTS:To="Package\trunc tot estd" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Restricción 6]"
+      DTS:CreationName=""
+      DTS:DTSID="{61057FB5-654C-4E6B-B148-31B243105A33}"
+      DTS:From="Package\totales - contextos DCL"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Restricción 6"
+      DTS:To="Package\trnc tbl" />
   </DTS:PrecedenceConstraints>
   <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
 <!--Esta sección CDATA contiene la información de diseño del paquete. Esta sección incluye información como, por ejemplo, las coordenadas (x,y), el ancho y el alto.-->
@@ -1654,7 +1745,7 @@ ORDER BY BaseEstadisticaBc.NombreCanalAgrupado</property>
     design-time-name="Package">
     <LayoutInfo>
       <GraphLayout
-        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="161.6,41.6"
           Id="Package\jeraquia huerfana"
@@ -1662,15 +1753,27 @@ ORDER BY BaseEstadisticaBc.NombreCanalAgrupado</property>
         <NodeLayout
           Size="174.4,41.6"
           Id="Package\jerarquia ventas pos"
-          TopLeft="5.5,5.49999999999995" />
+          TopLeft="5.5,4.88823528553782" />
         <NodeLayout
           Size="164,41.6"
           Id="Package\load vol from stgn"
           TopLeft="10.7,208.7" />
         <NodeLayout
           Size="169.6,41.6"
+          Id="Package\pass"
+          TopLeft="272.380957019572,33.1503271501095" />
+        <NodeLayout
+          Size="188,41.6"
+          Id="Package\totales - contextos DCL"
+          TopLeft="271.746036373839,222.410460635563" />
+        <NodeLayout
+          Size="169.6,41.6"
           Id="Package\trnc tbl"
           TopLeft="7.90000000000002,107.1" />
+        <NodeLayout
+          Size="142.4,41.6"
+          Id="Package\trunc tot estd"
+          TopLeft="286.984131871438,125.647060186759" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Restricción]"
           TopLeft="92.7,148.7">
@@ -1729,18 +1832,18 @@ ORDER BY BaseEstadisticaBc.NombreCanalAgrupado</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Restricción 2]"
-          TopLeft="92.7,47.1">
+          TopLeft="92.7,46.4882352855378">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,59.9999999999999"
+              EndConnector="0,60.6117647144622"
               Start="0,0"
-              End="0,52.4999999999999">
+              End="0,53.1117647144622">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,52.4999999999999" />
+                    End="0,53.1117647144622" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -1749,28 +1852,20 @@ ORDER BY BaseEstadisticaBc.NombreCanalAgrupado</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="188,41.6"
-          Id="Package\totales - contextos DCL"
-          TopLeft="271.746036373839,223.633990064487" />
-        <NodeLayout
-          Size="142.4,41.6"
-          Id="Package\trunc tot estd"
-          TopLeft="286.984131871438,125.647060186759" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Restricción 3]"
           TopLeft="361.965084122638,167.247060186759">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,56.3869298777274"
+              EndConnector="0,55.1634004488037"
               Start="0,0"
-              End="0,48.8869298777274">
+              End="0,47.6634004488037">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,48.8869298777274" />
+                    End="0,47.6634004488037" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -1779,10 +1874,6 @@ ORDER BY BaseEstadisticaBc.NombreCanalAgrupado</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="169.6,41.6"
-          Id="Package\pass"
-          TopLeft="272.380957019572,33.1503271501095" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Restricción 5]"
           TopLeft="357.682544445505,74.7503271501095">
@@ -1802,9 +1893,75 @@ ORDER BY BaseEstadisticaBc.NombreCanalAgrupado</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-11.52869140625,16.9874290183249,23.0573828125,9.421875"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Restricción 4]"
+          TopLeft="179.9,25.6882352855378">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="92.480957019572,28.2620918645717"
+              Start="0,0"
+              End="84.980957019572,28.2620918645717">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="42.240478509786,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="42.240478509786,0"
+                    Point2="46.240478509786,0"
+                    Point3="46.240478509786,4" />
+                  <mssgle:LineSegment
+                    End="46.240478509786,24.2620918645717" />
+                  <mssgle:CubicBezierSegment
+                    Point1="46.240478509786,24.2620918645717"
+                    Point2="46.240478509786,28.2620918645717"
+                    Point3="50.240478509786,28.2620918645717" />
+                  <mssgle:LineSegment
+                    End="84.980957019572,28.2620918645717" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Restricción 6]"
+          TopLeft="335.746036373839,222.410460635563">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-216.112703040506,-73.7104606355628"
+              Start="0,0"
+              End="-216.112703040506,-66.2104606355628">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,-32.8136268676067" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,-32.8136268676067"
+                    Point2="0,-36.8136268676067"
+                    Point3="-4,-36.8136268676067" />
+                  <mssgle:LineSegment
+                    End="-212.112703040506,-36.8136268676067" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-212.112703040506,-36.8136268676067"
+                    Point2="-216.112703040506,-36.8136268676067"
+                    Point3="-216.112703040506,-40.8136268676067" />
+                  <mssgle:LineSegment
+                    End="-216.112703040506,-66.2104606355628" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -1816,13 +1973,13 @@ ORDER BY BaseEstadisticaBc.NombreCanalAgrupado</property>
       <GraphLayout
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="147.2,41.6"
-          Id="Package\load vol from stgn\load from stgn"
-          TopLeft="80.0000013623919,75.8588245933031" />
-        <NodeLayout
           Size="112.8,41.6"
           Id="Package\load vol from stgn\vol año"
           TopLeft="93.1428587290706,185.976473196485" />
+        <NodeLayout
+          Size="147.2,41.6"
+          Id="Package\load vol from stgn\load from stgn"
+          TopLeft="80.0000013623919,75.8588245933031" />
         <EdgeLayout
           Id="Package\load vol from stgn.Paths[Salida de origen de OLE DB]"
           TopLeft="151.571430045731,117.458824593303">
@@ -1875,13 +2032,13 @@ ORDER BY BaseEstadisticaBc.NombreCanalAgrupado</property>
       <GraphLayout
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="194.4,41.6"
-          Id="Package\totales - contextos DCL\BaseEstadisticaBcTDLCO"
-          TopLeft="68.8,147.2" />
-        <NodeLayout
           Size="121.6,41.6"
           Id="Package\totales - contextos DCL\total DLC"
           TopLeft="94.4,56" />
+        <NodeLayout
+          Size="194.4,41.6"
+          Id="Package\totales - contextos DCL\BaseEstadisticaBcTDLCO"
+          TopLeft="68.8,147.2" />
         <EdgeLayout
           Id="Package\totales - contextos DCL.Paths[Salida de origen de OLE DB]"
           TopLeft="155.2,97.6">

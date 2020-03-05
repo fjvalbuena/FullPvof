@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="C00 BaseEstadistica"
   DTS:PackageType="5"
-  DTS:VersionBuild="4"
-  DTS:VersionGUID="{BE46FEBE-6807-45BD-9D2D-C6888898E283}">
+  DTS:VersionBuild="8"
+  DTS:VersionGUID="{48616A08-FB99-426D-B309-4687E735F5C8}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -27,7 +27,7 @@
           <DTS:Password
             DTS:Name="Password"
             Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAuR1Gdsnx50KES8/66vqaKwAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAADgx0sDBUQA3ileXJGN2td366RctN1f1MkKMoiRX1W66AAAAAAOgAAAAAIAACAAAAAV6glad5V6jGFrMOAtFWJmeqRDTv8Gc+gFgIPHm3C/KiAAAAAwSO7ltr37AMS8lm0AG31VwQwjf6elGDXQKzJCuWU9rkAAAADQmzYWhZo4I+3rqsVh+GUYS30ejF6c+4R05peqcjqbYhnPLznHOi2SyOAdOajIc31z7oAWZAFgIS2ZaC907A4J</DTS:Password>
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAuR1Gdsnx50KES8/66vqaKwAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAAA46QwaLSEextr0krdxiE91UVq+fjdAlehJ58kSE1xnXgAAAAAOgAAAAAIAACAAAACwtyjsHlDzChH4dHUZO+phO8qSSRwH7vDWfkNxcV9HmiAAAAC70eSc+I+A8D1casoMPNCYjxtlNfgv4bMRKy0AO0kXw0AAAAB2lQO0IVQDRHJ52n1CvjDAn6grmR5lbGMP0BmiqHpYQIagik0UdPDw4tZHXw061iwerv1vYseeRKE4Bs367E9f</DTS:Password>
         </DTS:ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
@@ -280,35 +280,39 @@ FROM lukerVen.PVOF.Parametros Parametros
 WHERE (Parametros.EstadoProceso='1')
 
 SELECT Parametros.PeriodoAAMM
-, Facturas.Cod_Cliente
+, CASE Clientes.Cod_Zona_Ventas WHEN '' THEN CASE isnull(EquivalenciaJerarquiaOrph.Cod_Cliente, '') WHEN '' THEN Facturas.Cod_Cliente ELSE isnull(EquivalenciaJerarquiaOrph.Cod_Cliente, '') END ELSE Facturas.Cod_Cliente END AS Cod_Cliente
 , Productos.JerarquiaProducto
 , Facturas.Cod_SKU
 , Facturas.FechaPedido
 , sum(Facturas.Kilos) as Kilos
 , ROW_NUMBER() OVER (PARTITION BY  Parametros.PeriodoAAMM
-, Facturas.Cod_Cliente
-
+, CASE Clientes.Cod_Zona_Ventas WHEN '' THEN CASE isnull(EquivalenciaJerarquiaOrph.Cod_Cliente, '') WHEN '' THEN Facturas.Cod_Cliente ELSE isnull(EquivalenciaJerarquiaOrph.Cod_Cliente, '') END ELSE Facturas.Cod_Cliente END
 , Facturas.Cod_SKU ORDER BY  Productos.JerarquiaProducto,FechaPedido) AS PedidoNum  
-FROM lukerVen.SD.[FacturasW] Facturas
+FROM        SD.FacturasW AS Facturas INNER JOIN
+                  SD.CanalDistribucion ON Facturas.Cod_Canal = SD.CanalDistribucion.Cod_Canal INNER JOIN
+                  SD.Productos ON Facturas.Cod_SKU = SD.Productos.Cod_SKU INNER JOIN
+                  SD.CategoriaMarcaCanal ON SD.Productos.Aliado = SD.CategoriaMarcaCanal.Aliado AND SD.Productos.Categoria = SD.CategoriaMarcaCanal.Categoria AND SD.Productos.Marca = SD.CategoriaMarcaCanal.Marca AND 
+                  Facturas.Cod_Canal = SD.CategoriaMarcaCanal.Cod_Canal AND Facturas.Cod_OrgVentas = SD.CategoriaMarcaCanal.Cod_OrgVentas INNER JOIN
+                  SD.MotivosNoVenta ON Facturas.Cod_MotivoNoVenta = SD.MotivosNoVenta.Cod_Motivo LEFT OUTER JOIN
+                  SD.Clientes ON Facturas.Cod_Cliente = SD.Clientes.Cod_Cliente LEFT OUTER JOIN
+                  SD.AliasSKU ON Facturas.Cod_SKU = SD.AliasSKU.Cod_SKU LEFT OUTER JOIN
+                  SD.EquivalenciaJerarquiaOrph AS EquivalenciaJerarquiaOrph ON EquivalenciaJerarquiaOrph.Cod_Canal = Facturas.Cod_Canal AND EquivalenciaJerarquiaOrph.Cod_GCliente = Facturas.Cod_GCliente AND 
+                  Facturas.SalesOffice = EquivalenciaJerarquiaOrph.Cod_Oficina_Ventas
+				  inner join lukerVen.SD.TipoDocumento TipoDocumento  on TipoDocumento.Cod_TipoFactura = Facturas.Cod_TipoFactura 
 , lukerVen.PVOF.Parametros Parametros
-, lukerVen.SD.TipoDocumento TipoDocumento
-, lukerVen.SD.Productos Productos
-WHERE TipoDocumento.Cod_TipoFactura = Facturas.Cod_TipoFactura 
-AND ( (Parametros.EstadoProceso=1)
+
+where  ( (Parametros.EstadoProceso=1)
 AND (Facturas.FechaFactura&gt;=Parametros.PeriodoEstI) 
 AND (Facturas.FechaFactura&lt;=Parametros.PeriodoEstF) 
 AND (TipoDocumento.NombreTipoDocumento Like 'Factura%') 
-) and  Productos.Cod_SKU = Facturas.Cod_SKU
--- no ventas completas
-AND not ( (Facturas.MotivoNV&lt;&gt;'') AND (Facturas.Unidades+Facturas.SUnidadesNV=00))
+)
 group by 
   Parametros.PeriodoAAMM
 , Productos.JerarquiaProducto
-, Facturas.Cod_Cliente
 , Facturas.FechaPedido
 , Facturas.Cod_SKU
-having sum(Facturas.Kilos) &lt;&gt;0
-order by 1,2,3,4,5</property>
+, CASE Clientes.Cod_Zona_Ventas WHEN '' THEN CASE isnull(EquivalenciaJerarquiaOrph.Cod_Cliente, '') WHEN '' THEN Facturas.Cod_Cliente ELSE isnull(EquivalenciaJerarquiaOrph.Cod_Cliente, '') END ELSE Facturas.Cod_Cliente END 
+having sum(Facturas.Kilos) &lt;&gt;0</property>
                 <property
                   dataType="System.String"
                   description="Variable que contiene el comando SQL para ejecutar."
@@ -620,7 +624,7 @@ order by 1,2,3,4,5</property>
     design-time-name="Package\load Periodo base">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="124.8,41.6"
           Id="Package\load Periodo base\Sel FactW"
@@ -648,7 +652,9 @@ order by 1,2,3,4,5</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="-28.79849609375,5.51167329603415,57.5969921875,11.453125"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
