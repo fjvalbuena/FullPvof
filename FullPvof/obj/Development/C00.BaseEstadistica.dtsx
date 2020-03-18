@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="C00 BaseEstadistica"
   DTS:PackageType="5"
-  DTS:VersionBuild="8"
-  DTS:VersionGUID="{48616A08-FB99-426D-B309-4687E735F5C8}">
+  DTS:VersionBuild="9"
+  DTS:VersionGUID="{950F51DB-B0D6-4B5F-9AB3-85B8AFCA9514}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -27,7 +27,7 @@
           <DTS:Password
             DTS:Name="Password"
             Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAuR1Gdsnx50KES8/66vqaKwAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAACPGirYe6lGgj3gyCZ1Cb/bxRdZxISjVW1KqdoRe3mM3wAAAAAOgAAAAAIAACAAAAAx0Gc+SVMZSnRaBr4O3sNhMkXVPQuYSyCbMejgwbRCbiAAAABZBe8i5NmeiObFwILT1nsmY7lC0jLVkJqznOpzJJM2z0AAAADOwN+eYMaK8V9brQFde502g55mjcvs9wkX7sfNhJHpABIWat5zZ9HOrnC2uh0+rWggVGUa4FTKf5wuYEUv2srQ</DTS:Password>
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAuR1Gdsnx50KES8/66vqaKwAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAADYe28sUOpALvzRCiTaTyW2e1f5I8pmDt9stx3mVaNUrAAAAAAOgAAAAAIAACAAAACLN+YHcTAeIHas7IzxA3rmFJyc2vd0k74k/sVKRVHFOyAAAADjfkpuYlw2uzHoTmgp0wHbKhh0waScDnto9/8FEGgvOEAAAADnKABfBYf2QX3ITGDB9zzzZC+XobFV8glaJJgTRhir7zMF9JVU+q9FhiiY9aKqCnAzNkLyf77Ypt4z+DqGvCud</DTS:Password>
         </DTS:ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
@@ -278,6 +278,13 @@ SELECT
 , @PeriodoEstF = Parametros.PeriodoEstF
 FROM lukerVen.PVOF.Parametros Parametros
 WHERE (Parametros.EstadoProceso='1')
+
+/**
+SELECT 
+  @PeriodoPVO   
+, @PeriodoEstI  
+, @PeriodoEstF 
+**/
 
 SELECT Parametros.PeriodoAAMM
 , CASE Clientes.Cod_Zona_Ventas WHEN '' THEN CASE isnull(EquivalenciaJerarquiaOrph.Cod_Cliente, '') WHEN '' THEN Facturas.Cod_Cliente ELSE isnull(EquivalenciaJerarquiaOrph.Cod_Cliente, '') END ELSE Facturas.Cod_Cliente END AS Cod_Cliente
@@ -624,7 +631,7 @@ having sum(Facturas.Kilos) &lt;&gt;0</property>
     design-time-name="Package\load Periodo base">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="124.8,41.6"
           Id="Package\load Periodo base\Sel FactW"
@@ -652,9 +659,7 @@ having sum(Facturas.Kilos) &lt;&gt;0</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-28.79849609375,5.51167329603415,57.5969921875,11.453125"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>

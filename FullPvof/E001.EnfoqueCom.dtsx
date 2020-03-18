@@ -1,0 +1,176 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="3/16/2020 9:31:06 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="LAPTOP-MFGK5CPU"
+  DTS:CreatorName="LAPTOP-MFGK5CPU\fvalb"
+  DTS:DTSID="{CF655986-AB10-46B6-882A-63BA562CED9C}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.1300.371"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="E001 EnfoqueCom"
+  DTS:PackageType="5"
+  DTS:VersionBuild="10"
+  DTS:VersionGUID="{A2EFA0C2-3A04-459E-B414-AAB75243E0FC}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[192.168.5.23\B2C.lukerVen.ASSUser]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{1DAF96B6-B9CB-44D6-9AF8-5B50EEDF8432}"
+      DTS:ObjectName="192.168.5.23\B2C.lukerVen.ASSUser">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=192.168.5.23\B2C;User ID=ASSUser;Initial Catalog=lukerVen;Provider=SQLNCLI11.1;Persist Security Info=True;Auto Translate=False;">
+          <DTS:Password
+            DTS:Name="Password"
+            Sensitive="1"
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAuR1Gdsnx50KES8/66vqaKwAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAABELxz18ergyAaKu+9FtURNrtv0OuQehypuEGTRpZze3wAAAAAOgAAAAAIAACAAAAAbfcVu/xZVqNYulm2qdgYuFDnMYsJ3jrdVhIwltKzHWiAAAAAs2HMBeHjUZRsOEH9lKklvLbs2sA1uHwNijCuVh//Jo0AAAABGFiiRARlekRusxC2iTIuCAlQIaElr7UUCreZ5ENou//UE7a7QwrOwmprTNTF0hcx5fLdtkb9sMNw/vKMEzq+0</DTS:Password>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Explo Enfoque"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Tarea Ejecutar SQL"
+      DTS:DTSID="{425FA8BD-5830-44BC-B67C-F1847571C76C}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Explo Enfoque"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{1DAF96B6-B9CB-44D6-9AF8-5B50EEDF8432}"
+          SQLTask:SqlStatementSource="--- Age Can&#xA;delete lukerVen.PVOF.PresupuestoTRIM where left(origen,3)='enf'&#xA;insert into lukerVen.PVOF.PresupuestoTRIM&#xA;&#xA;SELECT PresupuestoTRIM.Cod_Negocio, PresupuestoTRIM.ano, PresupuestoTRIM.FechaCorte, PresupuestoTRIM.Cod_Cliente, PresupuestoTRIM.JerarquiaProducto&#xA;, EnfoqueComercial.Cod_SKU_Promocion&#xA;--, PresupuestoTRIM.Cod_SKU&#xA;, (EnfoqueComercial.Kilos* PresupuestoTRIM.Kilos/ PresupuestoTRIMtagca.Kilos)&#xA;, 0--PresupuestoTRIM.Valor_Lista&#xA;, 0--PresupuestoTRIM.Costo&#xA;, PresupuestoTRIM.stpLst, PresupuestoTRIM.Sht_Agencia, PresupuestoTRIM.Sht_Canal, PresupuestoTRIM.Sht_GCliente&#xA;, 0--PresupuestoTRIM.Cantidad&#xA;, 'enf+', PresupuestoTRIM.Sht_Director_Canal&#xA;FROM lukerVen.PVOF.EnfoqueComercial EnfoqueComercial, lukerVen.PVOF.PresupuestoTRIM PresupuestoTRIM, lukerVen.tmp.PresupuestoTRIMtagca PresupuestoTRIMtagca&#xA;WHERE EnfoqueComercial.FechaCorte = PresupuestoTRIM.FechaCorte AND PresupuestoTRIM.Sht_Canal = EnfoqueComercial.Cod_Canal AND PresupuestoTRIM.Sht_Agencia = EnfoqueComercial.Cod_Oficina_Ventas &#xA;AND PresupuestoTRIMtagca.FechaCorte = EnfoqueComercial.FechaCorte AND PresupuestoTRIMtagca.Cod_SKU = PresupuestoTRIM.Cod_SKU &#xA;AND PresupuestoTRIMtagca.FechaCorte = PresupuestoTRIM.FechaCorte AND PresupuestoTRIMtagca.Sht_Canal = PresupuestoTRIM.Sht_Canal &#xA;AND PresupuestoTRIMtagca.Sht_Agencia = PresupuestoTRIM.Sht_Agencia AND EnfoqueComercial.Cod_SKU_Regular = PresupuestoTRIM.Cod_SKU &#xA;AND ((PresupuestoTRIM.origen='Exp') AND (EnfoqueComercial.Origen='tem+mod') AND (EnfoqueComercial.Nombre_GCliente_AD2='') AND (EnfoqueComercial.Cod_GCliente=''))&#xA;&#xA;--cp&#xA;insert into lukerVen.PVOF.PresupuestoTRIM&#xA;SELECT PresupuestoTRIM.Cod_Negocio, PresupuestoTRIM.ano, PresupuestoTRIM.FechaCorte, PresupuestoTRIM.Cod_Cliente, PresupuestoTRIM.JerarquiaProducto&#xA;--, EnfoqueComercial.Cod_SKU_Promocion&#xA;, PresupuestoTRIM.Cod_SKU&#xA;, -sum(EnfoqueComercial.Kilos* PresupuestoTRIM.Kilos/ PresupuestoTRIMtagca.Kilos)&#xA;, 0--PresupuestoTRIM.Valor_Lista&#xA;, 0--PresupuestoTRIM.Costo&#xA;, PresupuestoTRIM.stpLst, PresupuestoTRIM.Sht_Agencia, PresupuestoTRIM.Sht_Canal, PresupuestoTRIM.Sht_GCliente&#xA;, 0--PresupuestoTRIM.Cantidad&#xA;, 'enf-', PresupuestoTRIM.Sht_Director_Canal&#xA;FROM lukerVen.PVOF.EnfoqueComercial EnfoqueComercial, lukerVen.PVOF.PresupuestoTRIM PresupuestoTRIM, lukerVen.tmp.PresupuestoTRIMtagca PresupuestoTRIMtagca&#xA;WHERE EnfoqueComercial.FechaCorte = PresupuestoTRIM.FechaCorte AND PresupuestoTRIM.Sht_Canal = EnfoqueComercial.Cod_Canal AND PresupuestoTRIM.Sht_Agencia = EnfoqueComercial.Cod_Oficina_Ventas &#xA;AND PresupuestoTRIMtagca.FechaCorte = EnfoqueComercial.FechaCorte AND PresupuestoTRIMtagca.Cod_SKU = PresupuestoTRIM.Cod_SKU &#xA;AND PresupuestoTRIMtagca.FechaCorte = PresupuestoTRIM.FechaCorte AND PresupuestoTRIMtagca.Sht_Canal = PresupuestoTRIM.Sht_Canal &#xA;AND PresupuestoTRIMtagca.Sht_Agencia = PresupuestoTRIM.Sht_Agencia AND EnfoqueComercial.Cod_SKU_Regular = PresupuestoTRIM.Cod_SKU &#xA;AND ((PresupuestoTRIM.origen='Exp') AND (EnfoqueComercial.Origen='tem+mod') AND (EnfoqueComercial.Nombre_GCliente_AD2='') AND (EnfoqueComercial.Cod_GCliente=''))&#xA;group by &#xA; PresupuestoTRIM.Cod_Negocio, PresupuestoTRIM.ano, PresupuestoTRIM.FechaCorte, PresupuestoTRIM.Cod_Cliente, PresupuestoTRIM.JerarquiaProducto&#xA;, PresupuestoTRIM.Cod_SKU&#xA;, PresupuestoTRIM.stpLst, PresupuestoTRIM.Sht_Agencia, PresupuestoTRIM.Sht_Canal, PresupuestoTRIM.Sht_GCliente&#xA;, PresupuestoTRIM.Sht_Director_Canal&#xA;&#xA;--- + gcliente&#xA;insert into lukerVen.PVOF.PresupuestoTRIM&#xA;SELECT PresupuestoTRIM.Cod_Negocio, PresupuestoTRIM.ano, PresupuestoTRIM.FechaCorte, PresupuestoTRIM.Cod_Cliente, PresupuestoTRIM.JerarquiaProducto&#xA;, EnfoqueComercial.Cod_SKU_Promocion&#xA;--, PresupuestoTRIM.Cod_SKU&#xA;&#xA;, (EnfoqueComercial.Kilos* PresupuestoTRIM.Kilos/ PresupuestoTRIMtagcagc.Kilos)&#xA;&#xA;, 0--PresupuestoTRIM.Valor_Lista&#xA;, 0--PresupuestoTRIM.Costo&#xA;, PresupuestoTRIM.stpLst, PresupuestoTRIM.Sht_Agencia, PresupuestoTRIM.Sht_Canal, PresupuestoTRIM.Sht_GCliente&#xA;, 0 --PresupuestoTRIM.Cantidad&#xA;, 'enf+', PresupuestoTRIM.Sht_Director_Canal&#xA;FROM lukerVen.PVOF.EnfoqueComercial EnfoqueComercial, lukerVen.PVOF.PresupuestoTRIM PresupuestoTRIM, lukerVen.tmp.PresupuestoTRIMtagcagc PresupuestoTRIMtagcagc&#xA;WHERE EnfoqueComercial.FechaCorte = PresupuestoTRIM.FechaCorte AND PresupuestoTRIM.Sht_Canal = EnfoqueComercial.Cod_Canal &#xA;AND PresupuestoTRIM.Sht_Agencia = EnfoqueComercial.Cod_Oficina_Ventas AND PresupuestoTRIMtagcagc.FechaCorte = EnfoqueComercial.FechaCorte &#xA;AND PresupuestoTRIMtagcagc.Cod_SKU = PresupuestoTRIM.Cod_SKU AND PresupuestoTRIMtagcagc.FechaCorte = PresupuestoTRIM.FechaCorte &#xA;AND PresupuestoTRIMtagcagc.Sht_Canal = PresupuestoTRIM.Sht_Canal AND PresupuestoTRIMtagcagc.Sht_Agencia = PresupuestoTRIM.Sht_Agencia &#xA;AND EnfoqueComercial.Cod_SKU_Regular = PresupuestoTRIM.Cod_SKU AND PresupuestoTRIMtagcagc.Sht_GCliente = PresupuestoTRIM.Sht_GCliente &#xA;AND EnfoqueComercial.Cod_GCliente = PresupuestoTRIM.Sht_GCliente AND ((PresupuestoTRIM.origen='Exp') &#xA;AND (EnfoqueComercial.Origen='tem+mod') AND (EnfoqueComercial.Nombre_GCliente_AD2=''))&#xA;&#xA;insert into lukerVen.PVOF.PresupuestoTRIM&#xA;SELECT PresupuestoTRIM.Cod_Negocio, PresupuestoTRIM.ano, PresupuestoTRIM.FechaCorte, PresupuestoTRIM.Cod_Cliente, PresupuestoTRIM.JerarquiaProducto&#xA;--, EnfoqueComercial.Cod_SKU_Promocion&#xA;, PresupuestoTRIM.Cod_SKU&#xA;&#xA;, -(EnfoqueComercial.Kilos* PresupuestoTRIM.Kilos/ PresupuestoTRIMtagcagc.Kilos)&#xA;&#xA;, 0--PresupuestoTRIM.Valor_Lista&#xA;, 0--PresupuestoTRIM.Costo&#xA;, PresupuestoTRIM.stpLst, PresupuestoTRIM.Sht_Agencia, PresupuestoTRIM.Sht_Canal, PresupuestoTRIM.Sht_GCliente&#xA;, 0 --PresupuestoTRIM.Cantidad&#xA;, 'enf-', PresupuestoTRIM.Sht_Director_Canal&#xA;FROM lukerVen.PVOF.EnfoqueComercial EnfoqueComercial, lukerVen.PVOF.PresupuestoTRIM PresupuestoTRIM, lukerVen.tmp.PresupuestoTRIMtagcagc PresupuestoTRIMtagcagc&#xA;WHERE EnfoqueComercial.FechaCorte = PresupuestoTRIM.FechaCorte AND PresupuestoTRIM.Sht_Canal = EnfoqueComercial.Cod_Canal &#xA;AND PresupuestoTRIM.Sht_Agencia = EnfoqueComercial.Cod_Oficina_Ventas AND PresupuestoTRIMtagcagc.FechaCorte = EnfoqueComercial.FechaCorte &#xA;AND PresupuestoTRIMtagcagc.Cod_SKU = PresupuestoTRIM.Cod_SKU AND PresupuestoTRIMtagcagc.FechaCorte = PresupuestoTRIM.FechaCorte &#xA;AND PresupuestoTRIMtagcagc.Sht_Canal = PresupuestoTRIM.Sht_Canal AND PresupuestoTRIMtagcagc.Sht_Agencia = PresupuestoTRIM.Sht_Agencia &#xA;AND EnfoqueComercial.Cod_SKU_Regular = PresupuestoTRIM.Cod_SKU AND PresupuestoTRIMtagcagc.Sht_GCliente = PresupuestoTRIM.Sht_GCliente &#xA;AND EnfoqueComercial.Cod_GCliente = PresupuestoTRIM.Sht_GCliente AND ((PresupuestoTRIM.origen='Exp') &#xA;AND (EnfoqueComercial.Origen='tem+mod') AND (EnfoqueComercial.Nombre_GCliente_AD2=''))&#xA;&#xA;-- moder&#xA;insert into lukerVen.PVOF.PresupuestoTRIM&#xA;SELECT PresupuestoTRIM.Cod_Negocio, PresupuestoTRIM.ano, PresupuestoTRIM.FechaCorte, PresupuestoTRIM.Cod_Cliente, PresupuestoTRIM.JerarquiaProducto&#xA;, EnfoqueComercial.Cod_SKU_Promocion&#xA;--, PresupuestoTRIM.Cod_SKU&#xA;&#xA;, (EnfoqueComercial.Kilos* PresupuestoTRIM.Kilos/ PresupuestoTRIMtagcamo.Kilos)&#xA;&#xA;, 0--PresupuestoTRIM.Valor_Lista&#xA;, 0--PresupuestoTRIM.Costo&#xA;, PresupuestoTRIM.stpLst, PresupuestoTRIM.Sht_Agencia, PresupuestoTRIM.Sht_Canal, PresupuestoTRIM.Sht_GCliente&#xA;, 0--PresupuestoTRIM.Cantidad&#xA;, 'enf+', PresupuestoTRIM.Sht_Director_Canal&#xA;FROM lukerVen.SD.Clientes Clientes, lukerVen.PVOF.EnfoqueComercial EnfoqueComercial, lukerVen.PVOF.PresupuestoTRIM PresupuestoTRIM, lukerVen.tmp.PresupuestoTRIMtagcamo PresupuestoTRIMtagcamo&#xA;WHERE EnfoqueComercial.FechaCorte = PresupuestoTRIM.FechaCorte AND PresupuestoTRIM.Sht_Canal = EnfoqueComercial.Cod_Canal &#xA;AND PresupuestoTRIM.Sht_Agencia = EnfoqueComercial.Cod_Oficina_Ventas AND PresupuestoTRIMtagcamo.FechaCorte = EnfoqueComercial.FechaCorte &#xA;AND PresupuestoTRIMtagcamo.Cod_SKU = PresupuestoTRIM.Cod_SKU AND PresupuestoTRIMtagcamo.FechaCorte = PresupuestoTRIM.FechaCorte &#xA;AND PresupuestoTRIMtagcamo.Sht_Canal = PresupuestoTRIM.Sht_Canal AND PresupuestoTRIMtagcamo.Sht_Agencia = PresupuestoTRIM.Sht_Agencia &#xA;AND EnfoqueComercial.Cod_SKU_Regular = PresupuestoTRIM.Cod_SKU AND PresupuestoTRIMtagcamo.Nombre_GCliente_AD2 = EnfoqueComercial.Nombre_GCliente_AD2 &#xA;AND Clientes.Cod_Cliente = PresupuestoTRIM.Cod_Cliente AND Clientes.Nombre_GCliente_AD2 = EnfoqueComercial.Nombre_GCliente_AD2 &#xA;AND ((PresupuestoTRIM.origen='Exp') AND (EnfoqueComercial.Origen='tem+mod') AND (EnfoqueComercial.Cod_GCliente=''))&#xA;insert into lukerVen.PVOF.PresupuestoTRIM&#xA;SELECT PresupuestoTRIM.Cod_Negocio, PresupuestoTRIM.ano, PresupuestoTRIM.FechaCorte, PresupuestoTRIM.Cod_Cliente, PresupuestoTRIM.JerarquiaProducto&#xA;--, EnfoqueComercial.Cod_SKU_Promocion&#xA;, PresupuestoTRIM.Cod_SKU&#xA;&#xA;, -(EnfoqueComercial.Kilos* PresupuestoTRIM.Kilos/ PresupuestoTRIMtagcamo.Kilos)&#xA;&#xA;, 0--PresupuestoTRIM.Valor_Lista&#xA;, 0--PresupuestoTRIM.Costo&#xA;, PresupuestoTRIM.stpLst, PresupuestoTRIM.Sht_Agencia, PresupuestoTRIM.Sht_Canal, PresupuestoTRIM.Sht_GCliente&#xA;, 0--PresupuestoTRIM.Cantidad&#xA;, 'enf-', PresupuestoTRIM.Sht_Director_Canal&#xA;FROM lukerVen.SD.Clientes Clientes, lukerVen.PVOF.EnfoqueComercial EnfoqueComercial, lukerVen.PVOF.PresupuestoTRIM PresupuestoTRIM, lukerVen.tmp.PresupuestoTRIMtagcamo PresupuestoTRIMtagcamo&#xA;WHERE EnfoqueComercial.FechaCorte = PresupuestoTRIM.FechaCorte AND PresupuestoTRIM.Sht_Canal = EnfoqueComercial.Cod_Canal &#xA;AND PresupuestoTRIM.Sht_Agencia = EnfoqueComercial.Cod_Oficina_Ventas AND PresupuestoTRIMtagcamo.FechaCorte = EnfoqueComercial.FechaCorte &#xA;AND PresupuestoTRIMtagcamo.Cod_SKU = PresupuestoTRIM.Cod_SKU AND PresupuestoTRIMtagcamo.FechaCorte = PresupuestoTRIM.FechaCorte &#xA;AND PresupuestoTRIMtagcamo.Sht_Canal = PresupuestoTRIM.Sht_Canal AND PresupuestoTRIMtagcamo.Sht_Agencia = PresupuestoTRIM.Sht_Agencia &#xA;AND EnfoqueComercial.Cod_SKU_Regular = PresupuestoTRIM.Cod_SKU AND PresupuestoTRIMtagcamo.Nombre_GCliente_AD2 = EnfoqueComercial.Nombre_GCliente_AD2 &#xA;AND Clientes.Cod_Cliente = PresupuestoTRIM.Cod_Cliente AND Clientes.Nombre_GCliente_AD2 = EnfoqueComercial.Nombre_GCliente_AD2 &#xA;AND ((PresupuestoTRIM.origen='Exp') AND (EnfoqueComercial.Origen='tem+mod') AND (EnfoqueComercial.Cod_GCliente=''))&#xA;&#xA;--- Cantidades&#xA;update PresupuestoTRIM set&#xA;PresupuestoTRIM.Cantidad= PresupuestoTRIM.Kilos/ ( Productos.Peso_Neto_SKU/1000)&#xA;FROM lukerVen.PVOF.PresupuestoTRIM PresupuestoTRIM, lukerVen.SD.Productos Productos&#xA;WHERE Productos.Cod_SKU = PresupuestoTRIM.Cod_SKU  AND (PresupuestoTRIM.Cantidad=0) AND (PresupuestoTRIM.Kilos&lt;&gt;0.0) and  ( Productos.Peso_Neto_SKU/1000)&lt;&gt;0" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\kilos disponibles"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Tarea Ejecutar SQL"
+      DTS:DTSID="{FF3F2A63-6434-41CC-8D6D-627ECC7332AB}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="kilos disponibles"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{1DAF96B6-B9CB-44D6-9AF8-5B50EEDF8432}"
+          SQLTask:SqlStatementSource="/***&#xA;&#x9;&#x9;Kilos Disponibles&#xA;***/&#xA;update EnfoqueComercial set&#xA;  EnfoqueComercial.KilosDisponibles= PresupuestoTRIMtagca.Kilos&#xA;FROM lukerVen.PVOF.EnfoqueComercial EnfoqueComercial&#xA;, lukerVen.tmp.PresupuestoTRIMtagca PresupuestoTRIMtagca&#xA;WHERE PresupuestoTRIMtagca.FechaCorte = EnfoqueComercial.FechaCorte &#xA;AND EnfoqueComercial.Cod_Oficina_Ventas = PresupuestoTRIMtagca.Sht_Agencia &#xA;AND EnfoqueComercial.Cod_SKU_Regular = PresupuestoTRIMtagca.Cod_SKU &#xA;AND EnfoqueComercial.Cod_Canal = PresupuestoTRIMtagca.Sht_Canal &#xA;AND ((EnfoqueComercial.Cod_GCliente='') &#xA;AND (EnfoqueComercial.Nombre_GCliente_AD2=''))&#xA;&#xA;update EnfoqueComercial set&#xA;  EnfoqueComercial.KilosDisponibles= PresupuestoTRIMtagcagc.Kilos&#xA;FROM lukerVen.PVOF.EnfoqueComercial EnfoqueComercial, lukerVen.tmp.PresupuestoTRIMtagcagc PresupuestoTRIMtagcagc&#xA;WHERE PresupuestoTRIMtagcagc.FechaCorte = EnfoqueComercial.FechaCorte &#xA;AND EnfoqueComercial.Cod_Canal = PresupuestoTRIMtagcagc.Sht_Canal &#xA;AND EnfoqueComercial.Cod_GCliente = PresupuestoTRIMtagcagc.Sht_GCliente &#xA;AND EnfoqueComercial.Cod_Oficina_Ventas = PresupuestoTRIMtagcagc.Sht_Agencia AND EnfoqueComercial.Cod_SKU_Regular = PresupuestoTRIMtagcagc.Cod_SKU&#xA;&#xA;update EnfoqueComercial set&#xA;  EnfoqueComercial.KilosDisponibles= PresupuestoTRIMtagcamo.Kilos&#xA;FROM lukerVen.PVOF.EnfoqueComercial EnfoqueComercial, lukerVen.tmp.PresupuestoTRIMtagcamo PresupuestoTRIMtagcamo&#xA;WHERE PresupuestoTRIMtagcamo.FechaCorte = EnfoqueComercial.FechaCorte AND PresupuestoTRIMtagcamo.Nombre_GCliente_AD2 = EnfoqueComercial.Nombre_GCliente_AD2 AND EnfoqueComercial.Cod_Oficina_Ventas = PresupuestoTRIMtagcamo.Sht_Agencia AND EnfoqueComercial.Cod_Canal = PresupuestoTRIMtagcamo.Sht_Canal AND EnfoqueComercial.Cod_SKU_Regular = PresupuestoTRIMtagcamo.Cod_SKU&#xA;&#xA;update EnfoqueComercial set&#xA;  EnfoqueComercial.Kilos= EnfoqueComercial.KilosDisponibles&#xA;FROM lukerVen.PVOF.EnfoqueComercial EnfoqueComercial&#xA;WHERE (EnfoqueComercial.Kilos&gt;KilosDisponibles)" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Pivot Enfoque"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Tarea Ejecutar SQL"
+      DTS:DTSID="{80AF56CA-C5EC-4A56-92D9-EE7FBEB3A844}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Pivot Enfoque"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{1DAF96B6-B9CB-44D6-9AF8-5B50EEDF8432}"
+          SQLTask:SqlStatementSource="declare @PeriodoPVO varchar(6), @MesCalc_I int, @MesCalc_F int, @CorteMes1 date, @KGMes varchar(10), @Conta int&#xA;&#xA;SELECT &#xA;  @PeriodoPVO  = Parametros.PeriodoAAMM&#xA;, @MesCalc_I = Parametros.MesCalc_I&#xA;, @MesCalc_F = Parametros.MesCalc_F&#xA;FROM lukerVen.PVOF.Parametros Parametros&#xA;WHERE (Parametros.EstadoProceso='1')&#xA;&#xA;SELECT &#xA;  @PeriodoPVO  &#xA;, @MesCalc_I &#xA;, @MesCalc_F  &#xA;&#xA;truncate table [PVOF].[EnfoqueComercial]&#xA;&#xA;select @Conta=1&#xA;&#xA;&#xA;while @Conta&lt;= (@MesCalc_F+0-@MesCalc_I)&#xA;begin&#xA;&#x9;select &#x9;@KGMes='Kilos'+ltrim(str(@Conta))&#xA;&#x9;&#xA;&#x9;select @CorteMes1= ( SELECT Max(Time.PK_Date) AS 'Max of PK_Date'&#xA;&#x9;&#x9;FROM lukerVen.dbo.Time Time&#xA;&#x9;&#x9;WHERE (year(PK_Date)=left(@PeriodoPVO,4)) AND (month(PK_Date)=@MesCalc_I-1+@Conta)&#xA;&#x9;)&#xA;&#x9;print(@Conta)&#xA;&#x9;print(@CorteMes1)&#xA;&#x9;print(@KGMes)&#xA;&#xA;&#xA;&#x9;INSERT INTO [PVOF].[EnfoqueComercial]&#xA;&#xA;&#x9;&#x9;SELECT 'tem+mod'&#xA;&#x9;&#x9;, xppt_enfoque_team.PeriodoAAMM&#xA;&#x9;&#x9;, @CorteMes1&#xA;&#x9;&#x9;, xppt_enfoque_team.Cod_SKU_Promocion&#xA;&#x9;&#x9;, xppt_enfoque_team.Cod_SKU_Regular&#xA;&#x9;&#x9;, xppt_enfoque_team.Cod_Oficina_Ventas&#xA;&#x9;&#x9;, xppt_enfoque_team.Cod_Canal&#xA;&#x9;&#x9;, xppt_enfoque_team.Cod_GCliente&#xA;&#x9;&#x9;, xppt_enfoque_team.Nombre_GCliente_AD2&#xA;&#x9;&#x9;, sum(case @Conta when 1 then Kilos1 when 2 then Kilos2 when 3 then Kilos3 else 0 end ) &#xA;&#x9;&#x9;,0&#xA;&#x9;FROM lukerVen.tmp.xppt_enfoque_team xppt_enfoque_team&#xA;&#x9;GROUP BY xppt_enfoque_team.PeriodoAAMM&#xA;&#x9;, xppt_enfoque_team.Cod_SKU_Promocion&#xA;&#x9;, xppt_enfoque_team.Cod_SKU_Regular&#xA;&#x9;, xppt_enfoque_team.Cod_Oficina_Ventas&#xA;&#x9;, xppt_enfoque_team.Cod_Canal&#xA;&#x9;, xppt_enfoque_team.Cod_GCliente&#xA;&#x9;, xppt_enfoque_team.Nombre_GCliente_AD2&#xA;&#x9;HAVING (sum(case @Conta when 1 then Kilos1 when 2 then Kilos2 when 3 then Kilos3 else 0 end )&lt;&gt;0.0)&#xA;&#xA;&#xA;&#x9;select @Conta=@Conta+1&#xA;end&#xA;&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Restricción]"
+      DTS:CreationName=""
+      DTS:DTSID="{590B63C9-6132-44A5-A95E-46FE68EBEEE8}"
+      DTS:From="Package\Pivot Enfoque"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Restricción"
+      DTS:To="Package\kilos disponibles" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Restricción 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{CBC3E26A-DBD1-483F-9FEF-8F928B76FDAD}"
+      DTS:From="Package\kilos disponibles"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Restricción 1"
+      DTS:To="Package\Explo Enfoque" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--Esta sección CDATA contiene la información de diseño del paquete. Esta sección incluye información como, por ejemplo, las coordenadas (x,y), el ancho y el alto.-->
+<!--Si edita manualmente esta sección y comete un error, puede eliminarlo. -->
+<!--El paquete podrá cargarse normalmente, pero se perderá la información de diseño anterior y el diseñador reorganizará los elementos automáticamente en la superficie de diseño.-->
+<Objects
+  Version="8">
+  <!--Cada uno de los nodos siguientes contiene propiedades que no afectan al comportamiento en tiempo de ejecución.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="145.6,41.6"
+          Id="Package\Explo Enfoque"
+          TopLeft="9.90000000000003,208.7" />
+        <NodeLayout
+          Size="154.4,41.6"
+          Id="Package\kilos disponibles"
+          TopLeft="5.50000000000003,107.1" />
+        <NodeLayout
+          Size="143.2,41.6"
+          Id="Package\Pivot Enfoque"
+          TopLeft="11.1,5.49999999999995" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Restricción]"
+          TopLeft="82.7,47.1">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,59.9999999999999"
+              Start="0,0"
+              End="0,52.4999999999999">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.4999999999999" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Restricción 1]"
+          TopLeft="82.7,148.7">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,59.9999999999999"
+              Start="0,0"
+              End="0,52.4999999999999">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.4999999999999" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

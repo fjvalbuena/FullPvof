@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="L00 VolPVOF_DLC"
   DTS:PackageType="5"
-  DTS:VersionBuild="7"
-  DTS:VersionGUID="{53805AB2-3849-4A07-AEE1-0E31613F5D81}">
+  DTS:VersionBuild="9"
+  DTS:VersionGUID="{B0D2E375-5096-4F68-B418-171BF41D9A02}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -27,7 +27,7 @@
           <DTS:Password
             DTS:Name="Password"
             Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAuR1Gdsnx50KES8/66vqaKwAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAAD5by8nIkhsUy7quNdQluuXIePtov39Dr4zLsdcaRg+bAAAAAAOgAAAAAIAACAAAAAor43kbkMoqCidih3HB5u7waBwJdp6hXhbmrhGKj6whSAAAACE5L80V+VrrHOrjVKmntnh9N07iMj7lTw+uk6OLGRoqUAAAAAnaQ/SJb9Rw6s1X4doFduqH7RMTMMBLI6dEc2rFZpF2jygXK7GSj//1Pj0TtgH7ZychD0YWKFysVM+3P/C2H48</DTS:Password>
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAuR1Gdsnx50KES8/66vqaKwAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAADQ5mwT3v7z7rex7KPTkgO53Wsz09IL1NXqFpdDjeQqKQAAAAAOgAAAAAIAACAAAADTpt5z6SVSURY3hpku2DaqziQPP/qOdk80ielaALOZFyAAAAB0wi0ZHK89vqiGnfhpuV871OkULUYvRo34aSGrFVDtuUAAAAD6dh4qEDyJrytyiCvtkfhM6qnN4SaxqEqw3yx62KcE15gOqteyZfta1GG126dcSXxkPCNqWNQxqO3pw6Ref8Le</DTS:Password>
         </DTS:ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
@@ -105,8 +105,13 @@
                   dataType="System.String"
                   description="Comando SQL para ejecutar."
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">SELECT xppt_pvof_cons_dir_lin_can.PeriodoAAMM, xppt_pvof_cons_dir_lin_can.Director_Canal, xppt_pvof_cons_dir_lin_can.Categoria, xppt_pvof_cons_dir_lin_can.Marca, xppt_pvof_cons_dir_lin_can.Linea, xppt_pvof_cons_dir_lin_can.NombreCanalAgrupado, xppt_pvof_cons_dir_lin_can.Nombre_GCliente_AD2, xppt_pvof_cons_dir_lin_can.Kilos1, xppt_pvof_cons_dir_lin_can.Kilos2, xppt_pvof_cons_dir_lin_can.Kilos3, '' AS 'OrphEstrLin', '' AS 'OrphVol'
-FROM lukerVen.dbo.xppt_pvof_cons_dir_lin_can xppt_pvof_cons_dir_lin_can</property>
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">SELECT xppt_pvof_cons_dir_lin_can.PeriodoAAMM, xppt_pvof_cons_dir_lin_can.Director_Canal, xppt_pvof_cons_dir_lin_can.Categoria, xppt_pvof_cons_dir_lin_can.Marca, xppt_pvof_cons_dir_lin_can.Linea, xppt_pvof_cons_dir_lin_can.NombreCanalAgrupado, xppt_pvof_cons_dir_lin_can.Nombre_GCliente_AD2
+, sum(xppt_pvof_cons_dir_lin_can.Kilos1) Kilos1
+, sum(xppt_pvof_cons_dir_lin_can.Kilos2) Kilos2
+, sum(xppt_pvof_cons_dir_lin_can.Kilos3) Kilos3
+, '' AS 'OrphEstrLin', '' AS 'OrphVol'
+FROM lukerVen.dbo.xppt_pvof_cons_dir_lin_can xppt_pvof_cons_dir_lin_can
+group by xppt_pvof_cons_dir_lin_can.PeriodoAAMM, xppt_pvof_cons_dir_lin_can.Director_Canal, xppt_pvof_cons_dir_lin_can.Categoria, xppt_pvof_cons_dir_lin_can.Marca, xppt_pvof_cons_dir_lin_can.Linea, xppt_pvof_cons_dir_lin_can.NombreCanalAgrupado, xppt_pvof_cons_dir_lin_can.Nombre_GCliente_AD2</property>
                 <property
                   dataType="System.String"
                   description="Variable que contiene el comando SQL para ejecutar."
@@ -687,7 +692,7 @@ FROM lukerVen.dbo.xppt_pvof_cons_dir_lin_can xppt_pvof_cons_dir_lin_can</propert
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{1DAF96B6-B9CB-44D6-9AF8-5B50EEDF8432}"
-          SQLTask:SqlStatementSource="USE [lukerVen]&#xA;GO&#xA;&#xA;DELETE FROM [PVOF].[VolumenTrimDLC]&#xA;where PeriodoAAMM = (&#xA;&#xA;SELECT Max(xppt_pvof_cons_dir_lin_can.PeriodoAAMM) AS 'PeriodoAAMM'&#xA;FROM lukerVen.dbo.xppt_pvof_cons_dir_lin_can xppt_pvof_cons_dir_lin_can&#xA;&#xA;)&#xA;GO&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          SQLTask:SqlStatementSource="USE [lukerVen]&#xA;GO&#xA;&#xA;DELETE FROM [PVOF].[VolumenTrimDLC]&#xA;/**&#xA;where PeriodoAAMM = (&#xA;&#xA;SELECT Max(xppt_pvof_cons_dir_lin_can.PeriodoAAMM) AS 'PeriodoAAMM'&#xA;FROM lukerVen.dbo.xppt_pvof_cons_dir_lin_can xppt_pvof_cons_dir_lin_can&#xA;&#xA;)&#xA;**/&#xA;GO&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
   </DTS:Executables>
@@ -733,6 +738,10 @@ FROM lukerVen.dbo.xppt_pvof_cons_dir_lin_can xppt_pvof_cons_dir_lin_can</propert
           Size="161.6,41.6"
           Id="Package\jeraquia huerfana"
           TopLeft="11.9,310.3" />
+        <NodeLayout
+          Size="174.4,41.6"
+          Id="Package\jerarquia ventas pos"
+          TopLeft="5.5,5.49999999999995" />
         <NodeLayout
           Size="164,41.6"
           Id="Package\load vol from stgn"
@@ -785,10 +794,6 @@ FROM lukerVen.dbo.xppt_pvof_cons_dir_lin_can xppt_pvof_cons_dir_lin_can</propert
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="174.4,41.6"
-          Id="Package\jerarquia ventas pos"
-          TopLeft="5.5,5.49999999999995" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Restricción 2]"
           TopLeft="92.7,47.1">
@@ -818,7 +823,7 @@ FROM lukerVen.dbo.xppt_pvof_cons_dir_lin_can xppt_pvof_cons_dir_lin_can</propert
     design-time-name="Package\load vol from stgn">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="160,41.6"
           Id="Package\load vol from stgn\VolumenTrimDLC"
@@ -846,9 +851,7 @@ FROM lukerVen.dbo.xppt_pvof_cons_dir_lin_can xppt_pvof_cons_dir_lin_can</propert
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>

@@ -1,0 +1,2209 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="3/6/2020 11:39:07 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="LAPTOP-MFGK5CPU"
+  DTS:CreatorName="LAPTOP-MFGK5CPU\fvalb"
+  DTS:DTSID="{B62B4F3D-B12A-4B6B-92EE-E83235CA839A}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.1300.371"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="Z01 FotoClientePpto"
+  DTS:PackageType="5"
+  DTS:VersionBuild="3"
+  DTS:VersionGUID="{BA6FE945-BA16-4812-9685-26B87A6185A0}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[192.168.5.23\b2c.ASSUser]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{DB6CBBBA-1A5C-403B-9E4F-F4750DD1C760}"
+      DTS:ObjectName="192.168.5.23\b2c.ASSUser">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=192.168.5.23\b2c;User ID=ASSUser;Provider=MSOLEDBSQL.1;Auto Translate=False;">
+          <DTS:Password
+            DTS:Name="Password"
+            Sensitive="1"
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAuR1Gdsnx50KES8/66vqaKwAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAADVpMhCKMT6CFmQTRNUkh76d3AUEM/IXkJpZrLppHrwDgAAAAAOgAAAAAIAACAAAACzFRWDkfZztPEcLv/DRuKNrIwmkgVhc3N6HsqmDNS5KSAAAACf2CBki72XkASj+wJPd68O0hhPAZIjllYI0hUMxs9ZXkAAAACvsbgU5/GKqTWajnuVjJJhKBpT/SglQesyLjAzbQSJzBye/stMdfyvu0IsH31cRSzWIKrTdjBWYI2kgLnQ7MY3</DTS:Password>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\CLIENTES SHOOT COM AÑO"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Tarea Flujo de datos"
+      DTS:DTSID="{E7C4F490-57C1-4C91-84BC-464A50C75163}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="CLIENTES SHOOT COM AÑO"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\CLIENTES SHOOT COM AÑO\Clientes w"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="Origen de OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;7"
+              description="Origen de OLE DB"
+              name="Clientes w"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowset">[SD].[ClientesVW]</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica la variable que contiene el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Comando SQL para ejecutar."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.String"
+                  description="Variable que contiene el comando SQL para ejecutar."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica la página de códigos de columna para utilizar cuando la información de página de códigos no está disponible en el origen de datos."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Fuerza el uso del valor de la propiedad DefaultCodePage al describir datos de caracteres."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el modo utilizado para obtener acceso a la base de datos."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="Asignaciones entre los parámetros del comando SQL y las variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[192.168.5.23\b2c.ASSUser]"
+                  connectionManagerRefId="Package.ConnectionManagers[192.168.5.23\b2c.ASSUser]"
+                  description="La conexión de tiempo de ejecución OLE DB usada para obtener acceso a la base de datos."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de origen de OLE DB]"
+                  name="Salida de origen de OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de origen de OLE DB].Columns[Cod_Cliente]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de origen de OLE DB].ExternalColumns[Cod_Cliente]"
+                      length="10"
+                      lineageId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de origen de OLE DB].Columns[Cod_Cliente]"
+                      name="Cod_Cliente"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de origen de OLE DB].Columns[Nombre_Cliente]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de origen de OLE DB].ExternalColumns[Nombre_Cliente]"
+                      length="40"
+                      lineageId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de origen de OLE DB].Columns[Nombre_Cliente]"
+                      name="Nombre_Cliente"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de origen de OLE DB].Columns[Cod_Canal]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de origen de OLE DB].ExternalColumns[Cod_Canal]"
+                      length="2"
+                      lineageId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de origen de OLE DB].Columns[Cod_Canal]"
+                      name="Cod_Canal"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de origen de OLE DB].Columns[Nombre_Canal]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de origen de OLE DB].ExternalColumns[Nombre_Canal]"
+                      length="35"
+                      lineageId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de origen de OLE DB].Columns[Nombre_Canal]"
+                      name="Nombre_Canal"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de origen de OLE DB].Columns[Cod_Pais]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de origen de OLE DB].ExternalColumns[Cod_Pais]"
+                      length="3"
+                      lineageId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de origen de OLE DB].Columns[Cod_Pais]"
+                      name="Cod_Pais"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de origen de OLE DB].Columns[Cod_GCliente]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de origen de OLE DB].ExternalColumns[Cod_GCliente]"
+                      length="2"
+                      lineageId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de origen de OLE DB].Columns[Cod_GCliente]"
+                      name="Cod_GCliente"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de origen de OLE DB].Columns[Nombre_GCliente]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de origen de OLE DB].ExternalColumns[Nombre_GCliente]"
+                      length="20"
+                      lineageId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de origen de OLE DB].Columns[Nombre_GCliente]"
+                      name="Nombre_GCliente"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de origen de OLE DB].Columns[Cod_Oficina_Ventas]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de origen de OLE DB].ExternalColumns[Cod_Oficina_Ventas]"
+                      length="4"
+                      lineageId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de origen de OLE DB].Columns[Cod_Oficina_Ventas]"
+                      name="Cod_Oficina_Ventas"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de origen de OLE DB].Columns[Nombre_Oficina_Ventas]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de origen de OLE DB].ExternalColumns[Nombre_Oficina_Ventas]"
+                      length="20"
+                      lineageId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de origen de OLE DB].Columns[Nombre_Oficina_Ventas]"
+                      name="Nombre_Oficina_Ventas"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de origen de OLE DB].Columns[Cod_Zona_Ventas]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de origen de OLE DB].ExternalColumns[Cod_Zona_Ventas]"
+                      length="10"
+                      lineageId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de origen de OLE DB].Columns[Cod_Zona_Ventas]"
+                      name="Cod_Zona_Ventas"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de origen de OLE DB].Columns[Cod_Vendedor]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de origen de OLE DB].ExternalColumns[Cod_Vendedor]"
+                      length="10"
+                      lineageId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de origen de OLE DB].Columns[Cod_Vendedor]"
+                      name="Cod_Vendedor"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de origen de OLE DB].Columns[Nombre_Vendedor]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de origen de OLE DB].ExternalColumns[Nombre_Vendedor]"
+                      length="35"
+                      lineageId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de origen de OLE DB].Columns[Nombre_Vendedor]"
+                      name="Nombre_Vendedor"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de origen de OLE DB].Columns[Cod_Region]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de origen de OLE DB].ExternalColumns[Cod_Region]"
+                      length="3"
+                      lineageId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de origen de OLE DB].Columns[Cod_Region]"
+                      name="Cod_Region"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de origen de OLE DB].Columns[Nombre_Ciudad]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de origen de OLE DB].ExternalColumns[Nombre_Ciudad]"
+                      length="40"
+                      lineageId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de origen de OLE DB].Columns[Nombre_Ciudad]"
+                      name="Nombre_Ciudad"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de origen de OLE DB].Columns[Cod_Central]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de origen de OLE DB].ExternalColumns[Cod_Central]"
+                      length="2"
+                      lineageId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de origen de OLE DB].Columns[Cod_Central]"
+                      name="Cod_Central"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de origen de OLE DB].Columns[Cod_GCliente_AD1]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de origen de OLE DB].ExternalColumns[Cod_GCliente_AD1]"
+                      length="3"
+                      lineageId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de origen de OLE DB].Columns[Cod_GCliente_AD1]"
+                      name="Cod_GCliente_AD1"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de origen de OLE DB].Columns[Nombre_GCliente_AD1]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de origen de OLE DB].ExternalColumns[Nombre_GCliente_AD1]"
+                      length="20"
+                      lineageId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de origen de OLE DB].Columns[Nombre_GCliente_AD1]"
+                      name="Nombre_GCliente_AD1"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de origen de OLE DB].Columns[Cod_GCliente_AD2]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de origen de OLE DB].ExternalColumns[Cod_GCliente_AD2]"
+                      length="3"
+                      lineageId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de origen de OLE DB].Columns[Cod_GCliente_AD2]"
+                      name="Cod_GCliente_AD2"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de origen de OLE DB].Columns[Nombre_GCliente_AD2]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de origen de OLE DB].ExternalColumns[Nombre_GCliente_AD2]"
+                      length="20"
+                      lineageId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de origen de OLE DB].Columns[Nombre_GCliente_AD2]"
+                      name="Nombre_GCliente_AD2"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de origen de OLE DB].Columns[Cod_Pagador]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de origen de OLE DB].ExternalColumns[Cod_Pagador]"
+                      length="10"
+                      lineageId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de origen de OLE DB].Columns[Cod_Pagador]"
+                      name="Cod_Pagador"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de origen de OLE DB].Columns[Telebox]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de origen de OLE DB].ExternalColumns[Telebox]"
+                      length="15"
+                      lineageId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de origen de OLE DB].Columns[Telebox]"
+                      name="Telebox"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de origen de OLE DB].Columns[Gerente_Comercial]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de origen de OLE DB].ExternalColumns[Gerente_Comercial]"
+                      length="35"
+                      lineageId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de origen de OLE DB].Columns[Gerente_Comercial]"
+                      name="Gerente_Comercial"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de origen de OLE DB].Columns[Director_Canal]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de origen de OLE DB].ExternalColumns[Director_Canal]"
+                      length="35"
+                      lineageId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de origen de OLE DB].Columns[Director_Canal]"
+                      name="Director_Canal"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de origen de OLE DB].Columns[Lider_Regional]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de origen de OLE DB].ExternalColumns[Lider_Regional]"
+                      length="35"
+                      lineageId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de origen de OLE DB].Columns[Lider_Regional]"
+                      name="Lider_Regional"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de origen de OLE DB].Columns[Jefe_Ventas]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de origen de OLE DB].ExternalColumns[Jefe_Ventas]"
+                      length="35"
+                      lineageId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de origen de OLE DB].Columns[Jefe_Ventas]"
+                      name="Jefe_Ventas"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de origen de OLE DB].Columns[Fecha_Creacion_Cliente]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de origen de OLE DB].ExternalColumns[Fecha_Creacion_Cliente]"
+                      length="8"
+                      lineageId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de origen de OLE DB].Columns[Fecha_Creacion_Cliente]"
+                      name="Fecha_Creacion_Cliente"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de origen de OLE DB].Columns[Estatus]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de origen de OLE DB].ExternalColumns[Estatus]"
+                      length="10"
+                      lineageId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de origen de OLE DB].Columns[Estatus]"
+                      name="Estatus"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de origen de OLE DB].Columns[Cod_Ruta]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de origen de OLE DB].ExternalColumns[Cod_Ruta]"
+                      length="2"
+                      lineageId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de origen de OLE DB].Columns[Cod_Ruta]"
+                      name="Cod_Ruta"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de origen de OLE DB].Columns[CoordenadasX]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de origen de OLE DB].ExternalColumns[CoordenadasX]"
+                      length="15"
+                      lineageId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de origen de OLE DB].Columns[CoordenadasX]"
+                      name="CoordenadasX"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de origen de OLE DB].Columns[CoordenadasY]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de origen de OLE DB].ExternalColumns[CoordenadasY]"
+                      length="15"
+                      lineageId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de origen de OLE DB].Columns[CoordenadasY]"
+                      name="CoordenadasY"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de origen de OLE DB].Columns[Cedi]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de origen de OLE DB].ExternalColumns[Cedi]"
+                      length="4"
+                      lineageId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de origen de OLE DB].Columns[Cedi]"
+                      name="Cedi"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de origen de OLE DB].Columns[Cod_CondiPago]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de origen de OLE DB].ExternalColumns[Cod_CondiPago]"
+                      length="4"
+                      lineageId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de origen de OLE DB].Columns[Cod_CondiPago]"
+                      name="Cod_CondiPago"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de origen de OLE DB].Columns[Barrio]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de origen de OLE DB].ExternalColumns[Barrio]"
+                      length="40"
+                      lineageId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de origen de OLE DB].Columns[Barrio]"
+                      name="Barrio"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de origen de OLE DB].Columns[UserAtrib10]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de origen de OLE DB].ExternalColumns[UserAtrib10]"
+                      length="1"
+                      lineageId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de origen de OLE DB].Columns[UserAtrib10]"
+                      name="UserAtrib10"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de origen de OLE DB].Columns[Cod_CanalC]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de origen de OLE DB].ExternalColumns[Cod_CanalC]"
+                      length="2"
+                      lineageId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de origen de OLE DB].Columns[Cod_CanalC]"
+                      name="Cod_CanalC"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de origen de OLE DB].Columns[Nombre_CanalC]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de origen de OLE DB].ExternalColumns[Nombre_CanalC]"
+                      length="35"
+                      lineageId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de origen de OLE DB].Columns[Nombre_CanalC]"
+                      name="Nombre_CanalC"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de origen de OLE DB].Columns[Cod_GClienteC]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de origen de OLE DB].ExternalColumns[Cod_GClienteC]"
+                      length="2"
+                      lineageId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de origen de OLE DB].Columns[Cod_GClienteC]"
+                      name="Cod_GClienteC"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de origen de OLE DB].Columns[Nombre_GClienteC]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de origen de OLE DB].ExternalColumns[Nombre_GClienteC]"
+                      length="20"
+                      lineageId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de origen de OLE DB].Columns[Nombre_GClienteC]"
+                      name="Nombre_GClienteC"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de origen de OLE DB].Columns[Cod_Oficina_VentasC]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de origen de OLE DB].ExternalColumns[Cod_Oficina_VentasC]"
+                      length="4"
+                      lineageId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de origen de OLE DB].Columns[Cod_Oficina_VentasC]"
+                      name="Cod_Oficina_VentasC"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de origen de OLE DB].Columns[Nombre_Oficina_VentasC]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de origen de OLE DB].ExternalColumns[Nombre_Oficina_VentasC]"
+                      length="20"
+                      lineageId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de origen de OLE DB].Columns[Nombre_Oficina_VentasC]"
+                      name="Nombre_Oficina_VentasC"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de origen de OLE DB].Columns[Cod_Zona_VentasC]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de origen de OLE DB].ExternalColumns[Cod_Zona_VentasC]"
+                      length="10"
+                      lineageId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de origen de OLE DB].Columns[Cod_Zona_VentasC]"
+                      name="Cod_Zona_VentasC"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de origen de OLE DB].Columns[Cod_VendedorC]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de origen de OLE DB].ExternalColumns[Cod_VendedorC]"
+                      length="10"
+                      lineageId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de origen de OLE DB].Columns[Cod_VendedorC]"
+                      name="Cod_VendedorC"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de origen de OLE DB].Columns[Nombre_VendedorC]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de origen de OLE DB].ExternalColumns[Nombre_VendedorC]"
+                      length="35"
+                      lineageId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de origen de OLE DB].Columns[Nombre_VendedorC]"
+                      name="Nombre_VendedorC"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de origen de OLE DB].Columns[Director_CanalC]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de origen de OLE DB].ExternalColumns[Director_CanalC]"
+                      length="35"
+                      lineageId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de origen de OLE DB].Columns[Director_CanalC]"
+                      name="Director_CanalC"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de origen de OLE DB].Columns[Lider_RegionalC]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de origen de OLE DB].ExternalColumns[Lider_RegionalC]"
+                      length="35"
+                      lineageId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de origen de OLE DB].Columns[Lider_RegionalC]"
+                      name="Lider_RegionalC"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de origen de OLE DB].Columns[Jefe_VentasC]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de origen de OLE DB].ExternalColumns[Jefe_VentasC]"
+                      length="35"
+                      lineageId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de origen de OLE DB].Columns[Jefe_VentasC]"
+                      name="Jefe_VentasC"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de origen de OLE DB].Columns[Gerente_ComercialC]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de origen de OLE DB].ExternalColumns[Gerente_ComercialC]"
+                      length="35"
+                      lineageId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de origen de OLE DB].Columns[Gerente_ComercialC]"
+                      name="Gerente_ComercialC"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de origen de OLE DB].Columns[Direccion]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de origen de OLE DB].ExternalColumns[Direccion]"
+                      length="60"
+                      lineageId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de origen de OLE DB].Columns[Direccion]"
+                      name="Direccion"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de origen de OLE DB].Columns[Poblacion]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de origen de OLE DB].ExternalColumns[Poblacion]"
+                      length="35"
+                      lineageId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de origen de OLE DB].Columns[Poblacion]"
+                      name="Poblacion"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de origen de OLE DB].ExternalColumns[Cod_Cliente]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="Cod_Cliente" />
+                    <externalMetadataColumn
+                      refId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de origen de OLE DB].ExternalColumns[Nombre_Cliente]"
+                      dataType="wstr"
+                      length="40"
+                      name="Nombre_Cliente" />
+                    <externalMetadataColumn
+                      refId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de origen de OLE DB].ExternalColumns[Cod_Canal]"
+                      codePage="1252"
+                      dataType="str"
+                      length="2"
+                      name="Cod_Canal" />
+                    <externalMetadataColumn
+                      refId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de origen de OLE DB].ExternalColumns[Nombre_Canal]"
+                      codePage="1252"
+                      dataType="str"
+                      length="35"
+                      name="Nombre_Canal" />
+                    <externalMetadataColumn
+                      refId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de origen de OLE DB].ExternalColumns[Cod_Pais]"
+                      codePage="1252"
+                      dataType="str"
+                      length="3"
+                      name="Cod_Pais" />
+                    <externalMetadataColumn
+                      refId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de origen de OLE DB].ExternalColumns[Cod_GCliente]"
+                      codePage="1252"
+                      dataType="str"
+                      length="2"
+                      name="Cod_GCliente" />
+                    <externalMetadataColumn
+                      refId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de origen de OLE DB].ExternalColumns[Nombre_GCliente]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="Nombre_GCliente" />
+                    <externalMetadataColumn
+                      refId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de origen de OLE DB].ExternalColumns[Cod_Oficina_Ventas]"
+                      codePage="1252"
+                      dataType="str"
+                      length="4"
+                      name="Cod_Oficina_Ventas" />
+                    <externalMetadataColumn
+                      refId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de origen de OLE DB].ExternalColumns[Nombre_Oficina_Ventas]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="Nombre_Oficina_Ventas" />
+                    <externalMetadataColumn
+                      refId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de origen de OLE DB].ExternalColumns[Cod_Zona_Ventas]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="Cod_Zona_Ventas" />
+                    <externalMetadataColumn
+                      refId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de origen de OLE DB].ExternalColumns[Cod_Vendedor]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="Cod_Vendedor" />
+                    <externalMetadataColumn
+                      refId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de origen de OLE DB].ExternalColumns[Nombre_Vendedor]"
+                      dataType="wstr"
+                      length="35"
+                      name="Nombre_Vendedor" />
+                    <externalMetadataColumn
+                      refId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de origen de OLE DB].ExternalColumns[Cod_Region]"
+                      codePage="1252"
+                      dataType="str"
+                      length="3"
+                      name="Cod_Region" />
+                    <externalMetadataColumn
+                      refId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de origen de OLE DB].ExternalColumns[Nombre_Ciudad]"
+                      codePage="1252"
+                      dataType="str"
+                      length="40"
+                      name="Nombre_Ciudad" />
+                    <externalMetadataColumn
+                      refId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de origen de OLE DB].ExternalColumns[Cod_Central]"
+                      codePage="1252"
+                      dataType="str"
+                      length="2"
+                      name="Cod_Central" />
+                    <externalMetadataColumn
+                      refId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de origen de OLE DB].ExternalColumns[Cod_GCliente_AD1]"
+                      codePage="1252"
+                      dataType="str"
+                      length="3"
+                      name="Cod_GCliente_AD1" />
+                    <externalMetadataColumn
+                      refId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de origen de OLE DB].ExternalColumns[Nombre_GCliente_AD1]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="Nombre_GCliente_AD1" />
+                    <externalMetadataColumn
+                      refId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de origen de OLE DB].ExternalColumns[Cod_GCliente_AD2]"
+                      codePage="1252"
+                      dataType="str"
+                      length="3"
+                      name="Cod_GCliente_AD2" />
+                    <externalMetadataColumn
+                      refId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de origen de OLE DB].ExternalColumns[Nombre_GCliente_AD2]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="Nombre_GCliente_AD2" />
+                    <externalMetadataColumn
+                      refId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de origen de OLE DB].ExternalColumns[Cod_Pagador]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="Cod_Pagador" />
+                    <externalMetadataColumn
+                      refId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de origen de OLE DB].ExternalColumns[Telebox]"
+                      codePage="1252"
+                      dataType="str"
+                      length="15"
+                      name="Telebox" />
+                    <externalMetadataColumn
+                      refId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de origen de OLE DB].ExternalColumns[Gerente_Comercial]"
+                      dataType="wstr"
+                      length="35"
+                      name="Gerente_Comercial" />
+                    <externalMetadataColumn
+                      refId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de origen de OLE DB].ExternalColumns[Director_Canal]"
+                      dataType="wstr"
+                      length="35"
+                      name="Director_Canal" />
+                    <externalMetadataColumn
+                      refId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de origen de OLE DB].ExternalColumns[Lider_Regional]"
+                      dataType="wstr"
+                      length="35"
+                      name="Lider_Regional" />
+                    <externalMetadataColumn
+                      refId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de origen de OLE DB].ExternalColumns[Jefe_Ventas]"
+                      dataType="wstr"
+                      length="35"
+                      name="Jefe_Ventas" />
+                    <externalMetadataColumn
+                      refId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de origen de OLE DB].ExternalColumns[Fecha_Creacion_Cliente]"
+                      codePage="1252"
+                      dataType="str"
+                      length="8"
+                      name="Fecha_Creacion_Cliente" />
+                    <externalMetadataColumn
+                      refId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de origen de OLE DB].ExternalColumns[Estatus]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="Estatus" />
+                    <externalMetadataColumn
+                      refId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de origen de OLE DB].ExternalColumns[Cod_Ruta]"
+                      codePage="1252"
+                      dataType="str"
+                      length="2"
+                      name="Cod_Ruta" />
+                    <externalMetadataColumn
+                      refId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de origen de OLE DB].ExternalColumns[CoordenadasX]"
+                      codePage="1252"
+                      dataType="str"
+                      length="15"
+                      name="CoordenadasX" />
+                    <externalMetadataColumn
+                      refId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de origen de OLE DB].ExternalColumns[CoordenadasY]"
+                      codePage="1252"
+                      dataType="str"
+                      length="15"
+                      name="CoordenadasY" />
+                    <externalMetadataColumn
+                      refId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de origen de OLE DB].ExternalColumns[Cedi]"
+                      codePage="1252"
+                      dataType="str"
+                      length="4"
+                      name="Cedi" />
+                    <externalMetadataColumn
+                      refId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de origen de OLE DB].ExternalColumns[Cod_CondiPago]"
+                      codePage="1252"
+                      dataType="str"
+                      length="4"
+                      name="Cod_CondiPago" />
+                    <externalMetadataColumn
+                      refId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de origen de OLE DB].ExternalColumns[Barrio]"
+                      codePage="1252"
+                      dataType="str"
+                      length="40"
+                      name="Barrio" />
+                    <externalMetadataColumn
+                      refId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de origen de OLE DB].ExternalColumns[UserAtrib10]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      name="UserAtrib10" />
+                    <externalMetadataColumn
+                      refId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de origen de OLE DB].ExternalColumns[Cod_CanalC]"
+                      codePage="1252"
+                      dataType="str"
+                      length="2"
+                      name="Cod_CanalC" />
+                    <externalMetadataColumn
+                      refId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de origen de OLE DB].ExternalColumns[Nombre_CanalC]"
+                      codePage="1252"
+                      dataType="str"
+                      length="35"
+                      name="Nombre_CanalC" />
+                    <externalMetadataColumn
+                      refId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de origen de OLE DB].ExternalColumns[Cod_GClienteC]"
+                      codePage="1252"
+                      dataType="str"
+                      length="2"
+                      name="Cod_GClienteC" />
+                    <externalMetadataColumn
+                      refId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de origen de OLE DB].ExternalColumns[Nombre_GClienteC]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="Nombre_GClienteC" />
+                    <externalMetadataColumn
+                      refId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de origen de OLE DB].ExternalColumns[Cod_Oficina_VentasC]"
+                      codePage="1252"
+                      dataType="str"
+                      length="4"
+                      name="Cod_Oficina_VentasC" />
+                    <externalMetadataColumn
+                      refId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de origen de OLE DB].ExternalColumns[Nombre_Oficina_VentasC]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="Nombre_Oficina_VentasC" />
+                    <externalMetadataColumn
+                      refId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de origen de OLE DB].ExternalColumns[Cod_Zona_VentasC]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="Cod_Zona_VentasC" />
+                    <externalMetadataColumn
+                      refId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de origen de OLE DB].ExternalColumns[Cod_VendedorC]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="Cod_VendedorC" />
+                    <externalMetadataColumn
+                      refId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de origen de OLE DB].ExternalColumns[Nombre_VendedorC]"
+                      dataType="wstr"
+                      length="35"
+                      name="Nombre_VendedorC" />
+                    <externalMetadataColumn
+                      refId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de origen de OLE DB].ExternalColumns[Director_CanalC]"
+                      dataType="wstr"
+                      length="35"
+                      name="Director_CanalC" />
+                    <externalMetadataColumn
+                      refId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de origen de OLE DB].ExternalColumns[Lider_RegionalC]"
+                      dataType="wstr"
+                      length="35"
+                      name="Lider_RegionalC" />
+                    <externalMetadataColumn
+                      refId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de origen de OLE DB].ExternalColumns[Jefe_VentasC]"
+                      dataType="wstr"
+                      length="35"
+                      name="Jefe_VentasC" />
+                    <externalMetadataColumn
+                      refId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de origen de OLE DB].ExternalColumns[Gerente_ComercialC]"
+                      dataType="wstr"
+                      length="35"
+                      name="Gerente_ComercialC" />
+                    <externalMetadataColumn
+                      refId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de origen de OLE DB].ExternalColumns[Direccion]"
+                      codePage="1252"
+                      dataType="str"
+                      length="60"
+                      name="Direccion" />
+                    <externalMetadataColumn
+                      refId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de origen de OLE DB].ExternalColumns[Poblacion]"
+                      codePage="1252"
+                      dataType="str"
+                      length="35"
+                      name="Poblacion" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de error de origen de OLE DB]"
+                  isErrorOut="true"
+                  name="Salida de error de origen de OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de error de origen de OLE DB].Columns[Cod_Cliente]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      lineageId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de error de origen de OLE DB].Columns[Cod_Cliente]"
+                      name="Cod_Cliente" />
+                    <outputColumn
+                      refId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de error de origen de OLE DB].Columns[Nombre_Cliente]"
+                      dataType="wstr"
+                      length="40"
+                      lineageId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de error de origen de OLE DB].Columns[Nombre_Cliente]"
+                      name="Nombre_Cliente" />
+                    <outputColumn
+                      refId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de error de origen de OLE DB].Columns[Cod_Canal]"
+                      codePage="1252"
+                      dataType="str"
+                      length="2"
+                      lineageId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de error de origen de OLE DB].Columns[Cod_Canal]"
+                      name="Cod_Canal" />
+                    <outputColumn
+                      refId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de error de origen de OLE DB].Columns[Nombre_Canal]"
+                      codePage="1252"
+                      dataType="str"
+                      length="35"
+                      lineageId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de error de origen de OLE DB].Columns[Nombre_Canal]"
+                      name="Nombre_Canal" />
+                    <outputColumn
+                      refId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de error de origen de OLE DB].Columns[Cod_Pais]"
+                      codePage="1252"
+                      dataType="str"
+                      length="3"
+                      lineageId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de error de origen de OLE DB].Columns[Cod_Pais]"
+                      name="Cod_Pais" />
+                    <outputColumn
+                      refId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de error de origen de OLE DB].Columns[Cod_GCliente]"
+                      codePage="1252"
+                      dataType="str"
+                      length="2"
+                      lineageId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de error de origen de OLE DB].Columns[Cod_GCliente]"
+                      name="Cod_GCliente" />
+                    <outputColumn
+                      refId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de error de origen de OLE DB].Columns[Nombre_GCliente]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      lineageId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de error de origen de OLE DB].Columns[Nombre_GCliente]"
+                      name="Nombre_GCliente" />
+                    <outputColumn
+                      refId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de error de origen de OLE DB].Columns[Cod_Oficina_Ventas]"
+                      codePage="1252"
+                      dataType="str"
+                      length="4"
+                      lineageId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de error de origen de OLE DB].Columns[Cod_Oficina_Ventas]"
+                      name="Cod_Oficina_Ventas" />
+                    <outputColumn
+                      refId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de error de origen de OLE DB].Columns[Nombre_Oficina_Ventas]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      lineageId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de error de origen de OLE DB].Columns[Nombre_Oficina_Ventas]"
+                      name="Nombre_Oficina_Ventas" />
+                    <outputColumn
+                      refId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de error de origen de OLE DB].Columns[Cod_Zona_Ventas]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      lineageId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de error de origen de OLE DB].Columns[Cod_Zona_Ventas]"
+                      name="Cod_Zona_Ventas" />
+                    <outputColumn
+                      refId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de error de origen de OLE DB].Columns[Cod_Vendedor]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      lineageId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de error de origen de OLE DB].Columns[Cod_Vendedor]"
+                      name="Cod_Vendedor" />
+                    <outputColumn
+                      refId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de error de origen de OLE DB].Columns[Nombre_Vendedor]"
+                      dataType="wstr"
+                      length="35"
+                      lineageId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de error de origen de OLE DB].Columns[Nombre_Vendedor]"
+                      name="Nombre_Vendedor" />
+                    <outputColumn
+                      refId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de error de origen de OLE DB].Columns[Cod_Region]"
+                      codePage="1252"
+                      dataType="str"
+                      length="3"
+                      lineageId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de error de origen de OLE DB].Columns[Cod_Region]"
+                      name="Cod_Region" />
+                    <outputColumn
+                      refId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de error de origen de OLE DB].Columns[Nombre_Ciudad]"
+                      codePage="1252"
+                      dataType="str"
+                      length="40"
+                      lineageId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de error de origen de OLE DB].Columns[Nombre_Ciudad]"
+                      name="Nombre_Ciudad" />
+                    <outputColumn
+                      refId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de error de origen de OLE DB].Columns[Cod_Central]"
+                      codePage="1252"
+                      dataType="str"
+                      length="2"
+                      lineageId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de error de origen de OLE DB].Columns[Cod_Central]"
+                      name="Cod_Central" />
+                    <outputColumn
+                      refId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de error de origen de OLE DB].Columns[Cod_GCliente_AD1]"
+                      codePage="1252"
+                      dataType="str"
+                      length="3"
+                      lineageId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de error de origen de OLE DB].Columns[Cod_GCliente_AD1]"
+                      name="Cod_GCliente_AD1" />
+                    <outputColumn
+                      refId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de error de origen de OLE DB].Columns[Nombre_GCliente_AD1]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      lineageId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de error de origen de OLE DB].Columns[Nombre_GCliente_AD1]"
+                      name="Nombre_GCliente_AD1" />
+                    <outputColumn
+                      refId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de error de origen de OLE DB].Columns[Cod_GCliente_AD2]"
+                      codePage="1252"
+                      dataType="str"
+                      length="3"
+                      lineageId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de error de origen de OLE DB].Columns[Cod_GCliente_AD2]"
+                      name="Cod_GCliente_AD2" />
+                    <outputColumn
+                      refId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de error de origen de OLE DB].Columns[Nombre_GCliente_AD2]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      lineageId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de error de origen de OLE DB].Columns[Nombre_GCliente_AD2]"
+                      name="Nombre_GCliente_AD2" />
+                    <outputColumn
+                      refId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de error de origen de OLE DB].Columns[Cod_Pagador]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      lineageId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de error de origen de OLE DB].Columns[Cod_Pagador]"
+                      name="Cod_Pagador" />
+                    <outputColumn
+                      refId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de error de origen de OLE DB].Columns[Telebox]"
+                      codePage="1252"
+                      dataType="str"
+                      length="15"
+                      lineageId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de error de origen de OLE DB].Columns[Telebox]"
+                      name="Telebox" />
+                    <outputColumn
+                      refId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de error de origen de OLE DB].Columns[Gerente_Comercial]"
+                      dataType="wstr"
+                      length="35"
+                      lineageId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de error de origen de OLE DB].Columns[Gerente_Comercial]"
+                      name="Gerente_Comercial" />
+                    <outputColumn
+                      refId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de error de origen de OLE DB].Columns[Director_Canal]"
+                      dataType="wstr"
+                      length="35"
+                      lineageId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de error de origen de OLE DB].Columns[Director_Canal]"
+                      name="Director_Canal" />
+                    <outputColumn
+                      refId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de error de origen de OLE DB].Columns[Lider_Regional]"
+                      dataType="wstr"
+                      length="35"
+                      lineageId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de error de origen de OLE DB].Columns[Lider_Regional]"
+                      name="Lider_Regional" />
+                    <outputColumn
+                      refId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de error de origen de OLE DB].Columns[Jefe_Ventas]"
+                      dataType="wstr"
+                      length="35"
+                      lineageId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de error de origen de OLE DB].Columns[Jefe_Ventas]"
+                      name="Jefe_Ventas" />
+                    <outputColumn
+                      refId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de error de origen de OLE DB].Columns[Fecha_Creacion_Cliente]"
+                      codePage="1252"
+                      dataType="str"
+                      length="8"
+                      lineageId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de error de origen de OLE DB].Columns[Fecha_Creacion_Cliente]"
+                      name="Fecha_Creacion_Cliente" />
+                    <outputColumn
+                      refId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de error de origen de OLE DB].Columns[Estatus]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      lineageId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de error de origen de OLE DB].Columns[Estatus]"
+                      name="Estatus" />
+                    <outputColumn
+                      refId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de error de origen de OLE DB].Columns[Cod_Ruta]"
+                      codePage="1252"
+                      dataType="str"
+                      length="2"
+                      lineageId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de error de origen de OLE DB].Columns[Cod_Ruta]"
+                      name="Cod_Ruta" />
+                    <outputColumn
+                      refId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de error de origen de OLE DB].Columns[CoordenadasX]"
+                      codePage="1252"
+                      dataType="str"
+                      length="15"
+                      lineageId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de error de origen de OLE DB].Columns[CoordenadasX]"
+                      name="CoordenadasX" />
+                    <outputColumn
+                      refId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de error de origen de OLE DB].Columns[CoordenadasY]"
+                      codePage="1252"
+                      dataType="str"
+                      length="15"
+                      lineageId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de error de origen de OLE DB].Columns[CoordenadasY]"
+                      name="CoordenadasY" />
+                    <outputColumn
+                      refId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de error de origen de OLE DB].Columns[Cedi]"
+                      codePage="1252"
+                      dataType="str"
+                      length="4"
+                      lineageId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de error de origen de OLE DB].Columns[Cedi]"
+                      name="Cedi" />
+                    <outputColumn
+                      refId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de error de origen de OLE DB].Columns[Cod_CondiPago]"
+                      codePage="1252"
+                      dataType="str"
+                      length="4"
+                      lineageId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de error de origen de OLE DB].Columns[Cod_CondiPago]"
+                      name="Cod_CondiPago" />
+                    <outputColumn
+                      refId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de error de origen de OLE DB].Columns[Barrio]"
+                      codePage="1252"
+                      dataType="str"
+                      length="40"
+                      lineageId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de error de origen de OLE DB].Columns[Barrio]"
+                      name="Barrio" />
+                    <outputColumn
+                      refId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de error de origen de OLE DB].Columns[UserAtrib10]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      lineageId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de error de origen de OLE DB].Columns[UserAtrib10]"
+                      name="UserAtrib10" />
+                    <outputColumn
+                      refId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de error de origen de OLE DB].Columns[Cod_CanalC]"
+                      codePage="1252"
+                      dataType="str"
+                      length="2"
+                      lineageId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de error de origen de OLE DB].Columns[Cod_CanalC]"
+                      name="Cod_CanalC" />
+                    <outputColumn
+                      refId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de error de origen de OLE DB].Columns[Nombre_CanalC]"
+                      codePage="1252"
+                      dataType="str"
+                      length="35"
+                      lineageId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de error de origen de OLE DB].Columns[Nombre_CanalC]"
+                      name="Nombre_CanalC" />
+                    <outputColumn
+                      refId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de error de origen de OLE DB].Columns[Cod_GClienteC]"
+                      codePage="1252"
+                      dataType="str"
+                      length="2"
+                      lineageId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de error de origen de OLE DB].Columns[Cod_GClienteC]"
+                      name="Cod_GClienteC" />
+                    <outputColumn
+                      refId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de error de origen de OLE DB].Columns[Nombre_GClienteC]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      lineageId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de error de origen de OLE DB].Columns[Nombre_GClienteC]"
+                      name="Nombre_GClienteC" />
+                    <outputColumn
+                      refId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de error de origen de OLE DB].Columns[Cod_Oficina_VentasC]"
+                      codePage="1252"
+                      dataType="str"
+                      length="4"
+                      lineageId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de error de origen de OLE DB].Columns[Cod_Oficina_VentasC]"
+                      name="Cod_Oficina_VentasC" />
+                    <outputColumn
+                      refId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de error de origen de OLE DB].Columns[Nombre_Oficina_VentasC]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      lineageId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de error de origen de OLE DB].Columns[Nombre_Oficina_VentasC]"
+                      name="Nombre_Oficina_VentasC" />
+                    <outputColumn
+                      refId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de error de origen de OLE DB].Columns[Cod_Zona_VentasC]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      lineageId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de error de origen de OLE DB].Columns[Cod_Zona_VentasC]"
+                      name="Cod_Zona_VentasC" />
+                    <outputColumn
+                      refId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de error de origen de OLE DB].Columns[Cod_VendedorC]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      lineageId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de error de origen de OLE DB].Columns[Cod_VendedorC]"
+                      name="Cod_VendedorC" />
+                    <outputColumn
+                      refId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de error de origen de OLE DB].Columns[Nombre_VendedorC]"
+                      dataType="wstr"
+                      length="35"
+                      lineageId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de error de origen de OLE DB].Columns[Nombre_VendedorC]"
+                      name="Nombre_VendedorC" />
+                    <outputColumn
+                      refId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de error de origen de OLE DB].Columns[Director_CanalC]"
+                      dataType="wstr"
+                      length="35"
+                      lineageId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de error de origen de OLE DB].Columns[Director_CanalC]"
+                      name="Director_CanalC" />
+                    <outputColumn
+                      refId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de error de origen de OLE DB].Columns[Lider_RegionalC]"
+                      dataType="wstr"
+                      length="35"
+                      lineageId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de error de origen de OLE DB].Columns[Lider_RegionalC]"
+                      name="Lider_RegionalC" />
+                    <outputColumn
+                      refId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de error de origen de OLE DB].Columns[Jefe_VentasC]"
+                      dataType="wstr"
+                      length="35"
+                      lineageId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de error de origen de OLE DB].Columns[Jefe_VentasC]"
+                      name="Jefe_VentasC" />
+                    <outputColumn
+                      refId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de error de origen de OLE DB].Columns[Gerente_ComercialC]"
+                      dataType="wstr"
+                      length="35"
+                      lineageId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de error de origen de OLE DB].Columns[Gerente_ComercialC]"
+                      name="Gerente_ComercialC" />
+                    <outputColumn
+                      refId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de error de origen de OLE DB].Columns[Direccion]"
+                      codePage="1252"
+                      dataType="str"
+                      length="60"
+                      lineageId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de error de origen de OLE DB].Columns[Direccion]"
+                      name="Direccion" />
+                    <outputColumn
+                      refId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de error de origen de OLE DB].Columns[Poblacion]"
+                      codePage="1252"
+                      dataType="str"
+                      length="35"
+                      lineageId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de error de origen de OLE DB].Columns[Poblacion]"
+                      name="Poblacion" />
+                    <outputColumn
+                      refId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de error de origen de OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de error de origen de OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de error de origen de OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de error de origen de OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\CLIENTES SHOOT COM AÑO\Clientes_ppto_com_shoot"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="Destino de OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;4"
+              description="Destino de OLE DB"
+              name="Clientes_ppto_com_shoot"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowset">[PVOF].[Clientes_ppto_com_shoot]</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica la variable que contiene el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Comando SQL para ejecutar."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica la página de códigos de columna para utilizar cuando la información de página de códigos no está disponible en el origen de datos."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Fuerza el uso del valor de la propiedad DefaultCodePage al describir datos de caracteres."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el modo utilizado para obtener acceso a la base de datos."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si los valores proporcionados para columnas de identidad se van a copiar al destino. Si es False, los valores de las columnas de identidad se generan automáticamente en el destino. Solo se aplica si está activada la carga rápida."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si las columnas que contienen NULL tendrán NULL insertado en el destino. Si es False, las columnas que contienen NULL tendrán sus valores predeterminados insertados en el destino. Solo se aplica si está activada la carga rápida."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica opciones para usar con la carga rápida. Solo se aplica si está activada la carga rápida."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica cuándo se emiten confirmaciones durante la inserción de datos. El valor 0 especifica que se emitirá una confirmación al final de la inserción de datos. Solo se aplica si está activada la carga rápida."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\CLIENTES SHOOT COM AÑO\Clientes_ppto_com_shoot.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[192.168.5.23\b2c.ASSUser]"
+                  connectionManagerRefId="Package.ConnectionManagers[192.168.5.23\b2c.ASSUser]"
+                  description="La conexión de tiempo de ejecución OLE DB usada para obtener acceso a la base de datos."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\CLIENTES SHOOT COM AÑO\Clientes_ppto_com_shoot.Inputs[Entrada de destino de OLE DB]"
+                  errorOrTruncationOperation="Insertar"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrada de destino de OLE DB">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\CLIENTES SHOOT COM AÑO\Clientes_ppto_com_shoot.Inputs[Entrada de destino de OLE DB].Columns[Cod_Cliente]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="Cod_Cliente"
+                      externalMetadataColumnId="Package\CLIENTES SHOOT COM AÑO\Clientes_ppto_com_shoot.Inputs[Entrada de destino de OLE DB].ExternalColumns[Cod_Cliente]"
+                      lineageId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de origen de OLE DB].Columns[Cod_Cliente]" />
+                    <inputColumn
+                      refId="Package\CLIENTES SHOOT COM AÑO\Clientes_ppto_com_shoot.Inputs[Entrada de destino de OLE DB].Columns[Nombre_Cliente]"
+                      cachedDataType="wstr"
+                      cachedLength="40"
+                      cachedName="Nombre_Cliente"
+                      externalMetadataColumnId="Package\CLIENTES SHOOT COM AÑO\Clientes_ppto_com_shoot.Inputs[Entrada de destino de OLE DB].ExternalColumns[Nombre_Cliente]"
+                      lineageId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de origen de OLE DB].Columns[Nombre_Cliente]" />
+                    <inputColumn
+                      refId="Package\CLIENTES SHOOT COM AÑO\Clientes_ppto_com_shoot.Inputs[Entrada de destino de OLE DB].Columns[Cod_Canal]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="2"
+                      cachedName="Cod_Canal"
+                      externalMetadataColumnId="Package\CLIENTES SHOOT COM AÑO\Clientes_ppto_com_shoot.Inputs[Entrada de destino de OLE DB].ExternalColumns[Cod_Canal]"
+                      lineageId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de origen de OLE DB].Columns[Cod_Canal]" />
+                    <inputColumn
+                      refId="Package\CLIENTES SHOOT COM AÑO\Clientes_ppto_com_shoot.Inputs[Entrada de destino de OLE DB].Columns[Nombre_Canal]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="35"
+                      cachedName="Nombre_Canal"
+                      externalMetadataColumnId="Package\CLIENTES SHOOT COM AÑO\Clientes_ppto_com_shoot.Inputs[Entrada de destino de OLE DB].ExternalColumns[Nombre_Canal]"
+                      lineageId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de origen de OLE DB].Columns[Nombre_Canal]" />
+                    <inputColumn
+                      refId="Package\CLIENTES SHOOT COM AÑO\Clientes_ppto_com_shoot.Inputs[Entrada de destino de OLE DB].Columns[Cod_Pais]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="3"
+                      cachedName="Cod_Pais"
+                      externalMetadataColumnId="Package\CLIENTES SHOOT COM AÑO\Clientes_ppto_com_shoot.Inputs[Entrada de destino de OLE DB].ExternalColumns[Cod_Pais]"
+                      lineageId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de origen de OLE DB].Columns[Cod_Pais]" />
+                    <inputColumn
+                      refId="Package\CLIENTES SHOOT COM AÑO\Clientes_ppto_com_shoot.Inputs[Entrada de destino de OLE DB].Columns[Cod_GCliente]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="2"
+                      cachedName="Cod_GCliente"
+                      externalMetadataColumnId="Package\CLIENTES SHOOT COM AÑO\Clientes_ppto_com_shoot.Inputs[Entrada de destino de OLE DB].ExternalColumns[Cod_GCliente]"
+                      lineageId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de origen de OLE DB].Columns[Cod_GCliente]" />
+                    <inputColumn
+                      refId="Package\CLIENTES SHOOT COM AÑO\Clientes_ppto_com_shoot.Inputs[Entrada de destino de OLE DB].Columns[Nombre_GCliente]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="20"
+                      cachedName="Nombre_GCliente"
+                      externalMetadataColumnId="Package\CLIENTES SHOOT COM AÑO\Clientes_ppto_com_shoot.Inputs[Entrada de destino de OLE DB].ExternalColumns[Nombre_GCliente]"
+                      lineageId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de origen de OLE DB].Columns[Nombre_GCliente]" />
+                    <inputColumn
+                      refId="Package\CLIENTES SHOOT COM AÑO\Clientes_ppto_com_shoot.Inputs[Entrada de destino de OLE DB].Columns[Cod_Oficina_Ventas]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="4"
+                      cachedName="Cod_Oficina_Ventas"
+                      externalMetadataColumnId="Package\CLIENTES SHOOT COM AÑO\Clientes_ppto_com_shoot.Inputs[Entrada de destino de OLE DB].ExternalColumns[Cod_Oficina_Ventas]"
+                      lineageId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de origen de OLE DB].Columns[Cod_Oficina_Ventas]" />
+                    <inputColumn
+                      refId="Package\CLIENTES SHOOT COM AÑO\Clientes_ppto_com_shoot.Inputs[Entrada de destino de OLE DB].Columns[Nombre_Oficina_Ventas]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="20"
+                      cachedName="Nombre_Oficina_Ventas"
+                      externalMetadataColumnId="Package\CLIENTES SHOOT COM AÑO\Clientes_ppto_com_shoot.Inputs[Entrada de destino de OLE DB].ExternalColumns[Nombre_Oficina_Ventas]"
+                      lineageId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de origen de OLE DB].Columns[Nombre_Oficina_Ventas]" />
+                    <inputColumn
+                      refId="Package\CLIENTES SHOOT COM AÑO\Clientes_ppto_com_shoot.Inputs[Entrada de destino de OLE DB].Columns[Cod_Zona_Ventas]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="Cod_Zona_Ventas"
+                      externalMetadataColumnId="Package\CLIENTES SHOOT COM AÑO\Clientes_ppto_com_shoot.Inputs[Entrada de destino de OLE DB].ExternalColumns[Cod_Zona_Ventas]"
+                      lineageId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de origen de OLE DB].Columns[Cod_Zona_Ventas]" />
+                    <inputColumn
+                      refId="Package\CLIENTES SHOOT COM AÑO\Clientes_ppto_com_shoot.Inputs[Entrada de destino de OLE DB].Columns[Cod_Vendedor]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="Cod_Vendedor"
+                      externalMetadataColumnId="Package\CLIENTES SHOOT COM AÑO\Clientes_ppto_com_shoot.Inputs[Entrada de destino de OLE DB].ExternalColumns[Cod_Vendedor]"
+                      lineageId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de origen de OLE DB].Columns[Cod_Vendedor]" />
+                    <inputColumn
+                      refId="Package\CLIENTES SHOOT COM AÑO\Clientes_ppto_com_shoot.Inputs[Entrada de destino de OLE DB].Columns[Nombre_Vendedor]"
+                      cachedDataType="wstr"
+                      cachedLength="35"
+                      cachedName="Nombre_Vendedor"
+                      externalMetadataColumnId="Package\CLIENTES SHOOT COM AÑO\Clientes_ppto_com_shoot.Inputs[Entrada de destino de OLE DB].ExternalColumns[Nombre_Vendedor]"
+                      lineageId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de origen de OLE DB].Columns[Nombre_Vendedor]" />
+                    <inputColumn
+                      refId="Package\CLIENTES SHOOT COM AÑO\Clientes_ppto_com_shoot.Inputs[Entrada de destino de OLE DB].Columns[Cod_Region]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="3"
+                      cachedName="Cod_Region"
+                      externalMetadataColumnId="Package\CLIENTES SHOOT COM AÑO\Clientes_ppto_com_shoot.Inputs[Entrada de destino de OLE DB].ExternalColumns[Cod_Region]"
+                      lineageId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de origen de OLE DB].Columns[Cod_Region]" />
+                    <inputColumn
+                      refId="Package\CLIENTES SHOOT COM AÑO\Clientes_ppto_com_shoot.Inputs[Entrada de destino de OLE DB].Columns[Nombre_Ciudad]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="40"
+                      cachedName="Nombre_Ciudad"
+                      externalMetadataColumnId="Package\CLIENTES SHOOT COM AÑO\Clientes_ppto_com_shoot.Inputs[Entrada de destino de OLE DB].ExternalColumns[Nombre_Ciudad]"
+                      lineageId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de origen de OLE DB].Columns[Nombre_Ciudad]" />
+                    <inputColumn
+                      refId="Package\CLIENTES SHOOT COM AÑO\Clientes_ppto_com_shoot.Inputs[Entrada de destino de OLE DB].Columns[Cod_Central]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="2"
+                      cachedName="Cod_Central"
+                      externalMetadataColumnId="Package\CLIENTES SHOOT COM AÑO\Clientes_ppto_com_shoot.Inputs[Entrada de destino de OLE DB].ExternalColumns[Cod_Central]"
+                      lineageId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de origen de OLE DB].Columns[Cod_Central]" />
+                    <inputColumn
+                      refId="Package\CLIENTES SHOOT COM AÑO\Clientes_ppto_com_shoot.Inputs[Entrada de destino de OLE DB].Columns[Cod_GCliente_AD1]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="3"
+                      cachedName="Cod_GCliente_AD1"
+                      externalMetadataColumnId="Package\CLIENTES SHOOT COM AÑO\Clientes_ppto_com_shoot.Inputs[Entrada de destino de OLE DB].ExternalColumns[Cod_GCliente_AD1]"
+                      lineageId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de origen de OLE DB].Columns[Cod_GCliente_AD1]" />
+                    <inputColumn
+                      refId="Package\CLIENTES SHOOT COM AÑO\Clientes_ppto_com_shoot.Inputs[Entrada de destino de OLE DB].Columns[Nombre_GCliente_AD1]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="20"
+                      cachedName="Nombre_GCliente_AD1"
+                      externalMetadataColumnId="Package\CLIENTES SHOOT COM AÑO\Clientes_ppto_com_shoot.Inputs[Entrada de destino de OLE DB].ExternalColumns[Nombre_GCliente_AD1]"
+                      lineageId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de origen de OLE DB].Columns[Nombre_GCliente_AD1]" />
+                    <inputColumn
+                      refId="Package\CLIENTES SHOOT COM AÑO\Clientes_ppto_com_shoot.Inputs[Entrada de destino de OLE DB].Columns[Cod_GCliente_AD2]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="3"
+                      cachedName="Cod_GCliente_AD2"
+                      externalMetadataColumnId="Package\CLIENTES SHOOT COM AÑO\Clientes_ppto_com_shoot.Inputs[Entrada de destino de OLE DB].ExternalColumns[Cod_GCliente_AD2]"
+                      lineageId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de origen de OLE DB].Columns[Cod_GCliente_AD2]" />
+                    <inputColumn
+                      refId="Package\CLIENTES SHOOT COM AÑO\Clientes_ppto_com_shoot.Inputs[Entrada de destino de OLE DB].Columns[Nombre_GCliente_AD2]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="20"
+                      cachedName="Nombre_GCliente_AD2"
+                      externalMetadataColumnId="Package\CLIENTES SHOOT COM AÑO\Clientes_ppto_com_shoot.Inputs[Entrada de destino de OLE DB].ExternalColumns[Nombre_GCliente_AD2]"
+                      lineageId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de origen de OLE DB].Columns[Nombre_GCliente_AD2]" />
+                    <inputColumn
+                      refId="Package\CLIENTES SHOOT COM AÑO\Clientes_ppto_com_shoot.Inputs[Entrada de destino de OLE DB].Columns[Cod_Pagador]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="Cod_Pagador"
+                      externalMetadataColumnId="Package\CLIENTES SHOOT COM AÑO\Clientes_ppto_com_shoot.Inputs[Entrada de destino de OLE DB].ExternalColumns[Cod_Pagador]"
+                      lineageId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de origen de OLE DB].Columns[Cod_Pagador]" />
+                    <inputColumn
+                      refId="Package\CLIENTES SHOOT COM AÑO\Clientes_ppto_com_shoot.Inputs[Entrada de destino de OLE DB].Columns[Telebox]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="15"
+                      cachedName="Telebox"
+                      externalMetadataColumnId="Package\CLIENTES SHOOT COM AÑO\Clientes_ppto_com_shoot.Inputs[Entrada de destino de OLE DB].ExternalColumns[Telebox]"
+                      lineageId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de origen de OLE DB].Columns[Telebox]" />
+                    <inputColumn
+                      refId="Package\CLIENTES SHOOT COM AÑO\Clientes_ppto_com_shoot.Inputs[Entrada de destino de OLE DB].Columns[Gerente_Comercial]"
+                      cachedDataType="wstr"
+                      cachedLength="35"
+                      cachedName="Gerente_Comercial"
+                      externalMetadataColumnId="Package\CLIENTES SHOOT COM AÑO\Clientes_ppto_com_shoot.Inputs[Entrada de destino de OLE DB].ExternalColumns[Gerente_Comercial]"
+                      lineageId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de origen de OLE DB].Columns[Gerente_Comercial]" />
+                    <inputColumn
+                      refId="Package\CLIENTES SHOOT COM AÑO\Clientes_ppto_com_shoot.Inputs[Entrada de destino de OLE DB].Columns[Director_Canal]"
+                      cachedDataType="wstr"
+                      cachedLength="35"
+                      cachedName="Director_Canal"
+                      externalMetadataColumnId="Package\CLIENTES SHOOT COM AÑO\Clientes_ppto_com_shoot.Inputs[Entrada de destino de OLE DB].ExternalColumns[Director_Canal]"
+                      lineageId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de origen de OLE DB].Columns[Director_Canal]" />
+                    <inputColumn
+                      refId="Package\CLIENTES SHOOT COM AÑO\Clientes_ppto_com_shoot.Inputs[Entrada de destino de OLE DB].Columns[Lider_Regional]"
+                      cachedDataType="wstr"
+                      cachedLength="35"
+                      cachedName="Lider_Regional"
+                      externalMetadataColumnId="Package\CLIENTES SHOOT COM AÑO\Clientes_ppto_com_shoot.Inputs[Entrada de destino de OLE DB].ExternalColumns[Lider_Regional]"
+                      lineageId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de origen de OLE DB].Columns[Lider_Regional]" />
+                    <inputColumn
+                      refId="Package\CLIENTES SHOOT COM AÑO\Clientes_ppto_com_shoot.Inputs[Entrada de destino de OLE DB].Columns[Jefe_Ventas]"
+                      cachedDataType="wstr"
+                      cachedLength="35"
+                      cachedName="Jefe_Ventas"
+                      externalMetadataColumnId="Package\CLIENTES SHOOT COM AÑO\Clientes_ppto_com_shoot.Inputs[Entrada de destino de OLE DB].ExternalColumns[Jefe_Ventas]"
+                      lineageId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de origen de OLE DB].Columns[Jefe_Ventas]" />
+                    <inputColumn
+                      refId="Package\CLIENTES SHOOT COM AÑO\Clientes_ppto_com_shoot.Inputs[Entrada de destino de OLE DB].Columns[Fecha_Creacion_Cliente]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="8"
+                      cachedName="Fecha_Creacion_Cliente"
+                      externalMetadataColumnId="Package\CLIENTES SHOOT COM AÑO\Clientes_ppto_com_shoot.Inputs[Entrada de destino de OLE DB].ExternalColumns[Fecha_Creacion_Cliente]"
+                      lineageId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de origen de OLE DB].Columns[Fecha_Creacion_Cliente]" />
+                    <inputColumn
+                      refId="Package\CLIENTES SHOOT COM AÑO\Clientes_ppto_com_shoot.Inputs[Entrada de destino de OLE DB].Columns[Estatus]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="Estatus"
+                      externalMetadataColumnId="Package\CLIENTES SHOOT COM AÑO\Clientes_ppto_com_shoot.Inputs[Entrada de destino de OLE DB].ExternalColumns[Estatus]"
+                      lineageId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de origen de OLE DB].Columns[Estatus]" />
+                    <inputColumn
+                      refId="Package\CLIENTES SHOOT COM AÑO\Clientes_ppto_com_shoot.Inputs[Entrada de destino de OLE DB].Columns[Cod_Ruta]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="2"
+                      cachedName="Cod_Ruta"
+                      externalMetadataColumnId="Package\CLIENTES SHOOT COM AÑO\Clientes_ppto_com_shoot.Inputs[Entrada de destino de OLE DB].ExternalColumns[Cod_Ruta]"
+                      lineageId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de origen de OLE DB].Columns[Cod_Ruta]" />
+                    <inputColumn
+                      refId="Package\CLIENTES SHOOT COM AÑO\Clientes_ppto_com_shoot.Inputs[Entrada de destino de OLE DB].Columns[CoordenadasX]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="15"
+                      cachedName="CoordenadasX"
+                      externalMetadataColumnId="Package\CLIENTES SHOOT COM AÑO\Clientes_ppto_com_shoot.Inputs[Entrada de destino de OLE DB].ExternalColumns[CoordenadasX]"
+                      lineageId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de origen de OLE DB].Columns[CoordenadasX]" />
+                    <inputColumn
+                      refId="Package\CLIENTES SHOOT COM AÑO\Clientes_ppto_com_shoot.Inputs[Entrada de destino de OLE DB].Columns[CoordenadasY]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="15"
+                      cachedName="CoordenadasY"
+                      externalMetadataColumnId="Package\CLIENTES SHOOT COM AÑO\Clientes_ppto_com_shoot.Inputs[Entrada de destino de OLE DB].ExternalColumns[CoordenadasY]"
+                      lineageId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de origen de OLE DB].Columns[CoordenadasY]" />
+                    <inputColumn
+                      refId="Package\CLIENTES SHOOT COM AÑO\Clientes_ppto_com_shoot.Inputs[Entrada de destino de OLE DB].Columns[Cedi]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="4"
+                      cachedName="Cedi"
+                      externalMetadataColumnId="Package\CLIENTES SHOOT COM AÑO\Clientes_ppto_com_shoot.Inputs[Entrada de destino de OLE DB].ExternalColumns[Cedi]"
+                      lineageId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de origen de OLE DB].Columns[Cedi]" />
+                    <inputColumn
+                      refId="Package\CLIENTES SHOOT COM AÑO\Clientes_ppto_com_shoot.Inputs[Entrada de destino de OLE DB].Columns[Cod_CondiPago]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="4"
+                      cachedName="Cod_CondiPago"
+                      externalMetadataColumnId="Package\CLIENTES SHOOT COM AÑO\Clientes_ppto_com_shoot.Inputs[Entrada de destino de OLE DB].ExternalColumns[Cod_CondiPago]"
+                      lineageId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de origen de OLE DB].Columns[Cod_CondiPago]" />
+                    <inputColumn
+                      refId="Package\CLIENTES SHOOT COM AÑO\Clientes_ppto_com_shoot.Inputs[Entrada de destino de OLE DB].Columns[Barrio]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="40"
+                      cachedName="Barrio"
+                      externalMetadataColumnId="Package\CLIENTES SHOOT COM AÑO\Clientes_ppto_com_shoot.Inputs[Entrada de destino de OLE DB].ExternalColumns[Barrio]"
+                      lineageId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de origen de OLE DB].Columns[Barrio]" />
+                    <inputColumn
+                      refId="Package\CLIENTES SHOOT COM AÑO\Clientes_ppto_com_shoot.Inputs[Entrada de destino de OLE DB].Columns[UserAtrib10]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="1"
+                      cachedName="UserAtrib10"
+                      externalMetadataColumnId="Package\CLIENTES SHOOT COM AÑO\Clientes_ppto_com_shoot.Inputs[Entrada de destino de OLE DB].ExternalColumns[UserAtrib10]"
+                      lineageId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de origen de OLE DB].Columns[UserAtrib10]" />
+                    <inputColumn
+                      refId="Package\CLIENTES SHOOT COM AÑO\Clientes_ppto_com_shoot.Inputs[Entrada de destino de OLE DB].Columns[Cod_CanalC]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="2"
+                      cachedName="Cod_CanalC"
+                      externalMetadataColumnId="Package\CLIENTES SHOOT COM AÑO\Clientes_ppto_com_shoot.Inputs[Entrada de destino de OLE DB].ExternalColumns[Cod_CanalC]"
+                      lineageId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de origen de OLE DB].Columns[Cod_CanalC]" />
+                    <inputColumn
+                      refId="Package\CLIENTES SHOOT COM AÑO\Clientes_ppto_com_shoot.Inputs[Entrada de destino de OLE DB].Columns[Nombre_CanalC]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="35"
+                      cachedName="Nombre_CanalC"
+                      externalMetadataColumnId="Package\CLIENTES SHOOT COM AÑO\Clientes_ppto_com_shoot.Inputs[Entrada de destino de OLE DB].ExternalColumns[Nombre_CanalC]"
+                      lineageId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de origen de OLE DB].Columns[Nombre_CanalC]" />
+                    <inputColumn
+                      refId="Package\CLIENTES SHOOT COM AÑO\Clientes_ppto_com_shoot.Inputs[Entrada de destino de OLE DB].Columns[Cod_GClienteC]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="2"
+                      cachedName="Cod_GClienteC"
+                      externalMetadataColumnId="Package\CLIENTES SHOOT COM AÑO\Clientes_ppto_com_shoot.Inputs[Entrada de destino de OLE DB].ExternalColumns[Cod_GClienteC]"
+                      lineageId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de origen de OLE DB].Columns[Cod_GClienteC]" />
+                    <inputColumn
+                      refId="Package\CLIENTES SHOOT COM AÑO\Clientes_ppto_com_shoot.Inputs[Entrada de destino de OLE DB].Columns[Nombre_GClienteC]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="20"
+                      cachedName="Nombre_GClienteC"
+                      externalMetadataColumnId="Package\CLIENTES SHOOT COM AÑO\Clientes_ppto_com_shoot.Inputs[Entrada de destino de OLE DB].ExternalColumns[Nombre_GClienteC]"
+                      lineageId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de origen de OLE DB].Columns[Nombre_GClienteC]" />
+                    <inputColumn
+                      refId="Package\CLIENTES SHOOT COM AÑO\Clientes_ppto_com_shoot.Inputs[Entrada de destino de OLE DB].Columns[Cod_Oficina_VentasC]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="4"
+                      cachedName="Cod_Oficina_VentasC"
+                      externalMetadataColumnId="Package\CLIENTES SHOOT COM AÑO\Clientes_ppto_com_shoot.Inputs[Entrada de destino de OLE DB].ExternalColumns[Cod_Oficina_VentasC]"
+                      lineageId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de origen de OLE DB].Columns[Cod_Oficina_VentasC]" />
+                    <inputColumn
+                      refId="Package\CLIENTES SHOOT COM AÑO\Clientes_ppto_com_shoot.Inputs[Entrada de destino de OLE DB].Columns[Nombre_Oficina_VentasC]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="20"
+                      cachedName="Nombre_Oficina_VentasC"
+                      externalMetadataColumnId="Package\CLIENTES SHOOT COM AÑO\Clientes_ppto_com_shoot.Inputs[Entrada de destino de OLE DB].ExternalColumns[Nombre_Oficina_VentasC]"
+                      lineageId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de origen de OLE DB].Columns[Nombre_Oficina_VentasC]" />
+                    <inputColumn
+                      refId="Package\CLIENTES SHOOT COM AÑO\Clientes_ppto_com_shoot.Inputs[Entrada de destino de OLE DB].Columns[Cod_Zona_VentasC]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="Cod_Zona_VentasC"
+                      externalMetadataColumnId="Package\CLIENTES SHOOT COM AÑO\Clientes_ppto_com_shoot.Inputs[Entrada de destino de OLE DB].ExternalColumns[Cod_Zona_VentasC]"
+                      lineageId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de origen de OLE DB].Columns[Cod_Zona_VentasC]" />
+                    <inputColumn
+                      refId="Package\CLIENTES SHOOT COM AÑO\Clientes_ppto_com_shoot.Inputs[Entrada de destino de OLE DB].Columns[Cod_VendedorC]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="Cod_VendedorC"
+                      externalMetadataColumnId="Package\CLIENTES SHOOT COM AÑO\Clientes_ppto_com_shoot.Inputs[Entrada de destino de OLE DB].ExternalColumns[Cod_VendedorC]"
+                      lineageId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de origen de OLE DB].Columns[Cod_VendedorC]" />
+                    <inputColumn
+                      refId="Package\CLIENTES SHOOT COM AÑO\Clientes_ppto_com_shoot.Inputs[Entrada de destino de OLE DB].Columns[Nombre_VendedorC]"
+                      cachedDataType="wstr"
+                      cachedLength="35"
+                      cachedName="Nombre_VendedorC"
+                      externalMetadataColumnId="Package\CLIENTES SHOOT COM AÑO\Clientes_ppto_com_shoot.Inputs[Entrada de destino de OLE DB].ExternalColumns[Nombre_VendedorC]"
+                      lineageId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de origen de OLE DB].Columns[Nombre_VendedorC]" />
+                    <inputColumn
+                      refId="Package\CLIENTES SHOOT COM AÑO\Clientes_ppto_com_shoot.Inputs[Entrada de destino de OLE DB].Columns[Director_CanalC]"
+                      cachedDataType="wstr"
+                      cachedLength="35"
+                      cachedName="Director_CanalC"
+                      externalMetadataColumnId="Package\CLIENTES SHOOT COM AÑO\Clientes_ppto_com_shoot.Inputs[Entrada de destino de OLE DB].ExternalColumns[Director_CanalC]"
+                      lineageId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de origen de OLE DB].Columns[Director_CanalC]" />
+                    <inputColumn
+                      refId="Package\CLIENTES SHOOT COM AÑO\Clientes_ppto_com_shoot.Inputs[Entrada de destino de OLE DB].Columns[Lider_RegionalC]"
+                      cachedDataType="wstr"
+                      cachedLength="35"
+                      cachedName="Lider_RegionalC"
+                      externalMetadataColumnId="Package\CLIENTES SHOOT COM AÑO\Clientes_ppto_com_shoot.Inputs[Entrada de destino de OLE DB].ExternalColumns[Lider_RegionalC]"
+                      lineageId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de origen de OLE DB].Columns[Lider_RegionalC]" />
+                    <inputColumn
+                      refId="Package\CLIENTES SHOOT COM AÑO\Clientes_ppto_com_shoot.Inputs[Entrada de destino de OLE DB].Columns[Jefe_VentasC]"
+                      cachedDataType="wstr"
+                      cachedLength="35"
+                      cachedName="Jefe_VentasC"
+                      externalMetadataColumnId="Package\CLIENTES SHOOT COM AÑO\Clientes_ppto_com_shoot.Inputs[Entrada de destino de OLE DB].ExternalColumns[Jefe_VentasC]"
+                      lineageId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de origen de OLE DB].Columns[Jefe_VentasC]" />
+                    <inputColumn
+                      refId="Package\CLIENTES SHOOT COM AÑO\Clientes_ppto_com_shoot.Inputs[Entrada de destino de OLE DB].Columns[Gerente_ComercialC]"
+                      cachedDataType="wstr"
+                      cachedLength="35"
+                      cachedName="Gerente_ComercialC"
+                      externalMetadataColumnId="Package\CLIENTES SHOOT COM AÑO\Clientes_ppto_com_shoot.Inputs[Entrada de destino de OLE DB].ExternalColumns[Gerente_ComercialC]"
+                      lineageId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de origen de OLE DB].Columns[Gerente_ComercialC]" />
+                    <inputColumn
+                      refId="Package\CLIENTES SHOOT COM AÑO\Clientes_ppto_com_shoot.Inputs[Entrada de destino de OLE DB].Columns[Direccion]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="60"
+                      cachedName="Direccion"
+                      externalMetadataColumnId="Package\CLIENTES SHOOT COM AÑO\Clientes_ppto_com_shoot.Inputs[Entrada de destino de OLE DB].ExternalColumns[Direccion]"
+                      lineageId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de origen de OLE DB].Columns[Direccion]" />
+                    <inputColumn
+                      refId="Package\CLIENTES SHOOT COM AÑO\Clientes_ppto_com_shoot.Inputs[Entrada de destino de OLE DB].Columns[Poblacion]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="35"
+                      cachedName="Poblacion"
+                      externalMetadataColumnId="Package\CLIENTES SHOOT COM AÑO\Clientes_ppto_com_shoot.Inputs[Entrada de destino de OLE DB].ExternalColumns[Poblacion]"
+                      lineageId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de origen de OLE DB].Columns[Poblacion]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\CLIENTES SHOOT COM AÑO\Clientes_ppto_com_shoot.Inputs[Entrada de destino de OLE DB].ExternalColumns[Cod_Cliente]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="Cod_Cliente" />
+                    <externalMetadataColumn
+                      refId="Package\CLIENTES SHOOT COM AÑO\Clientes_ppto_com_shoot.Inputs[Entrada de destino de OLE DB].ExternalColumns[Nombre_Cliente]"
+                      dataType="wstr"
+                      length="40"
+                      name="Nombre_Cliente" />
+                    <externalMetadataColumn
+                      refId="Package\CLIENTES SHOOT COM AÑO\Clientes_ppto_com_shoot.Inputs[Entrada de destino de OLE DB].ExternalColumns[Cod_Canal]"
+                      codePage="1252"
+                      dataType="str"
+                      length="2"
+                      name="Cod_Canal" />
+                    <externalMetadataColumn
+                      refId="Package\CLIENTES SHOOT COM AÑO\Clientes_ppto_com_shoot.Inputs[Entrada de destino de OLE DB].ExternalColumns[Nombre_Canal]"
+                      codePage="1252"
+                      dataType="str"
+                      length="35"
+                      name="Nombre_Canal" />
+                    <externalMetadataColumn
+                      refId="Package\CLIENTES SHOOT COM AÑO\Clientes_ppto_com_shoot.Inputs[Entrada de destino de OLE DB].ExternalColumns[Cod_Pais]"
+                      codePage="1252"
+                      dataType="str"
+                      length="3"
+                      name="Cod_Pais" />
+                    <externalMetadataColumn
+                      refId="Package\CLIENTES SHOOT COM AÑO\Clientes_ppto_com_shoot.Inputs[Entrada de destino de OLE DB].ExternalColumns[Cod_GCliente]"
+                      codePage="1252"
+                      dataType="str"
+                      length="2"
+                      name="Cod_GCliente" />
+                    <externalMetadataColumn
+                      refId="Package\CLIENTES SHOOT COM AÑO\Clientes_ppto_com_shoot.Inputs[Entrada de destino de OLE DB].ExternalColumns[Nombre_GCliente]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="Nombre_GCliente" />
+                    <externalMetadataColumn
+                      refId="Package\CLIENTES SHOOT COM AÑO\Clientes_ppto_com_shoot.Inputs[Entrada de destino de OLE DB].ExternalColumns[Cod_Oficina_Ventas]"
+                      codePage="1252"
+                      dataType="str"
+                      length="4"
+                      name="Cod_Oficina_Ventas" />
+                    <externalMetadataColumn
+                      refId="Package\CLIENTES SHOOT COM AÑO\Clientes_ppto_com_shoot.Inputs[Entrada de destino de OLE DB].ExternalColumns[Nombre_Oficina_Ventas]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="Nombre_Oficina_Ventas" />
+                    <externalMetadataColumn
+                      refId="Package\CLIENTES SHOOT COM AÑO\Clientes_ppto_com_shoot.Inputs[Entrada de destino de OLE DB].ExternalColumns[Cod_Zona_Ventas]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="Cod_Zona_Ventas" />
+                    <externalMetadataColumn
+                      refId="Package\CLIENTES SHOOT COM AÑO\Clientes_ppto_com_shoot.Inputs[Entrada de destino de OLE DB].ExternalColumns[Cod_Vendedor]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="Cod_Vendedor" />
+                    <externalMetadataColumn
+                      refId="Package\CLIENTES SHOOT COM AÑO\Clientes_ppto_com_shoot.Inputs[Entrada de destino de OLE DB].ExternalColumns[Nombre_Vendedor]"
+                      dataType="wstr"
+                      length="35"
+                      name="Nombre_Vendedor" />
+                    <externalMetadataColumn
+                      refId="Package\CLIENTES SHOOT COM AÑO\Clientes_ppto_com_shoot.Inputs[Entrada de destino de OLE DB].ExternalColumns[Cod_Region]"
+                      codePage="1252"
+                      dataType="str"
+                      length="3"
+                      name="Cod_Region" />
+                    <externalMetadataColumn
+                      refId="Package\CLIENTES SHOOT COM AÑO\Clientes_ppto_com_shoot.Inputs[Entrada de destino de OLE DB].ExternalColumns[Nombre_Ciudad]"
+                      codePage="1252"
+                      dataType="str"
+                      length="40"
+                      name="Nombre_Ciudad" />
+                    <externalMetadataColumn
+                      refId="Package\CLIENTES SHOOT COM AÑO\Clientes_ppto_com_shoot.Inputs[Entrada de destino de OLE DB].ExternalColumns[Cod_Central]"
+                      codePage="1252"
+                      dataType="str"
+                      length="2"
+                      name="Cod_Central" />
+                    <externalMetadataColumn
+                      refId="Package\CLIENTES SHOOT COM AÑO\Clientes_ppto_com_shoot.Inputs[Entrada de destino de OLE DB].ExternalColumns[Cod_GCliente_AD1]"
+                      codePage="1252"
+                      dataType="str"
+                      length="3"
+                      name="Cod_GCliente_AD1" />
+                    <externalMetadataColumn
+                      refId="Package\CLIENTES SHOOT COM AÑO\Clientes_ppto_com_shoot.Inputs[Entrada de destino de OLE DB].ExternalColumns[Nombre_GCliente_AD1]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="Nombre_GCliente_AD1" />
+                    <externalMetadataColumn
+                      refId="Package\CLIENTES SHOOT COM AÑO\Clientes_ppto_com_shoot.Inputs[Entrada de destino de OLE DB].ExternalColumns[Cod_GCliente_AD2]"
+                      codePage="1252"
+                      dataType="str"
+                      length="3"
+                      name="Cod_GCliente_AD2" />
+                    <externalMetadataColumn
+                      refId="Package\CLIENTES SHOOT COM AÑO\Clientes_ppto_com_shoot.Inputs[Entrada de destino de OLE DB].ExternalColumns[Nombre_GCliente_AD2]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="Nombre_GCliente_AD2" />
+                    <externalMetadataColumn
+                      refId="Package\CLIENTES SHOOT COM AÑO\Clientes_ppto_com_shoot.Inputs[Entrada de destino de OLE DB].ExternalColumns[Cod_Pagador]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="Cod_Pagador" />
+                    <externalMetadataColumn
+                      refId="Package\CLIENTES SHOOT COM AÑO\Clientes_ppto_com_shoot.Inputs[Entrada de destino de OLE DB].ExternalColumns[Telebox]"
+                      codePage="1252"
+                      dataType="str"
+                      length="15"
+                      name="Telebox" />
+                    <externalMetadataColumn
+                      refId="Package\CLIENTES SHOOT COM AÑO\Clientes_ppto_com_shoot.Inputs[Entrada de destino de OLE DB].ExternalColumns[Gerente_Comercial]"
+                      dataType="wstr"
+                      length="35"
+                      name="Gerente_Comercial" />
+                    <externalMetadataColumn
+                      refId="Package\CLIENTES SHOOT COM AÑO\Clientes_ppto_com_shoot.Inputs[Entrada de destino de OLE DB].ExternalColumns[Director_Canal]"
+                      dataType="wstr"
+                      length="35"
+                      name="Director_Canal" />
+                    <externalMetadataColumn
+                      refId="Package\CLIENTES SHOOT COM AÑO\Clientes_ppto_com_shoot.Inputs[Entrada de destino de OLE DB].ExternalColumns[Lider_Regional]"
+                      dataType="wstr"
+                      length="35"
+                      name="Lider_Regional" />
+                    <externalMetadataColumn
+                      refId="Package\CLIENTES SHOOT COM AÑO\Clientes_ppto_com_shoot.Inputs[Entrada de destino de OLE DB].ExternalColumns[Jefe_Ventas]"
+                      dataType="wstr"
+                      length="35"
+                      name="Jefe_Ventas" />
+                    <externalMetadataColumn
+                      refId="Package\CLIENTES SHOOT COM AÑO\Clientes_ppto_com_shoot.Inputs[Entrada de destino de OLE DB].ExternalColumns[Fecha_Creacion_Cliente]"
+                      codePage="1252"
+                      dataType="str"
+                      length="8"
+                      name="Fecha_Creacion_Cliente" />
+                    <externalMetadataColumn
+                      refId="Package\CLIENTES SHOOT COM AÑO\Clientes_ppto_com_shoot.Inputs[Entrada de destino de OLE DB].ExternalColumns[Estatus]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="Estatus" />
+                    <externalMetadataColumn
+                      refId="Package\CLIENTES SHOOT COM AÑO\Clientes_ppto_com_shoot.Inputs[Entrada de destino de OLE DB].ExternalColumns[Cod_Ruta]"
+                      codePage="1252"
+                      dataType="str"
+                      length="2"
+                      name="Cod_Ruta" />
+                    <externalMetadataColumn
+                      refId="Package\CLIENTES SHOOT COM AÑO\Clientes_ppto_com_shoot.Inputs[Entrada de destino de OLE DB].ExternalColumns[CoordenadasX]"
+                      codePage="1252"
+                      dataType="str"
+                      length="15"
+                      name="CoordenadasX" />
+                    <externalMetadataColumn
+                      refId="Package\CLIENTES SHOOT COM AÑO\Clientes_ppto_com_shoot.Inputs[Entrada de destino de OLE DB].ExternalColumns[CoordenadasY]"
+                      codePage="1252"
+                      dataType="str"
+                      length="15"
+                      name="CoordenadasY" />
+                    <externalMetadataColumn
+                      refId="Package\CLIENTES SHOOT COM AÑO\Clientes_ppto_com_shoot.Inputs[Entrada de destino de OLE DB].ExternalColumns[Cedi]"
+                      codePage="1252"
+                      dataType="str"
+                      length="4"
+                      name="Cedi" />
+                    <externalMetadataColumn
+                      refId="Package\CLIENTES SHOOT COM AÑO\Clientes_ppto_com_shoot.Inputs[Entrada de destino de OLE DB].ExternalColumns[Cod_CondiPago]"
+                      codePage="1252"
+                      dataType="str"
+                      length="4"
+                      name="Cod_CondiPago" />
+                    <externalMetadataColumn
+                      refId="Package\CLIENTES SHOOT COM AÑO\Clientes_ppto_com_shoot.Inputs[Entrada de destino de OLE DB].ExternalColumns[Barrio]"
+                      codePage="1252"
+                      dataType="str"
+                      length="40"
+                      name="Barrio" />
+                    <externalMetadataColumn
+                      refId="Package\CLIENTES SHOOT COM AÑO\Clientes_ppto_com_shoot.Inputs[Entrada de destino de OLE DB].ExternalColumns[UserAtrib10]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      name="UserAtrib10" />
+                    <externalMetadataColumn
+                      refId="Package\CLIENTES SHOOT COM AÑO\Clientes_ppto_com_shoot.Inputs[Entrada de destino de OLE DB].ExternalColumns[Cod_CanalC]"
+                      codePage="1252"
+                      dataType="str"
+                      length="2"
+                      name="Cod_CanalC" />
+                    <externalMetadataColumn
+                      refId="Package\CLIENTES SHOOT COM AÑO\Clientes_ppto_com_shoot.Inputs[Entrada de destino de OLE DB].ExternalColumns[Nombre_CanalC]"
+                      codePage="1252"
+                      dataType="str"
+                      length="35"
+                      name="Nombre_CanalC" />
+                    <externalMetadataColumn
+                      refId="Package\CLIENTES SHOOT COM AÑO\Clientes_ppto_com_shoot.Inputs[Entrada de destino de OLE DB].ExternalColumns[Cod_GClienteC]"
+                      codePage="1252"
+                      dataType="str"
+                      length="2"
+                      name="Cod_GClienteC" />
+                    <externalMetadataColumn
+                      refId="Package\CLIENTES SHOOT COM AÑO\Clientes_ppto_com_shoot.Inputs[Entrada de destino de OLE DB].ExternalColumns[Nombre_GClienteC]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="Nombre_GClienteC" />
+                    <externalMetadataColumn
+                      refId="Package\CLIENTES SHOOT COM AÑO\Clientes_ppto_com_shoot.Inputs[Entrada de destino de OLE DB].ExternalColumns[Cod_Oficina_VentasC]"
+                      codePage="1252"
+                      dataType="str"
+                      length="4"
+                      name="Cod_Oficina_VentasC" />
+                    <externalMetadataColumn
+                      refId="Package\CLIENTES SHOOT COM AÑO\Clientes_ppto_com_shoot.Inputs[Entrada de destino de OLE DB].ExternalColumns[Nombre_Oficina_VentasC]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="Nombre_Oficina_VentasC" />
+                    <externalMetadataColumn
+                      refId="Package\CLIENTES SHOOT COM AÑO\Clientes_ppto_com_shoot.Inputs[Entrada de destino de OLE DB].ExternalColumns[Cod_Zona_VentasC]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="Cod_Zona_VentasC" />
+                    <externalMetadataColumn
+                      refId="Package\CLIENTES SHOOT COM AÑO\Clientes_ppto_com_shoot.Inputs[Entrada de destino de OLE DB].ExternalColumns[Cod_VendedorC]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="Cod_VendedorC" />
+                    <externalMetadataColumn
+                      refId="Package\CLIENTES SHOOT COM AÑO\Clientes_ppto_com_shoot.Inputs[Entrada de destino de OLE DB].ExternalColumns[Nombre_VendedorC]"
+                      dataType="wstr"
+                      length="35"
+                      name="Nombre_VendedorC" />
+                    <externalMetadataColumn
+                      refId="Package\CLIENTES SHOOT COM AÑO\Clientes_ppto_com_shoot.Inputs[Entrada de destino de OLE DB].ExternalColumns[Director_CanalC]"
+                      dataType="wstr"
+                      length="35"
+                      name="Director_CanalC" />
+                    <externalMetadataColumn
+                      refId="Package\CLIENTES SHOOT COM AÑO\Clientes_ppto_com_shoot.Inputs[Entrada de destino de OLE DB].ExternalColumns[Lider_RegionalC]"
+                      dataType="wstr"
+                      length="35"
+                      name="Lider_RegionalC" />
+                    <externalMetadataColumn
+                      refId="Package\CLIENTES SHOOT COM AÑO\Clientes_ppto_com_shoot.Inputs[Entrada de destino de OLE DB].ExternalColumns[Jefe_VentasC]"
+                      dataType="wstr"
+                      length="35"
+                      name="Jefe_VentasC" />
+                    <externalMetadataColumn
+                      refId="Package\CLIENTES SHOOT COM AÑO\Clientes_ppto_com_shoot.Inputs[Entrada de destino de OLE DB].ExternalColumns[Gerente_ComercialC]"
+                      dataType="wstr"
+                      length="35"
+                      name="Gerente_ComercialC" />
+                    <externalMetadataColumn
+                      refId="Package\CLIENTES SHOOT COM AÑO\Clientes_ppto_com_shoot.Inputs[Entrada de destino de OLE DB].ExternalColumns[Direccion]"
+                      codePage="1252"
+                      dataType="str"
+                      length="60"
+                      name="Direccion" />
+                    <externalMetadataColumn
+                      refId="Package\CLIENTES SHOOT COM AÑO\Clientes_ppto_com_shoot.Inputs[Entrada de destino de OLE DB].ExternalColumns[Poblacion]"
+                      codePage="1252"
+                      dataType="str"
+                      length="35"
+                      name="Poblacion" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\CLIENTES SHOOT COM AÑO\Clientes_ppto_com_shoot.Outputs[Salida de error de destino de OLE DB]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Salida de error de destino de OLE DB"
+                  synchronousInputId="Package\CLIENTES SHOOT COM AÑO\Clientes_ppto_com_shoot.Inputs[Entrada de destino de OLE DB]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\CLIENTES SHOOT COM AÑO\Clientes_ppto_com_shoot.Outputs[Salida de error de destino de OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\CLIENTES SHOOT COM AÑO\Clientes_ppto_com_shoot.Outputs[Salida de error de destino de OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\CLIENTES SHOOT COM AÑO\Clientes_ppto_com_shoot.Outputs[Salida de error de destino de OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\CLIENTES SHOOT COM AÑO\Clientes_ppto_com_shoot.Outputs[Salida de error de destino de OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\CLIENTES SHOOT COM AÑO.Paths[Salida de origen de OLE DB]"
+              endId="Package\CLIENTES SHOOT COM AÑO\Clientes_ppto_com_shoot.Inputs[Entrada de destino de OLE DB]"
+              name="Salida de origen de OLE DB"
+              startId="Package\CLIENTES SHOOT COM AÑO\Clientes w.Outputs[Salida de origen de OLE DB]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Pendiente"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Tarea Ejecutar SQL"
+      DTS:DTSID="{39848776-978F-49C8-A386-2AEB3D56B9C0}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Pendiente"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{DB6CBBBA-1A5C-403B-9E4F-F4750DD1C760}"
+          SQLTask:SqlStatementSource="ERR&#xA;&#xA;Implementar versiones" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Restricción]"
+      DTS:CreationName=""
+      DTS:DTSID="{49E4193B-D185-4175-8EEF-A2D31057F392}"
+      DTS:From="Package\Pendiente"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Restricción"
+      DTS:To="Package\CLIENTES SHOOT COM AÑO" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--Esta sección CDATA contiene la información de diseño del paquete. Esta sección incluye información como, por ejemplo, las coordenadas (x,y), el ancho y el alto.-->
+<!--Si edita manualmente esta sección y comete un error, puede eliminarlo. -->
+<!--El paquete podrá cargarse normalmente, pero se perderá la información de diseño anterior y el diseñador reorganizará los elementos automáticamente en la superficie de diseño.-->
+<Objects
+  Version="8">
+  <!--Cada uno de los nodos siguientes contiene propiedades que no afectan al comportamiento en tiempo de ejecución.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="212.8,41.6"
+          Id="Package\CLIENTES SHOOT COM AÑO"
+          TopLeft="53.7142866290345,114.400001604417" />
+        <NodeLayout
+          Size="124.8,41.6"
+          Id="Package\Pendiente"
+          TopLeft="61.1428581841138,15.9058825760152" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Restricción]"
+          TopLeft="123.542858184114,57.5058825760152">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="36.5714284449207,56.8941190284017"
+              Start="0,0"
+              End="36.5714284449207,49.3941190284017">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,24.4470595142008" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,24.4470595142008"
+                    Point2="0,28.4470595142008"
+                    Point3="4,28.4470595142008" />
+                  <mssgle:LineSegment
+                    End="32.5714284449207,28.4470595142008" />
+                  <mssgle:CubicBezierSegment
+                    Point1="32.5714284449207,28.4470595142008"
+                    Point2="36.5714284449207,28.4470595142008"
+                    Point3="36.5714284449207,32.4470595142008" />
+                  <mssgle:LineSegment
+                    End="36.5714284449207,49.3941190284017" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\CLIENTES SHOOT COM AÑO">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="199.2,41.6"
+          Id="Package\CLIENTES SHOOT COM AÑO\Clientes_ppto_com_shoot"
+          TopLeft="5.50000000000001,107.1" />
+        <NodeLayout
+          Size="126.4,41.6"
+          Id="Package\CLIENTES SHOOT COM AÑO\Clientes w"
+          TopLeft="41.9,5.49999999999995" />
+        <EdgeLayout
+          Id="Package\CLIENTES SHOOT COM AÑO.Paths[Salida de origen de OLE DB]"
+          TopLeft="105.1,47.1">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,59.9999999999999"
+              Start="0,0"
+              End="0,52.4999999999999">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.4999999999999" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\CLIENTES SHOOT COM AÑO\Clientes w">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">View</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\CLIENTES SHOOT COM AÑO\Clientes_ppto_com_shoot">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

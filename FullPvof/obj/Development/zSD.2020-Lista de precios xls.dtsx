@@ -1,0 +1,737 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="9/27/2019 7:56:18 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="SVIDBLUKMZ03"
+  DTS:CreatorName="SVIDBLUKMZ03\Administrator"
+  DTS:DTSID="{C869F9FF-6101-4DF9-83D1-DDA1000C417E}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.1300.371"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="zSD 2020-Lista de precios xls"
+  DTS:PackageType="5"
+  DTS:VersionBuild="12"
+  DTS:VersionGUID="{81173917-8CB6-48CF-9615-4349393EE3C0}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[23 lkrVen]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{9D171124-38F5-4B2A-8248-1A8B9959B40D}"
+      DTS:ObjectName="23 lkrVen">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=192.168.5.23\b2c;User ID=ASSUser;Initial Catalog=lukerVen;Provider=SQLNCLI11;Auto Translate=False;Application Name=SSIS-PortafolioProductos-{4313A4C6-3559-4D0C-8202-A7437E4515C6}LocalHost.HBAVENNAL;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[LocalHost.HBAVENNAL]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{34F2F07D-09A8-4030-BF73-90CA894F119B}"
+      DTS:ObjectName="LocalHost.HBAVENNAL">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=.;Initial Catalog=HBAVENNAL;Provider=SQLNCLI11;Integrated Security=SSPI;Application Name=SSIS-PortafolioProductos-{4313A4C6-3559-4D0C-8202-A7437E4515C6}LocalHost.HBAVENNAL;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Listo 03 to 23"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{D362F499-F7B0-4697-9E8E-E00DE6FD8382}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Listo 03 to 23"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server v10; (C) 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          BLOBTempStoragePath=""
+          bufferTempStoragePath=""
+          version="1">
+          <components>
+            <component
+              refId="Package\Listo 03 to 23\lista hba"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SqlServer v10; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="lista hba"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset"></property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">SELECT pptoListaPreciosSD.ano, meses.id AS 'mes', pptoListaPreciosSD.lista, pptoListaPreciosSD.idMaterial AS 'Cod_SKU', pptoListaPreciosSD.idGrupoClientes AS 'Cod_GCliente', pptoListaPreciosSD.idAgencia AS 'SalesOffice', pptoListaPreciosSD.idCanal AS 'Cod_Canal'
+, case meses.id 
+      when 1  then pptoListaPreciosSD.precioUbEne
+      when 2  then pptoListaPreciosSD.precioUbFeb
+      when 3  then pptoListaPreciosSD.precioUbMar
+      when 4  then pptoListaPreciosSD.precioUbAbr
+      when 5  then pptoListaPreciosSD.precioUbMay
+      when 6  then pptoListaPreciosSD.precioUbJun
+      when 7  then pptoListaPreciosSD.precioUbJul
+      when 8  then pptoListaPreciosSD.precioUbAgo
+      when 9  then pptoListaPreciosSD.precioUbSep
+      when 10  then pptoListaPreciosSD.precioUbOct
+      when 11  then pptoListaPreciosSD.precioUbNov
+      when 12  then pptoListaPreciosSD.precioUbDic
+	else 0 end as 'precioUb'
+, case meses.id 
+      when 1  then pptoListaPreciosSD.precioKgEne
+      when 2  then pptoListaPreciosSD.precioKgFeb
+      when 3  then pptoListaPreciosSD.precioKgMar
+      when 4  then pptoListaPreciosSD.precioKgAbr
+      when 5  then pptoListaPreciosSD.precioKgMay
+      when 6  then pptoListaPreciosSD.precioKgJun
+      when 7  then pptoListaPreciosSD.precioKgJul
+      when 8  then pptoListaPreciosSD.precioKgAgo
+      when 9  then pptoListaPreciosSD.precioKgSep
+      when 10  then pptoListaPreciosSD.precioKgOct
+      when 11  then pptoListaPreciosSD.precioKgNov
+      when 12  then pptoListaPreciosSD.precioKgDic
+	else 0 end as 'precioKg'
+
+--, pptoListaPreciosSD.precioKgEne
+FROM lukerFin.dbo.meses meses, HBAVENNAL.dbo.pptoListaPreciosSD pptoListaPreciosSD
+WHERE (meses.id&lt;&gt;0)</property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Listo 03 to 23\lista hba.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[LocalHost.HBAVENNAL]"
+                  connectionManagerRefId="Package.ConnectionManagers[LocalHost.HBAVENNAL]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Listo 03 to 23\lista hba.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Listo 03 to 23\lista hba.Outputs[OLE DB Source Output].Columns[ano]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Listo 03 to 23\lista hba.Outputs[OLE DB Source Output].ExternalColumns[ano]"
+                      lineageId="Package\Listo 03 to 23\lista hba.Outputs[OLE DB Source Output].Columns[ano]"
+                      name="ano"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Listo 03 to 23\lista hba.Outputs[OLE DB Source Output].Columns[mes]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Listo 03 to 23\lista hba.Outputs[OLE DB Source Output].ExternalColumns[mes]"
+                      lineageId="Package\Listo 03 to 23\lista hba.Outputs[OLE DB Source Output].Columns[mes]"
+                      name="mes"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Listo 03 to 23\lista hba.Outputs[OLE DB Source Output].Columns[lista]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Listo 03 to 23\lista hba.Outputs[OLE DB Source Output].ExternalColumns[lista]"
+                      length="40"
+                      lineageId="Package\Listo 03 to 23\lista hba.Outputs[OLE DB Source Output].Columns[lista]"
+                      name="lista"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Listo 03 to 23\lista hba.Outputs[OLE DB Source Output].Columns[Cod_SKU]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Listo 03 to 23\lista hba.Outputs[OLE DB Source Output].ExternalColumns[Cod_SKU]"
+                      length="18"
+                      lineageId="Package\Listo 03 to 23\lista hba.Outputs[OLE DB Source Output].Columns[Cod_SKU]"
+                      name="Cod_SKU"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Listo 03 to 23\lista hba.Outputs[OLE DB Source Output].Columns[Cod_GCliente]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Listo 03 to 23\lista hba.Outputs[OLE DB Source Output].ExternalColumns[Cod_GCliente]"
+                      length="2"
+                      lineageId="Package\Listo 03 to 23\lista hba.Outputs[OLE DB Source Output].Columns[Cod_GCliente]"
+                      name="Cod_GCliente"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Listo 03 to 23\lista hba.Outputs[OLE DB Source Output].Columns[SalesOffice]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Listo 03 to 23\lista hba.Outputs[OLE DB Source Output].ExternalColumns[SalesOffice]"
+                      length="2"
+                      lineageId="Package\Listo 03 to 23\lista hba.Outputs[OLE DB Source Output].Columns[SalesOffice]"
+                      name="SalesOffice"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Listo 03 to 23\lista hba.Outputs[OLE DB Source Output].Columns[Cod_Canal]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Listo 03 to 23\lista hba.Outputs[OLE DB Source Output].ExternalColumns[Cod_Canal]"
+                      length="2"
+                      lineageId="Package\Listo 03 to 23\lista hba.Outputs[OLE DB Source Output].Columns[Cod_Canal]"
+                      name="Cod_Canal"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Listo 03 to 23\lista hba.Outputs[OLE DB Source Output].Columns[precioUb]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Listo 03 to 23\lista hba.Outputs[OLE DB Source Output].ExternalColumns[precioUb]"
+                      lineageId="Package\Listo 03 to 23\lista hba.Outputs[OLE DB Source Output].Columns[precioUb]"
+                      name="precioUb"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Listo 03 to 23\lista hba.Outputs[OLE DB Source Output].Columns[precioKg]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Listo 03 to 23\lista hba.Outputs[OLE DB Source Output].ExternalColumns[precioKg]"
+                      lineageId="Package\Listo 03 to 23\lista hba.Outputs[OLE DB Source Output].Columns[precioKg]"
+                      name="precioKg"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Listo 03 to 23\lista hba.Outputs[OLE DB Source Output].ExternalColumns[ano]"
+                      dataType="i4"
+                      name="ano" />
+                    <externalMetadataColumn
+                      refId="Package\Listo 03 to 23\lista hba.Outputs[OLE DB Source Output].ExternalColumns[mes]"
+                      dataType="i4"
+                      name="mes" />
+                    <externalMetadataColumn
+                      refId="Package\Listo 03 to 23\lista hba.Outputs[OLE DB Source Output].ExternalColumns[lista]"
+                      codePage="1252"
+                      dataType="str"
+                      length="40"
+                      name="lista" />
+                    <externalMetadataColumn
+                      refId="Package\Listo 03 to 23\lista hba.Outputs[OLE DB Source Output].ExternalColumns[Cod_SKU]"
+                      codePage="1252"
+                      dataType="str"
+                      length="18"
+                      name="Cod_SKU" />
+                    <externalMetadataColumn
+                      refId="Package\Listo 03 to 23\lista hba.Outputs[OLE DB Source Output].ExternalColumns[Cod_GCliente]"
+                      codePage="1252"
+                      dataType="str"
+                      length="2"
+                      name="Cod_GCliente" />
+                    <externalMetadataColumn
+                      refId="Package\Listo 03 to 23\lista hba.Outputs[OLE DB Source Output].ExternalColumns[SalesOffice]"
+                      codePage="1252"
+                      dataType="str"
+                      length="2"
+                      name="SalesOffice" />
+                    <externalMetadataColumn
+                      refId="Package\Listo 03 to 23\lista hba.Outputs[OLE DB Source Output].ExternalColumns[Cod_Canal]"
+                      codePage="1252"
+                      dataType="str"
+                      length="2"
+                      name="Cod_Canal" />
+                    <externalMetadataColumn
+                      refId="Package\Listo 03 to 23\lista hba.Outputs[OLE DB Source Output].ExternalColumns[precioUb]"
+                      dataType="r8"
+                      name="precioUb" />
+                    <externalMetadataColumn
+                      refId="Package\Listo 03 to 23\lista hba.Outputs[OLE DB Source Output].ExternalColumns[precioKg]"
+                      dataType="r8"
+                      name="precioKg" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Listo 03 to 23\lista hba.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Listo 03 to 23\lista hba.Outputs[OLE DB Source Error Output].Columns[ano]"
+                      dataType="i4"
+                      lineageId="Package\Listo 03 to 23\lista hba.Outputs[OLE DB Source Error Output].Columns[ano]"
+                      name="ano" />
+                    <outputColumn
+                      refId="Package\Listo 03 to 23\lista hba.Outputs[OLE DB Source Error Output].Columns[mes]"
+                      dataType="i4"
+                      lineageId="Package\Listo 03 to 23\lista hba.Outputs[OLE DB Source Error Output].Columns[mes]"
+                      name="mes" />
+                    <outputColumn
+                      refId="Package\Listo 03 to 23\lista hba.Outputs[OLE DB Source Error Output].Columns[lista]"
+                      codePage="1252"
+                      dataType="str"
+                      length="40"
+                      lineageId="Package\Listo 03 to 23\lista hba.Outputs[OLE DB Source Error Output].Columns[lista]"
+                      name="lista" />
+                    <outputColumn
+                      refId="Package\Listo 03 to 23\lista hba.Outputs[OLE DB Source Error Output].Columns[Cod_SKU]"
+                      codePage="1252"
+                      dataType="str"
+                      length="18"
+                      lineageId="Package\Listo 03 to 23\lista hba.Outputs[OLE DB Source Error Output].Columns[Cod_SKU]"
+                      name="Cod_SKU" />
+                    <outputColumn
+                      refId="Package\Listo 03 to 23\lista hba.Outputs[OLE DB Source Error Output].Columns[Cod_GCliente]"
+                      codePage="1252"
+                      dataType="str"
+                      length="2"
+                      lineageId="Package\Listo 03 to 23\lista hba.Outputs[OLE DB Source Error Output].Columns[Cod_GCliente]"
+                      name="Cod_GCliente" />
+                    <outputColumn
+                      refId="Package\Listo 03 to 23\lista hba.Outputs[OLE DB Source Error Output].Columns[SalesOffice]"
+                      codePage="1252"
+                      dataType="str"
+                      length="2"
+                      lineageId="Package\Listo 03 to 23\lista hba.Outputs[OLE DB Source Error Output].Columns[SalesOffice]"
+                      name="SalesOffice" />
+                    <outputColumn
+                      refId="Package\Listo 03 to 23\lista hba.Outputs[OLE DB Source Error Output].Columns[Cod_Canal]"
+                      codePage="1252"
+                      dataType="str"
+                      length="2"
+                      lineageId="Package\Listo 03 to 23\lista hba.Outputs[OLE DB Source Error Output].Columns[Cod_Canal]"
+                      name="Cod_Canal" />
+                    <outputColumn
+                      refId="Package\Listo 03 to 23\lista hba.Outputs[OLE DB Source Error Output].Columns[precioUb]"
+                      dataType="r8"
+                      lineageId="Package\Listo 03 to 23\lista hba.Outputs[OLE DB Source Error Output].Columns[precioUb]"
+                      name="precioUb" />
+                    <outputColumn
+                      refId="Package\Listo 03 to 23\lista hba.Outputs[OLE DB Source Error Output].Columns[precioKg]"
+                      dataType="r8"
+                      lineageId="Package\Listo 03 to 23\lista hba.Outputs[OLE DB Source Error Output].Columns[precioKg]"
+                      name="precioKg" />
+                    <outputColumn
+                      refId="Package\Listo 03 to 23\lista hba.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Listo 03 to 23\lista hba.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Listo 03 to 23\lista hba.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Listo 03 to 23\lista hba.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Listo 03 to 23\ppto List"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SqlServer v10; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="ppto List"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[PPTO].[ListaPrecios]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Listo 03 to 23\ppto List.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[23 lkrVen]"
+                  connectionManagerRefId="Package.ConnectionManagers[23 lkrVen]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Listo 03 to 23\ppto List.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Listo 03 to 23\ppto List.Inputs[OLE DB Destination Input].Columns[ano]"
+                      cachedDataType="i4"
+                      cachedName="ano"
+                      externalMetadataColumnId="Package\Listo 03 to 23\ppto List.Inputs[OLE DB Destination Input].ExternalColumns[ano]"
+                      lineageId="Package\Listo 03 to 23\lista hba.Outputs[OLE DB Source Output].Columns[ano]" />
+                    <inputColumn
+                      refId="Package\Listo 03 to 23\ppto List.Inputs[OLE DB Destination Input].Columns[mes]"
+                      cachedDataType="i4"
+                      cachedName="mes"
+                      externalMetadataColumnId="Package\Listo 03 to 23\ppto List.Inputs[OLE DB Destination Input].ExternalColumns[mes]"
+                      lineageId="Package\Listo 03 to 23\lista hba.Outputs[OLE DB Source Output].Columns[mes]" />
+                    <inputColumn
+                      refId="Package\Listo 03 to 23\ppto List.Inputs[OLE DB Destination Input].Columns[lista]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="40"
+                      cachedName="lista"
+                      externalMetadataColumnId="Package\Listo 03 to 23\ppto List.Inputs[OLE DB Destination Input].ExternalColumns[lista]"
+                      lineageId="Package\Listo 03 to 23\lista hba.Outputs[OLE DB Source Output].Columns[lista]" />
+                    <inputColumn
+                      refId="Package\Listo 03 to 23\ppto List.Inputs[OLE DB Destination Input].Columns[Cod_SKU]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="18"
+                      cachedName="Cod_SKU"
+                      externalMetadataColumnId="Package\Listo 03 to 23\ppto List.Inputs[OLE DB Destination Input].ExternalColumns[Cod_SKU]"
+                      lineageId="Package\Listo 03 to 23\lista hba.Outputs[OLE DB Source Output].Columns[Cod_SKU]" />
+                    <inputColumn
+                      refId="Package\Listo 03 to 23\ppto List.Inputs[OLE DB Destination Input].Columns[Cod_GCliente]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="2"
+                      cachedName="Cod_GCliente"
+                      externalMetadataColumnId="Package\Listo 03 to 23\ppto List.Inputs[OLE DB Destination Input].ExternalColumns[Cod_GCliente]"
+                      lineageId="Package\Listo 03 to 23\lista hba.Outputs[OLE DB Source Output].Columns[Cod_GCliente]" />
+                    <inputColumn
+                      refId="Package\Listo 03 to 23\ppto List.Inputs[OLE DB Destination Input].Columns[SalesOffice]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="2"
+                      cachedName="SalesOffice"
+                      externalMetadataColumnId="Package\Listo 03 to 23\ppto List.Inputs[OLE DB Destination Input].ExternalColumns[SalesOffice]"
+                      lineageId="Package\Listo 03 to 23\lista hba.Outputs[OLE DB Source Output].Columns[SalesOffice]" />
+                    <inputColumn
+                      refId="Package\Listo 03 to 23\ppto List.Inputs[OLE DB Destination Input].Columns[Cod_Canal]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="2"
+                      cachedName="Cod_Canal"
+                      externalMetadataColumnId="Package\Listo 03 to 23\ppto List.Inputs[OLE DB Destination Input].ExternalColumns[Cod_Canal]"
+                      lineageId="Package\Listo 03 to 23\lista hba.Outputs[OLE DB Source Output].Columns[Cod_Canal]" />
+                    <inputColumn
+                      refId="Package\Listo 03 to 23\ppto List.Inputs[OLE DB Destination Input].Columns[precioUb]"
+                      cachedDataType="r8"
+                      cachedName="precioUb"
+                      externalMetadataColumnId="Package\Listo 03 to 23\ppto List.Inputs[OLE DB Destination Input].ExternalColumns[precioUb]"
+                      lineageId="Package\Listo 03 to 23\lista hba.Outputs[OLE DB Source Output].Columns[precioUb]" />
+                    <inputColumn
+                      refId="Package\Listo 03 to 23\ppto List.Inputs[OLE DB Destination Input].Columns[precioKg]"
+                      cachedDataType="r8"
+                      cachedName="precioKg"
+                      externalMetadataColumnId="Package\Listo 03 to 23\ppto List.Inputs[OLE DB Destination Input].ExternalColumns[precioKg]"
+                      lineageId="Package\Listo 03 to 23\lista hba.Outputs[OLE DB Source Output].Columns[precioKg]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Listo 03 to 23\ppto List.Inputs[OLE DB Destination Input].ExternalColumns[ano]"
+                      dataType="i4"
+                      name="ano" />
+                    <externalMetadataColumn
+                      refId="Package\Listo 03 to 23\ppto List.Inputs[OLE DB Destination Input].ExternalColumns[mes]"
+                      dataType="i4"
+                      name="mes" />
+                    <externalMetadataColumn
+                      refId="Package\Listo 03 to 23\ppto List.Inputs[OLE DB Destination Input].ExternalColumns[lista]"
+                      codePage="1252"
+                      dataType="str"
+                      length="40"
+                      name="lista" />
+                    <externalMetadataColumn
+                      refId="Package\Listo 03 to 23\ppto List.Inputs[OLE DB Destination Input].ExternalColumns[Cod_SKU]"
+                      codePage="1252"
+                      dataType="str"
+                      length="18"
+                      name="Cod_SKU" />
+                    <externalMetadataColumn
+                      refId="Package\Listo 03 to 23\ppto List.Inputs[OLE DB Destination Input].ExternalColumns[Cod_GCliente]"
+                      codePage="1252"
+                      dataType="str"
+                      length="2"
+                      name="Cod_GCliente" />
+                    <externalMetadataColumn
+                      refId="Package\Listo 03 to 23\ppto List.Inputs[OLE DB Destination Input].ExternalColumns[SalesOffice]"
+                      codePage="1252"
+                      dataType="str"
+                      length="2"
+                      name="SalesOffice" />
+                    <externalMetadataColumn
+                      refId="Package\Listo 03 to 23\ppto List.Inputs[OLE DB Destination Input].ExternalColumns[Cod_Canal]"
+                      codePage="1252"
+                      dataType="str"
+                      length="2"
+                      name="Cod_Canal" />
+                    <externalMetadataColumn
+                      refId="Package\Listo 03 to 23\ppto List.Inputs[OLE DB Destination Input].ExternalColumns[precioUb]"
+                      dataType="r8"
+                      name="precioUb" />
+                    <externalMetadataColumn
+                      refId="Package\Listo 03 to 23\ppto List.Inputs[OLE DB Destination Input].ExternalColumns[precioKg]"
+                      dataType="r8"
+                      name="precioKg" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Listo 03 to 23\ppto List.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Listo 03 to 23\ppto List.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Listo 03 to 23\ppto List.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Listo 03 to 23\ppto List.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Listo 03 to 23\ppto List.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Listo 03 to 23\ppto List.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Listo 03 to 23.Paths[OLE DB Source Output]"
+              endId="Package\Listo 03 to 23\ppto List.Inputs[OLE DB Destination Input]"
+              name="OLE DB Source Output"
+              startId="Package\Listo 03 to 23\lista hba.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\pptoListaPreciosSD"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{5408F8DF-E85E-4248-8E51-B8D1AE3106D3}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="pptoListaPreciosSD"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{34F2F07D-09A8-4030-BF73-90CA894F119B}"
+          SQLTask:SqlStatementSource="Declare @x_versionPto varchar(20), @x_anoPto varchar(4) ,@x_pathPto varchar(256)&#xA;, @xfileName varchar(56), @xlocalPath varchar(56), @xsufix varchar(56), @xextension varchar(56), @xtabla varchar(56), @sqlCommand varchar(7777), @xwhere varchar(800), @xcampos varchar(3333), @xhoja varchar(55),@x_drv varchar(77)&#xA;&#xA;select @x_versionPto=(SELECT zProgCtrl.varValue FROM HBAVENNAL.dbo.zProgCtrl zProgCtrl WHERE (zProgCtrl.varName='versSimulaVenta'))&#xA;select @x_anoPto =(SELECT zProgCtrl.varValue FROM HBAVENNAL.dbo.zProgCtrl zProgCtrl WHERE (zProgCtrl.varName='anoSimulaVenta'))&#xA;select @sqlCommand =''&#xA;select @x_drv  =(SELECT zProgCtrl.varValue FROM HBAVENNAL.dbo.zProgCtrl zProgCtrl WHERE (zProgCtrl.varName='drvSimulaVenta'))&#xA;select @x_pathPto =(SELECT zProgCtrl.varValue FROM HBAVENNAL.dbo.zProgCtrl zProgCtrl WHERE (zProgCtrl.varName='pathSimulaVenta'))+''+@x_versionPto&#xA;select @xtabla  ='[dbo].[pptoListaPreciosSD]'&#xA;&#xA;Use HBAVENNAL&#xA;&#xA;DECLARE ciclo_cursor CURSOR FOR &#xA; SELECT ctrXlsFiles.fileName, ctrXlsFiles.localPath, rtrim(ctrXlsFiles.sufix), ctrXlsFiles.extension, ctrlXlsSel.tabla, ctrlXlsSel.[where], ctrlXlsSel.campos, ctrlXlsSel.hoja&#xA; FROM HBAVENNAL.dbo.ctrlXlsSel ctrlXlsSel, HBAVENNAL.dbo.ctrXlsFiles ctrXlsFiles&#xA; WHERE ctrlXlsSel.fileName = ctrXlsFiles.fileName AND ((ctrlXlsSel.tabla=@xtabla) AND (ctrXlsFiles.cargar='x') AND (ctrlXlsSel.clave='Select'))&#xA;&#xA;&#xA;OPEN ciclo_cursor&#xA;FETCH NEXT FROM ciclo_cursor &#xA;INTO @xfileName, @xlocalPath, @xsufix, @xextension, @xtabla, @xwhere, @xcampos, @xhoja&#xA;&#xA;Exec ('Delete '+@xtabla)&#xA;WHILE @@FETCH_STATUS = 0&#xA;BEGIN &#xA;  if (@sqlCommand &lt;&gt;'') Select @sqlCommand=@sqlCommand+' Union '&#xA;  &#xA;&#xA;  select @sqlCommand=@sqlCommand + &#xA; @xcampos +' '+&#xA; @x_drv+@x_pathPto+@xlocalPath+'\'+@xfileName+rtrim(@xsufix)+@xextension+''''+&#xA; @xhoja+')'+&#xA; @xwhere&#xA;    -- (@x_pathPto+@xlocalPath+'\'+@xfileName+@xsufix+@xextension+'''')&#xA; &#xA;   Select @sqlCommand='Insert into '+@xtabla+' '+@sqlCommand&#xA; -- (@xfileName+': '+@xhoja)&#xA;    Exec (@sqlCommand)&#xA;&#xA;   FETCH NEXT FROM ciclo_cursor &#xA;   INTO @xfileName, @xlocalPath, @xsufix, @xextension, @xtabla, @xwhere, @xcampos, @xhoja&#xA;   Select @sqlCommand=''&#xA;END&#xA;CLOSE ciclo_cursor&#xA;DEALLOCATE ciclo_cursor&#xA;&#xA;GO" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Unitario kilo"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{5EF974C5-7D91-4C23-8AE7-68A2A0D21647}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Unitario kilo"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{34F2F07D-09A8-4030-BF73-90CA894F119B}"
+          SQLTask:SqlStatementSource="select   *&#xA;FROM HBAVENNAL.dbo.pptoListaPreciosSD pptoListaPreciosSD, HBAVENNAL.dbo.pptoMaterialBasicData pptoMaterialBasicData&#xA;WHERE pptoMaterialBasicData.idMaterial = pptoListaPreciosSD.idMaterial &#xA;AND ((pptoMaterialBasicData.pesoNeto=0))&#xA;&#xA;&#xA;&#xA;update pptoListaPreciosSD set&#xA;   pptoListaPreciosSD.precioKgEne = pptoListaPreciosSD.precioUbEne / pptoMaterialBasicData.pesoNeto* case pptoMaterialBasicData.uWeight when 'G' then 1000 else 1 end&#xA; , pptoListaPreciosSD.precioKgFeb = pptoListaPreciosSD.precioUbFeb / pptoMaterialBasicData.pesoNeto* case pptoMaterialBasicData.uWeight when 'G' then 1000 else 1 end&#xA; , pptoListaPreciosSD.precioKgMar = pptoListaPreciosSD.precioUbMar / pptoMaterialBasicData.pesoNeto* case pptoMaterialBasicData.uWeight when 'G' then 1000 else 1 end&#xA; , pptoListaPreciosSD.precioKgAbr = pptoListaPreciosSD.precioUbAbr / pptoMaterialBasicData.pesoNeto* case pptoMaterialBasicData.uWeight when 'G' then 1000 else 1 end&#xA; , pptoListaPreciosSD.precioKgMay = pptoListaPreciosSD.precioUbMay / pptoMaterialBasicData.pesoNeto* case pptoMaterialBasicData.uWeight when 'G' then 1000 else 1 end&#xA; , pptoListaPreciosSD.precioKgJun = pptoListaPreciosSD.precioUbJun / pptoMaterialBasicData.pesoNeto* case pptoMaterialBasicData.uWeight when 'G' then 1000 else 1 end&#xA; , pptoListaPreciosSD.precioKgJul = pptoListaPreciosSD.precioUbJul / pptoMaterialBasicData.pesoNeto* case pptoMaterialBasicData.uWeight when 'G' then 1000 else 1 end&#xA; , pptoListaPreciosSD.precioKgAgo = pptoListaPreciosSD.precioUbAgo / pptoMaterialBasicData.pesoNeto* case pptoMaterialBasicData.uWeight when 'G' then 1000 else 1 end&#xA; , pptoListaPreciosSD.precioKgSep = pptoListaPreciosSD.precioUbSep / pptoMaterialBasicData.pesoNeto* case pptoMaterialBasicData.uWeight when 'G' then 1000 else 1 end&#xA; , pptoListaPreciosSD.precioKgOct = pptoListaPreciosSD.precioUbOct / pptoMaterialBasicData.pesoNeto* case pptoMaterialBasicData.uWeight when 'G' then 1000 else 1 end&#xA; , pptoListaPreciosSD.precioKgNov = pptoListaPreciosSD.precioUbNov / pptoMaterialBasicData.pesoNeto* case pptoMaterialBasicData.uWeight when 'G' then 1000 else 1 end&#xA; , pptoListaPreciosSD.precioKgDic = pptoListaPreciosSD.precioUbDic / pptoMaterialBasicData.pesoNeto* case pptoMaterialBasicData.uWeight when 'G' then 1000 else 1 end&#xA; , pptoListaPreciosSD.precioNetoIniKg= pptoListaPreciosSD.precioNetoIni / pptoMaterialBasicData.pesoNeto* case pptoMaterialBasicData.uWeight when 'G' then 1000 else 1 end&#xA;FROM HBAVENNAL.dbo.pptoListaPreciosSD pptoListaPreciosSD&#xA;   , HBAVENNAL.dbo.pptoMaterialBasicData pptoMaterialBasicData&#xA;WHERE pptoMaterialBasicData.idMaterial = pptoListaPreciosSD.idMaterial&#xA;and pptoMaterialBasicData.pesoNeto&lt;&gt;0&#xA;&#xA;&#xA;--- combos&#xA;&#xA;update pptoListaPreciosSD set&#xA;   pptoListaPreciosSD.precioNetoIniKg= pptoListaPreciosSD_1.precioNetoIniKg&#xA; , pptoListaPreciosSD.precioKgEne= pptoListaPreciosSD_1.precioKgEne&#xA; , pptoListaPreciosSD.precioKgFeb= pptoListaPreciosSD_1.precioKgFeb&#xA; , pptoListaPreciosSD.precioKgMar= pptoListaPreciosSD_1.precioKgMar&#xA; , pptoListaPreciosSD.precioKgAbr= pptoListaPreciosSD_1.precioKgAbr&#xA; , pptoListaPreciosSD.precioKgMay= pptoListaPreciosSD_1.precioKgMay&#xA; , pptoListaPreciosSD.precioKgJun= pptoListaPreciosSD_1.precioKgJun&#xA; , pptoListaPreciosSD.precioKgJul= pptoListaPreciosSD_1.precioKgJul&#xA; , pptoListaPreciosSD.precioKgAgo= pptoListaPreciosSD_1.precioKgAgo&#xA; , pptoListaPreciosSD.precioKgSep= pptoListaPreciosSD_1.precioKgSep&#xA; , pptoListaPreciosSD.precioKgOct= pptoListaPreciosSD_1.precioKgOct&#xA; , pptoListaPreciosSD.precioKgNov= pptoListaPreciosSD_1.precioKgNov&#xA; , pptoListaPreciosSD.precioKgDic= pptoListaPreciosSD_1.precioKgDic&#xA;FROM HBAVENNAL.dbo.pptoListaPreciosSD pptoListaPreciosSD&#xA;, HBAVENNAL.dbo.pptoListaPreciosSD pptoListaPreciosSD_1&#xA;, HBAVENNAL.dbo.pptoXlsCombosTipo pptoXlsCombosTipo&#xA;WHERE pptoListaPreciosSD.idMaterial = pptoXlsCombosTipo.idMatCombo AND pptoListaPreciosSD_1.ano = pptoListaPreciosSD.ano &#xA;AND pptoListaPreciosSD_1.idAgencia = pptoListaPreciosSD.idAgencia AND pptoListaPreciosSD_1.idCanal = pptoListaPreciosSD.idCanal &#xA;AND pptoListaPreciosSD_1.idGrupoClientes = pptoListaPreciosSD.idGrupoClientes &#xA;AND pptoListaPreciosSD_1.lista = pptoListaPreciosSD.lista &#xA;AND pptoXlsCombosTipo.idMatRegular = pptoListaPreciosSD_1.idMaterial&#xA;&#xA;&#xA;&#xA;&#xA;delete[SRVDBLUKBO01\B2C].[lukerVen].[PPTO].[ListaPrecios]" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\VenBrut23"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{08E42513-0C23-4A2D-82A7-37EF8B70F341}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="VenBrut23"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{9D171124-38F5-4B2A-8248-1A8B9959B40D}"
+          SQLTask:SqlStatementSource="update PresupuestoANUAL set &#xA;PresupuestoANUAL.stpLst='0'&#xA;, PresupuestoANUAL.Valor_Lista=0&#xA;from lukerVen.SD.PresupuestoANUAL where ano=2020&#xA;&#xA;--- Nacional &#xA;update PresupuestoANUAL set &#xA;PresupuestoANUAL.stpLst='0'&#xA;, PresupuestoANUAL.Valor_Lista= PresupuestoANUAL.Cantidad* ListaPrecios.precioUb&#xA;FROM lukerVen.PPTO.ListaPrecios ListaPrecios, lukerVen.SD.PresupuestoANUAL PresupuestoANUAL&#xA;WHERE ListaPrecios.ano = PresupuestoANUAL.ano &#xA;AND (month(PresupuestoANUAL.FechaCorte)=ListaPrecios.mes)&#xA;AND ListaPrecios.Cod_SKU = PresupuestoANUAL.Cod_SKU &#xA;AND ((ListaPrecios.lista='Tradicional') &#xA;AND (ListaPrecios.SalesOffice='') &#xA;AND (ListaPrecios.Cod_Canal='') &#xA;AND (ListaPrecios.Cod_GCliente='') )&#xA;&#xA;Declare @x_versionPto varchar(20), @x_anoPto varchar(4) ,@x_pathPto varchar(256)&#xA;, @xfileName varchar(56), @xlocalPath varchar(56), @xsufix varchar(56), @xextension varchar(56), @xtabla varchar(56), @sqlCommand varchar(7777), @xwhere varchar(800), @xcampos varchar(3333), @xhoja varchar(55),@x_drv varchar(77)&#xA;, @oficina int,@canal int, @gcli int, @cont int , @conts varchar(2)&#xA;, @siOficina varchar(80),@siCanal varchar(80), @siGcli varchar(80)&#xA;select @sqlCommand =''&#xA;select @cont=0&#xA;DECLARE ciclo_cursor CURSOR FOR &#xA;SELECT DISTINCT &#xA;  case ListaPrecios.SalesOffice when '' then 0 else 1 end as oficina&#xA;, case ListaPrecios.Cod_Canal when '' then 0 else 1 end as canal &#xA;, case ListaPrecios.Cod_GCliente when '' then 0 else 1 end as gcli &#xA;FROM lukerVen.PPTO.ListaPrecios ListaPrecios&#xA;where SalesOffice&lt;&gt;'' or Cod_Canal &lt;&gt;'' or Cod_GCliente &lt;&gt;''&#xA;order by 1 ,2 ,3 &#xA;&#xA;OPEN ciclo_cursor&#xA;FETCH NEXT FROM ciclo_cursor INTO @oficina  ,@canal , @gcli &#xA;WHILE @@FETCH_STATUS = 0&#xA;BEGIN &#xA;&#x9;select @siOficina ='' ,@siCanal='' , @siGcli =''&#xA;&#x9;select @cont=@cont+1&#xA;&#x9;select @conts=@cont&#xA;&#x9;if @oficina&#x9;=1 select @siOficina&#x9;='AND (ListaPrecios.SalesOffice=&#x9;PresupuestoANUAL.Sht_Agencia) '&#xA;&#x9;if @canal&#x9;&#x9;=1 select @siCanal&#x9;&#x9;='AND (ListaPrecios.Cod_Canal=&#x9;PresupuestoANUAL.Sht_Canal)'&#xA;&#x9;if @gcli&#x9;&#x9;=1 select @siOficina&#x9;='AND (ListaPrecios.Cod_GCliente=&#x9;PresupuestoANUAL.Sht_GCliente) '&#xA;  &#xA;&#xA;&#x9;select @sqlCommand=  '&#xA;&#x9;&#x9;update PresupuestoANUAL set &#xA;&#x9;&#x9;PresupuestoANUAL.stpLst='+@conts+'&#xA;&#x9;&#x9;, PresupuestoANUAL.Valor_Lista= PresupuestoANUAL.Cantidad* ListaPrecios.precioUb&#xA;&#x9;&#x9;FROM lukerVen.PPTO.ListaPrecios ListaPrecios, lukerVen.SD.PresupuestoANUAL PresupuestoANUAL&#xA;&#x9;&#x9;WHERE ListaPrecios.ano = PresupuestoANUAL.ano &#xA;&#x9;&#x9;AND (month(PresupuestoANUAL.FechaCorte)=ListaPrecios.mes)&#xA;&#x9;&#x9;AND (ListaPrecios.Cod_SKU = PresupuestoANUAL.Cod_SKU )&#xA;&#x9;&#x9;'+@siOficina+'&#xA;&#x9;&#x9;'+@siCanal+'&#xA;&#x9;&#x9;'+@siOficina+'&#xA;&#x9;'&#xA;    Exec (@sqlCommand)&#xA;&#xA;&#x9;FETCH NEXT FROM ciclo_cursor &#xA;&#x9;INTO @oficina  ,@canal , @gcli &#xA;&#xA;END&#xA;CLOSE ciclo_cursor&#xA;DEALLOCATE ciclo_cursor&#xA;&#xA;GO&#xA;&#xA;-- Lista Cadena en Huerfanos&#xA;update PresupuestoANUAL set &#xA;  PresupuestoANUAL.stpLst= 'c'&#xA;, PresupuestoANUAL.Valor_Lista= PresupuestoANUAL.Cantidad* ListaPrecios.precioUb&#xA;FROM lukerVen.PPTO.ListaPrecios ListaPrecios&#xA;, lukerVen.SD.PresupuestoANUAL PresupuestoANUAL&#xA;, lukerVen.SD.Productos Productos&#xA;WHERE Productos.Cod_SKU = PresupuestoANUAL.Cod_SKU AND ListaPrecios.ano = PresupuestoANUAL.ano &#xA;AND ListaPrecios.Cod_SKU = PresupuestoANUAL.Cod_SKU AND ((PresupuestoANUAL.stpLst='') &#xA;AND (ListaPrecios.mes=month(FechaCorte)) AND (ListaPrecios.lista='Cadenas'))" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{05FC593E-188C-4C1C-B271-8AEDD0692175}"
+      DTS:From="Package\pptoListaPreciosSD"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\Unitario kilo" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{F3825050-2D96-4143-B083-BFE7671FF5B0}"
+      DTS:From="Package\Unitario kilo"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 1"
+      DTS:To="Package\Listo 03 to 23" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 2]"
+      DTS:CreationName=""
+      DTS:DTSID="{81097954-9CF3-4669-82AC-BFD791A9A5DC}"
+      DTS:From="Package\Listo 03 to 23"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 2"
+      DTS:To="Package\VenBrut23" />
+  </DTS:PrecedenceConstraints>
+  <DTS:PackageVariables>
+    <DTS:PackageVariable
+      DTS:CreationName=""
+      DTS:DTSID="{B8614965-5B3C-4895-B679-34CBB1B6D04B}"
+      DTS:Namespace="dts-designer-1.0"
+      DTS:ObjectName="{05FC593E-188C-4C1C-B271-8AEDD0692175}">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="PackageVariableValue">&lt;PrecedenceConstraint xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0"&gt;&lt;dwd:EvalOp&gt;Constraint&lt;/dwd:EvalOp&gt;&lt;/PrecedenceConstraint&gt;</DTS:Property>
+    </DTS:PackageVariable>
+    <DTS:PackageVariable
+      DTS:CreationName=""
+      DTS:DTSID="{D92F2067-3D5A-4BF3-86DA-CB0154359C79}"
+      DTS:Namespace="dts-designer-1.0"
+      DTS:ObjectName="{81097954-9CF3-4669-82AC-BFD791A9A5DC}">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="PackageVariableValue">&lt;PrecedenceConstraint xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0"&gt;&lt;dwd:EvalOp&gt;Constraint&lt;/dwd:EvalOp&gt;&lt;/PrecedenceConstraint&gt;</DTS:Property>
+    </DTS:PackageVariable>
+    <DTS:PackageVariable
+      DTS:CreationName=""
+      DTS:DTSID="{71921E36-DA57-463D-8E69-933B36933C59}"
+      DTS:Namespace="dts-designer-1.0"
+      DTS:ObjectName="{D362F499-F7B0-4697-9E8E-E00DE6FD8382}">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="PackageVariableValue">&lt;TaskHost xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0"&gt;&lt;dwd:DtsDataFlowDiagram&gt;&lt;dwd:Layout&gt;&lt;dds&gt;&lt;diagram fontclsid="{0BE35203-8F91-11CE-9DE3-00AA004BB851}" mouseiconclsid="{0BE35204-8F91-11CE-9DE3-00AA004BB851}" defaultlayout="Microsoft.DataWarehouse.Layout.GraphLayout110" defaultlineroute="Microsoft.DataWarehouse.Layout.GraphLayout110" version="7" nextobject="12" scale="100" pagebreakanchorx="0" pagebreakanchory="0" pagebreaksizex="0" pagebreaksizey="0" scrollleft="0" scrolltop="0" gridx="150" gridy="150" marginx="1000" marginy="1000" zoom="100" x="50535" y="19923" backcolor="15334399" defaultpersistence="2" PrintPageNumbersMode="3" PrintMarginTop="0" PrintMarginBottom="635" PrintMarginLeft="0" PrintMarginRight="0" marqueeselectionmode="1" mousepointer="0" snaptogrid="0" autotypeannotation="1" showscrollbars="0" viewpagebreaks="0" donotforceconnectorsbehindshapes="0" backpictureclsid="{00000000-0000-0000-0000-000000000000}"&gt;&lt;font&gt;&lt;ddsxmlobjectstreamwrapper binary="01000000900144420100065461686f6d61" /&gt;&lt;/font&gt;&lt;mouseicon&gt;&lt;ddsxmlobjectstreamwrapper binary="6c74000000000000" /&gt;&lt;/mouseicon&gt;&lt;/diagram&gt;&lt;layoutmanager&gt;&lt;ddsxmlobj /&gt;&lt;/layoutmanager&gt;&lt;ddscontrol controlprogid="DdsShapes.DdsObjectManagedBridge.2" tooltip="OLE DB Source" left="2223" top="3016" logicalid="4" controlid="1" masterid="0" hint1="0" hint2="0" width="3598" height="1164" noresize="0" nomove="0" nodefaultattachpoints="0" autodrag="1" usedefaultiddshape="1" selectable="1" showselectionhandles="1" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0"&gt;&lt;control&gt;&lt;ddsxmlobjectstreaminitwrapper binary="000800000e0e00008c040000" /&gt;&lt;/control&gt;&lt;layoutobject&gt;&lt;ddsxmlobj&gt;&lt;property name="LogicalObject" value="2" vartype="8" /&gt;&lt;property name="ShowConnectorSource" value="0" vartype="2" /&gt;&lt;/ddsxmlobj&gt;&lt;/layoutobject&gt;&lt;shape groupshapeid="0" groupnode="0" /&gt;&lt;/ddscontrol&gt;&lt;ddscontrol controlprogid="DdsShapes.DdsObjectManagedBridge.2" tooltip="OLE DB Destination" left="2223" top="5180" logicalid="5" controlid="2" masterid="0" hint1="0" hint2="0" width="3598" height="1164" noresize="0" nomove="0" nodefaultattachpoints="0" autodrag="1" usedefaultiddshape="1" selectable="1" showselectionhandles="1" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0"&gt;&lt;control&gt;&lt;ddsxmlobjectstreaminitwrapper binary="000800000e0e00008c040000" /&gt;&lt;/control&gt;&lt;layoutobject&gt;&lt;ddsxmlobj&gt;&lt;property name="LogicalObject" value="44" vartype="8" /&gt;&lt;property name="ShowConnectorSource" value="0" vartype="2" /&gt;&lt;/ddsxmlobj&gt;&lt;/layoutobject&gt;&lt;shape groupshapeid="0" groupnode="0" /&gt;&lt;/ddscontrol&gt;&lt;ddscontrol controlprogid="MSDDS.Polyline" left="3623" top="3781" logicalid="6" controlid="3" masterid="0" hint1="0" hint2="0" width="799" height="1899" noresize="0" nomove="0" nodefaultattachpoints="1" autodrag="0" usedefaultiddshape="0" selectable="1" showselectionhandles="0" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0"&gt;&lt;control&gt;&lt;ddsxmlobj&gt;&lt;polyline endtypedst="3" endtypesrc="1" usercolor="32768" linestyle="0" linerender="1" customendtypedstid="0" customendtypesrcid="0" adornsvisible="1" /&gt;&lt;/ddsxmlobj&gt;&lt;/control&gt;&lt;layoutobject&gt;&lt;ddsxmlobj&gt;&lt;property name="LogicalObject" value="79" vartype="8" /&gt;&lt;property name="Virtual" value="0" vartype="11" /&gt;&lt;property name="VisibleAP" value="0" vartype="3" /&gt;&lt;/ddsxmlobj&gt;&lt;/layoutobject&gt;&lt;connector lineroutestyle="Microsoft.DataWarehouse.Layout.GraphLayout110" sourceid="1" destid="2" sourceattachpoint="7" destattachpoint="6" segmenteditmode="0" bendpointeditmode="0" bendpointvisibility="2" relatedid="0" virtual="0"&gt;&lt;point x="4022" y="4180" /&gt;&lt;point x="4022" y="5180" /&gt;&lt;/connector&gt;&lt;/ddscontrol&gt;&lt;/dds&gt;&lt;/dwd:Layout&gt;&lt;/dwd:DtsDataFlowDiagram&gt;&lt;dwd:DtsComponentDesignerPropertiesList&gt;&lt;dwd:DtsComponentDesignTimeProperty&gt;&lt;dwd:key xsi:type="xsd:string"&gt;43	TableInfoObjectType&lt;/dwd:key&gt;&lt;dwd:value xsi:type="xsd:string"&gt;Table&lt;/dwd:value&gt;&lt;/dwd:DtsComponentDesignTimeProperty&gt;&lt;dwd:DtsComponentDesignTimeProperty&gt;&lt;dwd:key xsi:type="xsd:string"&gt;1	DataSourceViewID&lt;/dwd:key&gt;&lt;/dwd:DtsComponentDesignTimeProperty&gt;&lt;dwd:DtsComponentDesignTimeProperty&gt;&lt;dwd:key xsi:type="xsd:string"&gt;43	DataSourceViewID&lt;/dwd:key&gt;&lt;/dwd:DtsComponentDesignTimeProperty&gt;&lt;/dwd:DtsComponentDesignerPropertiesList&gt;&lt;/TaskHost&gt;</DTS:Property>
+    </DTS:PackageVariable>
+    <DTS:PackageVariable
+      DTS:CreationName=""
+      DTS:DTSID="{B5B4A036-6A27-4C2A-8A2D-FFE86EC71F81}"
+      DTS:Namespace="dts-designer-1.0"
+      DTS:ObjectName="{D362F499-F7B0-4697-9E8E-E00DE6FD8382}-60">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="PackageVariableValue">&lt;PipelinePath xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0"&gt;&lt;dwd:SourceName&gt;OLE DB Source Output&lt;/dwd:SourceName&gt;&lt;dwd:DestinationName&gt;OLE DB Destination Input&lt;/dwd:DestinationName&gt;&lt;/PipelinePath&gt;</DTS:Property>
+    </DTS:PackageVariable>
+    <DTS:PackageVariable
+      DTS:CreationName=""
+      DTS:DTSID="{66B4DBB2-0490-4541-A408-A726A2A71CEA}"
+      DTS:Namespace="dts-designer-1.0"
+      DTS:ObjectName="{F3825050-2D96-4143-B083-BFE7671FF5B0}">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="PackageVariableValue">&lt;PrecedenceConstraint xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0"&gt;&lt;dwd:EvalOp&gt;Constraint&lt;/dwd:EvalOp&gt;&lt;/PrecedenceConstraint&gt;</DTS:Property>
+    </DTS:PackageVariable>
+    <DTS:PackageVariable
+      DTS:CreationName=""
+      DTS:DTSID="{784ABBCC-7BE0-42F6-B725-2160E5F80BFE}"
+      DTS:Namespace="dts-designer-1.0"
+      DTS:ObjectName="package-diagram">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="PackageVariableValue">&lt;Package xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0"&gt;&lt;dwd:DtsControlFlowDiagram&gt;&lt;dwd:BoundingLeft&gt;-3500&lt;/dwd:BoundingLeft&gt;&lt;dwd:BoundingTop&gt;-185&lt;/dwd:BoundingTop&gt;&lt;dwd:Layout&gt;&lt;dds&gt;&lt;diagram fontclsid="{0BE35203-8F91-11CE-9DE3-00AA004BB851}" mouseiconclsid="{0BE35204-8F91-11CE-9DE3-00AA004BB851}" defaultlayout="Microsoft.DataWarehouse.Layout.GraphLayout110" defaultlineroute="Microsoft.DataWarehouse.Layout.GraphLayout110" version="7" nextobject="18" scale="100" pagebreakanchorx="0" pagebreakanchory="0" pagebreaksizex="0" pagebreaksizey="0" scrollleft="-4500" scrolltop="-1185" gridx="150" gridy="150" marginx="1000" marginy="1000" zoom="100" x="34740" y="20876" backcolor="15334399" defaultpersistence="2" PrintPageNumbersMode="3" PrintMarginTop="0" PrintMarginBottom="635" PrintMarginLeft="0" PrintMarginRight="0" marqueeselectionmode="1" mousepointer="0" snaptogrid="0" autotypeannotation="1" showscrollbars="0" viewpagebreaks="0" donotforceconnectorsbehindshapes="1" backpictureclsid="{00000000-0000-0000-0000-000000000000}"&gt;&lt;font&gt;&lt;ddsxmlobjectstreamwrapper binary="01010000900180380100065461686f6d61" /&gt;&lt;/font&gt;&lt;mouseicon&gt;&lt;ddsxmlobjectstreamwrapper binary="6c74000000000000" /&gt;&lt;/mouseicon&gt;&lt;/diagram&gt;&lt;layoutmanager&gt;&lt;ddsxmlobj /&gt;&lt;/layoutmanager&gt;&lt;ddscontrol controlprogid="DdsShapes.DdsObjectManagedBridge.2" tooltip="Execute SQL Task" left="-2752" top="-185" logicalid="8" controlid="1" masterid="0" hint1="0" hint2="0" width="3598" height="1164" noresize="0" nomove="0" nodefaultattachpoints="0" autodrag="1" usedefaultiddshape="1" selectable="1" showselectionhandles="1" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0"&gt;&lt;control&gt;&lt;ddsxmlobjectstreaminitwrapper binary="000800000e0e00008c040000" /&gt;&lt;/control&gt;&lt;layoutobject&gt;&lt;ddsxmlobj&gt;&lt;property name="LogicalObject" value="Package\pptoListaPreciosSD" vartype="8" /&gt;&lt;property name="ShowConnectorSource" value="0" vartype="2" /&gt;&lt;/ddsxmlobj&gt;&lt;/layoutobject&gt;&lt;shape groupshapeid="0" groupnode="0" /&gt;&lt;/ddscontrol&gt;&lt;ddscontrol controlprogid="DdsShapes.DdsObjectManagedBridge.2" tooltip="Execute SQL Task" left="-2752" top="1979" logicalid="9" controlid="2" masterid="0" hint1="0" hint2="0" width="3598" height="1164" noresize="0" nomove="0" nodefaultattachpoints="0" autodrag="1" usedefaultiddshape="1" selectable="1" showselectionhandles="1" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0"&gt;&lt;control&gt;&lt;ddsxmlobjectstreaminitwrapper binary="000800000e0e00008c040000" /&gt;&lt;/control&gt;&lt;layoutobject&gt;&lt;ddsxmlobj&gt;&lt;property name="LogicalObject" value="Package\Unitario kilo" vartype="8" /&gt;&lt;property name="ShowConnectorSource" value="0" vartype="2" /&gt;&lt;/ddsxmlobj&gt;&lt;/layoutobject&gt;&lt;shape groupshapeid="0" groupnode="0" /&gt;&lt;/ddscontrol&gt;&lt;ddscontrol controlprogid="MSDDS.Polyline" left="-1352" top="580" logicalid="10" controlid="3" masterid="0" hint1="0" hint2="0" width="799" height="1899" noresize="0" nomove="0" nodefaultattachpoints="1" autodrag="0" usedefaultiddshape="0" selectable="1" showselectionhandles="0" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0"&gt;&lt;control&gt;&lt;ddsxmlobj&gt;&lt;polyline endtypedst="3" endtypesrc="1" usercolor="32768" linestyle="0" linerender="2" customendtypedstid="0" customendtypesrcid="0" adornsvisible="1" /&gt;&lt;/ddsxmlobj&gt;&lt;/control&gt;&lt;layoutobject&gt;&lt;ddsxmlobj&gt;&lt;property name="LogicalObject" value="Package.PrecedenceConstraints[Constraint]" vartype="8" /&gt;&lt;property name="Virtual" value="0" vartype="11" /&gt;&lt;property name="VisibleAP" value="0" vartype="3" /&gt;&lt;/ddsxmlobj&gt;&lt;/layoutobject&gt;&lt;connector lineroutestyle="Microsoft.DataWarehouse.Layout.GraphLayout110" sourceid="1" destid="2" sourceattachpoint="7" destattachpoint="6" segmenteditmode="0" bendpointeditmode="0" bendpointvisibility="2" relatedid="0" virtual="0"&gt;&lt;point x="-953" y="979" /&gt;&lt;point x="-953" y="1979" /&gt;&lt;/connector&gt;&lt;/ddscontrol&gt;&lt;ddscontrol controlprogid="DdsShapes.DdsObjectManagedBridge.2" tooltip="Data Flow Task" left="-2752" top="4133" logicalid="11" controlid="4" masterid="0" hint1="0" hint2="0" width="3598" height="1164" noresize="0" nomove="0" nodefaultattachpoints="0" autodrag="1" usedefaultiddshape="1" selectable="1" showselectionhandles="1" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0"&gt;&lt;control&gt;&lt;ddsxmlobjectstreaminitwrapper binary="000800000e0e00008c040000" /&gt;&lt;/control&gt;&lt;layoutobject&gt;&lt;ddsxmlobj&gt;&lt;property name="LogicalObject" value="Package\Listo 03 to 23" vartype="8" /&gt;&lt;property name="ShowConnectorSource" value="0" vartype="2" /&gt;&lt;/ddsxmlobj&gt;&lt;/layoutobject&gt;&lt;shape groupshapeid="0" groupnode="0" /&gt;&lt;/ddscontrol&gt;&lt;ddscontrol controlprogid="MSDDS.Polyline" left="-1352" top="2744" logicalid="12" controlid="5" masterid="0" hint1="0" hint2="0" width="799" height="1889" noresize="0" nomove="0" nodefaultattachpoints="1" autodrag="0" usedefaultiddshape="0" selectable="1" showselectionhandles="0" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0"&gt;&lt;control&gt;&lt;ddsxmlobj&gt;&lt;polyline endtypedst="3" endtypesrc="1" usercolor="32768" linestyle="0" linerender="2" customendtypedstid="0" customendtypesrcid="0" adornsvisible="1" /&gt;&lt;/ddsxmlobj&gt;&lt;/control&gt;&lt;layoutobject&gt;&lt;ddsxmlobj&gt;&lt;property name="LogicalObject" value="Package.PrecedenceConstraints[Constraint 1]" vartype="8" /&gt;&lt;property name="Virtual" value="0" vartype="11" /&gt;&lt;property name="VisibleAP" value="0" vartype="3" /&gt;&lt;/ddsxmlobj&gt;&lt;/layoutobject&gt;&lt;connector lineroutestyle="Microsoft.DataWarehouse.Layout.GraphLayout110" sourceid="2" destid="4" sourceattachpoint="7" destattachpoint="6" segmenteditmode="0" bendpointeditmode="0" bendpointvisibility="2" relatedid="0" virtual="0"&gt;&lt;point x="-953" y="3143" /&gt;&lt;point x="-953" y="4133" /&gt;&lt;/connector&gt;&lt;/ddscontrol&gt;&lt;ddscontrol controlprogid="DdsShapes.DdsObjectManagedBridge.2" tooltip="Execute SQL Task" left="-2753" top="6806" logicalid="13" controlid="6" masterid="0" hint1="0" hint2="0" width="3598" height="1164" noresize="0" nomove="0" nodefaultattachpoints="0" autodrag="1" usedefaultiddshape="1" selectable="1" showselectionhandles="1" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0"&gt;&lt;control&gt;&lt;ddsxmlobjectstreaminitwrapper binary="000800000e0e00008c040000" /&gt;&lt;/control&gt;&lt;layoutobject&gt;&lt;ddsxmlobj&gt;&lt;property name="LogicalObject" value="Package\VenBrut23" vartype="8" /&gt;&lt;property name="ShowConnectorSource" value="0" vartype="2" /&gt;&lt;/ddsxmlobj&gt;&lt;/layoutobject&gt;&lt;shape groupshapeid="0" groupnode="0" /&gt;&lt;/ddscontrol&gt;&lt;ddscontrol controlprogid="MSDDS.Polyline" left="-1353" top="4898" logicalid="14" controlid="7" masterid="0" hint1="0" hint2="0" width="800" height="2408" noresize="0" nomove="0" nodefaultattachpoints="1" autodrag="0" usedefaultiddshape="0" selectable="1" showselectionhandles="0" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0"&gt;&lt;control&gt;&lt;ddsxmlobj&gt;&lt;polyline endtypedst="3" endtypesrc="1" usercolor="32768" linestyle="0" linerender="2" customendtypedstid="0" customendtypesrcid="0" adornsvisible="1" /&gt;&lt;/ddsxmlobj&gt;&lt;/control&gt;&lt;layoutobject&gt;&lt;ddsxmlobj&gt;&lt;property name="LogicalObject" value="Package.PrecedenceConstraints[Constraint 2]" vartype="8" /&gt;&lt;property name="Virtual" value="0" vartype="11" /&gt;&lt;property name="VisibleAP" value="0" vartype="3" /&gt;&lt;/ddsxmlobj&gt;&lt;/layoutobject&gt;&lt;connector lineroutestyle="Microsoft.DataWarehouse.Layout.GraphLayout110" sourceid="4" destid="6" sourceattachpoint="7" destattachpoint="6" segmenteditmode="0" bendpointeditmode="0" bendpointvisibility="2" relatedid="0" virtual="0"&gt;&lt;point x="-953" y="5297" /&gt;&lt;point x="-953" y="6051" /&gt;&lt;point x="-954" y="6051" /&gt;&lt;point x="-954" y="6806" /&gt;&lt;/connector&gt;&lt;/ddscontrol&gt;&lt;/dds&gt;&lt;/dwd:Layout&gt;&lt;dwd:PersistedViewPortLeft&gt;-4500&lt;/dwd:PersistedViewPortLeft&gt;&lt;dwd:PersistedViewPortTop&gt;-1185&lt;/dwd:PersistedViewPortTop&gt;&lt;/dwd:DtsControlFlowDiagram&gt;&lt;/Package&gt;</DTS:Property>
+    </DTS:PackageVariable>
+    <DTS:PackageVariable
+      DTS:CreationName=""
+      DTS:DTSID="{BBF2CBC8-68ED-4C46-80D2-6987FB1998D0}"
+      DTS:Namespace="dts-designer-1.0"
+      DTS:ObjectName="package-diagram">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="PackageVariableValue">&lt;Package xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0"&gt;&lt;dwd:DtsControlFlowDiagram&gt;&lt;dwd:BoundingLeft&gt;-3500&lt;/dwd:BoundingLeft&gt;&lt;dwd:BoundingTop&gt;-185&lt;/dwd:BoundingTop&gt;&lt;dwd:Layout&gt;&lt;dds&gt;&lt;diagram fontclsid="{0BE35203-8F91-11CE-9DE3-00AA004BB851}" mouseiconclsid="{0BE35204-8F91-11CE-9DE3-00AA004BB851}" defaultlayout="Microsoft.DataWarehouse.Layout.GraphLayout110" defaultlineroute="Microsoft.DataWarehouse.Layout.GraphLayout110" version="7" nextobject="18" scale="100" pagebreakanchorx="0" pagebreakanchory="0" pagebreaksizex="0" pagebreaksizey="0" scrollleft="-4500" scrolltop="-1185" gridx="150" gridy="150" marginx="1000" marginy="1000" zoom="100" x="34740" y="20876" backcolor="15334399" defaultpersistence="2" PrintPageNumbersMode="3" PrintMarginTop="0" PrintMarginBottom="635" PrintMarginLeft="0" PrintMarginRight="0" marqueeselectionmode="1" mousepointer="0" snaptogrid="0" autotypeannotation="1" showscrollbars="0" viewpagebreaks="0" donotforceconnectorsbehindshapes="1" backpictureclsid="{00000000-0000-0000-0000-000000000000}"&gt;&lt;font&gt;&lt;ddsxmlobjectstreamwrapper binary="01010000900180380100065461686f6d61" /&gt;&lt;/font&gt;&lt;mouseicon&gt;&lt;ddsxmlobjectstreamwrapper binary="6c74000000000000" /&gt;&lt;/mouseicon&gt;&lt;/diagram&gt;&lt;layoutmanager&gt;&lt;ddsxmlobj /&gt;&lt;/layoutmanager&gt;&lt;ddscontrol controlprogid="DdsShapes.DdsObjectManagedBridge.2" tooltip="Execute SQL Task" left="-2752" top="-185" logicalid="8" controlid="1" masterid="0" hint1="0" hint2="0" width="3598" height="1164" noresize="0" nomove="0" nodefaultattachpoints="0" autodrag="1" usedefaultiddshape="1" selectable="1" showselectionhandles="1" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0"&gt;&lt;control&gt;&lt;ddsxmlobjectstreaminitwrapper binary="000800000e0e00008c040000" /&gt;&lt;/control&gt;&lt;layoutobject&gt;&lt;ddsxmlobj&gt;&lt;property name="LogicalObject" value="Package\pptoListaPreciosSD" vartype="8" /&gt;&lt;property name="ShowConnectorSource" value="0" vartype="2" /&gt;&lt;/ddsxmlobj&gt;&lt;/layoutobject&gt;&lt;shape groupshapeid="0" groupnode="0" /&gt;&lt;/ddscontrol&gt;&lt;ddscontrol controlprogid="DdsShapes.DdsObjectManagedBridge.2" tooltip="Execute SQL Task" left="-2752" top="1979" logicalid="9" controlid="2" masterid="0" hint1="0" hint2="0" width="3598" height="1164" noresize="0" nomove="0" nodefaultattachpoints="0" autodrag="1" usedefaultiddshape="1" selectable="1" showselectionhandles="1" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0"&gt;&lt;control&gt;&lt;ddsxmlobjectstreaminitwrapper binary="000800000e0e00008c040000" /&gt;&lt;/control&gt;&lt;layoutobject&gt;&lt;ddsxmlobj&gt;&lt;property name="LogicalObject" value="Package\Unitario kilo" vartype="8" /&gt;&lt;property name="ShowConnectorSource" value="0" vartype="2" /&gt;&lt;/ddsxmlobj&gt;&lt;/layoutobject&gt;&lt;shape groupshapeid="0" groupnode="0" /&gt;&lt;/ddscontrol&gt;&lt;ddscontrol controlprogid="MSDDS.Polyline" left="-1352" top="580" logicalid="10" controlid="3" masterid="0" hint1="0" hint2="0" width="799" height="1899" noresize="0" nomove="0" nodefaultattachpoints="1" autodrag="0" usedefaultiddshape="0" selectable="1" showselectionhandles="0" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0"&gt;&lt;control&gt;&lt;ddsxmlobj&gt;&lt;polyline endtypedst="3" endtypesrc="1" usercolor="32768" linestyle="0" linerender="2" customendtypedstid="0" customendtypesrcid="0" adornsvisible="1" /&gt;&lt;/ddsxmlobj&gt;&lt;/control&gt;&lt;layoutobject&gt;&lt;ddsxmlobj&gt;&lt;property name="LogicalObject" value="Package.PrecedenceConstraints[Constraint]" vartype="8" /&gt;&lt;property name="Virtual" value="0" vartype="11" /&gt;&lt;property name="VisibleAP" value="0" vartype="3" /&gt;&lt;/ddsxmlobj&gt;&lt;/layoutobject&gt;&lt;connector lineroutestyle="Microsoft.DataWarehouse.Layout.GraphLayout110" sourceid="1" destid="2" sourceattachpoint="7" destattachpoint="6" segmenteditmode="0" bendpointeditmode="0" bendpointvisibility="2" relatedid="0" virtual="0"&gt;&lt;point x="-953" y="979" /&gt;&lt;point x="-953" y="1979" /&gt;&lt;/connector&gt;&lt;/ddscontrol&gt;&lt;ddscontrol controlprogid="DdsShapes.DdsObjectManagedBridge.2" tooltip="Data Flow Task" left="-2752" top="4133" logicalid="11" controlid="4" masterid="0" hint1="0" hint2="0" width="3598" height="1164" noresize="0" nomove="0" nodefaultattachpoints="0" autodrag="1" usedefaultiddshape="1" selectable="1" showselectionhandles="1" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0"&gt;&lt;control&gt;&lt;ddsxmlobjectstreaminitwrapper binary="000800000e0e00008c040000" /&gt;&lt;/control&gt;&lt;layoutobject&gt;&lt;ddsxmlobj&gt;&lt;property name="LogicalObject" value="Package\Listo 03 to 23" vartype="8" /&gt;&lt;property name="ShowConnectorSource" value="0" vartype="2" /&gt;&lt;/ddsxmlobj&gt;&lt;/layoutobject&gt;&lt;shape groupshapeid="0" groupnode="0" /&gt;&lt;/ddscontrol&gt;&lt;ddscontrol controlprogid="MSDDS.Polyline" left="-1352" top="2744" logicalid="12" controlid="5" masterid="0" hint1="0" hint2="0" width="799" height="1889" noresize="0" nomove="0" nodefaultattachpoints="1" autodrag="0" usedefaultiddshape="0" selectable="1" showselectionhandles="0" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0"&gt;&lt;control&gt;&lt;ddsxmlobj&gt;&lt;polyline endtypedst="3" endtypesrc="1" usercolor="32768" linestyle="0" linerender="2" customendtypedstid="0" customendtypesrcid="0" adornsvisible="1" /&gt;&lt;/ddsxmlobj&gt;&lt;/control&gt;&lt;layoutobject&gt;&lt;ddsxmlobj&gt;&lt;property name="LogicalObject" value="Package.PrecedenceConstraints[Constraint 1]" vartype="8" /&gt;&lt;property name="Virtual" value="0" vartype="11" /&gt;&lt;property name="VisibleAP" value="0" vartype="3" /&gt;&lt;/ddsxmlobj&gt;&lt;/layoutobject&gt;&lt;connector lineroutestyle="Microsoft.DataWarehouse.Layout.GraphLayout110" sourceid="2" destid="4" sourceattachpoint="7" destattachpoint="6" segmenteditmode="0" bendpointeditmode="0" bendpointvisibility="2" relatedid="0" virtual="0"&gt;&lt;point x="-953" y="3143" /&gt;&lt;point x="-953" y="4133" /&gt;&lt;/connector&gt;&lt;/ddscontrol&gt;&lt;ddscontrol controlprogid="DdsShapes.DdsObjectManagedBridge.2" tooltip="Execute SQL Task" left="-2753" top="6806" logicalid="13" controlid="6" masterid="0" hint1="0" hint2="0" width="3598" height="1164" noresize="0" nomove="0" nodefaultattachpoints="0" autodrag="1" usedefaultiddshape="1" selectable="1" showselectionhandles="1" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0"&gt;&lt;control&gt;&lt;ddsxmlobjectstreaminitwrapper binary="000800000e0e00008c040000" /&gt;&lt;/control&gt;&lt;layoutobject&gt;&lt;ddsxmlobj&gt;&lt;property name="LogicalObject" value="Package\VenBrut23" vartype="8" /&gt;&lt;property name="ShowConnectorSource" value="0" vartype="2" /&gt;&lt;/ddsxmlobj&gt;&lt;/layoutobject&gt;&lt;shape groupshapeid="0" groupnode="0" /&gt;&lt;/ddscontrol&gt;&lt;ddscontrol controlprogid="MSDDS.Polyline" left="-1353" top="4898" logicalid="14" controlid="7" masterid="0" hint1="0" hint2="0" width="800" height="2408" noresize="0" nomove="0" nodefaultattachpoints="1" autodrag="0" usedefaultiddshape="0" selectable="1" showselectionhandles="0" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0"&gt;&lt;control&gt;&lt;ddsxmlobj&gt;&lt;polyline endtypedst="3" endtypesrc="1" usercolor="32768" linestyle="0" linerender="2" customendtypedstid="0" customendtypesrcid="0" adornsvisible="1" /&gt;&lt;/ddsxmlobj&gt;&lt;/control&gt;&lt;layoutobject&gt;&lt;ddsxmlobj&gt;&lt;property name="LogicalObject" value="Package.PrecedenceConstraints[Constraint 2]" vartype="8" /&gt;&lt;property name="Virtual" value="0" vartype="11" /&gt;&lt;property name="VisibleAP" value="0" vartype="3" /&gt;&lt;/ddsxmlobj&gt;&lt;/layoutobject&gt;&lt;connector lineroutestyle="Microsoft.DataWarehouse.Layout.GraphLayout110" sourceid="4" destid="6" sourceattachpoint="7" destattachpoint="6" segmenteditmode="0" bendpointeditmode="0" bendpointvisibility="2" relatedid="0" virtual="0"&gt;&lt;point x="-953" y="5297" /&gt;&lt;point x="-953" y="6051" /&gt;&lt;point x="-954" y="6051" /&gt;&lt;point x="-954" y="6806" /&gt;&lt;/connector&gt;&lt;/ddscontrol&gt;&lt;/dds&gt;&lt;/dwd:Layout&gt;&lt;dwd:PersistedViewPortLeft&gt;-4500&lt;/dwd:PersistedViewPortLeft&gt;&lt;dwd:PersistedViewPortTop&gt;-1185&lt;/dwd:PersistedViewPortTop&gt;&lt;/dwd:DtsControlFlowDiagram&gt;&lt;/Package&gt;</DTS:Property>
+    </DTS:PackageVariable>
+  </DTS:PackageVariables>
+</DTS:Executable>

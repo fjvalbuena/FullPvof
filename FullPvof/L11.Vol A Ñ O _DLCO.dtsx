@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="L11 Vol A Ñ O _DLCO"
   DTS:PackageType="5"
-  DTS:VersionBuild="21"
-  DTS:VersionGUID="{95626402-C3BA-474E-9C16-B44A450B0756}">
+  DTS:VersionBuild="23"
+  DTS:VersionGUID="{C4C0AC3E-7F93-4D61-9A68-8744E7F2A860}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -27,7 +27,7 @@
           <DTS:Password
             DTS:Name="Password"
             Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAuR1Gdsnx50KES8/66vqaKwAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAABPpj4IX567KIOcMZSMKFVThzAWGdoZpoJDxdldxB+eEQAAAAAOgAAAAAIAACAAAABPp8NjhOaIAkR4UuF3evNdGrXnW99wU3jMLZnWExi8/SAAAABlwltsJtxOuf0/cRP9U/JuhEqpFdPCNO/pMaSaFM0LpkAAAACrHcFNmuwe4FitkJMhODqYrHXtrunqdxprbX2ukp9cAz3yICsn5hAWip6h8uosDsBHNKuX2ZywGqzUE9eAbhcl</DTS:Password>
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAuR1Gdsnx50KES8/66vqaKwAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAADg7SW7IA6vGKA86+sskSK6ry4gfLAR0USlb0fUv8X60AAAAAAOgAAAAAIAACAAAACaauPy1oJECAURm4m5jQ6YDtzQo8C/xiPVYw7pNW+5oSAAAAABcokgkZI1MsTC+FK+fugOkDuMp+D7mbW9ieHaH5vzSEAAAAAW9yOjac7S9Q2i5ZvkC4vTIjR0C3pXpb8cby2QgTIXBlSaSiSzivt+n4nJCrxYU231Qu1klInPpgE0e8nJa23w</DTS:Password>
         </DTS:ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
@@ -42,7 +42,7 @@
           <DTS:Password
             DTS:Name="Password"
             Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAuR1Gdsnx50KES8/66vqaKwAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAACYLtxJ8Ep0TnNaVjwwrMKkSstl12cF7VvO6zG7r2u0ugAAAAAOgAAAAAIAACAAAADN5z0VN/jDslZSnAiRTp65O1LSAtki2HZMPikeQhCewCAAAADYKLbdd+raakxFeeoetOKZ5TseKt8qAOVipu/0l0NIgkAAAABwlmlFqMZjyy0SOSIwrUOIyTMMdMItibG8iCMcA/AFCLIXS5dmX3wqWhQqwMBMOGmGDBJ2glQqVWwL/gAbKw//</DTS:Password>
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAuR1Gdsnx50KES8/66vqaKwAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAAD0nQw3R1X/tneCM6D6ICpr9Z7lMobZYa7gmFWtbm7oGwAAAAAOgAAAAAIAACAAAADsyaglLQVYD4hg2P7c5yk1sKmcd1yJLau8nLP7IvZ3dSAAAAAl8xvPxGAQT924ssm/bW/5PNyvUmEKINtUTeGBAsesEUAAAAAzsnmNoXJpPbnhFcZq9Dbu1rWOpd2XHumCDR5qzaQyQhaeDuk1/o4+8R9rhHbEYJ/VF2tExmySYqVZ3S5h7DIG</DTS:Password>
         </DTS:ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
@@ -1875,28 +1875,6 @@ ORDER BY BaseEstadisticaBc.NombreCanalAgrupado</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package.PrecedenceConstraints[Restricción 5]"
-          TopLeft="357.682544445505,74.7503271501095">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,50.8967330366499"
-              Start="0,0"
-              End="0,43.3967330366499">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,43.3967330366499" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
           Id="Package.PrecedenceConstraints[Restricción 4]"
           TopLeft="179.9,25.6882352855378">
           <EdgeLayout.Curve>
@@ -1922,6 +1900,28 @@ ORDER BY BaseEstadisticaBc.NombreCanalAgrupado</property>
                     Point3="50.240478509786,28.2620918645717" />
                   <mssgle:LineSegment
                     End="84.980957019572,28.2620918645717" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Restricción 5]"
+          TopLeft="357.682544445505,74.7503271501095">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,50.8967330366499"
+              Start="0,0"
+              End="0,43.3967330366499">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,43.3967330366499" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -1971,7 +1971,7 @@ ORDER BY BaseEstadisticaBc.NombreCanalAgrupado</property>
     design-time-name="Package\load vol from stgn">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="112.8,41.6"
           Id="Package\load vol from stgn\vol año"
@@ -1999,7 +1999,9 @@ ORDER BY BaseEstadisticaBc.NombreCanalAgrupado</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -2030,7 +2032,7 @@ ORDER BY BaseEstadisticaBc.NombreCanalAgrupado</property>
     design-time-name="Package\totales - contextos DCL">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="121.6,41.6"
           Id="Package\totales - contextos DCL\total DLC"
@@ -2070,7 +2072,9 @@ ORDER BY BaseEstadisticaBc.NombreCanalAgrupado</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
