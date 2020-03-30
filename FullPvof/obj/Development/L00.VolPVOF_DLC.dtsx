@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="L00 VolPVOF_DLC"
   DTS:PackageType="5"
-  DTS:VersionBuild="9"
-  DTS:VersionGUID="{B0D2E375-5096-4F68-B418-171BF41D9A02}">
+  DTS:VersionBuild="10"
+  DTS:VersionGUID="{C8111160-C338-4299-BA61-2167439285E8}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -27,7 +27,7 @@
           <DTS:Password
             DTS:Name="Password"
             Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAuR1Gdsnx50KES8/66vqaKwAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAADQ5mwT3v7z7rex7KPTkgO53Wsz09IL1NXqFpdDjeQqKQAAAAAOgAAAAAIAACAAAADTpt5z6SVSURY3hpku2DaqziQPP/qOdk80ielaALOZFyAAAAB0wi0ZHK89vqiGnfhpuV871OkULUYvRo34aSGrFVDtuUAAAAD6dh4qEDyJrytyiCvtkfhM6qnN4SaxqEqw3yx62KcE15gOqteyZfta1GG126dcSXxkPCNqWNQxqO3pw6Ref8Le</DTS:Password>
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAuR1Gdsnx50KES8/66vqaKwAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAAAZkiP+xaQTW9fLiWLXWhYmqZUGV4B8E0AblYmZ2H6weQAAAAAOgAAAAAIAACAAAABzIuRoHxULXBRBySVmbPaKhW7pd6Rt/cgC83gsjrhrLSAAAAAviYSPS4gvVgSGJwnfUvCQ0lchyoBCFS1A40ja05WQukAAAADRZMuE741ql88pYCDMktOvvNU9WJY8+SoWqMEpDEO+Zp/T++8A96AeuQj1LLzEkYEyjNnCj/ykQC5iELcgDI3S</DTS:Password>
         </DTS:ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
@@ -47,7 +47,7 @@
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{1DAF96B6-B9CB-44D6-9AF8-5B50EEDF8432}"
-          SQLTask:SqlStatementSource="update VolumenTrimDLC set&#xA;VolumenTrimDLC.OrphEstrLin= 0&#xA;FROM lukerVen.SD.JerarquiaProducto JerarquiaProducto, lukerVen.PVOF.VolumenTrimDLC VolumenTrimDLC&#xA;WHERE JerarquiaProducto.Categoria = VolumenTrimDLC.Categoria AND JerarquiaProducto.Linea = VolumenTrimDLC.Linea AND JerarquiaProducto.Marca = VolumenTrimDLC.Marca" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          SQLTask:SqlStatementSource="update VolumenTrimDLC set&#xA;VolumenTrimDLC.OrphEstrLin= 0&#xA;FROM lukerVen.SD.JerarquiaProducto JerarquiaProducto, lukerVen.PVOF.VolumenTrimDLC VolumenTrimDLC&#xA;WHERE JerarquiaProducto.Categoria = VolumenTrimDLC.Categoria AND JerarquiaProducto.Linea = VolumenTrimDLC.Linea AND JerarquiaProducto.Marca = VolumenTrimDLC.Marca&#xA;&#xA;/**&#xA;&#x9;&#x9;VOLUMEN HUERFANO&#xA;**/&#xA;&#xA;update VolumenTrimDLC set&#xA;VolumenTrimDLC.OrphVol= 0&#xA;FROM lukerVen.tmp.BaseEstadisticaBcTDLC BaseEstadisticaBcTDLC, lukerVen.PVOF.VolumenTrimDLC VolumenTrimDLC&#xA;WHERE BaseEstadisticaBcTDLC.Categoria = VolumenTrimDLC.Categoria &#xA;AND BaseEstadisticaBcTDLC.Director_Canal = VolumenTrimDLC.Director_Canal &#xA;AND BaseEstadisticaBcTDLC.Linea = VolumenTrimDLC.Linea &#xA;AND BaseEstadisticaBcTDLC.Marca = VolumenTrimDLC.Marca &#xA;AND BaseEstadisticaBcTDLC.Nombre_GCliente_AD2 = VolumenTrimDLC.Nombre_GCliente_AD2 &#xA;AND BaseEstadisticaBcTDLC.NombreCanalAgrupado = VolumenTrimDLC.NombreCanalAgrupado &#xA;AND VolumenTrimDLC.PeriodoAAMM = BaseEstadisticaBcTDLC.Periodo &#xA;AND ((BaseEstadisticaBcTDLC.Kilos&gt;0))&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable

@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="L01 VolPVOF_DLC_OL"
   DTS:PackageType="5"
-  DTS:VersionBuild="20"
-  DTS:VersionGUID="{CAABF4FD-7F3F-4E57-9FC3-BFBE231673FE}">
+  DTS:VersionBuild="26"
+  DTS:VersionGUID="{43C08565-FD87-4D9D-B5FD-A480A9E69181}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -27,7 +27,7 @@
           <DTS:Password
             DTS:Name="Password"
             Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAuR1Gdsnx50KES8/66vqaKwAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAABKayfoF+j8ftOdcm9O1D46wy60gn9uTjK14gdyPAbwewAAAAAOgAAAAAIAACAAAAAtUOectOm+eX31/OisPEnCfB3t0JyJpvg9xXryFYY7hSAAAADqTqo3Z6peZkKz1XpEBrPhzE9SIBvl8hgb6dMbMqx9EEAAAABhaOT3QbsINdNpXaPFrSiX0FRgivv+nE0jladxs3/p53TDK0rlmoB1Xl7eFq+Y8vVvle96vvpQsWh8BTrp7OdM</DTS:Password>
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAuR1Gdsnx50KES8/66vqaKwAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAAAxQMktylkf6YlauLG0XVesNYf9F/bFWzFyyds7cXGn9wAAAAAOgAAAAAIAACAAAAAaxiX9TmBCjuxQKwmxBDfF43TL/QVVyBEDGp4dZqkgdyAAAABKWXFWPpf90tNB7MZdBcz6cA77k1K45yLSiAIgIeVLjkAAAADisGAEeeSXBrNCBFKYAw/z9g2xEMx8SnKIfQtq6d502+g3f3AC2yTe29lN2vysZq8UfVW7ZvVT+JiXJxRkIbS4</DTS:Password>
         </DTS:ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
@@ -47,7 +47,7 @@
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{9CA39BE0-0C5C-4241-A8FD-1222ADC552A6}"
-          SQLTask:SqlStatementSource="update VolumenTrimDLC_1423 set&#xA;  VolumenTrimDLC_1423.OrphEstrLin= 0&#xA;, VolumenTrimDLC_1423.OrphVol= 0&#xA;FROM lukerVen.tmp.BaseEstadisticaBcTDLC_1423 BaseEstadisticaBcTDLC_1423, lukerVen.PVOF.VolumenTrimDLC_1423 VolumenTrimDLC_1423&#xA;WHERE BaseEstadisticaBcTDLC_1423.Categoria = VolumenTrimDLC_1423.Categoria &#xA;AND BaseEstadisticaBcTDLC_1423.Director_Canal = VolumenTrimDLC_1423.Director_Canal &#xA;AND BaseEstadisticaBcTDLC_1423.Linea = VolumenTrimDLC_1423.Linea &#xA;AND BaseEstadisticaBcTDLC_1423.Marca = VolumenTrimDLC_1423.Marca &#xA;AND BaseEstadisticaBcTDLC_1423.Nombre_GCliente_AD2 = VolumenTrimDLC_1423.Nombre_GCliente_AD2 &#xA;AND BaseEstadisticaBcTDLC_1423.Nombre_Oficina_Ventas = VolumenTrimDLC_1423.Nombre_Oficina_Ventas &#xA;AND BaseEstadisticaBcTDLC_1423.NombreCanalAgrupado = VolumenTrimDLC_1423.NombreCanalAgrupado &#xA;AND VolumenTrimDLC_1423.PeriodoAAMM = BaseEstadisticaBcTDLC_1423.Periodo &#xA;AND ((BaseEstadisticaBcTDLC_1423.Kilos&lt;&gt;0))" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          SQLTask:SqlStatementSource="update VolumenTrimDLC_1423 set&#xA;  VolumenTrimDLC_1423.OrphEstrLin= 0&#xA;, VolumenTrimDLC_1423.OrphVol= 0&#xA;FROM lukerVen.tmp.BaseEstadisticaBcTDLC_1423 BaseEstadisticaBcTDLC_1423, lukerVen.PVOF.VolumenTrimDLC_1423 VolumenTrimDLC_1423&#xA;WHERE BaseEstadisticaBcTDLC_1423.Categoria = VolumenTrimDLC_1423.Categoria &#xA;AND BaseEstadisticaBcTDLC_1423.Director_Canal = VolumenTrimDLC_1423.Director_Canal &#xA;AND BaseEstadisticaBcTDLC_1423.Linea = VolumenTrimDLC_1423.Linea &#xA;AND BaseEstadisticaBcTDLC_1423.Marca = VolumenTrimDLC_1423.Marca &#xA;AND BaseEstadisticaBcTDLC_1423.Nombre_GCliente_AD2 = VolumenTrimDLC_1423.Nombre_GCliente_AD2 &#xA;AND BaseEstadisticaBcTDLC_1423.Nombre_Oficina_Ventas = VolumenTrimDLC_1423.Nombre_Oficina_Ventas &#xA;AND BaseEstadisticaBcTDLC_1423.NombreCanalAgrupado = VolumenTrimDLC_1423.NombreCanalAgrupado &#xA;AND VolumenTrimDLC_1423.PeriodoAAMM = BaseEstadisticaBcTDLC_1423.Periodo &#xA;AND ((BaseEstadisticaBcTDLC_1423.Kilos&lt;&gt;0))&#xA;&#xA;&#xA;&#xA;update VolumenTrimDLC_1423 set&#xA;VolumenTrimDLC_1423.OrphEstrLin= 'k'&#xA;FROM lukerVen.PVOF.BaseEstadisticaBc BaseEstadisticaBc, lukerVen.PVOF.VolumenTrimDLC_1423 VolumenTrimDLC_1423&#xA;WHERE BaseEstadisticaBc.Cod_SKU = VolumenTrimDLC_1423.Cod_SKU AND BaseEstadisticaBc.Director_Canal = VolumenTrimDLC_1423.Director_Canal AND BaseEstadisticaBc.Nombre_GCliente_AD2 = VolumenTrimDLC_1423.Nombre_GCliente_AD2 AND BaseEstadisticaBc.Nombre_Oficina_Ventas = VolumenTrimDLC_1423.Nombre_Oficina_Ventas AND BaseEstadisticaBc.NombreCanalAgrupado = VolumenTrimDLC_1423.NombreCanalAgrupado" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
@@ -120,6 +120,7 @@
 , Sum(xppt_pvof_moderno_ofi_sku.Kilos3) AS 'Kilos3'
 ,'' as [OrphEstrLin]
 ,'' as [OrphVol]
+, right('0000000000000000000'+xppt_pvof_moderno_ofi_sku.Cod_SKU_Original,18) as Cod_SKU_Original
 FROM lukerVen.dbo.xppt_pvof_moderno_ofi_sku xppt_pvof_moderno_ofi_sku
 GROUP BY xppt_pvof_moderno_ofi_sku.PeriodoAAMM
 , xppt_pvof_moderno_ofi_sku.Director_Canal
@@ -130,7 +131,8 @@ GROUP BY xppt_pvof_moderno_ofi_sku.PeriodoAAMM
 , xppt_pvof_moderno_ofi_sku.Nombre_GCliente_AD2
 , xppt_pvof_moderno_ofi_sku.Nombre_Oficina_Ventas
 , xppt_pvof_moderno_ofi_sku.Cod_SKU
-, case xppt_pvof_moderno_ofi_sku.Cod_Cliente when 'nan' then ''  when '.0' then '' else right('00000000000'+replace(xppt_pvof_moderno_ofi_sku.Cod_Cliente,'.0',''),10) end</property>
+, case xppt_pvof_moderno_ofi_sku.Cod_Cliente when 'nan' then ''  when '.0' then '' else right('00000000000'+replace(xppt_pvof_moderno_ofi_sku.Cod_Cliente,'.0',''),10) end
+, Cod_SKU_Original</property>
                 <property
                   dataType="System.String"
                   description="Variable que contiene el comando SQL para ejecutar."
@@ -315,6 +317,16 @@ GROUP BY xppt_pvof_moderno_ofi_sku.PeriodoAAMM
                       lineageId="Package\load vol from stgn o1423\load from stgn Of 1423.Outputs[Salida de origen de OLE DB].Columns[Cod_Cliente]"
                       name="Cod_Cliente"
                       truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\load vol from stgn o1423\load from stgn Of 1423.Outputs[Salida de origen de OLE DB].Columns[Cod_SKU_Original]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\load vol from stgn o1423\load from stgn Of 1423.Outputs[Salida de origen de OLE DB].ExternalColumns[Cod_SKU_Original]"
+                      length="18"
+                      lineageId="Package\load vol from stgn o1423\load from stgn Of 1423.Outputs[Salida de origen de OLE DB].Columns[Cod_SKU_Original]"
+                      name="Cod_SKU_Original"
+                      truncationRowDisposition="FailComponent" />
                   </outputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -392,6 +404,11 @@ GROUP BY xppt_pvof_moderno_ofi_sku.PeriodoAAMM
                       dataType="wstr"
                       length="10"
                       name="Cod_Cliente" />
+                    <externalMetadataColumn
+                      refId="Package\load vol from stgn o1423\load from stgn Of 1423.Outputs[Salida de origen de OLE DB].ExternalColumns[Cod_SKU_Original]"
+                      dataType="wstr"
+                      length="18"
+                      name="Cod_SKU_Original" />
                   </externalMetadataColumns>
                 </output>
                 <output
@@ -488,6 +505,12 @@ GROUP BY xppt_pvof_moderno_ofi_sku.PeriodoAAMM
                       length="1"
                       lineageId="Package\load vol from stgn o1423\load from stgn Of 1423.Outputs[Salida de error de origen de OLE DB].Columns[OrphVol]"
                       name="OrphVol" />
+                    <outputColumn
+                      refId="Package\load vol from stgn o1423\load from stgn Of 1423.Outputs[Salida de error de origen de OLE DB].Columns[Cod_SKU_Original]"
+                      dataType="wstr"
+                      length="18"
+                      lineageId="Package\load vol from stgn o1423\load from stgn Of 1423.Outputs[Salida de error de origen de OLE DB].Columns[Cod_SKU_Original]"
+                      name="Cod_SKU_Original" />
                     <outputColumn
                       refId="Package\load vol from stgn o1423\load from stgn Of 1423.Outputs[Salida de error de origen de OLE DB].Columns[ErrorCode]"
                       dataType="i4"
@@ -681,6 +704,13 @@ GROUP BY xppt_pvof_moderno_ofi_sku.PeriodoAAMM
                       cachedName="Cod_Cliente"
                       externalMetadataColumnId="Package\load vol from stgn o1423\VolumenTrimDLC Of 1423.Inputs[Entrada de destino de OLE DB].ExternalColumns[Cod_Cliente]"
                       lineageId="Package\load vol from stgn o1423\load from stgn Of 1423.Outputs[Salida de origen de OLE DB].Columns[Cod_Cliente]" />
+                    <inputColumn
+                      refId="Package\load vol from stgn o1423\VolumenTrimDLC Of 1423.Inputs[Entrada de destino de OLE DB].Columns[Cod_SKU_Original]"
+                      cachedDataType="wstr"
+                      cachedLength="18"
+                      cachedName="Cod_SKU_Original"
+                      externalMetadataColumnId="Package\load vol from stgn o1423\VolumenTrimDLC Of 1423.Inputs[Entrada de destino de OLE DB].ExternalColumns[Cod_SKU_Original]"
+                      lineageId="Package\load vol from stgn o1423\load from stgn Of 1423.Outputs[Salida de origen de OLE DB].Columns[Cod_SKU_Original]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -758,6 +788,11 @@ GROUP BY xppt_pvof_moderno_ofi_sku.PeriodoAAMM
                       dataType="wstr"
                       length="10"
                       name="Cod_Cliente" />
+                    <externalMetadataColumn
+                      refId="Package\load vol from stgn o1423\VolumenTrimDLC Of 1423.Inputs[Entrada de destino de OLE DB].ExternalColumns[Cod_SKU_Original]"
+                      dataType="wstr"
+                      length="18"
+                      name="Cod_SKU_Original" />
                   </externalMetadataColumns>
                 </input>
               </inputs>
@@ -798,6 +833,22 @@ GROUP BY xppt_pvof_moderno_ofi_sku.PeriodoAAMM
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
+      DTS:refId="Package\load vol from stgn o1423 ok"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Tarea Ejecutar SQL"
+      DTS:DTSID="{57544A0F-282A-4020-8B39-F38F27D1BDFE}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="load vol from stgn o1423 ok"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{9CA39BE0-0C5C-4241-A8FD-1222ADC552A6}"
+          SQLTask:SqlStatementSource="USE [lukerVen]&#xA;GO&#xA;&#xA;&#xA;&#xA;insert into [PVOF].VolumenTrimDLC_1423&#xA;SELECT xppt_pvof_moderno_ofi_sku.PeriodoAAMM&#xA;, xppt_pvof_moderno_ofi_sku.Director_Canal&#xA;, xppt_pvof_moderno_ofi_sku.Categoria&#xA;, xppt_pvof_moderno_ofi_sku.Marca&#xA;, xppt_pvof_moderno_ofi_sku.Linea&#xA;, xppt_pvof_moderno_ofi_sku.NombreCanalAgrupado&#xA;, xppt_pvof_moderno_ofi_sku.Nombre_GCliente_AD2&#xA;, xppt_pvof_moderno_ofi_sku.Nombre_Oficina_Ventas&#xA;, right('0000000000000000000'+xppt_pvof_moderno_ofi_sku.Cod_SKU,18) as Cod_SKU&#xA;, case xppt_pvof_moderno_ofi_sku.Cod_Cliente when 'nan' then ''  when '.0' then '' else right('00000000000'+replace(xppt_pvof_moderno_ofi_sku.Cod_Cliente,'.0',''),10) end  as Cod_Cliente&#xA;, Sum(xppt_pvof_moderno_ofi_sku.Kilos1) AS 'Kilos1'&#xA;, Sum(xppt_pvof_moderno_ofi_sku.Kilos2) AS 'Kilos2'&#xA;, Sum(xppt_pvof_moderno_ofi_sku.Kilos3) AS 'Kilos3'&#xA;,'' as [OrphEstrLin]&#xA;,'' as [OrphVol]&#xA;, right('0000000000000000000'+xppt_pvof_moderno_ofi_sku.Cod_SKU_Original,18) as Cod_SKU_Original&#xA;FROM lukerVen.dbo.xppt_pvof_moderno_ofi_sku xppt_pvof_moderno_ofi_sku&#xA;GROUP BY xppt_pvof_moderno_ofi_sku.PeriodoAAMM&#xA;, xppt_pvof_moderno_ofi_sku.Director_Canal&#xA;, xppt_pvof_moderno_ofi_sku.Categoria&#xA;, xppt_pvof_moderno_ofi_sku.Marca&#xA;, xppt_pvof_moderno_ofi_sku.Linea&#xA;, xppt_pvof_moderno_ofi_sku.NombreCanalAgrupado&#xA;, xppt_pvof_moderno_ofi_sku.Nombre_GCliente_AD2&#xA;, xppt_pvof_moderno_ofi_sku.Nombre_Oficina_Ventas&#xA;, xppt_pvof_moderno_ofi_sku.Cod_SKU&#xA;, case xppt_pvof_moderno_ofi_sku.Cod_Cliente when 'nan' then ''  when '.0' then '' else right('00000000000'+replace(xppt_pvof_moderno_ofi_sku.Cod_Cliente,'.0',''),10) end&#xA;, Cod_SKU_Original&#xA;&#xA;having  Sum(xppt_pvof_moderno_ofi_sku.Kilos1) &lt;&gt;0&#xA;or Sum(xppt_pvof_moderno_ofi_sku.Kilos2)  &lt;&gt;0&#xA;or Sum(xppt_pvof_moderno_ofi_sku.Kilos3) &lt;&gt;0" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
       DTS:refId="Package\trnc tbl Ofi 1423"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="Tarea Ejecutar SQL"
@@ -810,7 +861,7 @@ GROUP BY xppt_pvof_moderno_ofi_sku.PeriodoAAMM
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{9CA39BE0-0C5C-4241-A8FD-1222ADC552A6}"
-          SQLTask:SqlStatementSource="USE [lukerVen]&#xA;GO&#xA;&#xA;DELETE FROM [PVOF].VolumenTrimDLC_1423&#xA;where PeriodoAAMM = (&#xA;&#xA;SELECT Max(xppt_pvof_moderno_ofi_sku.PeriodoAAMM) AS 'PeriodoAAMM'&#xA;FROM xppt_pvof_moderno_ofi_sku xppt_pvof_moderno_ofi_sku&#xA;&#xA;)&#xA;GO&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          SQLTask:SqlStatementSource="USE [lukerVen]&#xA;GO&#xA;&#xA;DELETE FROM [PVOF].VolumenTrimDLC_1423&#xA;/**&#xA;where PeriodoAAMM = (&#xA;&#xA;SELECT Max(xppt_pvof_moderno_ofi_sku.PeriodoAAMM) AS 'PeriodoAAMM'&#xA;FROM xppt_pvof_moderno_ofi_sku xppt_pvof_moderno_ofi_sku&#xA;&#xA;)&#xA;**/&#xA;GO&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
   </DTS:Executables>
@@ -822,12 +873,13 @@ GROUP BY xppt_pvof_moderno_ofi_sku.PeriodoAAMM
       DTS:From="Package\trnc tbl Ofi 1423"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Restricción"
-      DTS:To="Package\load vol from stgn o1423" />
+      DTS:To="Package\load vol from stgn o1423"
+      DTS:Value="1" />
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Restricción 1]"
       DTS:CreationName=""
-      DTS:DTSID="{A4527155-CEAF-4A32-B390-D0FA6557D817}"
-      DTS:From="Package\load vol from stgn o1423"
+      DTS:DTSID="{7C94C6B5-50A1-42EB-8335-0C05AAA3827E}"
+      DTS:From="Package\load vol from stgn o1423 ok"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Restricción 1"
       DTS:To="Package\jeraquia huerfana 1423" />
@@ -839,6 +891,14 @@ GROUP BY xppt_pvof_moderno_ofi_sku.PeriodoAAMM
       DTS:LogicalAnd="True"
       DTS:ObjectName="Restricción 2"
       DTS:To="Package\trnc tbl Ofi 1423" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Restricción 3]"
+      DTS:CreationName=""
+      DTS:DTSID="{33D2775E-0212-483A-983D-29A6D1606998}"
+      DTS:From="Package\trnc tbl Ofi 1423"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Restricción 3"
+      DTS:To="Package\load vol from stgn o1423 ok" />
   </DTS:PrecedenceConstraints>
   <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
 <!--Esta sección CDATA contiene la información de diseño del paquete. Esta sección incluye información como, por ejemplo, las coordenadas (x,y), el ancho y el alto.-->
@@ -851,7 +911,7 @@ GROUP BY xppt_pvof_moderno_ofi_sku.PeriodoAAMM
     design-time-name="Package">
     <LayoutInfo>
       <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="161.6,41.6"
           Id="Package\jeraquia huerfana 1423"
@@ -874,42 +934,22 @@ GROUP BY xppt_pvof_moderno_ofi_sku.PeriodoAAMM
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,59.9999999999999"
+              EndConnector="0,60"
               Start="0,0"
-              End="0,52.4999999999999">
+              End="0,52.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,52.4999999999999" />
+                    End="0,52.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package.PrecedenceConstraints[Restricción 1]"
-          TopLeft="103.5,250.3">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,59.9999999999999"
-              Start="0,0"
-              End="0,52.4999999999999">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,52.4999999999999" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="-11.52869140625,21.5390625,23.0573828125,9.421875"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -934,6 +974,78 @@ GROUP BY xppt_pvof_moderno_ofi_sku.PeriodoAAMM
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
+        <NodeLayout
+          Size="210.4,41.6"
+          Id="Package\load vol from stgn o1423 ok"
+          TopLeft="268.571433145173,218.400003062978" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Restricción 3]"
+          TopLeft="126.433333333333,148.7">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="247.338099811839,69.7000030629776"
+              Start="0,0"
+              End="247.338099811839,62.2000030629776">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,24.3345664625583" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,24.3345664625583"
+                    Point2="0,28.3345664625583"
+                    Point3="4,28.3345664625583" />
+                  <mssgle:LineSegment
+                    End="243.338099811839,28.3345664625583" />
+                  <mssgle:CubicBezierSegment
+                    Point1="243.338099811839,28.3345664625583"
+                    Point2="247.338099811839,28.3345664625583"
+                    Point3="247.338099811839,32.3345664625583" />
+                  <mssgle:LineSegment
+                    End="247.338099811839,62.2000030629776" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Restricción 1]"
+          TopLeft="373.771433145173,260.000003062978">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-270.271433145173,50.2999969370225"
+              Start="0,0"
+              End="-270.271433145173,42.7999969370225">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,21.1499984685112" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,21.1499984685112"
+                    Point2="0,25.1499984685112"
+                    Point3="-4,25.1499984685112" />
+                  <mssgle:LineSegment
+                    End="-266.271433145173,25.1499984685112" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-266.271433145173,25.1499984685112"
+                    Point2="-270.271433145173,25.1499984685112"
+                    Point3="-270.271433145173,29.1499984685112" />
+                  <mssgle:LineSegment
+                    End="-270.271433145173,42.7999969370225" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </Package>
@@ -941,15 +1053,15 @@ GROUP BY xppt_pvof_moderno_ofi_sku.PeriodoAAMM
     design-time-name="Package\load vol from stgn o1423">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
-        <NodeLayout
-          Size="188,41.6"
-          Id="Package\load vol from stgn o1423\load from stgn Of 1423"
-          TopLeft="80.0000013623919,75.8588245933031" />
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="200.8,41.6"
           Id="Package\load vol from stgn o1423\VolumenTrimDLC Of 1423"
           TopLeft="80.5714299435518,178.023531908478" />
+        <NodeLayout
+          Size="188,41.6"
+          Id="Package\load vol from stgn o1423\load from stgn Of 1423"
+          TopLeft="80.0000013623919,75.8588245933031" />
         <EdgeLayout
           Id="Package\load vol from stgn o1423.Paths[Salida de origen de OLE DB]"
           TopLeft="177.485715652972,117.458824593303">
@@ -969,9 +1081,7 @@ GROUP BY xppt_pvof_moderno_ofi_sku.PeriodoAAMM
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-23.08947265625,20.8057911575875,46.1789453125,11.453125"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>

@@ -1,0 +1,74 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="2/13/2020 2:32:57 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="LAPTOP-MFGK5CPU"
+  DTS:CreatorName="LAPTOP-MFGK5CPU\fvalb"
+  DTS:DTSID="{87A893EC-F11F-47FE-B1C0-3D1A72B2263D}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.1300.371"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="X01 ExploPVOF OfiLid 1423"
+  DTS:PackageType="5"
+  DTS:VersionBuild="16"
+  DTS:VersionGUID="{AF09026E-E021-437B-B1A0-C07406EBBE0B}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[192.168.5.23\B2C.lukerVen.ASSUser]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{CDB2655E-29CC-4AAA-8C8D-2B4EF086895C}"
+      DTS:ObjectName="192.168.5.23\B2C.lukerVen.ASSUser">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=192.168.5.23\B2C;User ID=ASSUser;Initial Catalog=lukerVen;Provider=SQLNCLI11.1;Persist Security Info=True;Auto Translate=False;">
+          <DTS:Password
+            DTS:Name="Password"
+            Sensitive="1"
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAuR1Gdsnx50KES8/66vqaKwAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAACWt6XETuFgab2G6frTupiH6+38OXm3VGxKw/667Fr3PgAAAAAOgAAAAAIAACAAAADFcxh1AaN9yaR8T/MgGoB1D5amhEUPE+jklqXifep+HiAAAABG7Xjaz6Sv54uPC4EnXWGMs3QRJr0hB1C2a4WHNN6kkUAAAAA2cvDFHvy0MAV/Ae9gJ4W9zhEPkQx2vv0CQ8fJ4IKJmHiGe3zIWnYDMr4WCs8uoXdFXdYPRW3soU0HapQ/YR6n</DTS:Password>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Explo trim OfLid 1423"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Tarea Ejecutar SQL"
+      DTS:DTSID="{C3FF6610-D5B2-4F36-A6B4-3304DFF4D5E1}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Explo trim OfLid 1423"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{CDB2655E-29CC-4AAA-8C8D-2B4EF086895C}"
+          SQLTask:SqlStatementSource="&#xA;&#xA;declare @PeriodoPVO varchar(6), @MesCalc_I int, @MesCalc_F int, @CorteMes1 date, @KGMes varchar(10), @Conta int&#xA;&#xA;SELECT &#xA;  @PeriodoPVO  = Parametros.PeriodoAAMM&#xA;, @MesCalc_I = Parametros.MesCalc_I&#xA;, @MesCalc_F = Parametros.MesCalc_F&#xA;FROM lukerVen.PVOF.Parametros Parametros&#xA;WHERE (Parametros.EstadoProceso='1')&#xA;&#xA;&#xA;&#xA;--*** Sht_Director_Canal in VolumenTrimDLC_1423&#xA;&#xA;select @Conta=1&#xA;&#xA;&#xA;while @Conta&lt;= (@MesCalc_F+1-@MesCalc_I)&#xA;begin&#xA;&#x9;select &#x9;@KGMes='Kilos'+ltrim(str(@Conta))&#xA;&#x9;&#xA;&#x9;select @CorteMes1= ( SELECT Max(Time.PK_Date) AS 'Max of PK_Date'&#xA;&#x9;&#x9;FROM lukerVen.dbo.Time Time&#xA;&#x9;&#x9;WHERE (year(PK_Date)=left(@PeriodoPVO,4)) AND (month(PK_Date)=@MesCalc_I-1+@Conta)&#xA;&#x9;)&#xA;&#x9;print(@Conta)&#xA;&#x9;print(@CorteMes1)&#xA;&#x9;print(@KGMes)&#xA;&#xA;delete PresupuestoTRIM&#xA;FROM lukerVen.PVOF.PresupuestoTRIM PresupuestoTRIM&#xA;where Sht_Director_Canal  in (&#xA;&#x9;SELECT DISTINCT VolumenTrimDLC_1423.Director_Canal&#xA;&#x9;FROM lukerVen.PVOF.VolumenTrimDLC_1423 VolumenTrimDLC_1423&#xA;) and FechaCorte=@CorteMes1&#xA;&#xA;&#xA;INSERT INTO [PVOF].[PresupuestoTRIM]&#xA;SELECT 'B2C'&#xA;, left(VolumenTrimDLC_1423.PeriodoAAMM,4) AS 'ano'&#xA;, @CorteMes1&#xA;, BaseEstadisticaBc.Cod_Cliente&#xA;, BaseEstadisticaBc.JerarquiaProducto&#xA;, VolumenTrimDLC_1423.Cod_SKU_Original&#xA;&#xA;, sum(case @Conta when 1 then VolumenTrimDLC_1423.Kilos1 when 2 then VolumenTrimDLC_1423.Kilos2 when 3 then VolumenTrimDLC_1423.Kilos3 else 0 end  / BaseEstadisticaBcTDLC_1423.Kilos * BaseEstadisticaBc.Kilos)&#xA;&#xA;, 0, 0, '', ClientesVW.Cod_Oficina_Ventas, BaseEstadisticaBc.Cod_Canal, ClientesVW.Cod_GCliente, 0, 'Exp', VolumenTrimDLC_1423.Director_Canal&#xA;&#xA;FROM lukerVen.PVOF.BaseEstadisticaBc BaseEstadisticaBc, lukerVen.tmp.BaseEstadisticaBcTDLC_1423 BaseEstadisticaBcTDLC_1423, lukerVen.SD.ClientesVW ClientesVW, lukerVen.PVOF.VolumenTrimDLC_1423 VolumenTrimDLC_1423&#xA;WHERE BaseEstadisticaBc.Categoria = VolumenTrimDLC_1423.Categoria AND BaseEstadisticaBc.Cod_SKU = VolumenTrimDLC_1423.Cod_SKU AND BaseEstadisticaBc.Director_Canal = VolumenTrimDLC_1423.Director_Canal AND BaseEstadisticaBc.Linea = VolumenTrimDLC_1423.Linea AND BaseEstadisticaBc.Marca = VolumenTrimDLC_1423.Marca AND BaseEstadisticaBc.Nombre_GCliente_AD2 = VolumenTrimDLC_1423.Nombre_GCliente_AD2 AND BaseEstadisticaBc.Nombre_Oficina_Ventas = VolumenTrimDLC_1423.Nombre_Oficina_Ventas AND BaseEstadisticaBc.NombreCanalAgrupado = VolumenTrimDLC_1423.NombreCanalAgrupado AND VolumenTrimDLC_1423.PeriodoAAMM = BaseEstadisticaBc.Periodo AND BaseEstadisticaBcTDLC_1423.Categoria = BaseEstadisticaBc.Categoria AND BaseEstadisticaBcTDLC_1423.Cod_SKU = BaseEstadisticaBc.Cod_SKU AND BaseEstadisticaBcTDLC_1423.Director_Canal = BaseEstadisticaBc.Director_Canal AND BaseEstadisticaBcTDLC_1423.Linea = BaseEstadisticaBc.Linea AND BaseEstadisticaBcTDLC_1423.Marca = BaseEstadisticaBc.Marca AND BaseEstadisticaBcTDLC_1423.Nombre_GCliente_AD2 = BaseEstadisticaBc.Nombre_GCliente_AD2 AND BaseEstadisticaBcTDLC_1423.Nombre_Oficina_Ventas = BaseEstadisticaBc.Nombre_Oficina_Ventas AND BaseEstadisticaBcTDLC_1423.NombreCanalAgrupado = BaseEstadisticaBc.NombreCanalAgrupado AND BaseEstadisticaBcTDLC_1423.Periodo = BaseEstadisticaBc.Periodo AND BaseEstadisticaBc.Cod_Cliente = ClientesVW.Cod_Cliente&#xA;-- and (VolumenTrimDLC_1423.PeriodoAAMM=@PeriodoPVO)&#xA;and BaseEstadisticaBcTDLC_1423.Kilos&lt;&gt;0&#xA;group by&#xA;  left(VolumenTrimDLC_1423.PeriodoAAMM,4) &#xA;, BaseEstadisticaBc.Cod_Cliente&#xA;, BaseEstadisticaBc.JerarquiaProducto&#xA;, BaseEstadisticaBc.Cod_SKU&#xA;, ClientesVW.Cod_Oficina_Ventas, BaseEstadisticaBc.Cod_Canal, ClientesVW.Cod_GCliente&#xA;, VolumenTrimDLC_1423.Director_Canal&#xA;, VolumenTrimDLC_1423.Cod_SKU_Original&#xA;&#xA;&#x9;select @Conta=@Conta+1&#xA;end" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--Esta sección CDATA contiene la información de diseño del paquete. Esta sección incluye información como, por ejemplo, las coordenadas (x,y), el ancho y el alto.-->
+<!--Si edita manualmente esta sección y comete un error, puede eliminarlo. -->
+<!--El paquete podrá cargarse normalmente, pero se perderá la información de diseño anterior y el diseñador reorganizará los elementos automáticamente en la superficie de diseño.-->
+<Objects
+  Version="8">
+  <!--Cada uno de los nodos siguientes contiene propiedades que no afectan al comportamiento en tiempo de ejecución.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="180.8,41.6"
+          Id="Package\Explo trim OfLid 1423"
+          TopLeft="44.0000007493156,45.270588870197" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

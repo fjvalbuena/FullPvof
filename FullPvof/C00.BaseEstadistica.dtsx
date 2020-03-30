@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="C00 BaseEstadistica"
   DTS:PackageType="5"
-  DTS:VersionBuild="9"
-  DTS:VersionGUID="{950F51DB-B0D6-4B5F-9AB3-85B8AFCA9514}">
+  DTS:VersionBuild="12"
+  DTS:VersionGUID="{225477B4-6DDB-423E-B844-119B83767307}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -27,7 +27,7 @@
           <DTS:Password
             DTS:Name="Password"
             Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAuR1Gdsnx50KES8/66vqaKwAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAACHnPn7PQFPPQA6ZnGd1phqios+pNLRNzH2SY7CAFI8RQAAAAAOgAAAAAIAACAAAABZkxWKP+8VFRxtBGY2WF7DRXcWoJeA6y7ZvGRzA9rhTSAAAABH09zisCkC9nIysjnrQmJ84Ix2uLxmdI5ucWxWo0NxkkAAAAC+btgyfA20K260apRsxJZpM1OkRt1/ONoUw5r3uWk1JyjLzkYPMV/fZFbR2ImhII7C39mHsupLUQyhzodIFkyg</DTS:Password>
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAuR1Gdsnx50KES8/66vqaKwAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAABoafKsfKIFlg8unM4oaBbg3jrnuh6XYJUW68BIgo5LGQAAAAAOgAAAAAIAACAAAACbOOb46bdd1vyUJBczmdjmrVv8D3vgQ5xq+XEDEqxSeCAAAABNJjOwlEohCPDOmfH9F2P3kSP8ltOfLegs7yGq5yawfEAAAACw4EWkfKu2ujdcrjyOmRZ8rCVdEL0ErWiVlUDt2dDaNSMOsatMQ0VYHXcDLjCzl4TP9pKsKpeAFf7e3wKuBinW</DTS:Password>
         </DTS:ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
@@ -49,11 +49,11 @@
           version="1">
           <components>
             <component
-              refId="Package\load Periodo base\BaseEstadisticaB0"
+              refId="Package\load Periodo base\BaseEstadisticaB0 garnica"
               componentClassID="Microsoft.OLEDBDestination"
               contactInfo="Destino de OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;4"
               description="Destino de OLE DB"
-              name="BaseEstadisticaB0"
+              name="BaseEstadisticaB0 garnica"
               usesDispositions="true"
               version="4">
               <properties>
@@ -106,7 +106,7 @@
               </properties>
               <connections>
                 <connection
-                  refId="Package\load Periodo base\BaseEstadisticaB0.Connections[OleDbConnection]"
+                  refId="Package\load Periodo base\BaseEstadisticaB0 garnica.Connections[OleDbConnection]"
                   connectionManagerID="Package.ConnectionManagers[192.168.5.23\B2C.lukerVen.ASSUser]"
                   connectionManagerRefId="Package.ConnectionManagers[192.168.5.23\B2C.lukerVen.ASSUser]"
                   description="La conexión de tiempo de ejecución OLE DB usada para obtener acceso a la base de datos."
@@ -114,107 +114,107 @@
               </connections>
               <inputs>
                 <input
-                  refId="Package\load Periodo base\BaseEstadisticaB0.Inputs[Entrada de destino de OLE DB]"
+                  refId="Package\load Periodo base\BaseEstadisticaB0 garnica.Inputs[Entrada de destino de OLE DB]"
                   errorOrTruncationOperation="Insertar"
                   errorRowDisposition="FailComponent"
                   hasSideEffects="true"
                   name="Entrada de destino de OLE DB">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\load Periodo base\BaseEstadisticaB0.Inputs[Entrada de destino de OLE DB].Columns[Cod_Cliente]"
+                      refId="Package\load Periodo base\BaseEstadisticaB0 garnica.Inputs[Entrada de destino de OLE DB].Columns[Cod_Cliente]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="10"
                       cachedName="Cod_Cliente"
-                      externalMetadataColumnId="Package\load Periodo base\BaseEstadisticaB0.Inputs[Entrada de destino de OLE DB].ExternalColumns[Cod_Cliente]"
+                      externalMetadataColumnId="Package\load Periodo base\BaseEstadisticaB0 garnica.Inputs[Entrada de destino de OLE DB].ExternalColumns[Cod_Cliente]"
                       lineageId="Package\load Periodo base\Sel FactW.Outputs[Salida de origen de OLE DB].Columns[Cod_Cliente]" />
                     <inputColumn
-                      refId="Package\load Periodo base\BaseEstadisticaB0.Inputs[Entrada de destino de OLE DB].Columns[JerarquiaProducto]"
+                      refId="Package\load Periodo base\BaseEstadisticaB0 garnica.Inputs[Entrada de destino de OLE DB].Columns[JerarquiaProducto]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="18"
                       cachedName="JerarquiaProducto"
-                      externalMetadataColumnId="Package\load Periodo base\BaseEstadisticaB0.Inputs[Entrada de destino de OLE DB].ExternalColumns[JerarquiaProducto]"
+                      externalMetadataColumnId="Package\load Periodo base\BaseEstadisticaB0 garnica.Inputs[Entrada de destino de OLE DB].ExternalColumns[JerarquiaProducto]"
                       lineageId="Package\load Periodo base\Sel FactW.Outputs[Salida de origen de OLE DB].Columns[JerarquiaProducto]" />
                     <inputColumn
-                      refId="Package\load Periodo base\BaseEstadisticaB0.Inputs[Entrada de destino de OLE DB].Columns[Cod_SKU]"
+                      refId="Package\load Periodo base\BaseEstadisticaB0 garnica.Inputs[Entrada de destino de OLE DB].Columns[Cod_SKU]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="18"
                       cachedName="Cod_SKU"
-                      externalMetadataColumnId="Package\load Periodo base\BaseEstadisticaB0.Inputs[Entrada de destino de OLE DB].ExternalColumns[Cod_SKU]"
+                      externalMetadataColumnId="Package\load Periodo base\BaseEstadisticaB0 garnica.Inputs[Entrada de destino de OLE DB].ExternalColumns[Cod_SKU]"
                       lineageId="Package\load Periodo base\Sel FactW.Outputs[Salida de origen de OLE DB].Columns[Cod_SKU]" />
                     <inputColumn
-                      refId="Package\load Periodo base\BaseEstadisticaB0.Inputs[Entrada de destino de OLE DB].Columns[FechaPedido]"
+                      refId="Package\load Periodo base\BaseEstadisticaB0 garnica.Inputs[Entrada de destino de OLE DB].Columns[FechaPedido]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="8"
                       cachedName="FechaPedido"
-                      externalMetadataColumnId="Package\load Periodo base\BaseEstadisticaB0.Inputs[Entrada de destino de OLE DB].ExternalColumns[FechaPedido]"
+                      externalMetadataColumnId="Package\load Periodo base\BaseEstadisticaB0 garnica.Inputs[Entrada de destino de OLE DB].ExternalColumns[FechaPedido]"
                       lineageId="Package\load Periodo base\Sel FactW.Outputs[Salida de origen de OLE DB].Columns[FechaPedido]" />
                     <inputColumn
-                      refId="Package\load Periodo base\BaseEstadisticaB0.Inputs[Entrada de destino de OLE DB].Columns[Kilos]"
+                      refId="Package\load Periodo base\BaseEstadisticaB0 garnica.Inputs[Entrada de destino de OLE DB].Columns[Kilos]"
                       cachedDataType="numeric"
                       cachedName="Kilos"
                       cachedPrecision="38"
                       cachedScale="3"
-                      externalMetadataColumnId="Package\load Periodo base\BaseEstadisticaB0.Inputs[Entrada de destino de OLE DB].ExternalColumns[Kilos]"
+                      externalMetadataColumnId="Package\load Periodo base\BaseEstadisticaB0 garnica.Inputs[Entrada de destino de OLE DB].ExternalColumns[Kilos]"
                       lineageId="Package\load Periodo base\Sel FactW.Outputs[Salida de origen de OLE DB].Columns[Kilos]" />
                     <inputColumn
-                      refId="Package\load Periodo base\BaseEstadisticaB0.Inputs[Entrada de destino de OLE DB].Columns[PedidoNum]"
+                      refId="Package\load Periodo base\BaseEstadisticaB0 garnica.Inputs[Entrada de destino de OLE DB].Columns[PedidoNum]"
                       cachedDataType="i8"
                       cachedName="PedidoNum"
-                      externalMetadataColumnId="Package\load Periodo base\BaseEstadisticaB0.Inputs[Entrada de destino de OLE DB].ExternalColumns[PedidoNum]"
+                      externalMetadataColumnId="Package\load Periodo base\BaseEstadisticaB0 garnica.Inputs[Entrada de destino de OLE DB].ExternalColumns[PedidoNum]"
                       lineageId="Package\load Periodo base\Sel FactW.Outputs[Salida de origen de OLE DB].Columns[PedidoNum]" />
                     <inputColumn
-                      refId="Package\load Periodo base\BaseEstadisticaB0.Inputs[Entrada de destino de OLE DB].Columns[PeriodoAAMM]"
+                      refId="Package\load Periodo base\BaseEstadisticaB0 garnica.Inputs[Entrada de destino de OLE DB].Columns[PeriodoAAMM]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="6"
                       cachedName="PeriodoAAMM"
-                      externalMetadataColumnId="Package\load Periodo base\BaseEstadisticaB0.Inputs[Entrada de destino de OLE DB].ExternalColumns[Periodo]"
+                      externalMetadataColumnId="Package\load Periodo base\BaseEstadisticaB0 garnica.Inputs[Entrada de destino de OLE DB].ExternalColumns[Periodo]"
                       lineageId="Package\load Periodo base\Sel FactW.Outputs[Salida de origen de OLE DB].Columns[PeriodoAAMM]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
                     <externalMetadataColumn
-                      refId="Package\load Periodo base\BaseEstadisticaB0.Inputs[Entrada de destino de OLE DB].ExternalColumns[Periodo]"
+                      refId="Package\load Periodo base\BaseEstadisticaB0 garnica.Inputs[Entrada de destino de OLE DB].ExternalColumns[Periodo]"
                       codePage="1252"
                       dataType="str"
                       length="6"
                       name="Periodo" />
                     <externalMetadataColumn
-                      refId="Package\load Periodo base\BaseEstadisticaB0.Inputs[Entrada de destino de OLE DB].ExternalColumns[Cod_Cliente]"
+                      refId="Package\load Periodo base\BaseEstadisticaB0 garnica.Inputs[Entrada de destino de OLE DB].ExternalColumns[Cod_Cliente]"
                       codePage="1252"
                       dataType="str"
                       length="10"
                       name="Cod_Cliente" />
                     <externalMetadataColumn
-                      refId="Package\load Periodo base\BaseEstadisticaB0.Inputs[Entrada de destino de OLE DB].ExternalColumns[JerarquiaProducto]"
+                      refId="Package\load Periodo base\BaseEstadisticaB0 garnica.Inputs[Entrada de destino de OLE DB].ExternalColumns[JerarquiaProducto]"
                       codePage="1252"
                       dataType="str"
                       length="18"
                       name="JerarquiaProducto" />
                     <externalMetadataColumn
-                      refId="Package\load Periodo base\BaseEstadisticaB0.Inputs[Entrada de destino de OLE DB].ExternalColumns[Cod_SKU]"
+                      refId="Package\load Periodo base\BaseEstadisticaB0 garnica.Inputs[Entrada de destino de OLE DB].ExternalColumns[Cod_SKU]"
                       codePage="1252"
                       dataType="str"
                       length="18"
                       name="Cod_SKU" />
                     <externalMetadataColumn
-                      refId="Package\load Periodo base\BaseEstadisticaB0.Inputs[Entrada de destino de OLE DB].ExternalColumns[FechaPedido]"
+                      refId="Package\load Periodo base\BaseEstadisticaB0 garnica.Inputs[Entrada de destino de OLE DB].ExternalColumns[FechaPedido]"
                       codePage="1252"
                       dataType="str"
                       length="8"
                       name="FechaPedido" />
                     <externalMetadataColumn
-                      refId="Package\load Periodo base\BaseEstadisticaB0.Inputs[Entrada de destino de OLE DB].ExternalColumns[Kilos]"
+                      refId="Package\load Periodo base\BaseEstadisticaB0 garnica.Inputs[Entrada de destino de OLE DB].ExternalColumns[Kilos]"
                       dataType="numeric"
                       name="Kilos"
                       precision="38"
                       scale="3" />
                     <externalMetadataColumn
-                      refId="Package\load Periodo base\BaseEstadisticaB0.Inputs[Entrada de destino de OLE DB].ExternalColumns[PedidoNum]"
+                      refId="Package\load Periodo base\BaseEstadisticaB0 garnica.Inputs[Entrada de destino de OLE DB].ExternalColumns[PedidoNum]"
                       dataType="i8"
                       name="PedidoNum" />
                   </externalMetadataColumns>
@@ -222,22 +222,22 @@
               </inputs>
               <outputs>
                 <output
-                  refId="Package\load Periodo base\BaseEstadisticaB0.Outputs[Salida de error de destino de OLE DB]"
+                  refId="Package\load Periodo base\BaseEstadisticaB0 garnica.Outputs[Salida de error de destino de OLE DB]"
                   exclusionGroup="1"
                   isErrorOut="true"
                   name="Salida de error de destino de OLE DB"
-                  synchronousInputId="Package\load Periodo base\BaseEstadisticaB0.Inputs[Entrada de destino de OLE DB]">
+                  synchronousInputId="Package\load Periodo base\BaseEstadisticaB0 garnica.Inputs[Entrada de destino de OLE DB]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\load Periodo base\BaseEstadisticaB0.Outputs[Salida de error de destino de OLE DB].Columns[ErrorCode]"
+                      refId="Package\load Periodo base\BaseEstadisticaB0 garnica.Outputs[Salida de error de destino de OLE DB].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\load Periodo base\BaseEstadisticaB0.Outputs[Salida de error de destino de OLE DB].Columns[ErrorCode]"
+                      lineageId="Package\load Periodo base\BaseEstadisticaB0 garnica.Outputs[Salida de error de destino de OLE DB].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\load Periodo base\BaseEstadisticaB0.Outputs[Salida de error de destino de OLE DB].Columns[ErrorColumn]"
+                      refId="Package\load Periodo base\BaseEstadisticaB0 garnica.Outputs[Salida de error de destino de OLE DB].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\load Periodo base\BaseEstadisticaB0.Outputs[Salida de error de destino de OLE DB].Columns[ErrorColumn]"
+                      lineageId="Package\load Periodo base\BaseEstadisticaB0 garnica.Outputs[Salida de error de destino de OLE DB].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -309,10 +309,14 @@ FROM        SD.FacturasW AS Facturas INNER JOIN
 , lukerVen.PVOF.Parametros Parametros
 
 where  ( (Parametros.EstadoProceso=1)
-AND (Facturas.FechaFactura&gt;=Parametros.PeriodoEstI) 
-AND (Facturas.FechaFactura&lt;=Parametros.PeriodoEstF) 
-AND (TipoDocumento.NombreTipoDocumento Like 'Factura%') 
+AND ( 
+        ((Facturas.FechaFactura&gt;=Parametros.PeriodoEstI) AND (Facturas.FechaFactura&lt;=Parametros.PeriodoEstF) ) 
+		or    ((Clientes.Lider_Regional='GARNICA ROJAS JONATHAN') and (Facturas.FechaFactura&gt;=Parametros.PeriodoEstI))
+		or    ((Productos.Linea='Verduras') and (Facturas.FechaFactura&gt;=Parametros.PeriodoEstI))
+    )
+  AND (TipoDocumento.NombreTipoDocumento Like 'Factura%') 
 )
+
 group by 
   Parametros.PeriodoAAMM
 , Productos.JerarquiaProducto
@@ -548,7 +552,7 @@ having sum(Facturas.Kilos) &lt;&gt;0</property>
           <paths>
             <path
               refId="Package\load Periodo base.Paths[Salida de origen de OLE DB]"
-              endId="Package\load Periodo base\BaseEstadisticaB0.Inputs[Entrada de destino de OLE DB]"
+              endId="Package\load Periodo base\BaseEstadisticaB0 garnica.Inputs[Entrada de destino de OLE DB]"
               name="Salida de origen de OLE DB"
               startId="Package\load Periodo base\Sel FactW.Outputs[Salida de origen de OLE DB]" />
           </paths>
@@ -635,25 +639,25 @@ having sum(Facturas.Kilos) &lt;&gt;0</property>
         <NodeLayout
           Size="124.8,41.6"
           Id="Package\load Periodo base\Sel FactW"
-          TopLeft="34.2857148695965,20.18823557725" />
+          TopLeft="43.1,5.49999999999995" />
         <NodeLayout
-          Size="162.4,41.6"
-          Id="Package\load Periodo base\BaseEstadisticaB0"
-          TopLeft="23.4285718275576,91.7647071693183" />
+          Size="200,41.6"
+          Id="Package\load Periodo base\BaseEstadisticaB0 garnica"
+          TopLeft="5.50000000000001,107.1" />
         <EdgeLayout
           Id="Package\load Periodo base.Paths[Salida de origen de OLE DB]"
-          TopLeft="100.657143348577,61.78823557725">
+          TopLeft="105.5,47.1">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,29.9764715920683"
+              EndConnector="0,59.9999999999999"
               Start="0,0"
-              End="0,22.4764715920683">
+              End="0,52.4999999999999">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,22.4764715920683" />
+                    End="0,52.4999999999999" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -666,7 +670,7 @@ having sum(Facturas.Kilos) &lt;&gt;0</property>
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\load Periodo base\BaseEstadisticaB0">
+    design-time-name="Package\load Periodo base\BaseEstadisticaB0 garnica">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>

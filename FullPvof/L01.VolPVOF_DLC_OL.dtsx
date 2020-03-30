@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="L01 VolPVOF_DLC_OL"
   DTS:PackageType="5"
-  DTS:VersionBuild="15"
-  DTS:VersionGUID="{C3846BAC-1840-4F25-89D7-2B1EC439E585}">
+  DTS:VersionBuild="16"
+  DTS:VersionGUID="{A5618828-297F-4E5C-A692-C53665F63510}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -27,7 +27,7 @@
           <DTS:Password
             DTS:Name="Password"
             Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAuR1Gdsnx50KES8/66vqaKwAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAABIk2HGsJVM6HlrDgSaUzBXeHehtpHK2VzUyTx4eAl73gAAAAAOgAAAAAIAACAAAACpyvePnpYqBSGYKjDo5nvXeTshJ/gIw/dmpW+DQYF+MyAAAAAgqOxpx7pras2oXJOiunSBB2OvS8n6zKuLuqtW0j0smUAAAAC17eBpZRfBhjD84Q0alm8pIEzvFZT0uvF6tCN1MAkzp0/d6WkKmbicag/C71o908AtybsjRKmJ/ixUyCqE0WU8</DTS:Password>
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAuR1Gdsnx50KES8/66vqaKwAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAABEiXyMx8JVs3hTz+DD98qF6psL72FM/jKalRFpBK18PQAAAAAOgAAAAAIAACAAAADGHEiWMvp6f+Id0U3r2H7eQlRs82XcM6Zx20ehoy5AhCAAAADgHHUBok/smj9hduI7ADyg31XI1G1fN1UDTM4IxYioDUAAAAAjQHHnOq2UQUey8q7hNdkrGZXGKZhjFV8SUleHt45SsOF7f6kNLvUNDhY25KxqzsRs6rcKn+eRvtRy55zTIucM</DTS:Password>
         </DTS:ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
@@ -728,7 +728,7 @@ xppt_pvofconsdirlincanoflid.PeriodoAAMM, xppt_pvofconsdirlincanoflid.Director_Ca
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{B0A6DED8-D396-4314-9395-B6A259A17D81}"
-          SQLTask:SqlStatementSource="USE [lukerVen]&#xA;GO&#xA;&#xA;DELETE FROM [PVOF].[VolumenTrimDLC_OL]&#xA;where PeriodoAAMM = (&#xA;&#xA;SELECT Max(xppt_pvof_cons_dir_lin_can.PeriodoAAMM) AS 'PeriodoAAMM'&#xA;FROM lukerVen.dbo.xppt_pvof_cons_dir_lin_can xppt_pvof_cons_dir_lin_can&#xA;&#xA;)&#xA;GO&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          SQLTask:SqlStatementSource="USE [lukerVen]&#xA;GO&#xA;&#xA;DELETE FROM [PVOF].[VolumenTrimDLC_OL]&#xA;/**&#xA;where PeriodoAAMM = (&#xA;&#xA;SELECT Max(xppt_pvof_cons_dir_lin_can.PeriodoAAMM) AS 'PeriodoAAMM'&#xA;FROM lukerVen.dbo.xppt_pvof_cons_dir_lin_can xppt_pvof_cons_dir_lin_can&#xA;&#xA;)&#xA;**/&#xA;GO&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
   </DTS:Executables>
