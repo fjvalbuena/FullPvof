@@ -7,12 +7,12 @@
   DTS:CreatorName="LAPTOP-MFGK5CPU\fvalb"
   DTS:DTSID="{917CE4E3-B039-4533-A774-18E9BC23D157}"
   DTS:ExecutableType="Microsoft.Package"
-  DTS:LastModifiedProductVersion="15.0.1300.371"
+  DTS:LastModifiedProductVersion="14.0.3002.113"
   DTS:LocaleID="1033"
   DTS:ObjectName="C01 BaseEstadisticaConv"
   DTS:PackageType="5"
-  DTS:VersionBuild="63"
-  DTS:VersionGUID="{CC2DFFC3-FFE5-4BB6-B5F9-09FC12533D08}">
+  DTS:VersionBuild="71"
+  DTS:VersionGUID="{B74B5B48-4080-4A97-A116-EC321FC1C8CC}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -27,13 +27,29 @@
           <DTS:Password
             DTS:Name="Password"
             Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAuR1Gdsnx50KES8/66vqaKwAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAAABAKupNxA530NKa3N1PwlQGZ3Hl2tB/lDD1XN1G2pzKgAAAAAOgAAAAAIAACAAAAAGbAE6MWsVYqSLyLdUV6DJiZhRPcSNJdzjkw+/lxMkDCAAAABBsc2La50LcbBLAyLDUuCd7bEVF4XQWLfrmB0kiB+vsUAAAABT6xZt4ikkwsZOXIWwM4Uvzs8JGI+aTixTDj9PJHRjI5vXblL8A9Pbc+0acaWRzvRXtScTOPRQ4dGm5jTRJY5x</DTS:Password>
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAuR1Gdsnx50KES8/66vqaKwAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAAAJVjs2pIJV9rt6eoTlUluawuFIPI3szWayADRHOW7xNAAAAAAOgAAAAAIAACAAAABnEtQqpKNCo60F/uaIdUTy5worCsXMqSYtyuxiy1d9siAAAAANdftBvPa3c6fxcXJCIIM+ekrmeRiF4ILKyhsGWgNm7UAAAACn9MiAshb3/Qmf4GI185Z5nvwZ696kPiCg4RxiR49Bu/UKyIq6rc0Smu5/XWNVwf/cTVdzxmW7V0YNAUEahcYi</DTS:Password>
         </DTS:ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
   </DTS:ConnectionManagers>
   <DTS:Variables />
   <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\blk load Periodo base"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Tarea Ejecutar SQL"
+      DTS:DTSID="{7F59C03A-42A9-4A1B-9032-F365A086F60D}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="blk load Periodo base"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{B14F8D7C-877B-480D-B1F8-29A89D98D78C}"
+          SQLTask:SqlStatementSource="&#xA;INSERT INTO lukerVen.[PVOF].[BaseEstadisticaBc]&#xA;           ([Periodo]&#xA;           ,[Cod_Cliente]&#xA;           ,[JerarquiaProducto]&#xA;           ,[Cod_SKU]&#xA;           ,[Kilos]&#xA;           ,[Fecha_Ultimo_pedido])&#xA;SELECT &#xA;BaseEstadisticaB1.Periodo&#xA;, BaseEstadisticaB1.Cod_Cliente&#xA;, Productos.JerarquiaProducto&#xA;, BaseEstadisticaB1.Cod_SKU&#xA;, Sum(BaseEstadisticaB1.Kilos) AS 'Kilos'&#xA;, Max(BaseEstadisticaB1.FechaPedido) AS 'FechaUltimoPedido'&#xA;FROM lukerVen.tmp.BaseEstadisticaB1 BaseEstadisticaB1&#xA;left outer join  lukerVen.SD.ClientesVW ClientesVW on BaseEstadisticaB1.Cod_Cliente = ClientesVW.Cod_Cliente&#xA;left outer join  lukerVen.tmp.xppt_quitar_portafolioUP xppt_quitar_portafolioUP &#xA;on  ClientesVW.Nombre_Oficina_Ventas = xppt_quitar_portafolioUP.Nombre_Oficina_Ventas AND ClientesVW.Cod_Canal = xppt_quitar_portafolioUP.Cod_Canal AND BaseEstadisticaB1.Cod_SKU = xppt_quitar_portafolioUP.Cod_SKU&#xA;, lukerVen.SD.Productos Productos&#xA;WHERE Productos.Cod_SKU = BaseEstadisticaB1.Cod_SKU&#xA;and xppt_quitar_portafolioUP.EnPortafolio is  null&#xA;GROUP BY BaseEstadisticaB1.Periodo, BaseEstadisticaB1.Cod_Cliente, Productos.JerarquiaProducto, BaseEstadisticaB1.Cod_SKU" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
     <DTS:Executable
       DTS:refId="Package\Clones Estadistica"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
@@ -153,7 +169,7 @@
                   dataType="System.String"
                   description="Comando SQL para ejecutar."
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
                 <property
                   dataType="System.Int32"
                   description="Especifica la página de códigos de columna para utilizar cuando la información de página de códigos no está disponible en el origen de datos."
@@ -396,9 +412,14 @@
                   dataType="System.String"
                   description="Comando SQL para ejecutar."
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">SELECT BaseEstadisticaB1.Periodo, BaseEstadisticaB1.Cod_Cliente, Productos.JerarquiaProducto, BaseEstadisticaB1.Cod_SKU, Sum(BaseEstadisticaB1.Kilos) AS 'Kilos', Max(BaseEstadisticaB1.FechaPedido) AS 'FechaUltimoPedido'
-FROM lukerVen.tmp.BaseEstadisticaB1 BaseEstadisticaB1, lukerVen.SD.Productos Productos
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT BaseEstadisticaB1.Periodo, BaseEstadisticaB1.Cod_Cliente, Productos.JerarquiaProducto, BaseEstadisticaB1.Cod_SKU, Sum(BaseEstadisticaB1.Kilos) AS 'Kilos', Max(BaseEstadisticaB1.FechaPedido) AS 'FechaUltimoPedido'
+FROM lukerVen.tmp.BaseEstadisticaB1 BaseEstadisticaB1
+left outer join  lukerVen.SD.ClientesVW ClientesVW on BaseEstadisticaB1.Cod_Cliente = ClientesVW.Cod_Cliente
+left outer join  lukerVen.tmp.xppt_quitar_portafolioUP xppt_quitar_portafolioUP 
+on  ClientesVW.Nombre_Oficina_Ventas = xppt_quitar_portafolioUP.Nombre_Oficina_Ventas AND ClientesVW.Cod_Canal = xppt_quitar_portafolioUP.Cod_Canal AND BaseEstadisticaB1.Cod_SKU = xppt_quitar_portafolioUP.Cod_SKU
+, lukerVen.SD.Productos Productos
 WHERE Productos.Cod_SKU = BaseEstadisticaB1.Cod_SKU
+and xppt_quitar_portafolioUP.EnPortafolio is  null
 GROUP BY BaseEstadisticaB1.Periodo, BaseEstadisticaB1.Cod_Cliente, Productos.JerarquiaProducto, BaseEstadisticaB1.Cod_SKU</property>
                 <property
                   dataType="System.String"
@@ -653,7 +674,7 @@ GROUP BY BaseEstadisticaB1.Periodo, BaseEstadisticaB1.Cod_Cliente, Productos.Jer
                   dataType="System.String"
                   description="Comando SQL para ejecutar."
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
                 <property
                   dataType="System.Int32"
                   description="Especifica la página de códigos de columna para utilizar cuando la información de página de códigos no está disponible en el origen de datos."
@@ -890,7 +911,7 @@ GROUP BY BaseEstadisticaB1.Periodo, BaseEstadisticaB1.Cod_Cliente, Productos.Jer
                   dataType="System.String"
                   description="Comando SQL para ejecutar."
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">SELECT BaseEstadisticaBc.Periodo, BaseEstadisticaBc.Director_Canal, BaseEstadisticaBc.NombreCanalAgrupado, BaseEstadisticaBc.Nombre_GCliente_AD2, BaseEstadisticaBc.Categoria, BaseEstadisticaBc.Marca, BaseEstadisticaBc.Linea, BaseEstadisticaBc.Nombre_Oficina_Ventas, BaseEstadisticaBc.Cod_SKU, Sum(BaseEstadisticaBc.Kilos) AS 'Kilos'
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT BaseEstadisticaBc.Periodo, BaseEstadisticaBc.Director_Canal, BaseEstadisticaBc.NombreCanalAgrupado, BaseEstadisticaBc.Nombre_GCliente_AD2, BaseEstadisticaBc.Categoria, BaseEstadisticaBc.Marca, BaseEstadisticaBc.Linea, BaseEstadisticaBc.Nombre_Oficina_Ventas, BaseEstadisticaBc.Cod_SKU, Sum(BaseEstadisticaBc.Kilos) AS 'Kilos'
 FROM lukerVen.PVOF.BaseEstadisticaBc BaseEstadisticaBc
 WHERE (BaseEstadisticaBc.Cod_Canal In ('23','14','13','22'))
 GROUP BY BaseEstadisticaBc.Periodo, BaseEstadisticaBc.Director_Canal, BaseEstadisticaBc.NombreCanalAgrupado, BaseEstadisticaBc.Nombre_GCliente_AD2, BaseEstadisticaBc.Categoria, BaseEstadisticaBc.Marca, BaseEstadisticaBc.Linea, BaseEstadisticaBc.Nombre_Oficina_Ventas, BaseEstadisticaBc.Cod_SKU
@@ -1238,7 +1259,7 @@ ORDER BY BaseEstadisticaBc.NombreCanalAgrupado</property>
                   dataType="System.String"
                   description="Comando SQL para ejecutar."
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
                 <property
                   dataType="System.Int32"
                   description="Especifica la página de códigos de columna para utilizar cuando la información de página de códigos no está disponible en el origen de datos."
@@ -1477,7 +1498,7 @@ ORDER BY BaseEstadisticaBc.NombreCanalAgrupado</property>
                   dataType="System.String"
                   description="Comando SQL para ejecutar."
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">SELECT BaseEstadisticaBc.Periodo, BaseEstadisticaBc.Director_Canal, BaseEstadisticaBc.NombreCanalAgrupado
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT BaseEstadisticaBc.Periodo, BaseEstadisticaBc.Director_Canal, BaseEstadisticaBc.NombreCanalAgrupado
 , case BaseEstadisticaBc.Cod_Canal when '14' then  BaseEstadisticaBc.Nombre_GCliente_AD2 when '23' then  BaseEstadisticaBc.Nombre_GCliente_AD2 else ''end as Nombre_GCliente_AD2
 , BaseEstadisticaBc.Categoria, BaseEstadisticaBc.Marca, BaseEstadisticaBc.Linea, BaseEstadisticaBc.Nombre_Oficina_Ventas, BaseEstadisticaBc.Lider_Regional, Sum(BaseEstadisticaBc.Kilos) AS 'Kilos'
 FROM lukerVen.PVOF.BaseEstadisticaBc BaseEstadisticaBc
@@ -1831,7 +1852,7 @@ ORDER BY BaseEstadisticaBc.NombreCanalAgrupado</property>
                   dataType="System.String"
                   description="Comando SQL para ejecutar."
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
                 <property
                   dataType="System.Int32"
                   description="Especifica la página de códigos de columna para utilizar cuando la información de página de códigos no está disponible en el origen de datos."
@@ -2042,7 +2063,7 @@ ORDER BY BaseEstadisticaBc.NombreCanalAgrupado</property>
                   dataType="System.String"
                   description="Comando SQL para ejecutar."
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">SELECT BaseEstadisticaBc.Periodo, BaseEstadisticaBc.Director_Canal, BaseEstadisticaBc.NombreCanalAgrupado
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT BaseEstadisticaBc.Periodo, BaseEstadisticaBc.Director_Canal, BaseEstadisticaBc.NombreCanalAgrupado
 , BaseEstadisticaBc.Nombre_GCliente_AD2
 , BaseEstadisticaBc.Categoria, BaseEstadisticaBc.Marca, BaseEstadisticaBc.Linea, Sum(BaseEstadisticaBc.Kilos) AS 'Kilos'
 FROM lukerVen.PVOF.BaseEstadisticaBc BaseEstadisticaBc
@@ -2364,15 +2385,8 @@ ORDER BY BaseEstadisticaBc.NombreCanalAgrupado</property>
       DTS:From="Package\trctbl Estadistica base C"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Restricción"
-      DTS:To="Package\load Periodo base" />
-    <DTS:PrecedenceConstraint
-      DTS:refId="Package.PrecedenceConstraints[Restricción 1]"
-      DTS:CreationName=""
-      DTS:DTSID="{3AD46FCC-EDA1-4CB2-A89F-CD2DEB6E02FD}"
-      DTS:From="Package\load Periodo base"
-      DTS:LogicalAnd="True"
-      DTS:ObjectName="Restricción 1"
-      DTS:To="Package\Foto Canal agrupado y Jer Prod" />
+      DTS:To="Package\load Periodo base"
+      DTS:Value="1" />
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Restricción 10]"
       DTS:CreationName=""
@@ -2389,6 +2403,22 @@ ORDER BY BaseEstadisticaBc.NombreCanalAgrupado</property>
       DTS:LogicalAnd="True"
       DTS:ObjectName="Restricción 11"
       DTS:To="Package\trnc tbl tmp" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Restricción 12]"
+      DTS:CreationName=""
+      DTS:DTSID="{567AFA14-86FE-493C-8703-6EB14A695936}"
+      DTS:From="Package\trctbl Estadistica base C"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Restricción 12"
+      DTS:To="Package\blk load Periodo base" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Restricción 13]"
+      DTS:CreationName=""
+      DTS:DTSID="{4DD6BCAA-8B3C-4178-BF58-9DF88D4D47AA}"
+      DTS:From="Package\blk load Periodo base"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Restricción 13"
+      DTS:To="Package\Foto Canal agrupado y Jer Prod" />
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Restricción 2]"
       DTS:CreationName=""
@@ -2465,113 +2495,97 @@ ORDER BY BaseEstadisticaBc.NombreCanalAgrupado</property>
     design-time-name="Package">
     <LayoutInfo>
       <GraphLayout
-        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="179.2,41.6"
+          Id="Package\blk load Periodo base"
+          TopLeft="63.8038933127622,172.032352126098" />
         <NodeLayout
           Size="162.4,41.6"
           Id="Package\Clones Estadistica"
-          TopLeft="37.9,411.9" />
+          TopLeft="72.2038933127622,312.112744511755" />
         <NodeLayout
           Size="227.2,41.6"
           Id="Package\Foto Canal agrupado y Jer Prod"
-          TopLeft="5.50000000000004,310.3" />
+          TopLeft="39.8038933127622,242.072548318927" />
         <NodeLayout
           Size="174.4,41.6"
           Id="Package\jerarquia ventas pos"
-          TopLeft="31.9,5.49999999999995" />
+          TopLeft="66.2038933127622,24.2058821384469" />
         <NodeLayout
           Size="159.2,41.6"
           Id="Package\Jerarquias clones"
-          TopLeft="39.5000000000001,513.5" />
+          TopLeft="73.8038933127622,382.152940704583" />
         <NodeLayout
           Size="121.6,41.6"
           Id="Package\koba 838"
-          TopLeft="282.448984401914,578.084036800217" />
+          TopLeft="281.35714120281,385.07548847655" />
         <NodeLayout
           Size="161.6,41.6"
           Id="Package\load Periodo base"
-          TopLeft="38.3,208.7" />
+          TopLeft="279.071433230322,93.2274498578722" />
         <NodeLayout
           Size="192,41.6"
           Id="Package\totales - contextos 1423"
-          TopLeft="23.1000000000001,919.899999999999" />
+          TopLeft="57.4038933127622,659.353920574803" />
         <NodeLayout
           Size="180.8,41.6"
           Id="Package\totales - contextos AL"
-          TopLeft="28.7000000000001,818.299999999999" />
+          TopLeft="63.0038933127622,589.313724381975" />
         <NodeLayout
           Size="188,41.6"
           Id="Package\totales - contextos DCL"
-          TopLeft="25.1000000000001,716.699999999999" />
+          TopLeft="59.4038933127622,519.273528189147" />
         <NodeLayout
           Size="190.4,41.6"
           Id="Package\trctbl Estadistica base C"
-          TopLeft="23.9,107.1" />
+          TopLeft="58.2038933127622,94.2460783312751" />
         <NodeLayout
           Size="112,41.6"
           Id="Package\trnc tbl tmp"
-          TopLeft="63.1000000000001,615.099999999999" />
+          TopLeft="97.4038933127622,449.233331996319" />
         <NodeLayout
           Size="158.4,41.6"
           Id="Package\volumen hurfano"
-          TopLeft="39.9000000000001,1021.5" />
+          TopLeft="74.2038933127622,729.394116767631" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Restricción]"
-          TopLeft="119.1,148.7">
+          TopLeft="248.603893312762,114.536764094574">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,59.9999999999999"
+              EndConnector="30.4675399175599,0"
               Start="0,0"
-              End="0,52.4999999999999">
+              End="22.9675399175599,0">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,52.4999999999999" />
+                    End="22.9675399175599,0" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package.PrecedenceConstraints[Restricción 1]"
-          TopLeft="119.1,250.3">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,59.9999999999999"
-              Start="0,0"
-              End="0,52.4999999999999">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,52.4999999999999" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="-0.0449214474700703,5,23.0573828125,9.421875"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Restricción 10]"
-          TopLeft="119.1,555.1">
+          TopLeft="153.403893312762,423.752940704583">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,59.9999999999999"
+              EndConnector="0,25.4803912917364"
               Start="0,0"
-              End="0,52.4999999999999">
+              End="0,17.9803912917364">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,52.4999999999999" />
+                    End="0,17.9803912917364" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -2582,30 +2596,74 @@ ORDER BY BaseEstadisticaBc.NombreCanalAgrupado</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Restricción 11]"
-          TopLeft="282.448984401914,598.884036800217">
+          TopLeft="342.15714120281,426.67548847655">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-107.348984401914,37.0159631997823"
+              EndConnector="-171.419914556714,22.5578435197697"
               Start="0,0"
-              End="-99.8489844019141,37.0159631997823">
+              End="-171.419914556714,15.0578435197697">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="-49.6744922009571,0" />
+                    End="0,9.34407644831446" />
                   <mssgle:CubicBezierSegment
-                    Point1="-49.6744922009571,0"
-                    Point2="-53.6744922009571,0"
-                    Point3="-53.6744922009571,4" />
+                    Point1="0,9.34407644831446"
+                    Point2="0,13.3440764483145"
+                    Point3="-4,13.3440764483145" />
                   <mssgle:LineSegment
-                    End="-53.6744922009571,33.0159631997823" />
+                    End="-167.419914556714,13.3440764483145" />
                   <mssgle:CubicBezierSegment
-                    Point1="-53.6744922009571,33.0159631997823"
-                    Point2="-53.6744922009571,37.0159631997823"
-                    Point3="-57.6744922009571,37.0159631997823" />
+                    Point1="-167.419914556714,13.3440764483145"
+                    Point2="-171.419914556714,13.3440764483145"
+                    Point3="-171.419914556714,17.3440764483145" />
                   <mssgle:LineSegment
-                    End="-99.8489844019141,37.0159631997823" />
+                    End="-171.419914556714,15.0578435197697" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Restricción 12]"
+          TopLeft="153.403893312762,135.846078331275">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,36.1862737948229"
+              Start="0,0"
+              End="0,28.6862737948229">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,28.6862737948229" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Restricción 13]"
+          TopLeft="153.403893312762,213.632352126098">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,28.4401961928288"
+              Start="0,0"
+              End="0,20.9401961928288">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20.9401961928288" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -2616,18 +2674,18 @@ ORDER BY BaseEstadisticaBc.NombreCanalAgrupado</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Restricción 2]"
-          TopLeft="119.1,656.699999999999">
+          TopLeft="153.403893312762,490.833331996319">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,59.9999999999999"
+              EndConnector="0,28.4401961928273"
               Start="0,0"
-              End="0,52.4999999999999">
+              End="0,20.9401961928273">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,52.4999999999999" />
+                    End="0,20.9401961928273" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -2638,18 +2696,18 @@ ORDER BY BaseEstadisticaBc.NombreCanalAgrupado</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Restricción 3]"
-          TopLeft="119.1,351.9">
+          TopLeft="153.403893312762,283.672548318927">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,59.9999999999999"
+              EndConnector="0,28.4401961928282"
               Start="0,0"
-              End="0,52.4999999999999">
+              End="0,20.9401961928282">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,52.4999999999999" />
+                    End="0,20.9401961928282" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -2660,18 +2718,18 @@ ORDER BY BaseEstadisticaBc.NombreCanalAgrupado</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Restricción 4]"
-          TopLeft="119.1,859.899999999999">
+          TopLeft="153.403893312762,630.913724381975">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,59.9999999999999"
+              EndConnector="0,28.4401961928282"
               Start="0,0"
-              End="0,52.4999999999999">
+              End="0,20.9401961928282">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,52.4999999999999" />
+                    End="0,20.9401961928282" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -2682,30 +2740,18 @@ ORDER BY BaseEstadisticaBc.NombreCanalAgrupado</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Restricción 5]"
-          TopLeft="144.3,555.1">
+          TopLeft="233.003893312762,404.414214590566">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="198.948984401914,22.9840368002167"
+              EndConnector="48.3532478900476,0"
               Start="0,0"
-              End="198.948984401914,15.4840368002167">
+              End="40.8532478900476,0">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,5.33083285023723" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,5.33083285023723"
-                    Point2="0,9.33083285023723"
-                    Point3="4,9.33083285023723" />
-                  <mssgle:LineSegment
-                    End="194.948984401914,9.33083285023723" />
-                  <mssgle:CubicBezierSegment
-                    Point1="194.948984401914,9.33083285023723"
-                    Point2="198.948984401914,9.33083285023723"
-                    Point3="198.948984401914,13.3308328502372" />
-                  <mssgle:LineSegment
-                    End="198.948984401914,15.4840368002167" />
+                    End="40.8532478900476,0" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -2716,18 +2762,18 @@ ORDER BY BaseEstadisticaBc.NombreCanalAgrupado</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Restricción 6]"
-          TopLeft="119.1,961.499999999999">
+          TopLeft="153.403893312762,700.953920574803">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,59.9999999999999"
+              EndConnector="0,28.4401961928278"
               Start="0,0"
-              End="0,52.4999999999999">
+              End="0,20.9401961928278">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,52.4999999999999" />
+                    End="0,20.9401961928278" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -2738,18 +2784,18 @@ ORDER BY BaseEstadisticaBc.NombreCanalAgrupado</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Restricción 7]"
-          TopLeft="119.1,758.299999999999">
+          TopLeft="153.403893312762,560.873528189147">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,59.9999999999999"
+              EndConnector="0,28.4401961928282"
               Start="0,0"
-              End="0,52.4999999999999">
+              End="0,20.9401961928282">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,52.4999999999999" />
+                    End="0,20.9401961928282" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -2760,18 +2806,18 @@ ORDER BY BaseEstadisticaBc.NombreCanalAgrupado</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Restricción 8]"
-          TopLeft="119.1,47.1">
+          TopLeft="153.403893312762,65.8058821384469">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,60"
+              EndConnector="0,28.4401961928282"
               Start="0,0"
-              End="0,52.5">
+              End="0,20.9401961928282">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,52.5" />
+                    End="0,20.9401961928282" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -2782,18 +2828,18 @@ ORDER BY BaseEstadisticaBc.NombreCanalAgrupado</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Restricción 9]"
-          TopLeft="119.1,453.5">
+          TopLeft="153.403893312762,353.712744511755">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,59.9999999999999"
+              EndConnector="0,28.4401961928279"
               Start="0,0"
-              End="0,52.4999999999999">
+              End="0,20.9401961928279">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,52.4999999999999" />
+                    End="0,20.9401961928279" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -2809,7 +2855,7 @@ ORDER BY BaseEstadisticaBc.NombreCanalAgrupado</property>
     design-time-name="Package\load Periodo base">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="234.4,41.6"
           Id="Package\load Periodo base\EstCon Razon Soc y Promociones"
@@ -2837,9 +2883,7 @@ ORDER BY BaseEstadisticaBc.NombreCanalAgrupado</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>

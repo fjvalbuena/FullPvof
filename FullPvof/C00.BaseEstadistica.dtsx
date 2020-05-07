@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="C00 BaseEstadistica"
   DTS:PackageType="5"
-  DTS:VersionBuild="12"
-  DTS:VersionGUID="{225477B4-6DDB-423E-B844-119B83767307}">
+  DTS:VersionBuild="17"
+  DTS:VersionGUID="{B37A2884-3F36-43B3-B312-E43C701F5206}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -27,13 +27,29 @@
           <DTS:Password
             DTS:Name="Password"
             Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAuR1Gdsnx50KES8/66vqaKwAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAABoafKsfKIFlg8unM4oaBbg3jrnuh6XYJUW68BIgo5LGQAAAAAOgAAAAAIAACAAAACbOOb46bdd1vyUJBczmdjmrVv8D3vgQ5xq+XEDEqxSeCAAAABNJjOwlEohCPDOmfH9F2P3kSP8ltOfLegs7yGq5yawfEAAAACw4EWkfKu2ujdcrjyOmRZ8rCVdEL0ErWiVlUDt2dDaNSMOsatMQ0VYHXcDLjCzl4TP9pKsKpeAFf7e3wKuBinW</DTS:Password>
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAuR1Gdsnx50KES8/66vqaKwAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAACxH4UY/pXEAQvDTHgWUdzUl3icoHTrAxFBI5a3nIYFZgAAAAAOgAAAAAIAACAAAACfUqguWyZgiXChsWnXo3c08n8vbehkSjui+mGJm7kFlyAAAAC8Ad/XIc49BvaZVrOkrRJQl1nRiQYR9Cq6wKj1yyJlRUAAAADEIb8xnIw+D+Yra+o3ugN6O3t5ABewZjraTI3bGMM8olPDX4w431abYoIJQrY2O/Y9CQLzVNN3im/MGS1Vvb+b</DTS:Password>
         </DTS:ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
   </DTS:ConnectionManagers>
   <DTS:Variables />
   <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\bulk"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Tarea Ejecutar SQL"
+      DTS:DTSID="{7F176C7F-5EA2-4F6C-94FD-F4CE42479DC7}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="bulk"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{1DAF96B6-B9CB-44D6-9AF8-5B50EEDF8432}"
+          SQLTask:SqlStatementSource="&#xA;declare @PeriodoPVO varchar(6), @PeriodoEstI date, @PeriodoEstF date&#xA;&#xA;SELECT &#xA;  @PeriodoPVO  = Parametros.PeriodoAAMM&#xA;, @PeriodoEstI = Parametros.PeriodoEstI&#xA;, @PeriodoEstF = Parametros.PeriodoEstF&#xA;FROM lukerVen.PVOF.Parametros Parametros&#xA;WHERE (Parametros.EstadoProceso='1')&#xA;&#xA;/**&#xA;SELECT &#xA;  @PeriodoPVO   &#xA;, @PeriodoEstI  &#xA;, @PeriodoEstF &#xA;**/&#xA;insert into [lukerVen].[PVOF].[BaseEstadisticaB0]&#xA;SELECT Parametros.PeriodoAAMM&#xA;, CASE Clientes.Cod_Zona_Ventas WHEN '' THEN CASE isnull(EquivalenciaJerarquiaOrph.Cod_Cliente, '') WHEN '' THEN Facturas.Cod_Cliente ELSE isnull(EquivalenciaJerarquiaOrph.Cod_Cliente, '') END ELSE Facturas.Cod_Cliente END AS Cod_Cliente&#xA;, Productos.JerarquiaProducto&#xA;, Facturas.Cod_SKU&#xA;, Facturas.FechaPedido&#xA;, sum(Facturas.Kilos) as Kilos&#xA;, ROW_NUMBER() OVER (PARTITION BY  Parametros.PeriodoAAMM&#xA;, CASE Clientes.Cod_Zona_Ventas WHEN '' THEN CASE isnull(EquivalenciaJerarquiaOrph.Cod_Cliente, '') WHEN '' THEN Facturas.Cod_Cliente ELSE isnull(EquivalenciaJerarquiaOrph.Cod_Cliente, '') END ELSE Facturas.Cod_Cliente END&#xA;, Facturas.Cod_SKU ORDER BY  Productos.JerarquiaProducto,FechaPedido) AS PedidoNum  &#xA;FROM        SD.FacturasW AS Facturas INNER JOIN&#xA;                  SD.CanalDistribucion ON Facturas.Cod_Canal = SD.CanalDistribucion.Cod_Canal INNER JOIN&#xA;                  SD.Productos ON Facturas.Cod_SKU = SD.Productos.Cod_SKU INNER JOIN&#xA;                  SD.CategoriaMarcaCanal ON SD.Productos.Aliado = SD.CategoriaMarcaCanal.Aliado AND SD.Productos.Categoria = SD.CategoriaMarcaCanal.Categoria AND SD.Productos.Marca = SD.CategoriaMarcaCanal.Marca AND &#xA;                  Facturas.Cod_Canal = SD.CategoriaMarcaCanal.Cod_Canal AND Facturas.Cod_OrgVentas = SD.CategoriaMarcaCanal.Cod_OrgVentas INNER JOIN&#xA;                  SD.MotivosNoVenta ON Facturas.Cod_MotivoNoVenta = SD.MotivosNoVenta.Cod_Motivo LEFT OUTER JOIN&#xA;                  SD.Clientes ON Facturas.Cod_Cliente = SD.Clientes.Cod_Cliente LEFT OUTER JOIN&#xA;                  SD.AliasSKU ON Facturas.Cod_SKU = SD.AliasSKU.Cod_SKU LEFT OUTER JOIN&#xA;                  SD.EquivalenciaJerarquiaOrph AS EquivalenciaJerarquiaOrph ON EquivalenciaJerarquiaOrph.Cod_Canal = Facturas.Cod_Canal AND EquivalenciaJerarquiaOrph.Cod_GCliente = Facturas.Cod_GCliente AND &#xA;                  Facturas.SalesOffice = EquivalenciaJerarquiaOrph.Cod_Oficina_Ventas&#xA;&#x9;&#x9;&#x9;&#x9;  inner join lukerVen.SD.TipoDocumento TipoDocumento  on TipoDocumento.Cod_TipoFactura = Facturas.Cod_TipoFactura &#xA;, lukerVen.PVOF.Parametros Parametros&#xA;&#xA;where  ( (Parametros.EstadoProceso=1)&#xA;AND ( &#xA;        ((Facturas.FechaFactura&gt;=Parametros.PeriodoEstI) AND (Facturas.FechaFactura&lt;=Parametros.PeriodoEstF) ) &#xA;&#x9;&#x9;or    ((Clientes.Lider_Regional='GARNICA ROJAS JONATHAN') and (Facturas.FechaFactura&gt;=Parametros.PeriodoEstI))&#xA;&#x9;&#x9;or    ((Productos.Linea='Verduras') and (Facturas.FechaFactura&gt;=Parametros.PeriodoEstI))&#xA;    )&#xA;  AND (TipoDocumento.NombreTipoDocumento Like 'Factura%') &#xA;)&#xA;&#xA;group by &#xA;  Parametros.PeriodoAAMM&#xA;, Productos.JerarquiaProducto&#xA;, Facturas.FechaPedido&#xA;, Facturas.Cod_SKU&#xA;, CASE Clientes.Cod_Zona_Ventas WHEN '' THEN CASE isnull(EquivalenciaJerarquiaOrph.Cod_Cliente, '') WHEN '' THEN Facturas.Cod_Cliente ELSE isnull(EquivalenciaJerarquiaOrph.Cod_Cliente, '') END ELSE Facturas.Cod_Cliente END &#xA;having sum(Facturas.Kilos) &lt;&gt;0" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
     <DTS:Executable
       DTS:refId="Package\load Periodo base"
       DTS:CreationName="Microsoft.Pipeline"
@@ -560,6 +576,22 @@ having sum(Facturas.Kilos) &lt;&gt;0</property>
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
+      DTS:refId="Package\pass"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Tarea Ejecutar SQL"
+      DTS:DTSID="{03C8F9A3-2588-415C-84E3-7EC8D188CDF3}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="pass"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{1DAF96B6-B9CB-44D6-9AF8-5B50EEDF8432}"
+          SQLTask:SqlStatementSource="--" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
       DTS:refId="Package\trctbl Estadistica base0"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="Tarea Ejecutar SQL"
@@ -580,11 +612,28 @@ having sum(Facturas.Kilos) &lt;&gt;0</property>
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Restricción]"
       DTS:CreationName=""
-      DTS:DTSID="{EC0DE10E-0E25-4701-A4A7-F01CD174D467}"
+      DTS:DTSID="{2E9E62D6-9EFD-4DC2-99DD-0440523C2DF7}"
       DTS:From="Package\trctbl Estadistica base0"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Restricción"
-      DTS:To="Package\load Periodo base" />
+      DTS:To="Package\bulk" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Restricción 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{C2718B1A-22A4-46CE-A79C-167067484BBA}"
+      DTS:From="Package\bulk"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Restricción 1"
+      DTS:To="Package\pass" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Restricción 2]"
+      DTS:CreationName=""
+      DTS:DTSID="{A7F18097-2D21-4882-B824-BC30EE20269F}"
+      DTS:From="Package\pass"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Restricción 2"
+      DTS:To="Package\load Periodo base"
+      DTS:Value="1" />
   </DTS:PrecedenceConstraints>
   <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
 <!--Esta sección CDATA contiene la información de diseño del paquete. Esta sección incluye información como, por ejemplo, las coordenadas (x,y), el ancho y el alto.-->
@@ -597,35 +646,89 @@ having sum(Facturas.Kilos) &lt;&gt;0</property>
     design-time-name="Package">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="161.6,41.6"
           Id="Package\load Periodo base"
-          TopLeft="43.6734701315099,113.526052012328" />
+          TopLeft="5.50000000000003,310.3" />
         <NodeLayout
           Size="159.2,41.6"
           Id="Package\trctbl Estadistica base0"
-          TopLeft="44.5714293304755,44.6588241557349" />
+          TopLeft="6.7,5.49999999999995" />
+        <NodeLayout
+          Size="97.6,41.6"
+          Id="Package\bulk"
+          TopLeft="37.5,107.1" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Restricción]"
-          TopLeft="124.322449730993,86.2588241557349">
+          TopLeft="86.3,47.1">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,27.2672278565932"
+              EndConnector="0,59.9999999999999"
               Start="0,0"
-              End="0,19.7672278565932">
+              End="0,52.4999999999999">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,19.7672278565932" />
+                    End="0,52.4999999999999" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="99.2,41.6"
+          Id="Package\pass"
+          TopLeft="36.7,208.7" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Restricción 1]"
+          TopLeft="86.3,148.7">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,59.9999999999999"
+              Start="0,0"
+              End="0,52.4999999999999">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.4999999999999" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Restricción 2]"
+          TopLeft="86.3,250.3">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,59.9999999999999"
+              Start="0,0"
+              End="0,52.4999999999999">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.4999999999999" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-11.52869140625,21.5390625,23.0573828125,9.421875"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>

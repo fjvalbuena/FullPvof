@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="X92  PreciosPVO_Año"
   DTS:PackageType="5"
-  DTS:VersionBuild="7"
-  DTS:VersionGUID="{2CA9D45E-C209-4358-9C29-47565EE47391}">
+  DTS:VersionBuild="8"
+  DTS:VersionGUID="{06F1B22B-BA58-4F00-BCCA-5F9F76093E80}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -27,7 +27,7 @@
           <DTS:Password
             DTS:Name="Password"
             Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAuR1Gdsnx50KES8/66vqaKwAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAACCq9H8IFDTscacHLgtjat66xewTm4xa2WnXEls+bSi4gAAAAAOgAAAAAIAACAAAACwOl821xxCcs6+bs9rFrE6IQMAkiwc2XJ3UKSNi8iQ/CAAAAD9pn7i32l9r3rQWumLghFmbOnztY3sn0vcXSeGcGgkqEAAAADjKpPvFG7aWWsR9KhIRh2Td2OMioLg7mmtwX9FK7107wiGL+gWmy9Ome/1XghjyUcXAjWhRGxT8R4cl3TyNh7O</DTS:Password>
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAuR1Gdsnx50KES8/66vqaKwAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAACQc1+qWwuO8tmsGP3RFbpVh7qDEXuAI5urdvawzCQvBQAAAAAOgAAAAAIAACAAAAC6zQL2/qxnSXgfXQy5NlUxfzVtNRX9Wy++nTccu+KCKSAAAABF42UAk16SWdxfDC7VgIrkqpLRtLDDl2GmxyYvV4p9okAAAADGNg5WCNV//6FttnfaJ8w+aReEwyf94lQkINiACctACGbov9GbkU6qsMKds6tZw3UDt8ghSykmiPvWa+KudK9z</DTS:Password>
         </DTS:ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
@@ -50,33 +50,7 @@
           SQLTask:SqlStatementSource="--- ** Ajustes unidades &#xA;update ComboBOM set&#xA;ComboBOM.PesoNeto= Productos.Peso_Neto_SKU&#xA;FROM lukerVen.SD.ComboBOM ComboBOM, lukerVen.SD.Productos Productos&#xA;WHERE ComboBOM.Con_SKUR = Productos.Cod_SKU AND ((ComboBOM.PesoNeto=0.0) AND (Productos.Peso_Neto_SKU&lt;&gt;0))&#xA;&#xA;update Productos set&#xA;Productos.Peso_Neto_SKU= ComboPeso.PesoNeto&#xA;, Productos.Unidad_Peso_Neto_SKU= 'G'&#xA;FROM lukerVen.SD.ComboPeso ComboPeso, lukerVen.SD.Productos Productos&#xA;WHERE ComboPeso.Cod_SKU = Productos.Cod_SKU AND ((Productos.Cod_SKU Like '000000000007%'))&#xA;and abs(Productos.Peso_Neto_SKU- ComboPeso.PesoNeto) &gt;0.001&#xA;&#xA;update PresupuestoCOMERCIAL set&#xA;PresupuestoCOMERCIAL.Cantidad= PresupuestoCOMERCIAL.Kilos/ (Productos.Peso_Neto_SKU/1000)&#xA;FROM lukerVen.SD.PresupuestoCOMERCIAL PresupuestoCOMERCIAL, lukerVen.SD.Productos Productos&#xA;WHERE Productos.Cod_SKU = PresupuestoCOMERCIAL.Cod_SKU&#xA;and Productos.Peso_Neto_SKU &gt;0&#xA;and PresupuestoCOMERCIAL.Cantidad&lt;&gt; PresupuestoCOMERCIAL.Kilos/ (Productos.Peso_Neto_SKU/1000)&#xA;---  ** Fin &#xA;Declare @x_versionPto varchar(20), @x_ano varchar(4) ,@x_pathPto varchar(256)&#xA;, @xfileName varchar(56), @xlocalPath varchar(56), @xsufix varchar(56), @xextension varchar(56), @xtabla varchar(56), @sqlCommand varchar(7777), @xwhere varchar(800), @xcampos varchar(3333), @xhoja varchar(55),@x_drv varchar(77)&#xA;, @oficina int,@canal int, @gcli int, @cont int , @conts varchar(2), @ccli int&#xA;, @siOficina varchar(80),@siCanal varchar(80), @siGcli varchar(80), @siCcli varchar(80)&#xA;, @PeriodoPVO varchar(6), @MesCalc_I int, @MesCalc_F int, @CorteMes1 date, @KGMes varchar(10), @Conta int&#xA;&#xA;SELECT &#xA;  @PeriodoPVO  = Parametros.PeriodoAAMM&#xA;, @MesCalc_I = Parametros.MesCalc_I&#xA;, @MesCalc_F = Parametros.MesCalc_F&#xA;, @x_ano= left(Parametros.PeriodoAAMM,4)&#xA;FROM lukerVen.PVOF.Parametros Parametros&#xA;WHERE (Parametros.EstadoProceso='1')&#xA;&#xA;update PresupuestoCOMERCIAL set &#xA;PresupuestoCOMERCIAL.stpLst='0'&#xA;, PresupuestoCOMERCIAL.Valor_Lista=0&#xA;from [SD].[PresupuestoCOMERCIAL] where ano=@x_ano&#xA;&#xA;--- Nacional &#xA;update PresupuestoCOMERCIAL set &#xA;PresupuestoCOMERCIAL.stpLst='0'&#xA;, PresupuestoCOMERCIAL.Valor_Lista= PresupuestoCOMERCIAL.Cantidad* ListaPreciosGnni.precioUb&#xA;FROM lukerVen.[PVOF].ListaPreciosGnni ListaPreciosGnni, [SD].[PresupuestoCOMERCIAL] PresupuestoCOMERCIAL&#xA;WHERE ListaPreciosGnni.ano = PresupuestoCOMERCIAL.ano &#xA;AND (month(PresupuestoCOMERCIAL.FechaCorte)=ListaPreciosGnni.mes)&#xA;AND ListaPreciosGnni.Cod_SKU = PresupuestoCOMERCIAL.Cod_SKU &#xA;AND ((ListaPreciosGnni.lista='Tradicional') &#xA;AND (ListaPreciosGnni.SalesOffice='') &#xA;AND (ListaPreciosGnni.Cod_Canal='') &#xA;AND (ListaPreciosGnni.Cod_GCliente='') &#xA;AND (ListaPreciosGnni.Cod_Cliente='')&#xA;)&#xA;&#xA;&#xA;select @sqlCommand =''&#xA;select @cont=0&#xA;DECLARE ciclo_cursor CURSOR FOR &#xA;SELECT DISTINCT &#xA;  case ListaPreciosGnni.SalesOffice when '' then 0 else 1 end as oficina&#xA;, case ListaPreciosGnni.Cod_Canal when '' then 0 else 1 end as canal &#xA;, case ListaPreciosGnni.Cod_GCliente when '' then 0 else 1 end as gcli &#xA;, case ListaPreciosGnni.Cod_Cliente when '' then 0 else 1 end as ccli &#xA;&#xA;FROM lukerVen.[PVOF].ListaPreciosGnni ListaPreciosGnni&#xA;where SalesOffice&lt;&gt;'' or Cod_Canal &lt;&gt;'' or Cod_GCliente &lt;&gt;'' or Cod_Cliente &lt;&gt;''&#xA;order by 1 ,2 ,3 &#xA;&#xA;OPEN ciclo_cursor&#xA;FETCH NEXT FROM ciclo_cursor INTO @oficina  ,@canal , @gcli ,@ccli&#xA;WHILE @@FETCH_STATUS = 0&#xA;BEGIN &#xA;&#x9;select @siOficina ='' ,@siCanal='' , @siGcli =''&#xA;&#x9;select @cont=@cont+1&#xA;&#x9;select @conts=@cont&#xA;&#x9;if @oficina&#x9;=1 select @siOficina&#x9;='AND (ListaPreciosGnni.SalesOffice=&#x9;PresupuestoCOMERCIAL.Sht_Agencia) '&#xA;&#x9;if @canal&#x9;&#x9;=1 select @siCanal&#x9;&#x9;='AND (ListaPreciosGnni.Cod_Canal=&#x9;PresupuestoCOMERCIAL.Sht_Canal)'&#xA;&#x9;if @gcli&#x9;&#x9;=1 select @siGcli&#x9;='AND (ListaPreciosGnni.Cod_GCliente=&#x9;PresupuestoCOMERCIAL.Sht_GCliente) '&#xA; &#x9;if @ccli&#x9;&#x9;=1 select @siCcli&#x9;='AND (ListaPreciosGnni.Cod_Cliente=&#x9;PresupuestoCOMERCIAL.Cod_Cliente) ' &#xA;&#xA;&#x9;select @sqlCommand=  '&#xA;&#x9;&#x9;update PresupuestoCOMERCIAL set &#xA;&#x9;&#x9;PresupuestoCOMERCIAL.stpLst='+@conts+'&#xA;&#x9;&#x9;, PresupuestoCOMERCIAL.Valor_Lista= PresupuestoCOMERCIAL.Cantidad* ListaPreciosGnni.precioUb&#xA;&#x9;&#x9;FROM lukerVen.[PVOF].ListaPreciosGnni ListaPreciosGnni, [SD].[PresupuestoCOMERCIAL] PresupuestoCOMERCIAL&#xA;&#x9;&#x9;WHERE ListaPreciosGnni.ano = PresupuestoCOMERCIAL.ano &#xA;&#x9;&#x9;AND (month(PresupuestoCOMERCIAL.FechaCorte)=ListaPreciosGnni.mes)&#xA;&#x9;&#x9;AND (ListaPreciosGnni.Cod_SKU = PresupuestoCOMERCIAL.Cod_SKU )&#xA;&#x9;&#x9;'+@siOficina+'&#xA;&#x9;&#x9;'+@siCanal+'&#xA;&#x9;&#x9;'+@siOficina+'&#xA;&#x9;'&#xA;    Exec (@sqlCommand)&#xA;&#xA;&#x9;FETCH NEXT FROM ciclo_cursor &#xA;&#x9;INTO @oficina  ,@canal , @gcli ,@ccli&#xA;&#xA;END&#xA;CLOSE ciclo_cursor&#xA;DEALLOCATE ciclo_cursor&#xA;&#xA;GO&#xA;&#xA;-- Lista Cadena en Huerfanos&#xA;update PresupuestoCOMERCIAL set &#xA;  PresupuestoCOMERCIAL.stpLst= 'c'&#xA;, PresupuestoCOMERCIAL.Valor_Lista= PresupuestoCOMERCIAL.Cantidad* ListaPreciosGnni.precioUb&#xA;FROM lukerVen.[PVOF].ListaPreciosGnni ListaPreciosGnni&#xA;, [SD].[PresupuestoCOMERCIAL] PresupuestoCOMERCIAL&#xA;, lukerVen.SD.Productos Productos&#xA;WHERE Productos.Cod_SKU = PresupuestoCOMERCIAL.Cod_SKU AND ListaPreciosGnni.ano = PresupuestoCOMERCIAL.ano &#xA;AND ListaPreciosGnni.Cod_SKU = PresupuestoCOMERCIAL.Cod_SKU AND ((PresupuestoCOMERCIAL.stpLst='') &#xA;AND (ListaPreciosGnni.mes=month(FechaCorte)) AND (ListaPreciosGnni.lista='Cadenas'))" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
-    <DTS:Executable
-      DTS:refId="Package\vbru pvo Año - V2 Fi Admin"
-      DTS:CreationName="Microsoft.ExecuteSQLTask"
-      DTS:Description="Tarea Ejecutar SQL"
-      DTS:DTSID="{06e86b5d-6f3c-4c22-ae04-beaad60c6dfd}"
-      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
-      DTS:LocaleID="-1"
-      DTS:ObjectName="vbru pvo Año - V2 Fi Admin"
-      DTS:ThreadHint="0">
-      <DTS:Variables />
-      <DTS:ObjectData>
-        <SQLTask:SqlTaskData
-          SQLTask:Connection="{A38856C6-6566-42A1-B856-96C81D21C103}"
-          SQLTask:SqlStatementSource="--- ** Ajustes unidades &#xA;update ComboBOM set&#xA;ComboBOM.PesoNeto= Productos.Peso_Neto_SKU&#xA;FROM lukerVen.SD.ComboBOM ComboBOM, lukerVen.SD.Productos Productos&#xA;WHERE ComboBOM.Con_SKUR = Productos.Cod_SKU AND ((ComboBOM.PesoNeto=0.0) AND (Productos.Peso_Neto_SKU&lt;&gt;0))&#xA;&#xA;update Productos set&#xA;Productos.Peso_Neto_SKU= ComboPeso.PesoNeto&#xA;, Productos.Unidad_Peso_Neto_SKU= 'G'&#xA;FROM lukerVen.SD.ComboPeso ComboPeso, lukerVen.SD.Productos Productos&#xA;WHERE ComboPeso.Cod_SKU = Productos.Cod_SKU AND ((Productos.Cod_SKU Like '000000000007%'))&#xA;and abs(Productos.Peso_Neto_SKU- ComboPeso.PesoNeto) &gt;0.001&#xA;&#xA;update PresupuestoANUALv2 set&#xA;PresupuestoANUALv2.Cantidad= PresupuestoANUALv2.Kilos/ (Productos.Peso_Neto_SKU/1000)&#xA;FROM lukerVen.SD.PresupuestoANUALv2 PresupuestoANUALv2, lukerVen.SD.Productos Productos&#xA;WHERE Productos.Cod_SKU = PresupuestoANUALv2.Cod_SKU&#xA;and Productos.Peso_Neto_SKU &gt;0&#xA;and PresupuestoANUALv2.Cantidad&lt;&gt; PresupuestoANUALv2.Kilos/ (Productos.Peso_Neto_SKU/1000)&#xA;---  ** Fin &#xA;Declare @x_versionPto varchar(20), @x_ano varchar(4) ,@x_pathPto varchar(256)&#xA;, @xfileName varchar(56), @xlocalPath varchar(56), @xsufix varchar(56), @xextension varchar(56), @xtabla varchar(56), @sqlCommand varchar(7777), @xwhere varchar(800), @xcampos varchar(3333), @xhoja varchar(55),@x_drv varchar(77)&#xA;, @oficina int,@canal int, @gcli int, @cont int , @conts varchar(2), @ccli int&#xA;, @siOficina varchar(80),@siCanal varchar(80), @siGcli varchar(80), @siCcli varchar(80)&#xA;, @PeriodoPVO varchar(6), @MesCalc_I int, @MesCalc_F int, @CorteMes1 date, @KGMes varchar(10), @Conta int&#xA;&#xA;SELECT &#xA;  @PeriodoPVO  = Parametros.PeriodoAAMM&#xA;, @MesCalc_I = Parametros.MesCalc_I&#xA;, @MesCalc_F = Parametros.MesCalc_F&#xA;, @x_ano= left(Parametros.PeriodoAAMM,4)&#xA;FROM lukerVen.PVOF.Parametros Parametros&#xA;WHERE (Parametros.EstadoProceso='1')&#xA;&#xA;update PresupuestoANUALv2 set &#xA;PresupuestoANUALv2.stpLst='0'&#xA;, PresupuestoANUALv2.Valor_Lista=0&#xA;from [SD].[PresupuestoANUALv2] where ano=@x_ano&#xA;&#xA;--- Nacional &#xA;update PresupuestoANUALv2 set &#xA;PresupuestoANUALv2.stpLst='0'&#xA;, PresupuestoANUALv2.Valor_Lista= PresupuestoANUALv2.Cantidad* ListaPreciosGnni.precioUb&#xA;FROM lukerVen.[PVOF].ListaPreciosGnni ListaPreciosGnni, [SD].[PresupuestoANUALv2] PresupuestoANUALv2&#xA;WHERE ListaPreciosGnni.ano = PresupuestoANUALv2.ano &#xA;AND (month(PresupuestoANUALv2.FechaCorte)=ListaPreciosGnni.mes)&#xA;AND ListaPreciosGnni.Cod_SKU = PresupuestoANUALv2.Cod_SKU &#xA;AND ((ListaPreciosGnni.lista='Tradicional') &#xA;AND (ListaPreciosGnni.SalesOffice='') &#xA;AND (ListaPreciosGnni.Cod_Canal='') &#xA;AND (ListaPreciosGnni.Cod_GCliente='') &#xA;AND (ListaPreciosGnni.Cod_Cliente='')&#xA;)&#xA;&#xA;&#xA;select @sqlCommand =''&#xA;select @cont=0&#xA;DECLARE ciclo_cursor CURSOR FOR &#xA;SELECT DISTINCT &#xA;  case ListaPreciosGnni.SalesOffice when '' then 0 else 1 end as oficina&#xA;, case ListaPreciosGnni.Cod_Canal when '' then 0 else 1 end as canal &#xA;, case ListaPreciosGnni.Cod_GCliente when '' then 0 else 1 end as gcli &#xA;, case ListaPreciosGnni.Cod_Cliente when '' then 0 else 1 end as ccli &#xA;&#xA;FROM lukerVen.[PVOF].ListaPreciosGnni ListaPreciosGnni&#xA;where SalesOffice&lt;&gt;'' or Cod_Canal &lt;&gt;'' or Cod_GCliente &lt;&gt;'' or Cod_Cliente &lt;&gt;''&#xA;order by 1 ,2 ,3 &#xA;&#xA;OPEN ciclo_cursor&#xA;FETCH NEXT FROM ciclo_cursor INTO @oficina  ,@canal , @gcli ,@ccli&#xA;WHILE @@FETCH_STATUS = 0&#xA;BEGIN &#xA; select @siOficina ='' ,@siCanal='' , @siGcli =''&#xA; select @cont=@cont+1&#xA; select @conts=@cont&#xA; if @oficina =1 select @siOficina ='AND (ListaPreciosGnni.SalesOffice= PresupuestoANUALv2.Sht_Agencia) '&#xA; if @canal  =1 select @siCanal  ='AND (ListaPreciosGnni.Cod_Canal= PresupuestoANUALv2.Sht_Canal)'&#xA; if @gcli  =1 select @siGcli ='AND (ListaPreciosGnni.Cod_GCliente= PresupuestoANUALv2.Sht_GCliente) '&#xA;  if @ccli  =1 select @siCcli ='AND (ListaPreciosGnni.Cod_Cliente= PresupuestoANUALv2.Cod_Cliente) ' &#xA;&#xA; select @sqlCommand=  '&#xA;  update PresupuestoANUALv2 set &#xA;  PresupuestoANUALv2.stpLst='+@conts+'&#xA;  , PresupuestoANUALv2.Valor_Lista= PresupuestoANUALv2.Cantidad* ListaPreciosGnni.precioUb&#xA;  FROM lukerVen.[PVOF].ListaPreciosGnni ListaPreciosGnni, [SD].[PresupuestoANUALv2] PresupuestoANUALv2&#xA;  WHERE ListaPreciosGnni.ano = PresupuestoANUALv2.ano &#xA;  AND (month(PresupuestoANUALv2.FechaCorte)=ListaPreciosGnni.mes)&#xA;  AND (ListaPreciosGnni.Cod_SKU = PresupuestoANUALv2.Cod_SKU )&#xA;  '+@siOficina+'&#xA;  '+@siCanal+'&#xA;  '+@siOficina+'&#xA; '&#xA;    Exec (@sqlCommand)&#xA;&#xA; FETCH NEXT FROM ciclo_cursor &#xA; INTO @oficina  ,@canal , @gcli ,@ccli&#xA;&#xA;END&#xA;CLOSE ciclo_cursor&#xA;DEALLOCATE ciclo_cursor&#xA;&#xA;GO&#xA;&#xA;-- Lista Cadena en Huerfanos&#xA;update PresupuestoANUALv2 set &#xA;  PresupuestoANUALv2.stpLst= 'c'&#xA;, PresupuestoANUALv2.Valor_Lista= PresupuestoANUALv2.Cantidad* ListaPreciosGnni.precioUb&#xA;FROM lukerVen.[PVOF].ListaPreciosGnni ListaPreciosGnni&#xA;, [SD].[PresupuestoANUALv2] PresupuestoANUALv2&#xA;, lukerVen.SD.Productos Productos&#xA;WHERE Productos.Cod_SKU = PresupuestoANUALv2.Cod_SKU AND ListaPreciosGnni.ano = PresupuestoANUALv2.ano &#xA;AND ListaPreciosGnni.Cod_SKU = PresupuestoANUALv2.Cod_SKU AND ((PresupuestoANUALv2.stpLst='') &#xA;AND (ListaPreciosGnni.mes=month(FechaCorte)) AND (ListaPreciosGnni.lista='Cadenas'))" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
-      </DTS:ObjectData>
-    </DTS:Executable>
   </DTS:Executables>
-  <DTS:PrecedenceConstraints>
-    <DTS:PrecedenceConstraint
-      DTS:refId="Package.PrecedenceConstraints[Restricción]"
-      DTS:CreationName=""
-      DTS:DTSID="{299D135C-5FA7-4E9C-972B-6A9824A03A42}"
-      DTS:From="Package\vbru pvo Año - Comercial"
-      DTS:LogicalAnd="True"
-      DTS:ObjectName="Restricción"
-      DTS:To="Package\vbru pvo Año - V2 Fi Admin" />
-  </DTS:PrecedenceConstraints>
   <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
 <!--Esta sección CDATA contiene la información de diseño del paquete. Esta sección incluye información como, por ejemplo, las coordenadas (x,y), el ancho y el alto.-->
 <!--Si edita manualmente esta sección y comete un error, puede eliminarlo. -->
@@ -88,37 +62,11 @@
     design-time-name="Package">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
         <NodeLayout
           Size="141.6,41.6"
           Id="Package\vbru pvo Año - Comercial"
           TopLeft="60,60" />
-        <NodeLayout
-          Size="141.6,41.6"
-          Id="Package\vbru pvo Año - V2 Fi Admin"
-          TopLeft="60,161.6" />
-        <EdgeLayout
-          Id="Package.PrecedenceConstraints[Restricción]"
-          TopLeft="130.8,101.6">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,60"
-              Start="0,0"
-              End="0,52.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,52.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </Package>

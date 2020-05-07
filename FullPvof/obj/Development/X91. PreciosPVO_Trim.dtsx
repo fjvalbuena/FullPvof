@@ -7,12 +7,12 @@
   DTS:CreatorName="LAPTOP-MFGK5CPU\fvalb"
   DTS:DTSID="{D1CA78C0-C7EF-4502-A8F6-24C9264A1142}"
   DTS:ExecutableType="Microsoft.Package"
-  DTS:LastModifiedProductVersion="15.0.1300.371"
+  DTS:LastModifiedProductVersion="14.0.3002.113"
   DTS:LocaleID="1033"
   DTS:ObjectName="X91  PreciosPVO_Trim"
   DTS:PackageType="5"
-  DTS:VersionBuild="3"
-  DTS:VersionGUID="{1839FA80-22CA-4671-AB0B-25F827599837}">
+  DTS:VersionBuild="24"
+  DTS:VersionGUID="{434E3B5F-A673-41E3-ABAC-7EA831421559}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -27,13 +27,80 @@
           <DTS:Password
             DTS:Name="Password"
             Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAuR1Gdsnx50KES8/66vqaKwAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAADMDwltM/YNBUspoZW42jcO4wAoKfAS6clge5c405cdpgAAAAAOgAAAAAIAACAAAADrQJiCmlDDNtIABuT04hzQQw83ek4PhVEc57uPEsN/bSAAAAAAbcM8bzsw8cYWgk+ZDPr9TgNIdtmX+81T21znwk7xVEAAAADMY+Z9za+jMe5zeDVGigh9aPSu/XJibxX7dPLRgGOWWCUy+SWjglz0gC2EPm8TOdw9+vTUApKS7rG0WPWd6GLD</DTS:Password>
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAaGo1T2UrwUKdb1vvJFw8pwAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAADAkpPWRDDmXMjcGeHTCdqDag846OFvh73kAwuOS1/aUwAAAAAOgAAAAAIAACAAAAA0oScud4Ob3keKD/DNAm8pbDkwMGGGm6F04hqmDjNLIiAAAAAqllCEUEDtYcwmHaW0w3YquoZXhthsB99zwCaNQ/wqI0AAAADZaqDnVEf7s3S+/LkiHaa+J5J7uAkCA1gdZmaRFokjLOnaI8lzfji2Y6ponCH2ax0AUA3Wx2cF6+qY9j4BzIfH</DTS:Password>
         </DTS:ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
   </DTS:ConnectionManagers>
   <DTS:Variables />
   <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\descuentos"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Tarea Ejecutar SQL"
+      DTS:DTSID="{F496AFB4-0EE4-4E2F-BA43-6E14879D17F1}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="descuentos"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{D7F6CCE5-373F-49E1-9A36-280FBFC86034}"
+          SQLTask:SqlStatementSource="--truncate table [lukerVen].[PVOF].[DescuentosTrim]&#xA;&#xA;insert into [lukerVen].[PVOF].[DescuentosTrim]&#xA;SELECT PresupuestoTRIM.FechaCorte, PresupuestoTRIM.Cod_Cliente, PresupuestoTRIM.Cod_SKU, CondicionPorcentaje.Condicion, PresupuestoTRIM.Sht_GCliente, PresupuestoTRIM.Sht_Canal, PresupuestoTRIM.Sht_Agencia, '', (PresupuestoTRIM.Valor_Lista*CondicionPorcentaje.Pordentaje), '1010', PresupuestoTRIM.Cod_Negocio, PresupuestoTRIM.origen&#xA;FROM lukerVen.PVOF.CondicionPorcentaje CondicionPorcentaje, lukerVen.PVOF.PresupuestoTRIM PresupuestoTRIM&#xA;WHERE PresupuestoTRIM.Sht_Agencia = CondicionPorcentaje.Cod_Agencia AND PresupuestoTRIM.Sht_Canal = CondicionPorcentaje.Cod_Canal AND PresupuestoTRIM.Sht_GCliente = CondicionPorcentaje.Cod_GCliente AND CondicionPorcentaje.JerarquiaProducto = PresupuestoTRIM.JerarquiaProducto &#xA;AND ((CondicionPorcentaje.ano=2020) &#xA;AND (CondicionPorcentaje.PeriodoAAMM='202004') &#xA;AND (CondicionPorcentaje.Cod_Cliente=PresupuestoTRIM.Cod_Cliente)&#xA;)&#xA;&#xA;insert into [lukerVen].[PVOF].[DescuentosTrim]&#xA;SELECT PresupuestoTRIM.FechaCorte, PresupuestoTRIM.Cod_Cliente, PresupuestoTRIM.Cod_SKU, CondicionPorcentaje.Condicion, PresupuestoTRIM.Sht_GCliente, PresupuestoTRIM.Sht_Canal, PresupuestoTRIM.Sht_Agencia, '', (PresupuestoTRIM.Valor_Lista*CondicionPorcentaje.Pordentaje), '1010', PresupuestoTRIM.Cod_Negocio, PresupuestoTRIM.origen&#xA;FROM lukerVen.PVOF.CondicionPorcentaje CondicionPorcentaje, lukerVen.PVOF.PresupuestoTRIM PresupuestoTRIM&#xA;WHERE PresupuestoTRIM.Sht_Agencia = CondicionPorcentaje.Cod_Agencia AND PresupuestoTRIM.Sht_Canal = CondicionPorcentaje.Cod_Canal AND PresupuestoTRIM.Sht_GCliente = CondicionPorcentaje.Cod_GCliente AND CondicionPorcentaje.JerarquiaProducto = PresupuestoTRIM.JerarquiaProducto &#xA;AND ((CondicionPorcentaje.ano=2020) &#xA;AND (CondicionPorcentaje.PeriodoAAMM='202004') &#xA;AND (CondicionPorcentaje.Cod_Cliente='')&#xA;)&#xA;&#xA;&#xA;&#xA;insert into [lukerVen].[PVOF].[DescuentosTrim]&#xA;SELECT PresupuestoTRIM.FechaCorte, PresupuestoTRIM.Cod_Cliente, PresupuestoTRIM.Cod_SKU, CondicionPorcentajeMes.Condicion, PresupuestoTRIM.Sht_GCliente, PresupuestoTRIM.Sht_Canal, PresupuestoTRIM.Sht_Agencia, '', (PresupuestoTRIM.Valor_Lista*CondicionPorcentajeMes.Pordentaje), '1010', PresupuestoTRIM.Cod_Negocio, PresupuestoTRIM.origen&#xA;FROM lukerVen.PVOF.CondicionPorcentajeMes CondicionPorcentajeMes, lukerVen.PVOF.PresupuestoTRIM PresupuestoTRIM&#xA;WHERE PresupuestoTRIM.Sht_Agencia = CondicionPorcentajeMes.Cod_Agencia AND PresupuestoTRIM.Sht_Canal = CondicionPorcentajeMes.Cod_Canal AND PresupuestoTRIM.Sht_GCliente = CondicionPorcentajeMes.Cod_GCliente AND CondicionPorcentajeMes.Cod_Cliente = PresupuestoTRIM.Cod_Cliente AND CondicionPorcentajeMes.FechaAplica = PresupuestoTRIM.FechaCorte AND CondicionPorcentajeMes.JerarquiaProducto = PresupuestoTRIM.JerarquiaProducto &#xA;AND ((CondicionPorcentajeMes.ano=2020) &#xA;AND (CondicionPorcentajeMes.PeriodoAAMM='202004') &#xA;)&#xA;&#xA;insert into [lukerVen].[PVOF].[DescuentosTrim]&#xA;SELECT PresupuestoTRIM.FechaCorte, PresupuestoTRIM.Cod_Cliente, PresupuestoTRIM.Cod_SKU, CondicionPorcentajeMes.Condicion, PresupuestoTRIM.Sht_GCliente, PresupuestoTRIM.Sht_Canal, PresupuestoTRIM.Sht_Agencia, '', (PresupuestoTRIM.Valor_Lista*CondicionPorcentajeMes.Pordentaje), '1010', PresupuestoTRIM.Cod_Negocio, PresupuestoTRIM.origen&#xA;FROM lukerVen.PVOF.CondicionPorcentajeMes CondicionPorcentajeMes, lukerVen.PVOF.PresupuestoTRIM PresupuestoTRIM&#xA;WHERE PresupuestoTRIM.Sht_Agencia = CondicionPorcentajeMes.Cod_Agencia &#xA;AND PresupuestoTRIM.Sht_Canal = CondicionPorcentajeMes.Cod_Canal AND PresupuestoTRIM.Sht_GCliente = CondicionPorcentajeMes.Cod_GCliente &#xA;AND CondicionPorcentajeMes.Cod_Cliente= ''&#xA;AND CondicionPorcentajeMes.FechaAplica = PresupuestoTRIM.FechaCorte AND CondicionPorcentajeMes.JerarquiaProducto = PresupuestoTRIM.JerarquiaProducto &#xA;AND ((CondicionPorcentajeMes.ano=2020) &#xA;AND (CondicionPorcentajeMes.PeriodoAAMM='202004') &#xA;)&#xA;&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\porcent desc mes"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Tarea Ejecutar SQL"
+      DTS:DTSID="{D16F2E61-60F0-4C4A-90EC-07D9280F4610}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="porcent desc mes"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{D7F6CCE5-373F-49E1-9A36-280FBFC86034}"
+          SQLTask:SqlStatementSource="&#xA;select&#xA;  ano&#xA;, idCanal&#xA;, idGrupoCliente&#xA;, idOficina&#xA;, nombreGrupoClientesAd2&#xA;, nombreLinea&#xA;, idCustomer&#xA;, idCondicion&#xA;, right(zMes,4) as nMes &#xA;, porcentaje  into #PCM&#xA;from ( &#xA;SELECT &#xA;ppt.ano&#xA;, ppt.idCanal&#xA;, ppt.idGrupoCliente&#xA;, ppt.idOficina&#xA;, ppt.nombreGrupoClientesAd2&#xA;, ppt.nombreLinea&#xA;, ppt.idCustomer&#xA;, ppt.idCondicion&#xA;, ppt.Ene&#xA;, ppt.Feb&#xA;, ppt.Mar&#xA;, ppt.Abr&#xA;, ppt.May&#xA;, ppt.Jun&#xA;, ppt.Jul&#xA;, ppt.Ago&#xA;, ppt.Sep&#xA;, ppt.Oct&#xA;, ppt.Nov&#xA;, ppt.Dic&#xA;FROM [SVIDBLUKMZ03].HBAVENNAL.dbo.pptoPorcenDescPorCondicionMes ppt  ) p&#xA;Unpivot (&#xA;&#x9;porcentaje for zMes in&#xA;&#x9;( &#xA;&#x9;&#x9;&#x9;  Ene&#xA;&#x9;&#x9;&#x9;, Feb&#xA;&#x9;&#x9;&#x9;, Mar&#xA;&#x9;&#x9;&#x9;, Abr&#xA;&#x9;&#x9;&#x9;, May&#xA;&#x9;&#x9;&#x9;, Jun&#xA;&#x9;&#x9;&#x9;, Jul&#xA;&#x9;&#x9;&#x9;, Ago&#xA;&#x9;&#x9;&#x9;, Sep&#xA;&#x9;&#x9;&#x9;, Oct&#xA;&#x9;&#x9;&#x9;, Nov&#xA;&#x9;&#x9;&#x9;, Dic&#xA;&#x9;)&#xA;) As unpvy&#xA;&#xA;where porcentaje &lt;&gt;0&#xA;&#xA;--***********************************&#xA;declare @PeriodoPVO varchar(6), @MesCalc_I int, @MesCalc_F int, @CorteMes1 date, @KGMes varchar(10), @Conta int&#xA;SELECT &#xA;  @PeriodoPVO  = Parametros.PeriodoAAMM&#xA;, @MesCalc_I = Parametros.MesCalc_I&#xA;, @MesCalc_F = Parametros.MesCalc_F&#xA;FROM lukerVen.PVOF.Parametros Parametros&#xA;WHERE (Parametros.EstadoProceso='1')&#xA;&#xA;&#xA;delete [PVOF].[CondicionPorcentajeMes] where [PeriodoAAMM] = @PeriodoPVO&#xA;insert into [PVOF].[CondicionPorcentajeMes]&#xA;select   ano&#xA;, idCanal&#xA;, idGrupoCliente&#xA;, idOficina&#xA;, nombreGrupoClientesAd2&#xA;, nombreLinea&#xA;, idCustomer&#xA;, idCondicion&#xA;, nMes &#xA;, porcentaje,isnull(JerarquiaProducto,''), @PeriodoPVO,ltrim(str(ano))+corteS  from #PCM&#xA;inner join   lukerVen.dbo.meses on nMes = mesc&#xA;left outer join tmp.Lineas on nombreLinea=Linea &#xA;&#xA;&#xA;&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\porcentajes descuentos Anuales"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Tarea Ejecutar SQL"
+      DTS:DTSID="{3B7A634B-2EF9-413D-9BC3-3A09C9DD7B93}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="porcentajes descuentos Anuales"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2017 RC1; © 2017 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{D7F6CCE5-373F-49E1-9A36-280FBFC86034}"
+          SQLTask:SqlStatementSource="&#xA;select&#xA;  ano&#xA;, idCanal&#xA;, idGrupoCliente&#xA;, idOficina&#xA;, nombreGrupoClientesAd2&#xA;, nombreLinea&#xA;, idCustomer&#xA;, right(zCondicion,4) as Condicion &#xA;, porcentaje  into #PC&#xA;from (&#xA;SELECT &#xA;  pptoPorcenDescPorCondicion.ano&#xA;, pptoPorcenDescPorCondicion.idCanal&#xA;, pptoPorcenDescPorCondicion.idGrupoCliente&#xA;, pptoPorcenDescPorCondicion.idOficina&#xA;, pptoPorcenDescPorCondicion.nombreGrupoClientesAd2&#xA;, pptoPorcenDescPorCondicion.nombreLinea&#xA;, pptoPorcenDescPorCondicion.idCustomer&#xA;&#xA;, pptoPorcenDescPorCondicion.CAl_R100&#xA;, pptoPorcenDescPorCondicion.CAl_ZCT3&#xA;, pptoPorcenDescPorCondicion.CAl_ZCT5&#xA;, pptoPorcenDescPorCondicion.CAl_ZCT7&#xA;, pptoPorcenDescPorCondicion.CAl_ZDF2&#xA;, pptoPorcenDescPorCondicion.CAl_ZDFP&#xA;, pptoPorcenDescPorCondicion.CAl_ZP26&#xA;, pptoPorcenDescPorCondicion.CAl_ZP29&#xA;, pptoPorcenDescPorCondicion.CAl_ZTEA&#xA;, pptoPorcenDescPorCondicion.CAl_ZXC1&#xA;, pptoPorcenDescPorCondicion.CAl_ZXXB&#xA;, pptoPorcenDescPorCondicion.CAl_ZXXC&#xA;, pptoPorcenDescPorCondicion.DES_NRAB&#xA;, pptoPorcenDescPorCondicion.DES_ZDF1&#xA;, pptoPorcenDescPorCondicion.DES_ZDFA&#xA;, pptoPorcenDescPorCondicion.DES_ZDFO&#xA;, pptoPorcenDescPorCondicion.DES_ZP02&#xA;, pptoPorcenDescPorCondicion.DES_ZP04&#xA;, pptoPorcenDescPorCondicion.DES_ZP05&#xA;, pptoPorcenDescPorCondicion.DES_ZP06&#xA;, pptoPorcenDescPorCondicion.DES_ZP07&#xA;, pptoPorcenDescPorCondicion.DES_ZP08&#xA;, pptoPorcenDescPorCondicion.DES_ZP20&#xA;, pptoPorcenDescPorCondicion.DES_ZP21&#xA;, pptoPorcenDescPorCondicion.DES_ZP22&#xA;, pptoPorcenDescPorCondicion.DES_ZP23&#xA;, pptoPorcenDescPorCondicion.DES_ZP25&#xA;, pptoPorcenDescPorCondicion.DES_ZP27&#xA;, pptoPorcenDescPorCondicion.DES_ZP28&#xA;, pptoPorcenDescPorCondicion.DES_ZP99&#xA;, pptoPorcenDescPorCondicion.DES_ZRP2&#xA;, pptoPorcenDescPorCondicion.DES_ZRP3&#xA;, pptoPorcenDescPorCondicion.DES_ZTRA&#xA;, pptoPorcenDescPorCondicion.NEs_ZCT1&#xA;, pptoPorcenDescPorCondicion.NEs_ZRP1&#xA;, pptoPorcenDescPorCondicion.TLk_ZDC1&#xA;, pptoPorcenDescPorCondicion.TLk_ZDC2&#xA;, pptoPorcenDescPorCondicion.TLk_ZDCL&#xA;, pptoPorcenDescPorCondicion.TLk_ZDI1&#xA;, pptoPorcenDescPorCondicion.TLk_ZDIZ&#xA;, pptoPorcenDescPorCondicion.TLk_ZJGB&#xA;, pptoPorcenDescPorCondicion.TLk_ZP03&#xA;, pptoPorcenDescPorCondicion.TLk_ZP09&#xA;, pptoPorcenDescPorCondicion.TLk_ZXE1&#xA;, pptoPorcenDescPorCondicion.TLk_ZXXE&#xA;FROM [SVIDBLUKMZ03].HBAVENNAL.dbo.pptoPorcenDescPorCondicion  ) p&#xA;Unpivot (&#xA;&#x9;porcentaje for zCondicion in&#xA;&#x9;( CAl_R100&#xA;, CAl_ZCT3&#xA;, CAl_ZCT5&#xA;, CAl_ZCT7&#xA;, CAl_ZDF2&#xA;, CAl_ZDFP&#xA;, CAl_ZP26&#xA;, CAl_ZP29&#xA;, CAl_ZTEA&#xA;, CAl_ZXC1&#xA;, CAl_ZXXB&#xA;, CAl_ZXXC&#xA;, DES_NRAB&#xA;, DES_ZDF1&#xA;, DES_ZDFA&#xA;, DES_ZDFO&#xA;, DES_ZP02&#xA;, DES_ZP04&#xA;, DES_ZP05&#xA;, DES_ZP06&#xA;, DES_ZP07&#xA;, DES_ZP08&#xA;, DES_ZP20&#xA;, DES_ZP21&#xA;, DES_ZP22&#xA;, DES_ZP23&#xA;, DES_ZP25&#xA;, DES_ZP27&#xA;, DES_ZP28&#xA;, DES_ZP99&#xA;, DES_ZRP2&#xA;, DES_ZRP3&#xA;, DES_ZTRA&#xA;, NEs_ZCT1&#xA;, NEs_ZRP1&#xA;, TLk_ZDC1&#xA;, TLk_ZDC2&#xA;, TLk_ZDCL&#xA;, TLk_ZDI1&#xA;, TLk_ZDIZ&#xA;, TLk_ZJGB&#xA;, TLk_ZP03&#xA;, TLk_ZP09&#xA;, TLk_ZXE1&#xA;, TLk_ZXXE)&#xA;) As unpvy&#xA;&#xA;where porcentaje &lt;&gt;0&#xA;&#xA;&#xA;&#xA;declare @PeriodoPVO varchar(6), @MesCalc_I int, @MesCalc_F int, @CorteMes1 date, @KGMes varchar(10), @Conta int&#xA;SELECT &#xA;  @PeriodoPVO  = Parametros.PeriodoAAMM&#xA;, @MesCalc_I = Parametros.MesCalc_I&#xA;, @MesCalc_F = Parametros.MesCalc_F&#xA;FROM lukerVen.PVOF.Parametros Parametros&#xA;WHERE (Parametros.EstadoProceso='1')&#xA;&#xA;delete [PVOF].[CondicionPorcentaje] where [PeriodoAAMM]=@PeriodoPVO&#xA;&#xA;insert into [PVOF].[CondicionPorcentaje]&#xA;select pc.*, isnull(JerarquiaProducto,''),@PeriodoPVO from #PC pc left outer join tmp.Lineas on nombreLinea=Linea &#xA;drop table #PC&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Replace Vbru ppto Fin"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Tarea Ejecutar SQL"
+      DTS:DTSID="{A6C12F36-8EB6-4054-93BE-2EE75639F749}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Replace Vbru ppto Fin"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{D7F6CCE5-373F-49E1-9A36-280FBFC86034}"
+          SQLTask:SqlStatementSource="&#xA;declare @PeriodoPVO varchar(6), @MesCalc_I int, @MesCalc_F int, @CorteMes1 date, @KGMes varchar(10), @Conta int&#xA;&#xA;SELECT &#xA;  @PeriodoPVO  = Parametros.PeriodoAAMM&#xA;, @MesCalc_I = Parametros.MesCalc_I&#xA;, @MesCalc_F = Parametros.MesCalc_F&#xA;FROM lukerVen.PVOF.Parametros Parametros&#xA;WHERE (Parametros.EstadoProceso='1')&#xA;&#xA;&#xA;&#xA;--*** Sht_Director_Canal in VolumenTrimDLC_OL&#xA;&#xA;select @Conta=1&#xA;&#xA;while @Conta&lt;= (@MesCalc_F+1-@MesCalc_I)&#xA;begin&#xA;&#x9;select &#x9;@KGMes='Kilos'+ltrim(str(@Conta))&#xA;&#x9;&#xA;&#x9;select @CorteMes1= ( SELECT Max(Time.PK_Date) AS 'Max of PK_Date'&#xA;&#x9;&#x9;FROM lukerVen.dbo.Time Time&#xA;&#x9;&#x9;WHERE (year(PK_Date)=left(@PeriodoPVO,4)) AND (month(PK_Date)=@MesCalc_I-1+@Conta)&#xA;&#x9;)&#xA;&#x9;print(@Conta)&#xA;&#x9;print(@CorteMes1)&#xA;&#x9;print(@KGMes)&#xA;&#xA;&#x9;delete PresupuestoANUALv2&#xA;&#x9;FROM lukerVen.SD.PresupuestoANUALv2 PresupuestoANUALv2&#xA;&#x9;where  FechaCorte=@CorteMes1&#xA;&#xA;&#xA;&#x9;INSERT INTO lukerVen.SD.PresupuestoANUALv2&#xA;&#x9;SELECT PresupuestoTRIM.Cod_Negocio, PresupuestoTRIM.ano, PresupuestoTRIM.FechaCorte, PresupuestoTRIM.Cod_Cliente, PresupuestoTRIM.JerarquiaProducto, PresupuestoTRIM.Cod_SKU, PresupuestoTRIM.Kilos, PresupuestoTRIM.Valor_Lista, PresupuestoTRIM.Costo, PresupuestoTRIM.stpLst, PresupuestoTRIM.Sht_Agencia, PresupuestoTRIM.Sht_Canal, PresupuestoTRIM.Sht_GCliente, PresupuestoTRIM.Cantidad, PresupuestoTRIM.origen&#xA;    FROM lukerVen.PVOF.PresupuestoTRIM PresupuestoTRIM&#xA;&#x9;where  FechaCorte=@CorteMes1&#xA;&#xA;&#x9;select @Conta=@Conta+1&#xA;end&#xA;&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
     <DTS:Executable
       DTS:refId="Package\vbru pvo trim"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
@@ -51,6 +118,41 @@
       </DTS:ObjectData>
     </DTS:Executable>
   </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Restricción]"
+      DTS:CreationName=""
+      DTS:DTSID="{4522E60F-23E0-40EA-A5D5-BCE3139D6994}"
+      DTS:From="Package\vbru pvo trim"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Restricción"
+      DTS:To="Package\Replace Vbru ppto Fin" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Restricción 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{530D7544-56CA-46AE-8D06-797C30F3C578}"
+      DTS:From="Package\Replace Vbru ppto Fin"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Restricción 1"
+      DTS:To="Package\porcentajes descuentos Anuales" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Restricción 2]"
+      DTS:CreationName=""
+      DTS:DTSID="{E4678F91-46FC-426B-8CDE-E58616FB537C}"
+      DTS:From="Package\porcentajes descuentos Anuales"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Restricción 2"
+      DTS:To="Package\porcent desc mes" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Restricción 3]"
+      DTS:CreationName=""
+      DTS:DTSID="{1D33545E-632F-4266-8E6F-224A3F51B3BD}"
+      DTS:From="Package\porcent desc mes"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Restricción 3"
+      DTS:To="Package\descuentos"
+      DTS:Value="1" />
+  </DTS:PrecedenceConstraints>
   <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
 <!--Esta sección CDATA contiene la información de diseño del paquete. Esta sección incluye información como, por ejemplo, las coordenadas (x,y), el ancho y el alto.-->
 <!--Si edita manualmente esta sección y comete un error, puede eliminarlo. -->
@@ -62,11 +164,117 @@
     design-time-name="Package">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="170.4,49.6"
+          Id="Package\porcentajes descuentos Anuales"
+          TopLeft="35.9999985694885,156.000001239777" />
+        <NodeLayout
+          Size="181.6,41.6"
+          Id="Package\Replace Vbru ppto Fin"
+          TopLeft="31.3333348130423,87.2784331443664" />
         <NodeLayout
           Size="141.6,41.6"
           Id="Package\vbru pvo trim"
-          TopLeft="60,60" />
+          TopLeft="50.0000003973643,21.8666663636102" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Restricción]"
+          TopLeft="121.466667605203,63.4666663636102">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,23.8117667807563"
+              Start="0,0"
+              End="0,16.3117667807563">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,16.3117667807563" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Restricción 1]"
+          TopLeft="121.666666691265,128.878433144366">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,27.1215680954103"
+              Start="0,0"
+              End="0,19.6215680954103">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,19.6215680954103" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="160,41.6"
+          Id="Package\porcent desc mes"
+          TopLeft="40.6666650507186,230.88000183487" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Restricción 2]"
+          TopLeft="120.933331810104,205.600001239777">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,25.2800005950934"
+              Start="0,0"
+              End="0,17.7800005950934">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,17.7800005950934" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="131.2,41.6"
+          Id="Package\descuentos"
+          TopLeft="51.3333312935299,301.600002396902" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Restricción 3]"
+          TopLeft="118.799998172124,272.48000183487">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,29.1200005620317"
+              Start="0,0"
+              End="0,21.6200005620317">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,21.6200005620317" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-11.52869140625,6.09906278101587,23.0573828125,9.421875"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </Package>

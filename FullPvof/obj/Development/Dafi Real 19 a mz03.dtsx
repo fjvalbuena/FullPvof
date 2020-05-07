@@ -1,0 +1,1843 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="4/10/2020 11:27:30 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="LAPTOP-MFGK5CPU"
+  DTS:CreatorName="LAPTOP-MFGK5CPU\fvalb"
+  DTS:DTSID="{3B880E10-87EA-4970-9141-0D4EA00C4578}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.1300.371"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="Dafi Real 19 a mz03"
+  DTS:PackageType="5"
+  DTS:VersionBuild="2"
+  DTS:VersionGUID="{EF17DC76-F81A-4D6A-BDFB-7C1F9D583D74}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[192.168.1.62.sa]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{FE9608C8-2188-4DE5-BFAB-35FF192EA1AA}"
+      DTS:ObjectName="192.168.1.62.sa">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=192.168.1.62;User ID=sa;Provider=SQLNCLI11.1;Auto Translate=False;">
+          <DTS:Password
+            DTS:Name="Password"
+            Sensitive="1"
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAuR1Gdsnx50KES8/66vqaKwAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAADuYWKXV5V2V8vAVzjncWnOd3CBzPHLfa8QIyWv2E1zlAAAAAAOgAAAAAIAACAAAABrIfcRrQSun+FwEYSyFua+B4E6tJxdfaEX6fqcwE9vbCAAAACmyC4wXVJCGHsdV6pvHKy7JGYKwHA08XyKaOiHap1Y4kAAAABzdhRvAS24Neu3BinEOKtPgsStDCaOAQXXPy9FvSqadKgdQcep9WsbAxB81GKlRhnX6F7MfYpEvoofcxAE9QrH</DTS:Password>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[LocalHost.lukerFin]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{E692B020-715E-46DA-B637-F7A7023574F9}"
+      DTS:ObjectName="LocalHost.lukerFin">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=.;Initial Catalog=lukerFin;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\dat 19 real cd"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Tarea Flujo de datos"
+      DTS:DTSID="{73C113D7-2D52-4397-AC9C-9DA208275A6F}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="dat 19 real cd"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\dat 19 real cd\dafi loc"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="Origen de OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;7"
+              description="Origen de OLE DB"
+              name="dafi loc"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowset"></property>
+                <property
+                  dataType="System.String"
+                  description="Especifica la variable que contiene el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Comando SQL para ejecutar."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">/****** Script for SelectTopNRows command from SSMS  ******/
+SELECT [ano]
+      ,[idPais]
+      ,[idContabilidad]
+      ,[idComponente]
+      ,[idVersion]
+      ,[idCentro]
+      ,[idCuenta]
+      ,[idSociedad]
+      ,[idDivision]
+      ,[idLinea]
+      ,[idNegocio]
+      ,[idRubro]
+      ,[ene]
+      ,[feb]
+      ,[mar]
+      ,[abr]
+      ,[may]
+      ,[jun]
+      ,[jul]
+      ,[ago]
+      ,[sep]
+      ,[oct]
+      ,[nov]
+      ,[dic]
+      ,[idAgencia]
+      ,[idCanal]
+      ,[idCadena]
+      ,[idCategoria]
+      ,[idDestino]
+      ,[idGerencia]
+      ,[idFijoVariable]
+      ,[idAsignacionDirecta]
+      ,[idDriver]
+      ,[idEFin]
+      ,[idReferencia]
+      ,[B_asico_D_uplicaanexo]
+      ,[fijoVariableDirecto2]
+      ,[fijoVariableDirecto3]
+      ,[fijoVariableDirecto4]
+      ,[tmpIsUneta]
+      ,[fijoVariableDirecto5]
+      ,[idActividad]
+  FROM [lukerFin].[dbo].[datosFi_18]
+  where ano=2019 and idVersion='real'</property>
+                <property
+                  dataType="System.String"
+                  description="Variable que contiene el comando SQL para ejecutar."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica la página de códigos de columna para utilizar cuando la información de página de códigos no está disponible en el origen de datos."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Fuerza el uso del valor de la propiedad DefaultCodePage al describir datos de caracteres."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el modo utilizado para obtener acceso a la base de datos."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="Asignaciones entre los parámetros del comando SQL y las variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\dat 19 real cd\dafi loc.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[LocalHost.lukerFin]"
+                  connectionManagerRefId="Package.ConnectionManagers[LocalHost.lukerFin]"
+                  description="La conexión de tiempo de ejecución OLE DB usada para obtener acceso a la base de datos."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\dat 19 real cd\dafi loc.Outputs[Salida de origen de OLE DB]"
+                  name="Salida de origen de OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\dat 19 real cd\dafi loc.Outputs[Salida de origen de OLE DB].Columns[ano]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\dat 19 real cd\dafi loc.Outputs[Salida de origen de OLE DB].ExternalColumns[ano]"
+                      lineageId="Package\dat 19 real cd\dafi loc.Outputs[Salida de origen de OLE DB].Columns[ano]"
+                      name="ano"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\dat 19 real cd\dafi loc.Outputs[Salida de origen de OLE DB].Columns[idPais]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\dat 19 real cd\dafi loc.Outputs[Salida de origen de OLE DB].ExternalColumns[idPais]"
+                      length="2"
+                      lineageId="Package\dat 19 real cd\dafi loc.Outputs[Salida de origen de OLE DB].Columns[idPais]"
+                      name="idPais"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\dat 19 real cd\dafi loc.Outputs[Salida de origen de OLE DB].Columns[idContabilidad]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\dat 19 real cd\dafi loc.Outputs[Salida de origen de OLE DB].ExternalColumns[idContabilidad]"
+                      length="3"
+                      lineageId="Package\dat 19 real cd\dafi loc.Outputs[Salida de origen de OLE DB].Columns[idContabilidad]"
+                      name="idContabilidad"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\dat 19 real cd\dafi loc.Outputs[Salida de origen de OLE DB].Columns[idComponente]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\dat 19 real cd\dafi loc.Outputs[Salida de origen de OLE DB].ExternalColumns[idComponente]"
+                      length="15"
+                      lineageId="Package\dat 19 real cd\dafi loc.Outputs[Salida de origen de OLE DB].Columns[idComponente]"
+                      name="idComponente"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\dat 19 real cd\dafi loc.Outputs[Salida de origen de OLE DB].Columns[idVersion]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\dat 19 real cd\dafi loc.Outputs[Salida de origen de OLE DB].ExternalColumns[idVersion]"
+                      length="15"
+                      lineageId="Package\dat 19 real cd\dafi loc.Outputs[Salida de origen de OLE DB].Columns[idVersion]"
+                      name="idVersion"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\dat 19 real cd\dafi loc.Outputs[Salida de origen de OLE DB].Columns[idCentro]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\dat 19 real cd\dafi loc.Outputs[Salida de origen de OLE DB].ExternalColumns[idCentro]"
+                      length="10"
+                      lineageId="Package\dat 19 real cd\dafi loc.Outputs[Salida de origen de OLE DB].Columns[idCentro]"
+                      name="idCentro"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\dat 19 real cd\dafi loc.Outputs[Salida de origen de OLE DB].Columns[idCuenta]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\dat 19 real cd\dafi loc.Outputs[Salida de origen de OLE DB].ExternalColumns[idCuenta]"
+                      length="10"
+                      lineageId="Package\dat 19 real cd\dafi loc.Outputs[Salida de origen de OLE DB].Columns[idCuenta]"
+                      name="idCuenta"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\dat 19 real cd\dafi loc.Outputs[Salida de origen de OLE DB].Columns[idSociedad]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\dat 19 real cd\dafi loc.Outputs[Salida de origen de OLE DB].ExternalColumns[idSociedad]"
+                      length="10"
+                      lineageId="Package\dat 19 real cd\dafi loc.Outputs[Salida de origen de OLE DB].Columns[idSociedad]"
+                      name="idSociedad"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\dat 19 real cd\dafi loc.Outputs[Salida de origen de OLE DB].Columns[idDivision]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\dat 19 real cd\dafi loc.Outputs[Salida de origen de OLE DB].ExternalColumns[idDivision]"
+                      length="2"
+                      lineageId="Package\dat 19 real cd\dafi loc.Outputs[Salida de origen de OLE DB].Columns[idDivision]"
+                      name="idDivision"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\dat 19 real cd\dafi loc.Outputs[Salida de origen de OLE DB].Columns[idLinea]"
+                      dataType="i8"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\dat 19 real cd\dafi loc.Outputs[Salida de origen de OLE DB].ExternalColumns[idLinea]"
+                      lineageId="Package\dat 19 real cd\dafi loc.Outputs[Salida de origen de OLE DB].Columns[idLinea]"
+                      name="idLinea"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\dat 19 real cd\dafi loc.Outputs[Salida de origen de OLE DB].Columns[idNegocio]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\dat 19 real cd\dafi loc.Outputs[Salida de origen de OLE DB].ExternalColumns[idNegocio]"
+                      length="20"
+                      lineageId="Package\dat 19 real cd\dafi loc.Outputs[Salida de origen de OLE DB].Columns[idNegocio]"
+                      name="idNegocio"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\dat 19 real cd\dafi loc.Outputs[Salida de origen de OLE DB].Columns[idRubro]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\dat 19 real cd\dafi loc.Outputs[Salida de origen de OLE DB].ExternalColumns[idRubro]"
+                      length="15"
+                      lineageId="Package\dat 19 real cd\dafi loc.Outputs[Salida de origen de OLE DB].Columns[idRubro]"
+                      name="idRubro"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\dat 19 real cd\dafi loc.Outputs[Salida de origen de OLE DB].Columns[ene]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\dat 19 real cd\dafi loc.Outputs[Salida de origen de OLE DB].ExternalColumns[ene]"
+                      lineageId="Package\dat 19 real cd\dafi loc.Outputs[Salida de origen de OLE DB].Columns[ene]"
+                      name="ene"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\dat 19 real cd\dafi loc.Outputs[Salida de origen de OLE DB].Columns[feb]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\dat 19 real cd\dafi loc.Outputs[Salida de origen de OLE DB].ExternalColumns[feb]"
+                      lineageId="Package\dat 19 real cd\dafi loc.Outputs[Salida de origen de OLE DB].Columns[feb]"
+                      name="feb"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\dat 19 real cd\dafi loc.Outputs[Salida de origen de OLE DB].Columns[mar]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\dat 19 real cd\dafi loc.Outputs[Salida de origen de OLE DB].ExternalColumns[mar]"
+                      lineageId="Package\dat 19 real cd\dafi loc.Outputs[Salida de origen de OLE DB].Columns[mar]"
+                      name="mar"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\dat 19 real cd\dafi loc.Outputs[Salida de origen de OLE DB].Columns[abr]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\dat 19 real cd\dafi loc.Outputs[Salida de origen de OLE DB].ExternalColumns[abr]"
+                      lineageId="Package\dat 19 real cd\dafi loc.Outputs[Salida de origen de OLE DB].Columns[abr]"
+                      name="abr"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\dat 19 real cd\dafi loc.Outputs[Salida de origen de OLE DB].Columns[may]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\dat 19 real cd\dafi loc.Outputs[Salida de origen de OLE DB].ExternalColumns[may]"
+                      lineageId="Package\dat 19 real cd\dafi loc.Outputs[Salida de origen de OLE DB].Columns[may]"
+                      name="may"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\dat 19 real cd\dafi loc.Outputs[Salida de origen de OLE DB].Columns[jun]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\dat 19 real cd\dafi loc.Outputs[Salida de origen de OLE DB].ExternalColumns[jun]"
+                      lineageId="Package\dat 19 real cd\dafi loc.Outputs[Salida de origen de OLE DB].Columns[jun]"
+                      name="jun"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\dat 19 real cd\dafi loc.Outputs[Salida de origen de OLE DB].Columns[jul]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\dat 19 real cd\dafi loc.Outputs[Salida de origen de OLE DB].ExternalColumns[jul]"
+                      lineageId="Package\dat 19 real cd\dafi loc.Outputs[Salida de origen de OLE DB].Columns[jul]"
+                      name="jul"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\dat 19 real cd\dafi loc.Outputs[Salida de origen de OLE DB].Columns[ago]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\dat 19 real cd\dafi loc.Outputs[Salida de origen de OLE DB].ExternalColumns[ago]"
+                      lineageId="Package\dat 19 real cd\dafi loc.Outputs[Salida de origen de OLE DB].Columns[ago]"
+                      name="ago"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\dat 19 real cd\dafi loc.Outputs[Salida de origen de OLE DB].Columns[sep]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\dat 19 real cd\dafi loc.Outputs[Salida de origen de OLE DB].ExternalColumns[sep]"
+                      lineageId="Package\dat 19 real cd\dafi loc.Outputs[Salida de origen de OLE DB].Columns[sep]"
+                      name="sep"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\dat 19 real cd\dafi loc.Outputs[Salida de origen de OLE DB].Columns[oct]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\dat 19 real cd\dafi loc.Outputs[Salida de origen de OLE DB].ExternalColumns[oct]"
+                      lineageId="Package\dat 19 real cd\dafi loc.Outputs[Salida de origen de OLE DB].Columns[oct]"
+                      name="oct"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\dat 19 real cd\dafi loc.Outputs[Salida de origen de OLE DB].Columns[nov]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\dat 19 real cd\dafi loc.Outputs[Salida de origen de OLE DB].ExternalColumns[nov]"
+                      lineageId="Package\dat 19 real cd\dafi loc.Outputs[Salida de origen de OLE DB].Columns[nov]"
+                      name="nov"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\dat 19 real cd\dafi loc.Outputs[Salida de origen de OLE DB].Columns[dic]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\dat 19 real cd\dafi loc.Outputs[Salida de origen de OLE DB].ExternalColumns[dic]"
+                      lineageId="Package\dat 19 real cd\dafi loc.Outputs[Salida de origen de OLE DB].Columns[dic]"
+                      name="dic"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\dat 19 real cd\dafi loc.Outputs[Salida de origen de OLE DB].Columns[idAgencia]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\dat 19 real cd\dafi loc.Outputs[Salida de origen de OLE DB].ExternalColumns[idAgencia]"
+                      length="2"
+                      lineageId="Package\dat 19 real cd\dafi loc.Outputs[Salida de origen de OLE DB].Columns[idAgencia]"
+                      name="idAgencia"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\dat 19 real cd\dafi loc.Outputs[Salida de origen de OLE DB].Columns[idCanal]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\dat 19 real cd\dafi loc.Outputs[Salida de origen de OLE DB].ExternalColumns[idCanal]"
+                      length="2"
+                      lineageId="Package\dat 19 real cd\dafi loc.Outputs[Salida de origen de OLE DB].Columns[idCanal]"
+                      name="idCanal"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\dat 19 real cd\dafi loc.Outputs[Salida de origen de OLE DB].Columns[idCadena]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\dat 19 real cd\dafi loc.Outputs[Salida de origen de OLE DB].ExternalColumns[idCadena]"
+                      length="10"
+                      lineageId="Package\dat 19 real cd\dafi loc.Outputs[Salida de origen de OLE DB].Columns[idCadena]"
+                      name="idCadena"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\dat 19 real cd\dafi loc.Outputs[Salida de origen de OLE DB].Columns[idCategoria]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\dat 19 real cd\dafi loc.Outputs[Salida de origen de OLE DB].ExternalColumns[idCategoria]"
+                      length="20"
+                      lineageId="Package\dat 19 real cd\dafi loc.Outputs[Salida de origen de OLE DB].Columns[idCategoria]"
+                      name="idCategoria"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\dat 19 real cd\dafi loc.Outputs[Salida de origen de OLE DB].Columns[idDestino]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\dat 19 real cd\dafi loc.Outputs[Salida de origen de OLE DB].ExternalColumns[idDestino]"
+                      length="13"
+                      lineageId="Package\dat 19 real cd\dafi loc.Outputs[Salida de origen de OLE DB].Columns[idDestino]"
+                      name="idDestino"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\dat 19 real cd\dafi loc.Outputs[Salida de origen de OLE DB].Columns[idGerencia]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\dat 19 real cd\dafi loc.Outputs[Salida de origen de OLE DB].ExternalColumns[idGerencia]"
+                      length="10"
+                      lineageId="Package\dat 19 real cd\dafi loc.Outputs[Salida de origen de OLE DB].Columns[idGerencia]"
+                      name="idGerencia"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\dat 19 real cd\dafi loc.Outputs[Salida de origen de OLE DB].Columns[idFijoVariable]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\dat 19 real cd\dafi loc.Outputs[Salida de origen de OLE DB].ExternalColumns[idFijoVariable]"
+                      length="1"
+                      lineageId="Package\dat 19 real cd\dafi loc.Outputs[Salida de origen de OLE DB].Columns[idFijoVariable]"
+                      name="idFijoVariable"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\dat 19 real cd\dafi loc.Outputs[Salida de origen de OLE DB].Columns[idAsignacionDirecta]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\dat 19 real cd\dafi loc.Outputs[Salida de origen de OLE DB].ExternalColumns[idAsignacionDirecta]"
+                      length="10"
+                      lineageId="Package\dat 19 real cd\dafi loc.Outputs[Salida de origen de OLE DB].Columns[idAsignacionDirecta]"
+                      name="idAsignacionDirecta"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\dat 19 real cd\dafi loc.Outputs[Salida de origen de OLE DB].Columns[idDriver]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\dat 19 real cd\dafi loc.Outputs[Salida de origen de OLE DB].ExternalColumns[idDriver]"
+                      length="10"
+                      lineageId="Package\dat 19 real cd\dafi loc.Outputs[Salida de origen de OLE DB].Columns[idDriver]"
+                      name="idDriver"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\dat 19 real cd\dafi loc.Outputs[Salida de origen de OLE DB].Columns[idEFin]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\dat 19 real cd\dafi loc.Outputs[Salida de origen de OLE DB].ExternalColumns[idEFin]"
+                      length="10"
+                      lineageId="Package\dat 19 real cd\dafi loc.Outputs[Salida de origen de OLE DB].Columns[idEFin]"
+                      name="idEFin"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\dat 19 real cd\dafi loc.Outputs[Salida de origen de OLE DB].Columns[idReferencia]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\dat 19 real cd\dafi loc.Outputs[Salida de origen de OLE DB].ExternalColumns[idReferencia]"
+                      length="18"
+                      lineageId="Package\dat 19 real cd\dafi loc.Outputs[Salida de origen de OLE DB].Columns[idReferencia]"
+                      name="idReferencia"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\dat 19 real cd\dafi loc.Outputs[Salida de origen de OLE DB].Columns[B_asico_D_uplicaanexo]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\dat 19 real cd\dafi loc.Outputs[Salida de origen de OLE DB].ExternalColumns[B_asico_D_uplicaanexo]"
+                      length="1"
+                      lineageId="Package\dat 19 real cd\dafi loc.Outputs[Salida de origen de OLE DB].Columns[B_asico_D_uplicaanexo]"
+                      name="B_asico_D_uplicaanexo"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\dat 19 real cd\dafi loc.Outputs[Salida de origen de OLE DB].Columns[fijoVariableDirecto2]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\dat 19 real cd\dafi loc.Outputs[Salida de origen de OLE DB].ExternalColumns[fijoVariableDirecto2]"
+                      length="1"
+                      lineageId="Package\dat 19 real cd\dafi loc.Outputs[Salida de origen de OLE DB].Columns[fijoVariableDirecto2]"
+                      name="fijoVariableDirecto2"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\dat 19 real cd\dafi loc.Outputs[Salida de origen de OLE DB].Columns[fijoVariableDirecto3]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\dat 19 real cd\dafi loc.Outputs[Salida de origen de OLE DB].ExternalColumns[fijoVariableDirecto3]"
+                      length="1"
+                      lineageId="Package\dat 19 real cd\dafi loc.Outputs[Salida de origen de OLE DB].Columns[fijoVariableDirecto3]"
+                      name="fijoVariableDirecto3"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\dat 19 real cd\dafi loc.Outputs[Salida de origen de OLE DB].Columns[fijoVariableDirecto4]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\dat 19 real cd\dafi loc.Outputs[Salida de origen de OLE DB].ExternalColumns[fijoVariableDirecto4]"
+                      length="1"
+                      lineageId="Package\dat 19 real cd\dafi loc.Outputs[Salida de origen de OLE DB].Columns[fijoVariableDirecto4]"
+                      name="fijoVariableDirecto4"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\dat 19 real cd\dafi loc.Outputs[Salida de origen de OLE DB].Columns[tmpIsUneta]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\dat 19 real cd\dafi loc.Outputs[Salida de origen de OLE DB].ExternalColumns[tmpIsUneta]"
+                      length="1"
+                      lineageId="Package\dat 19 real cd\dafi loc.Outputs[Salida de origen de OLE DB].Columns[tmpIsUneta]"
+                      name="tmpIsUneta"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\dat 19 real cd\dafi loc.Outputs[Salida de origen de OLE DB].Columns[fijoVariableDirecto5]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\dat 19 real cd\dafi loc.Outputs[Salida de origen de OLE DB].ExternalColumns[fijoVariableDirecto5]"
+                      length="1"
+                      lineageId="Package\dat 19 real cd\dafi loc.Outputs[Salida de origen de OLE DB].Columns[fijoVariableDirecto5]"
+                      name="fijoVariableDirecto5"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\dat 19 real cd\dafi loc.Outputs[Salida de origen de OLE DB].Columns[idActividad]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\dat 19 real cd\dafi loc.Outputs[Salida de origen de OLE DB].ExternalColumns[idActividad]"
+                      length="30"
+                      lineageId="Package\dat 19 real cd\dafi loc.Outputs[Salida de origen de OLE DB].Columns[idActividad]"
+                      name="idActividad"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\dat 19 real cd\dafi loc.Outputs[Salida de origen de OLE DB].ExternalColumns[ano]"
+                      dataType="i4"
+                      name="ano" />
+                    <externalMetadataColumn
+                      refId="Package\dat 19 real cd\dafi loc.Outputs[Salida de origen de OLE DB].ExternalColumns[idPais]"
+                      codePage="1252"
+                      dataType="str"
+                      length="2"
+                      name="idPais" />
+                    <externalMetadataColumn
+                      refId="Package\dat 19 real cd\dafi loc.Outputs[Salida de origen de OLE DB].ExternalColumns[idContabilidad]"
+                      codePage="1252"
+                      dataType="str"
+                      length="3"
+                      name="idContabilidad" />
+                    <externalMetadataColumn
+                      refId="Package\dat 19 real cd\dafi loc.Outputs[Salida de origen de OLE DB].ExternalColumns[idComponente]"
+                      codePage="1252"
+                      dataType="str"
+                      length="15"
+                      name="idComponente" />
+                    <externalMetadataColumn
+                      refId="Package\dat 19 real cd\dafi loc.Outputs[Salida de origen de OLE DB].ExternalColumns[idVersion]"
+                      codePage="1252"
+                      dataType="str"
+                      length="15"
+                      name="idVersion" />
+                    <externalMetadataColumn
+                      refId="Package\dat 19 real cd\dafi loc.Outputs[Salida de origen de OLE DB].ExternalColumns[idCentro]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="idCentro" />
+                    <externalMetadataColumn
+                      refId="Package\dat 19 real cd\dafi loc.Outputs[Salida de origen de OLE DB].ExternalColumns[idCuenta]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="idCuenta" />
+                    <externalMetadataColumn
+                      refId="Package\dat 19 real cd\dafi loc.Outputs[Salida de origen de OLE DB].ExternalColumns[idSociedad]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="idSociedad" />
+                    <externalMetadataColumn
+                      refId="Package\dat 19 real cd\dafi loc.Outputs[Salida de origen de OLE DB].ExternalColumns[idDivision]"
+                      codePage="1252"
+                      dataType="str"
+                      length="2"
+                      name="idDivision" />
+                    <externalMetadataColumn
+                      refId="Package\dat 19 real cd\dafi loc.Outputs[Salida de origen de OLE DB].ExternalColumns[idLinea]"
+                      dataType="i8"
+                      name="idLinea" />
+                    <externalMetadataColumn
+                      refId="Package\dat 19 real cd\dafi loc.Outputs[Salida de origen de OLE DB].ExternalColumns[idNegocio]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="idNegocio" />
+                    <externalMetadataColumn
+                      refId="Package\dat 19 real cd\dafi loc.Outputs[Salida de origen de OLE DB].ExternalColumns[idRubro]"
+                      codePage="1252"
+                      dataType="str"
+                      length="15"
+                      name="idRubro" />
+                    <externalMetadataColumn
+                      refId="Package\dat 19 real cd\dafi loc.Outputs[Salida de origen de OLE DB].ExternalColumns[ene]"
+                      dataType="r8"
+                      name="ene" />
+                    <externalMetadataColumn
+                      refId="Package\dat 19 real cd\dafi loc.Outputs[Salida de origen de OLE DB].ExternalColumns[feb]"
+                      dataType="r8"
+                      name="feb" />
+                    <externalMetadataColumn
+                      refId="Package\dat 19 real cd\dafi loc.Outputs[Salida de origen de OLE DB].ExternalColumns[mar]"
+                      dataType="r8"
+                      name="mar" />
+                    <externalMetadataColumn
+                      refId="Package\dat 19 real cd\dafi loc.Outputs[Salida de origen de OLE DB].ExternalColumns[abr]"
+                      dataType="r8"
+                      name="abr" />
+                    <externalMetadataColumn
+                      refId="Package\dat 19 real cd\dafi loc.Outputs[Salida de origen de OLE DB].ExternalColumns[may]"
+                      dataType="r8"
+                      name="may" />
+                    <externalMetadataColumn
+                      refId="Package\dat 19 real cd\dafi loc.Outputs[Salida de origen de OLE DB].ExternalColumns[jun]"
+                      dataType="r8"
+                      name="jun" />
+                    <externalMetadataColumn
+                      refId="Package\dat 19 real cd\dafi loc.Outputs[Salida de origen de OLE DB].ExternalColumns[jul]"
+                      dataType="r8"
+                      name="jul" />
+                    <externalMetadataColumn
+                      refId="Package\dat 19 real cd\dafi loc.Outputs[Salida de origen de OLE DB].ExternalColumns[ago]"
+                      dataType="r8"
+                      name="ago" />
+                    <externalMetadataColumn
+                      refId="Package\dat 19 real cd\dafi loc.Outputs[Salida de origen de OLE DB].ExternalColumns[sep]"
+                      dataType="r8"
+                      name="sep" />
+                    <externalMetadataColumn
+                      refId="Package\dat 19 real cd\dafi loc.Outputs[Salida de origen de OLE DB].ExternalColumns[oct]"
+                      dataType="r8"
+                      name="oct" />
+                    <externalMetadataColumn
+                      refId="Package\dat 19 real cd\dafi loc.Outputs[Salida de origen de OLE DB].ExternalColumns[nov]"
+                      dataType="r8"
+                      name="nov" />
+                    <externalMetadataColumn
+                      refId="Package\dat 19 real cd\dafi loc.Outputs[Salida de origen de OLE DB].ExternalColumns[dic]"
+                      dataType="r8"
+                      name="dic" />
+                    <externalMetadataColumn
+                      refId="Package\dat 19 real cd\dafi loc.Outputs[Salida de origen de OLE DB].ExternalColumns[idAgencia]"
+                      codePage="1252"
+                      dataType="str"
+                      length="2"
+                      name="idAgencia" />
+                    <externalMetadataColumn
+                      refId="Package\dat 19 real cd\dafi loc.Outputs[Salida de origen de OLE DB].ExternalColumns[idCanal]"
+                      codePage="1252"
+                      dataType="str"
+                      length="2"
+                      name="idCanal" />
+                    <externalMetadataColumn
+                      refId="Package\dat 19 real cd\dafi loc.Outputs[Salida de origen de OLE DB].ExternalColumns[idCadena]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="idCadena" />
+                    <externalMetadataColumn
+                      refId="Package\dat 19 real cd\dafi loc.Outputs[Salida de origen de OLE DB].ExternalColumns[idCategoria]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="idCategoria" />
+                    <externalMetadataColumn
+                      refId="Package\dat 19 real cd\dafi loc.Outputs[Salida de origen de OLE DB].ExternalColumns[idDestino]"
+                      codePage="1252"
+                      dataType="str"
+                      length="13"
+                      name="idDestino" />
+                    <externalMetadataColumn
+                      refId="Package\dat 19 real cd\dafi loc.Outputs[Salida de origen de OLE DB].ExternalColumns[idGerencia]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="idGerencia" />
+                    <externalMetadataColumn
+                      refId="Package\dat 19 real cd\dafi loc.Outputs[Salida de origen de OLE DB].ExternalColumns[idFijoVariable]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      name="idFijoVariable" />
+                    <externalMetadataColumn
+                      refId="Package\dat 19 real cd\dafi loc.Outputs[Salida de origen de OLE DB].ExternalColumns[idAsignacionDirecta]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="idAsignacionDirecta" />
+                    <externalMetadataColumn
+                      refId="Package\dat 19 real cd\dafi loc.Outputs[Salida de origen de OLE DB].ExternalColumns[idDriver]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="idDriver" />
+                    <externalMetadataColumn
+                      refId="Package\dat 19 real cd\dafi loc.Outputs[Salida de origen de OLE DB].ExternalColumns[idEFin]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="idEFin" />
+                    <externalMetadataColumn
+                      refId="Package\dat 19 real cd\dafi loc.Outputs[Salida de origen de OLE DB].ExternalColumns[idReferencia]"
+                      codePage="1252"
+                      dataType="str"
+                      length="18"
+                      name="idReferencia" />
+                    <externalMetadataColumn
+                      refId="Package\dat 19 real cd\dafi loc.Outputs[Salida de origen de OLE DB].ExternalColumns[B_asico_D_uplicaanexo]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      name="B_asico_D_uplicaanexo" />
+                    <externalMetadataColumn
+                      refId="Package\dat 19 real cd\dafi loc.Outputs[Salida de origen de OLE DB].ExternalColumns[fijoVariableDirecto2]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      name="fijoVariableDirecto2" />
+                    <externalMetadataColumn
+                      refId="Package\dat 19 real cd\dafi loc.Outputs[Salida de origen de OLE DB].ExternalColumns[fijoVariableDirecto3]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      name="fijoVariableDirecto3" />
+                    <externalMetadataColumn
+                      refId="Package\dat 19 real cd\dafi loc.Outputs[Salida de origen de OLE DB].ExternalColumns[fijoVariableDirecto4]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      name="fijoVariableDirecto4" />
+                    <externalMetadataColumn
+                      refId="Package\dat 19 real cd\dafi loc.Outputs[Salida de origen de OLE DB].ExternalColumns[tmpIsUneta]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      name="tmpIsUneta" />
+                    <externalMetadataColumn
+                      refId="Package\dat 19 real cd\dafi loc.Outputs[Salida de origen de OLE DB].ExternalColumns[fijoVariableDirecto5]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      name="fijoVariableDirecto5" />
+                    <externalMetadataColumn
+                      refId="Package\dat 19 real cd\dafi loc.Outputs[Salida de origen de OLE DB].ExternalColumns[idActividad]"
+                      codePage="1252"
+                      dataType="str"
+                      length="30"
+                      name="idActividad" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\dat 19 real cd\dafi loc.Outputs[Salida de error de origen de OLE DB]"
+                  isErrorOut="true"
+                  name="Salida de error de origen de OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\dat 19 real cd\dafi loc.Outputs[Salida de error de origen de OLE DB].Columns[ano]"
+                      dataType="i4"
+                      lineageId="Package\dat 19 real cd\dafi loc.Outputs[Salida de error de origen de OLE DB].Columns[ano]"
+                      name="ano" />
+                    <outputColumn
+                      refId="Package\dat 19 real cd\dafi loc.Outputs[Salida de error de origen de OLE DB].Columns[idPais]"
+                      codePage="1252"
+                      dataType="str"
+                      length="2"
+                      lineageId="Package\dat 19 real cd\dafi loc.Outputs[Salida de error de origen de OLE DB].Columns[idPais]"
+                      name="idPais" />
+                    <outputColumn
+                      refId="Package\dat 19 real cd\dafi loc.Outputs[Salida de error de origen de OLE DB].Columns[idContabilidad]"
+                      codePage="1252"
+                      dataType="str"
+                      length="3"
+                      lineageId="Package\dat 19 real cd\dafi loc.Outputs[Salida de error de origen de OLE DB].Columns[idContabilidad]"
+                      name="idContabilidad" />
+                    <outputColumn
+                      refId="Package\dat 19 real cd\dafi loc.Outputs[Salida de error de origen de OLE DB].Columns[idComponente]"
+                      codePage="1252"
+                      dataType="str"
+                      length="15"
+                      lineageId="Package\dat 19 real cd\dafi loc.Outputs[Salida de error de origen de OLE DB].Columns[idComponente]"
+                      name="idComponente" />
+                    <outputColumn
+                      refId="Package\dat 19 real cd\dafi loc.Outputs[Salida de error de origen de OLE DB].Columns[idVersion]"
+                      codePage="1252"
+                      dataType="str"
+                      length="15"
+                      lineageId="Package\dat 19 real cd\dafi loc.Outputs[Salida de error de origen de OLE DB].Columns[idVersion]"
+                      name="idVersion" />
+                    <outputColumn
+                      refId="Package\dat 19 real cd\dafi loc.Outputs[Salida de error de origen de OLE DB].Columns[idCentro]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      lineageId="Package\dat 19 real cd\dafi loc.Outputs[Salida de error de origen de OLE DB].Columns[idCentro]"
+                      name="idCentro" />
+                    <outputColumn
+                      refId="Package\dat 19 real cd\dafi loc.Outputs[Salida de error de origen de OLE DB].Columns[idCuenta]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      lineageId="Package\dat 19 real cd\dafi loc.Outputs[Salida de error de origen de OLE DB].Columns[idCuenta]"
+                      name="idCuenta" />
+                    <outputColumn
+                      refId="Package\dat 19 real cd\dafi loc.Outputs[Salida de error de origen de OLE DB].Columns[idSociedad]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      lineageId="Package\dat 19 real cd\dafi loc.Outputs[Salida de error de origen de OLE DB].Columns[idSociedad]"
+                      name="idSociedad" />
+                    <outputColumn
+                      refId="Package\dat 19 real cd\dafi loc.Outputs[Salida de error de origen de OLE DB].Columns[idDivision]"
+                      codePage="1252"
+                      dataType="str"
+                      length="2"
+                      lineageId="Package\dat 19 real cd\dafi loc.Outputs[Salida de error de origen de OLE DB].Columns[idDivision]"
+                      name="idDivision" />
+                    <outputColumn
+                      refId="Package\dat 19 real cd\dafi loc.Outputs[Salida de error de origen de OLE DB].Columns[idLinea]"
+                      dataType="i8"
+                      lineageId="Package\dat 19 real cd\dafi loc.Outputs[Salida de error de origen de OLE DB].Columns[idLinea]"
+                      name="idLinea" />
+                    <outputColumn
+                      refId="Package\dat 19 real cd\dafi loc.Outputs[Salida de error de origen de OLE DB].Columns[idNegocio]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      lineageId="Package\dat 19 real cd\dafi loc.Outputs[Salida de error de origen de OLE DB].Columns[idNegocio]"
+                      name="idNegocio" />
+                    <outputColumn
+                      refId="Package\dat 19 real cd\dafi loc.Outputs[Salida de error de origen de OLE DB].Columns[idRubro]"
+                      codePage="1252"
+                      dataType="str"
+                      length="15"
+                      lineageId="Package\dat 19 real cd\dafi loc.Outputs[Salida de error de origen de OLE DB].Columns[idRubro]"
+                      name="idRubro" />
+                    <outputColumn
+                      refId="Package\dat 19 real cd\dafi loc.Outputs[Salida de error de origen de OLE DB].Columns[ene]"
+                      dataType="r8"
+                      lineageId="Package\dat 19 real cd\dafi loc.Outputs[Salida de error de origen de OLE DB].Columns[ene]"
+                      name="ene" />
+                    <outputColumn
+                      refId="Package\dat 19 real cd\dafi loc.Outputs[Salida de error de origen de OLE DB].Columns[feb]"
+                      dataType="r8"
+                      lineageId="Package\dat 19 real cd\dafi loc.Outputs[Salida de error de origen de OLE DB].Columns[feb]"
+                      name="feb" />
+                    <outputColumn
+                      refId="Package\dat 19 real cd\dafi loc.Outputs[Salida de error de origen de OLE DB].Columns[mar]"
+                      dataType="r8"
+                      lineageId="Package\dat 19 real cd\dafi loc.Outputs[Salida de error de origen de OLE DB].Columns[mar]"
+                      name="mar" />
+                    <outputColumn
+                      refId="Package\dat 19 real cd\dafi loc.Outputs[Salida de error de origen de OLE DB].Columns[abr]"
+                      dataType="r8"
+                      lineageId="Package\dat 19 real cd\dafi loc.Outputs[Salida de error de origen de OLE DB].Columns[abr]"
+                      name="abr" />
+                    <outputColumn
+                      refId="Package\dat 19 real cd\dafi loc.Outputs[Salida de error de origen de OLE DB].Columns[may]"
+                      dataType="r8"
+                      lineageId="Package\dat 19 real cd\dafi loc.Outputs[Salida de error de origen de OLE DB].Columns[may]"
+                      name="may" />
+                    <outputColumn
+                      refId="Package\dat 19 real cd\dafi loc.Outputs[Salida de error de origen de OLE DB].Columns[jun]"
+                      dataType="r8"
+                      lineageId="Package\dat 19 real cd\dafi loc.Outputs[Salida de error de origen de OLE DB].Columns[jun]"
+                      name="jun" />
+                    <outputColumn
+                      refId="Package\dat 19 real cd\dafi loc.Outputs[Salida de error de origen de OLE DB].Columns[jul]"
+                      dataType="r8"
+                      lineageId="Package\dat 19 real cd\dafi loc.Outputs[Salida de error de origen de OLE DB].Columns[jul]"
+                      name="jul" />
+                    <outputColumn
+                      refId="Package\dat 19 real cd\dafi loc.Outputs[Salida de error de origen de OLE DB].Columns[ago]"
+                      dataType="r8"
+                      lineageId="Package\dat 19 real cd\dafi loc.Outputs[Salida de error de origen de OLE DB].Columns[ago]"
+                      name="ago" />
+                    <outputColumn
+                      refId="Package\dat 19 real cd\dafi loc.Outputs[Salida de error de origen de OLE DB].Columns[sep]"
+                      dataType="r8"
+                      lineageId="Package\dat 19 real cd\dafi loc.Outputs[Salida de error de origen de OLE DB].Columns[sep]"
+                      name="sep" />
+                    <outputColumn
+                      refId="Package\dat 19 real cd\dafi loc.Outputs[Salida de error de origen de OLE DB].Columns[oct]"
+                      dataType="r8"
+                      lineageId="Package\dat 19 real cd\dafi loc.Outputs[Salida de error de origen de OLE DB].Columns[oct]"
+                      name="oct" />
+                    <outputColumn
+                      refId="Package\dat 19 real cd\dafi loc.Outputs[Salida de error de origen de OLE DB].Columns[nov]"
+                      dataType="r8"
+                      lineageId="Package\dat 19 real cd\dafi loc.Outputs[Salida de error de origen de OLE DB].Columns[nov]"
+                      name="nov" />
+                    <outputColumn
+                      refId="Package\dat 19 real cd\dafi loc.Outputs[Salida de error de origen de OLE DB].Columns[dic]"
+                      dataType="r8"
+                      lineageId="Package\dat 19 real cd\dafi loc.Outputs[Salida de error de origen de OLE DB].Columns[dic]"
+                      name="dic" />
+                    <outputColumn
+                      refId="Package\dat 19 real cd\dafi loc.Outputs[Salida de error de origen de OLE DB].Columns[idAgencia]"
+                      codePage="1252"
+                      dataType="str"
+                      length="2"
+                      lineageId="Package\dat 19 real cd\dafi loc.Outputs[Salida de error de origen de OLE DB].Columns[idAgencia]"
+                      name="idAgencia" />
+                    <outputColumn
+                      refId="Package\dat 19 real cd\dafi loc.Outputs[Salida de error de origen de OLE DB].Columns[idCanal]"
+                      codePage="1252"
+                      dataType="str"
+                      length="2"
+                      lineageId="Package\dat 19 real cd\dafi loc.Outputs[Salida de error de origen de OLE DB].Columns[idCanal]"
+                      name="idCanal" />
+                    <outputColumn
+                      refId="Package\dat 19 real cd\dafi loc.Outputs[Salida de error de origen de OLE DB].Columns[idCadena]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      lineageId="Package\dat 19 real cd\dafi loc.Outputs[Salida de error de origen de OLE DB].Columns[idCadena]"
+                      name="idCadena" />
+                    <outputColumn
+                      refId="Package\dat 19 real cd\dafi loc.Outputs[Salida de error de origen de OLE DB].Columns[idCategoria]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      lineageId="Package\dat 19 real cd\dafi loc.Outputs[Salida de error de origen de OLE DB].Columns[idCategoria]"
+                      name="idCategoria" />
+                    <outputColumn
+                      refId="Package\dat 19 real cd\dafi loc.Outputs[Salida de error de origen de OLE DB].Columns[idDestino]"
+                      codePage="1252"
+                      dataType="str"
+                      length="13"
+                      lineageId="Package\dat 19 real cd\dafi loc.Outputs[Salida de error de origen de OLE DB].Columns[idDestino]"
+                      name="idDestino" />
+                    <outputColumn
+                      refId="Package\dat 19 real cd\dafi loc.Outputs[Salida de error de origen de OLE DB].Columns[idGerencia]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      lineageId="Package\dat 19 real cd\dafi loc.Outputs[Salida de error de origen de OLE DB].Columns[idGerencia]"
+                      name="idGerencia" />
+                    <outputColumn
+                      refId="Package\dat 19 real cd\dafi loc.Outputs[Salida de error de origen de OLE DB].Columns[idFijoVariable]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      lineageId="Package\dat 19 real cd\dafi loc.Outputs[Salida de error de origen de OLE DB].Columns[idFijoVariable]"
+                      name="idFijoVariable" />
+                    <outputColumn
+                      refId="Package\dat 19 real cd\dafi loc.Outputs[Salida de error de origen de OLE DB].Columns[idAsignacionDirecta]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      lineageId="Package\dat 19 real cd\dafi loc.Outputs[Salida de error de origen de OLE DB].Columns[idAsignacionDirecta]"
+                      name="idAsignacionDirecta" />
+                    <outputColumn
+                      refId="Package\dat 19 real cd\dafi loc.Outputs[Salida de error de origen de OLE DB].Columns[idDriver]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      lineageId="Package\dat 19 real cd\dafi loc.Outputs[Salida de error de origen de OLE DB].Columns[idDriver]"
+                      name="idDriver" />
+                    <outputColumn
+                      refId="Package\dat 19 real cd\dafi loc.Outputs[Salida de error de origen de OLE DB].Columns[idEFin]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      lineageId="Package\dat 19 real cd\dafi loc.Outputs[Salida de error de origen de OLE DB].Columns[idEFin]"
+                      name="idEFin" />
+                    <outputColumn
+                      refId="Package\dat 19 real cd\dafi loc.Outputs[Salida de error de origen de OLE DB].Columns[idReferencia]"
+                      codePage="1252"
+                      dataType="str"
+                      length="18"
+                      lineageId="Package\dat 19 real cd\dafi loc.Outputs[Salida de error de origen de OLE DB].Columns[idReferencia]"
+                      name="idReferencia" />
+                    <outputColumn
+                      refId="Package\dat 19 real cd\dafi loc.Outputs[Salida de error de origen de OLE DB].Columns[B_asico_D_uplicaanexo]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      lineageId="Package\dat 19 real cd\dafi loc.Outputs[Salida de error de origen de OLE DB].Columns[B_asico_D_uplicaanexo]"
+                      name="B_asico_D_uplicaanexo" />
+                    <outputColumn
+                      refId="Package\dat 19 real cd\dafi loc.Outputs[Salida de error de origen de OLE DB].Columns[fijoVariableDirecto2]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      lineageId="Package\dat 19 real cd\dafi loc.Outputs[Salida de error de origen de OLE DB].Columns[fijoVariableDirecto2]"
+                      name="fijoVariableDirecto2" />
+                    <outputColumn
+                      refId="Package\dat 19 real cd\dafi loc.Outputs[Salida de error de origen de OLE DB].Columns[fijoVariableDirecto3]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      lineageId="Package\dat 19 real cd\dafi loc.Outputs[Salida de error de origen de OLE DB].Columns[fijoVariableDirecto3]"
+                      name="fijoVariableDirecto3" />
+                    <outputColumn
+                      refId="Package\dat 19 real cd\dafi loc.Outputs[Salida de error de origen de OLE DB].Columns[fijoVariableDirecto4]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      lineageId="Package\dat 19 real cd\dafi loc.Outputs[Salida de error de origen de OLE DB].Columns[fijoVariableDirecto4]"
+                      name="fijoVariableDirecto4" />
+                    <outputColumn
+                      refId="Package\dat 19 real cd\dafi loc.Outputs[Salida de error de origen de OLE DB].Columns[tmpIsUneta]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      lineageId="Package\dat 19 real cd\dafi loc.Outputs[Salida de error de origen de OLE DB].Columns[tmpIsUneta]"
+                      name="tmpIsUneta" />
+                    <outputColumn
+                      refId="Package\dat 19 real cd\dafi loc.Outputs[Salida de error de origen de OLE DB].Columns[fijoVariableDirecto5]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      lineageId="Package\dat 19 real cd\dafi loc.Outputs[Salida de error de origen de OLE DB].Columns[fijoVariableDirecto5]"
+                      name="fijoVariableDirecto5" />
+                    <outputColumn
+                      refId="Package\dat 19 real cd\dafi loc.Outputs[Salida de error de origen de OLE DB].Columns[idActividad]"
+                      codePage="1252"
+                      dataType="str"
+                      length="30"
+                      lineageId="Package\dat 19 real cd\dafi loc.Outputs[Salida de error de origen de OLE DB].Columns[idActividad]"
+                      name="idActividad" />
+                    <outputColumn
+                      refId="Package\dat 19 real cd\dafi loc.Outputs[Salida de error de origen de OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\dat 19 real cd\dafi loc.Outputs[Salida de error de origen de OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\dat 19 real cd\dafi loc.Outputs[Salida de error de origen de OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\dat 19 real cd\dafi loc.Outputs[Salida de error de origen de OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\dat 19 real cd\dafi mz03"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="Destino de OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;4"
+              description="Destino de OLE DB"
+              name="dafi mz03"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowset">[dbo].[datosFi_2019_CD]</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica la variable que contiene el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Comando SQL para ejecutar."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica la página de códigos de columna para utilizar cuando la información de página de códigos no está disponible en el origen de datos."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Fuerza el uso del valor de la propiedad DefaultCodePage al describir datos de caracteres."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el modo utilizado para obtener acceso a la base de datos."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si los valores proporcionados para columnas de identidad se van a copiar al destino. Si es False, los valores de las columnas de identidad se generan automáticamente en el destino. Solo se aplica si está activada la carga rápida."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si las columnas que contienen NULL tendrán NULL insertado en el destino. Si es False, las columnas que contienen NULL tendrán sus valores predeterminados insertados en el destino. Solo se aplica si está activada la carga rápida."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica opciones para usar con la carga rápida. Solo se aplica si está activada la carga rápida."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica cuándo se emiten confirmaciones durante la inserción de datos. El valor 0 especifica que se emitirá una confirmación al final de la inserción de datos. Solo se aplica si está activada la carga rápida."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\dat 19 real cd\dafi mz03.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[192.168.1.62.sa]"
+                  connectionManagerRefId="Package.ConnectionManagers[192.168.1.62.sa]"
+                  description="La conexión de tiempo de ejecución OLE DB usada para obtener acceso a la base de datos."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\dat 19 real cd\dafi mz03.Inputs[Entrada de destino de OLE DB]"
+                  errorOrTruncationOperation="Insertar"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrada de destino de OLE DB">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\dat 19 real cd\dafi mz03.Inputs[Entrada de destino de OLE DB].Columns[ano]"
+                      cachedDataType="i4"
+                      cachedName="ano"
+                      externalMetadataColumnId="Package\dat 19 real cd\dafi mz03.Inputs[Entrada de destino de OLE DB].ExternalColumns[ano]"
+                      lineageId="Package\dat 19 real cd\dafi loc.Outputs[Salida de origen de OLE DB].Columns[ano]" />
+                    <inputColumn
+                      refId="Package\dat 19 real cd\dafi mz03.Inputs[Entrada de destino de OLE DB].Columns[idPais]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="2"
+                      cachedName="idPais"
+                      externalMetadataColumnId="Package\dat 19 real cd\dafi mz03.Inputs[Entrada de destino de OLE DB].ExternalColumns[idPais]"
+                      lineageId="Package\dat 19 real cd\dafi loc.Outputs[Salida de origen de OLE DB].Columns[idPais]" />
+                    <inputColumn
+                      refId="Package\dat 19 real cd\dafi mz03.Inputs[Entrada de destino de OLE DB].Columns[idContabilidad]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="3"
+                      cachedName="idContabilidad"
+                      externalMetadataColumnId="Package\dat 19 real cd\dafi mz03.Inputs[Entrada de destino de OLE DB].ExternalColumns[idContabilidad]"
+                      lineageId="Package\dat 19 real cd\dafi loc.Outputs[Salida de origen de OLE DB].Columns[idContabilidad]" />
+                    <inputColumn
+                      refId="Package\dat 19 real cd\dafi mz03.Inputs[Entrada de destino de OLE DB].Columns[idComponente]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="15"
+                      cachedName="idComponente"
+                      externalMetadataColumnId="Package\dat 19 real cd\dafi mz03.Inputs[Entrada de destino de OLE DB].ExternalColumns[idComponente]"
+                      lineageId="Package\dat 19 real cd\dafi loc.Outputs[Salida de origen de OLE DB].Columns[idComponente]" />
+                    <inputColumn
+                      refId="Package\dat 19 real cd\dafi mz03.Inputs[Entrada de destino de OLE DB].Columns[idVersion]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="15"
+                      cachedName="idVersion"
+                      externalMetadataColumnId="Package\dat 19 real cd\dafi mz03.Inputs[Entrada de destino de OLE DB].ExternalColumns[idVersion]"
+                      lineageId="Package\dat 19 real cd\dafi loc.Outputs[Salida de origen de OLE DB].Columns[idVersion]" />
+                    <inputColumn
+                      refId="Package\dat 19 real cd\dafi mz03.Inputs[Entrada de destino de OLE DB].Columns[idCentro]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="idCentro"
+                      externalMetadataColumnId="Package\dat 19 real cd\dafi mz03.Inputs[Entrada de destino de OLE DB].ExternalColumns[idCentro]"
+                      lineageId="Package\dat 19 real cd\dafi loc.Outputs[Salida de origen de OLE DB].Columns[idCentro]" />
+                    <inputColumn
+                      refId="Package\dat 19 real cd\dafi mz03.Inputs[Entrada de destino de OLE DB].Columns[idCuenta]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="idCuenta"
+                      externalMetadataColumnId="Package\dat 19 real cd\dafi mz03.Inputs[Entrada de destino de OLE DB].ExternalColumns[idCuenta]"
+                      lineageId="Package\dat 19 real cd\dafi loc.Outputs[Salida de origen de OLE DB].Columns[idCuenta]" />
+                    <inputColumn
+                      refId="Package\dat 19 real cd\dafi mz03.Inputs[Entrada de destino de OLE DB].Columns[idSociedad]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="idSociedad"
+                      externalMetadataColumnId="Package\dat 19 real cd\dafi mz03.Inputs[Entrada de destino de OLE DB].ExternalColumns[idSociedad]"
+                      lineageId="Package\dat 19 real cd\dafi loc.Outputs[Salida de origen de OLE DB].Columns[idSociedad]" />
+                    <inputColumn
+                      refId="Package\dat 19 real cd\dafi mz03.Inputs[Entrada de destino de OLE DB].Columns[idDivision]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="2"
+                      cachedName="idDivision"
+                      externalMetadataColumnId="Package\dat 19 real cd\dafi mz03.Inputs[Entrada de destino de OLE DB].ExternalColumns[idDivision]"
+                      lineageId="Package\dat 19 real cd\dafi loc.Outputs[Salida de origen de OLE DB].Columns[idDivision]" />
+                    <inputColumn
+                      refId="Package\dat 19 real cd\dafi mz03.Inputs[Entrada de destino de OLE DB].Columns[idLinea]"
+                      cachedDataType="i8"
+                      cachedName="idLinea"
+                      externalMetadataColumnId="Package\dat 19 real cd\dafi mz03.Inputs[Entrada de destino de OLE DB].ExternalColumns[idLinea]"
+                      lineageId="Package\dat 19 real cd\dafi loc.Outputs[Salida de origen de OLE DB].Columns[idLinea]" />
+                    <inputColumn
+                      refId="Package\dat 19 real cd\dafi mz03.Inputs[Entrada de destino de OLE DB].Columns[idNegocio]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="20"
+                      cachedName="idNegocio"
+                      externalMetadataColumnId="Package\dat 19 real cd\dafi mz03.Inputs[Entrada de destino de OLE DB].ExternalColumns[idNegocio]"
+                      lineageId="Package\dat 19 real cd\dafi loc.Outputs[Salida de origen de OLE DB].Columns[idNegocio]" />
+                    <inputColumn
+                      refId="Package\dat 19 real cd\dafi mz03.Inputs[Entrada de destino de OLE DB].Columns[idRubro]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="15"
+                      cachedName="idRubro"
+                      externalMetadataColumnId="Package\dat 19 real cd\dafi mz03.Inputs[Entrada de destino de OLE DB].ExternalColumns[idRubro]"
+                      lineageId="Package\dat 19 real cd\dafi loc.Outputs[Salida de origen de OLE DB].Columns[idRubro]" />
+                    <inputColumn
+                      refId="Package\dat 19 real cd\dafi mz03.Inputs[Entrada de destino de OLE DB].Columns[ene]"
+                      cachedDataType="r8"
+                      cachedName="ene"
+                      externalMetadataColumnId="Package\dat 19 real cd\dafi mz03.Inputs[Entrada de destino de OLE DB].ExternalColumns[ene]"
+                      lineageId="Package\dat 19 real cd\dafi loc.Outputs[Salida de origen de OLE DB].Columns[ene]" />
+                    <inputColumn
+                      refId="Package\dat 19 real cd\dafi mz03.Inputs[Entrada de destino de OLE DB].Columns[feb]"
+                      cachedDataType="r8"
+                      cachedName="feb"
+                      externalMetadataColumnId="Package\dat 19 real cd\dafi mz03.Inputs[Entrada de destino de OLE DB].ExternalColumns[feb]"
+                      lineageId="Package\dat 19 real cd\dafi loc.Outputs[Salida de origen de OLE DB].Columns[feb]" />
+                    <inputColumn
+                      refId="Package\dat 19 real cd\dafi mz03.Inputs[Entrada de destino de OLE DB].Columns[mar]"
+                      cachedDataType="r8"
+                      cachedName="mar"
+                      externalMetadataColumnId="Package\dat 19 real cd\dafi mz03.Inputs[Entrada de destino de OLE DB].ExternalColumns[mar]"
+                      lineageId="Package\dat 19 real cd\dafi loc.Outputs[Salida de origen de OLE DB].Columns[mar]" />
+                    <inputColumn
+                      refId="Package\dat 19 real cd\dafi mz03.Inputs[Entrada de destino de OLE DB].Columns[abr]"
+                      cachedDataType="r8"
+                      cachedName="abr"
+                      externalMetadataColumnId="Package\dat 19 real cd\dafi mz03.Inputs[Entrada de destino de OLE DB].ExternalColumns[abr]"
+                      lineageId="Package\dat 19 real cd\dafi loc.Outputs[Salida de origen de OLE DB].Columns[abr]" />
+                    <inputColumn
+                      refId="Package\dat 19 real cd\dafi mz03.Inputs[Entrada de destino de OLE DB].Columns[may]"
+                      cachedDataType="r8"
+                      cachedName="may"
+                      externalMetadataColumnId="Package\dat 19 real cd\dafi mz03.Inputs[Entrada de destino de OLE DB].ExternalColumns[may]"
+                      lineageId="Package\dat 19 real cd\dafi loc.Outputs[Salida de origen de OLE DB].Columns[may]" />
+                    <inputColumn
+                      refId="Package\dat 19 real cd\dafi mz03.Inputs[Entrada de destino de OLE DB].Columns[jun]"
+                      cachedDataType="r8"
+                      cachedName="jun"
+                      externalMetadataColumnId="Package\dat 19 real cd\dafi mz03.Inputs[Entrada de destino de OLE DB].ExternalColumns[jun]"
+                      lineageId="Package\dat 19 real cd\dafi loc.Outputs[Salida de origen de OLE DB].Columns[jun]" />
+                    <inputColumn
+                      refId="Package\dat 19 real cd\dafi mz03.Inputs[Entrada de destino de OLE DB].Columns[jul]"
+                      cachedDataType="r8"
+                      cachedName="jul"
+                      externalMetadataColumnId="Package\dat 19 real cd\dafi mz03.Inputs[Entrada de destino de OLE DB].ExternalColumns[jul]"
+                      lineageId="Package\dat 19 real cd\dafi loc.Outputs[Salida de origen de OLE DB].Columns[jul]" />
+                    <inputColumn
+                      refId="Package\dat 19 real cd\dafi mz03.Inputs[Entrada de destino de OLE DB].Columns[ago]"
+                      cachedDataType="r8"
+                      cachedName="ago"
+                      externalMetadataColumnId="Package\dat 19 real cd\dafi mz03.Inputs[Entrada de destino de OLE DB].ExternalColumns[ago]"
+                      lineageId="Package\dat 19 real cd\dafi loc.Outputs[Salida de origen de OLE DB].Columns[ago]" />
+                    <inputColumn
+                      refId="Package\dat 19 real cd\dafi mz03.Inputs[Entrada de destino de OLE DB].Columns[sep]"
+                      cachedDataType="r8"
+                      cachedName="sep"
+                      externalMetadataColumnId="Package\dat 19 real cd\dafi mz03.Inputs[Entrada de destino de OLE DB].ExternalColumns[sep]"
+                      lineageId="Package\dat 19 real cd\dafi loc.Outputs[Salida de origen de OLE DB].Columns[sep]" />
+                    <inputColumn
+                      refId="Package\dat 19 real cd\dafi mz03.Inputs[Entrada de destino de OLE DB].Columns[oct]"
+                      cachedDataType="r8"
+                      cachedName="oct"
+                      externalMetadataColumnId="Package\dat 19 real cd\dafi mz03.Inputs[Entrada de destino de OLE DB].ExternalColumns[oct]"
+                      lineageId="Package\dat 19 real cd\dafi loc.Outputs[Salida de origen de OLE DB].Columns[oct]" />
+                    <inputColumn
+                      refId="Package\dat 19 real cd\dafi mz03.Inputs[Entrada de destino de OLE DB].Columns[nov]"
+                      cachedDataType="r8"
+                      cachedName="nov"
+                      externalMetadataColumnId="Package\dat 19 real cd\dafi mz03.Inputs[Entrada de destino de OLE DB].ExternalColumns[nov]"
+                      lineageId="Package\dat 19 real cd\dafi loc.Outputs[Salida de origen de OLE DB].Columns[nov]" />
+                    <inputColumn
+                      refId="Package\dat 19 real cd\dafi mz03.Inputs[Entrada de destino de OLE DB].Columns[dic]"
+                      cachedDataType="r8"
+                      cachedName="dic"
+                      externalMetadataColumnId="Package\dat 19 real cd\dafi mz03.Inputs[Entrada de destino de OLE DB].ExternalColumns[dic]"
+                      lineageId="Package\dat 19 real cd\dafi loc.Outputs[Salida de origen de OLE DB].Columns[dic]" />
+                    <inputColumn
+                      refId="Package\dat 19 real cd\dafi mz03.Inputs[Entrada de destino de OLE DB].Columns[idAgencia]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="2"
+                      cachedName="idAgencia"
+                      externalMetadataColumnId="Package\dat 19 real cd\dafi mz03.Inputs[Entrada de destino de OLE DB].ExternalColumns[idAgencia]"
+                      lineageId="Package\dat 19 real cd\dafi loc.Outputs[Salida de origen de OLE DB].Columns[idAgencia]" />
+                    <inputColumn
+                      refId="Package\dat 19 real cd\dafi mz03.Inputs[Entrada de destino de OLE DB].Columns[idCanal]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="2"
+                      cachedName="idCanal"
+                      externalMetadataColumnId="Package\dat 19 real cd\dafi mz03.Inputs[Entrada de destino de OLE DB].ExternalColumns[idCanal]"
+                      lineageId="Package\dat 19 real cd\dafi loc.Outputs[Salida de origen de OLE DB].Columns[idCanal]" />
+                    <inputColumn
+                      refId="Package\dat 19 real cd\dafi mz03.Inputs[Entrada de destino de OLE DB].Columns[idCadena]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="idCadena"
+                      externalMetadataColumnId="Package\dat 19 real cd\dafi mz03.Inputs[Entrada de destino de OLE DB].ExternalColumns[idCadena]"
+                      lineageId="Package\dat 19 real cd\dafi loc.Outputs[Salida de origen de OLE DB].Columns[idCadena]" />
+                    <inputColumn
+                      refId="Package\dat 19 real cd\dafi mz03.Inputs[Entrada de destino de OLE DB].Columns[idCategoria]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="20"
+                      cachedName="idCategoria"
+                      externalMetadataColumnId="Package\dat 19 real cd\dafi mz03.Inputs[Entrada de destino de OLE DB].ExternalColumns[idCategoria]"
+                      lineageId="Package\dat 19 real cd\dafi loc.Outputs[Salida de origen de OLE DB].Columns[idCategoria]" />
+                    <inputColumn
+                      refId="Package\dat 19 real cd\dafi mz03.Inputs[Entrada de destino de OLE DB].Columns[idDestino]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="13"
+                      cachedName="idDestino"
+                      externalMetadataColumnId="Package\dat 19 real cd\dafi mz03.Inputs[Entrada de destino de OLE DB].ExternalColumns[idDestino]"
+                      lineageId="Package\dat 19 real cd\dafi loc.Outputs[Salida de origen de OLE DB].Columns[idDestino]" />
+                    <inputColumn
+                      refId="Package\dat 19 real cd\dafi mz03.Inputs[Entrada de destino de OLE DB].Columns[idGerencia]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="idGerencia"
+                      externalMetadataColumnId="Package\dat 19 real cd\dafi mz03.Inputs[Entrada de destino de OLE DB].ExternalColumns[idGerencia]"
+                      lineageId="Package\dat 19 real cd\dafi loc.Outputs[Salida de origen de OLE DB].Columns[idGerencia]" />
+                    <inputColumn
+                      refId="Package\dat 19 real cd\dafi mz03.Inputs[Entrada de destino de OLE DB].Columns[idFijoVariable]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="1"
+                      cachedName="idFijoVariable"
+                      externalMetadataColumnId="Package\dat 19 real cd\dafi mz03.Inputs[Entrada de destino de OLE DB].ExternalColumns[idFijoVariable]"
+                      lineageId="Package\dat 19 real cd\dafi loc.Outputs[Salida de origen de OLE DB].Columns[idFijoVariable]" />
+                    <inputColumn
+                      refId="Package\dat 19 real cd\dafi mz03.Inputs[Entrada de destino de OLE DB].Columns[idAsignacionDirecta]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="idAsignacionDirecta"
+                      externalMetadataColumnId="Package\dat 19 real cd\dafi mz03.Inputs[Entrada de destino de OLE DB].ExternalColumns[idAsignacionDirecta]"
+                      lineageId="Package\dat 19 real cd\dafi loc.Outputs[Salida de origen de OLE DB].Columns[idAsignacionDirecta]" />
+                    <inputColumn
+                      refId="Package\dat 19 real cd\dafi mz03.Inputs[Entrada de destino de OLE DB].Columns[idDriver]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="idDriver"
+                      externalMetadataColumnId="Package\dat 19 real cd\dafi mz03.Inputs[Entrada de destino de OLE DB].ExternalColumns[idDriver]"
+                      lineageId="Package\dat 19 real cd\dafi loc.Outputs[Salida de origen de OLE DB].Columns[idDriver]" />
+                    <inputColumn
+                      refId="Package\dat 19 real cd\dafi mz03.Inputs[Entrada de destino de OLE DB].Columns[idEFin]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="idEFin"
+                      externalMetadataColumnId="Package\dat 19 real cd\dafi mz03.Inputs[Entrada de destino de OLE DB].ExternalColumns[idEFin]"
+                      lineageId="Package\dat 19 real cd\dafi loc.Outputs[Salida de origen de OLE DB].Columns[idEFin]" />
+                    <inputColumn
+                      refId="Package\dat 19 real cd\dafi mz03.Inputs[Entrada de destino de OLE DB].Columns[idReferencia]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="18"
+                      cachedName="idReferencia"
+                      externalMetadataColumnId="Package\dat 19 real cd\dafi mz03.Inputs[Entrada de destino de OLE DB].ExternalColumns[idReferencia]"
+                      lineageId="Package\dat 19 real cd\dafi loc.Outputs[Salida de origen de OLE DB].Columns[idReferencia]" />
+                    <inputColumn
+                      refId="Package\dat 19 real cd\dafi mz03.Inputs[Entrada de destino de OLE DB].Columns[B_asico_D_uplicaanexo]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="1"
+                      cachedName="B_asico_D_uplicaanexo"
+                      externalMetadataColumnId="Package\dat 19 real cd\dafi mz03.Inputs[Entrada de destino de OLE DB].ExternalColumns[B_asico_D_uplicaanexo]"
+                      lineageId="Package\dat 19 real cd\dafi loc.Outputs[Salida de origen de OLE DB].Columns[B_asico_D_uplicaanexo]" />
+                    <inputColumn
+                      refId="Package\dat 19 real cd\dafi mz03.Inputs[Entrada de destino de OLE DB].Columns[fijoVariableDirecto2]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="1"
+                      cachedName="fijoVariableDirecto2"
+                      externalMetadataColumnId="Package\dat 19 real cd\dafi mz03.Inputs[Entrada de destino de OLE DB].ExternalColumns[fijoVariableDirecto2]"
+                      lineageId="Package\dat 19 real cd\dafi loc.Outputs[Salida de origen de OLE DB].Columns[fijoVariableDirecto2]" />
+                    <inputColumn
+                      refId="Package\dat 19 real cd\dafi mz03.Inputs[Entrada de destino de OLE DB].Columns[fijoVariableDirecto3]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="1"
+                      cachedName="fijoVariableDirecto3"
+                      externalMetadataColumnId="Package\dat 19 real cd\dafi mz03.Inputs[Entrada de destino de OLE DB].ExternalColumns[fijoVariableDirecto3]"
+                      lineageId="Package\dat 19 real cd\dafi loc.Outputs[Salida de origen de OLE DB].Columns[fijoVariableDirecto3]" />
+                    <inputColumn
+                      refId="Package\dat 19 real cd\dafi mz03.Inputs[Entrada de destino de OLE DB].Columns[fijoVariableDirecto4]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="1"
+                      cachedName="fijoVariableDirecto4"
+                      externalMetadataColumnId="Package\dat 19 real cd\dafi mz03.Inputs[Entrada de destino de OLE DB].ExternalColumns[fijoVariableDirecto4]"
+                      lineageId="Package\dat 19 real cd\dafi loc.Outputs[Salida de origen de OLE DB].Columns[fijoVariableDirecto4]" />
+                    <inputColumn
+                      refId="Package\dat 19 real cd\dafi mz03.Inputs[Entrada de destino de OLE DB].Columns[tmpIsUneta]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="1"
+                      cachedName="tmpIsUneta"
+                      externalMetadataColumnId="Package\dat 19 real cd\dafi mz03.Inputs[Entrada de destino de OLE DB].ExternalColumns[tmpIsUneta]"
+                      lineageId="Package\dat 19 real cd\dafi loc.Outputs[Salida de origen de OLE DB].Columns[tmpIsUneta]" />
+                    <inputColumn
+                      refId="Package\dat 19 real cd\dafi mz03.Inputs[Entrada de destino de OLE DB].Columns[fijoVariableDirecto5]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="1"
+                      cachedName="fijoVariableDirecto5"
+                      externalMetadataColumnId="Package\dat 19 real cd\dafi mz03.Inputs[Entrada de destino de OLE DB].ExternalColumns[fijoVariableDirecto5]"
+                      lineageId="Package\dat 19 real cd\dafi loc.Outputs[Salida de origen de OLE DB].Columns[fijoVariableDirecto5]" />
+                    <inputColumn
+                      refId="Package\dat 19 real cd\dafi mz03.Inputs[Entrada de destino de OLE DB].Columns[idActividad]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="30"
+                      cachedName="idActividad"
+                      externalMetadataColumnId="Package\dat 19 real cd\dafi mz03.Inputs[Entrada de destino de OLE DB].ExternalColumns[idActividad]"
+                      lineageId="Package\dat 19 real cd\dafi loc.Outputs[Salida de origen de OLE DB].Columns[idActividad]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\dat 19 real cd\dafi mz03.Inputs[Entrada de destino de OLE DB].ExternalColumns[ano]"
+                      dataType="i4"
+                      name="ano" />
+                    <externalMetadataColumn
+                      refId="Package\dat 19 real cd\dafi mz03.Inputs[Entrada de destino de OLE DB].ExternalColumns[idPais]"
+                      codePage="1252"
+                      dataType="str"
+                      length="2"
+                      name="idPais" />
+                    <externalMetadataColumn
+                      refId="Package\dat 19 real cd\dafi mz03.Inputs[Entrada de destino de OLE DB].ExternalColumns[idContabilidad]"
+                      codePage="1252"
+                      dataType="str"
+                      length="3"
+                      name="idContabilidad" />
+                    <externalMetadataColumn
+                      refId="Package\dat 19 real cd\dafi mz03.Inputs[Entrada de destino de OLE DB].ExternalColumns[idComponente]"
+                      codePage="1252"
+                      dataType="str"
+                      length="15"
+                      name="idComponente" />
+                    <externalMetadataColumn
+                      refId="Package\dat 19 real cd\dafi mz03.Inputs[Entrada de destino de OLE DB].ExternalColumns[idVersion]"
+                      codePage="1252"
+                      dataType="str"
+                      length="15"
+                      name="idVersion" />
+                    <externalMetadataColumn
+                      refId="Package\dat 19 real cd\dafi mz03.Inputs[Entrada de destino de OLE DB].ExternalColumns[idCentro]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="idCentro" />
+                    <externalMetadataColumn
+                      refId="Package\dat 19 real cd\dafi mz03.Inputs[Entrada de destino de OLE DB].ExternalColumns[idCuenta]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="idCuenta" />
+                    <externalMetadataColumn
+                      refId="Package\dat 19 real cd\dafi mz03.Inputs[Entrada de destino de OLE DB].ExternalColumns[idSociedad]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="idSociedad" />
+                    <externalMetadataColumn
+                      refId="Package\dat 19 real cd\dafi mz03.Inputs[Entrada de destino de OLE DB].ExternalColumns[idDivision]"
+                      codePage="1252"
+                      dataType="str"
+                      length="2"
+                      name="idDivision" />
+                    <externalMetadataColumn
+                      refId="Package\dat 19 real cd\dafi mz03.Inputs[Entrada de destino de OLE DB].ExternalColumns[idLinea]"
+                      dataType="i8"
+                      name="idLinea" />
+                    <externalMetadataColumn
+                      refId="Package\dat 19 real cd\dafi mz03.Inputs[Entrada de destino de OLE DB].ExternalColumns[idNegocio]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="idNegocio" />
+                    <externalMetadataColumn
+                      refId="Package\dat 19 real cd\dafi mz03.Inputs[Entrada de destino de OLE DB].ExternalColumns[idRubro]"
+                      codePage="1252"
+                      dataType="str"
+                      length="15"
+                      name="idRubro" />
+                    <externalMetadataColumn
+                      refId="Package\dat 19 real cd\dafi mz03.Inputs[Entrada de destino de OLE DB].ExternalColumns[ene]"
+                      dataType="r8"
+                      name="ene" />
+                    <externalMetadataColumn
+                      refId="Package\dat 19 real cd\dafi mz03.Inputs[Entrada de destino de OLE DB].ExternalColumns[feb]"
+                      dataType="r8"
+                      name="feb" />
+                    <externalMetadataColumn
+                      refId="Package\dat 19 real cd\dafi mz03.Inputs[Entrada de destino de OLE DB].ExternalColumns[mar]"
+                      dataType="r8"
+                      name="mar" />
+                    <externalMetadataColumn
+                      refId="Package\dat 19 real cd\dafi mz03.Inputs[Entrada de destino de OLE DB].ExternalColumns[abr]"
+                      dataType="r8"
+                      name="abr" />
+                    <externalMetadataColumn
+                      refId="Package\dat 19 real cd\dafi mz03.Inputs[Entrada de destino de OLE DB].ExternalColumns[may]"
+                      dataType="r8"
+                      name="may" />
+                    <externalMetadataColumn
+                      refId="Package\dat 19 real cd\dafi mz03.Inputs[Entrada de destino de OLE DB].ExternalColumns[jun]"
+                      dataType="r8"
+                      name="jun" />
+                    <externalMetadataColumn
+                      refId="Package\dat 19 real cd\dafi mz03.Inputs[Entrada de destino de OLE DB].ExternalColumns[jul]"
+                      dataType="r8"
+                      name="jul" />
+                    <externalMetadataColumn
+                      refId="Package\dat 19 real cd\dafi mz03.Inputs[Entrada de destino de OLE DB].ExternalColumns[ago]"
+                      dataType="r8"
+                      name="ago" />
+                    <externalMetadataColumn
+                      refId="Package\dat 19 real cd\dafi mz03.Inputs[Entrada de destino de OLE DB].ExternalColumns[sep]"
+                      dataType="r8"
+                      name="sep" />
+                    <externalMetadataColumn
+                      refId="Package\dat 19 real cd\dafi mz03.Inputs[Entrada de destino de OLE DB].ExternalColumns[oct]"
+                      dataType="r8"
+                      name="oct" />
+                    <externalMetadataColumn
+                      refId="Package\dat 19 real cd\dafi mz03.Inputs[Entrada de destino de OLE DB].ExternalColumns[nov]"
+                      dataType="r8"
+                      name="nov" />
+                    <externalMetadataColumn
+                      refId="Package\dat 19 real cd\dafi mz03.Inputs[Entrada de destino de OLE DB].ExternalColumns[dic]"
+                      dataType="r8"
+                      name="dic" />
+                    <externalMetadataColumn
+                      refId="Package\dat 19 real cd\dafi mz03.Inputs[Entrada de destino de OLE DB].ExternalColumns[idAgencia]"
+                      codePage="1252"
+                      dataType="str"
+                      length="2"
+                      name="idAgencia" />
+                    <externalMetadataColumn
+                      refId="Package\dat 19 real cd\dafi mz03.Inputs[Entrada de destino de OLE DB].ExternalColumns[idCanal]"
+                      codePage="1252"
+                      dataType="str"
+                      length="2"
+                      name="idCanal" />
+                    <externalMetadataColumn
+                      refId="Package\dat 19 real cd\dafi mz03.Inputs[Entrada de destino de OLE DB].ExternalColumns[idCadena]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="idCadena" />
+                    <externalMetadataColumn
+                      refId="Package\dat 19 real cd\dafi mz03.Inputs[Entrada de destino de OLE DB].ExternalColumns[idCategoria]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="idCategoria" />
+                    <externalMetadataColumn
+                      refId="Package\dat 19 real cd\dafi mz03.Inputs[Entrada de destino de OLE DB].ExternalColumns[idDestino]"
+                      codePage="1252"
+                      dataType="str"
+                      length="13"
+                      name="idDestino" />
+                    <externalMetadataColumn
+                      refId="Package\dat 19 real cd\dafi mz03.Inputs[Entrada de destino de OLE DB].ExternalColumns[idGerencia]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="idGerencia" />
+                    <externalMetadataColumn
+                      refId="Package\dat 19 real cd\dafi mz03.Inputs[Entrada de destino de OLE DB].ExternalColumns[idFijoVariable]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      name="idFijoVariable" />
+                    <externalMetadataColumn
+                      refId="Package\dat 19 real cd\dafi mz03.Inputs[Entrada de destino de OLE DB].ExternalColumns[idAsignacionDirecta]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="idAsignacionDirecta" />
+                    <externalMetadataColumn
+                      refId="Package\dat 19 real cd\dafi mz03.Inputs[Entrada de destino de OLE DB].ExternalColumns[idDriver]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="idDriver" />
+                    <externalMetadataColumn
+                      refId="Package\dat 19 real cd\dafi mz03.Inputs[Entrada de destino de OLE DB].ExternalColumns[idEFin]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="idEFin" />
+                    <externalMetadataColumn
+                      refId="Package\dat 19 real cd\dafi mz03.Inputs[Entrada de destino de OLE DB].ExternalColumns[idReferencia]"
+                      codePage="1252"
+                      dataType="str"
+                      length="18"
+                      name="idReferencia" />
+                    <externalMetadataColumn
+                      refId="Package\dat 19 real cd\dafi mz03.Inputs[Entrada de destino de OLE DB].ExternalColumns[B_asico_D_uplicaanexo]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      name="B_asico_D_uplicaanexo" />
+                    <externalMetadataColumn
+                      refId="Package\dat 19 real cd\dafi mz03.Inputs[Entrada de destino de OLE DB].ExternalColumns[fijoVariableDirecto2]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      name="fijoVariableDirecto2" />
+                    <externalMetadataColumn
+                      refId="Package\dat 19 real cd\dafi mz03.Inputs[Entrada de destino de OLE DB].ExternalColumns[fijoVariableDirecto3]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      name="fijoVariableDirecto3" />
+                    <externalMetadataColumn
+                      refId="Package\dat 19 real cd\dafi mz03.Inputs[Entrada de destino de OLE DB].ExternalColumns[fijoVariableDirecto4]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      name="fijoVariableDirecto4" />
+                    <externalMetadataColumn
+                      refId="Package\dat 19 real cd\dafi mz03.Inputs[Entrada de destino de OLE DB].ExternalColumns[tmpIsUneta]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      name="tmpIsUneta" />
+                    <externalMetadataColumn
+                      refId="Package\dat 19 real cd\dafi mz03.Inputs[Entrada de destino de OLE DB].ExternalColumns[fijoVariableDirecto5]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      name="fijoVariableDirecto5" />
+                    <externalMetadataColumn
+                      refId="Package\dat 19 real cd\dafi mz03.Inputs[Entrada de destino de OLE DB].ExternalColumns[idActividad]"
+                      codePage="1252"
+                      dataType="str"
+                      length="30"
+                      name="idActividad" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\dat 19 real cd\dafi mz03.Outputs[Salida de error de destino de OLE DB]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Salida de error de destino de OLE DB"
+                  synchronousInputId="Package\dat 19 real cd\dafi mz03.Inputs[Entrada de destino de OLE DB]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\dat 19 real cd\dafi mz03.Outputs[Salida de error de destino de OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\dat 19 real cd\dafi mz03.Outputs[Salida de error de destino de OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\dat 19 real cd\dafi mz03.Outputs[Salida de error de destino de OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\dat 19 real cd\dafi mz03.Outputs[Salida de error de destino de OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\dat 19 real cd.Paths[Salida de origen de OLE DB]"
+              endId="Package\dat 19 real cd\dafi mz03.Inputs[Entrada de destino de OLE DB]"
+              name="Salida de origen de OLE DB"
+              startId="Package\dat 19 real cd\dafi loc.Outputs[Salida de origen de OLE DB]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--Esta sección CDATA contiene la información de diseño del paquete. Esta sección incluye información como, por ejemplo, las coordenadas (x,y), el ancho y el alto.-->
+<!--Si edita manualmente esta sección y comete un error, puede eliminarlo. -->
+<!--El paquete podrá cargarse normalmente, pero se perderá la información de diseño anterior y el diseñador reorganizará los elementos automáticamente en la superficie de diseño.-->
+<Objects
+  Version="8">
+  <!--Cada uno de los nodos siguientes contiene propiedades que no afectan al comportamiento en tiempo de ejecución.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="143.2,41.6"
+          Id="Package\dat 19 real cd"
+          TopLeft="124.000002111707,63.6235303040607" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\dat 19 real cd">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="112,41.6"
+          Id="Package\dat 19 real cd\dafi loc"
+          TopLeft="90.2857158232708,31.2000004375682" />
+        <NodeLayout
+          Size="124.8,41.6"
+          Id="Package\dat 19 real cd\dafi mz03"
+          TopLeft="78.857144200072,110.729413317644" />
+        <EdgeLayout
+          Id="Package\dat 19 real cd.Paths[Salida de origen de OLE DB]"
+          TopLeft="143.771430011671,72.8000004375682">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,37.9294128800759"
+              Start="0,0"
+              End="0,30.4294128800759">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,30.4294128800759" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\dat 19 real cd\dafi loc">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\dat 19 real cd\dafi mz03">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
