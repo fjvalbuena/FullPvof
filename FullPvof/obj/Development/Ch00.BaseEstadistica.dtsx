@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="C00 BaseEstadistica"
   DTS:PackageType="5"
-  DTS:VersionBuild="20"
-  DTS:VersionGUID="{0AAD28F9-D603-433F-8F2E-899EBE18606C}">
+  DTS:VersionBuild="26"
+  DTS:VersionGUID="{1EA04F85-632F-4D41-8881-E3BE43EE24F3}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -27,7 +27,7 @@
           <DTS:Password
             DTS:Name="Password"
             Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAuR1Gdsnx50KES8/66vqaKwAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAACttmnpf1PVS3SzxDMGsvs10LKBZJVH69kjDTSo4z+78AAAAAAOgAAAAAIAACAAAAAqvNryjuSeyMV2/mJUhk7oT14TetyXrgcfW5mE9S9JXSAAAABcgDywig3xQHdm87Yr/RblFIJlDBmviYdk/ZsSGuG3i0AAAACOci5gRPNxB6lA3yCgOU7J7wFip1vCUApCb6WdustaHvM/jgxtBRrFdt0qzyXmOchRrKBld/elIujRvrvsearc</DTS:Password>
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAaGo1T2UrwUKdb1vvJFw8pwAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAACBFY1vQOu808uJzquzGeeiy+cqtnw/MsGYgsIhjk5gSwAAAAAOgAAAAAIAACAAAAAZtmvAokreDoxKjGG6jaF38mf6Q32DpjccMtO6G1ECViAAAABzjzYjJAdI3OLfgl9NsWS57Y5NPjQT5uMDEtJbzTNIUEAAAABGB1IYdcAbToBfV1FiJVfczWwom7RJam8SQRBVPTWBoqgRMc01jlUOCjTe29WzDj+7DdCzjKKPKQ50jMyfZ3gA</DTS:Password>
         </DTS:ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
@@ -48,7 +48,7 @@
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{C506684D-3787-4769-AEE6-43F1D50F46AF}"
-          SQLTask:SqlStatementSource="truncate table  [lukerVen].[hpvo].[BaseEstadisticaHistoria]&#xA;&#xA;&#xA;declare @PeriodoPVO varchar(6), @PeriodoEstI date, @PeriodoEstF date&#xA;&#xA;SELECT &#xA;  @PeriodoPVO  = Parametros.PeriodoAAMM&#xA;, @PeriodoEstI = Parametros.PeriodoEstI&#xA;, @PeriodoEstF = Parametros.PeriodoEstF&#xA;FROM lukerVen.PVOF.Parametros Parametros&#xA;WHERE (Parametros.EstadoProceso='1')&#xA;&#xA;insert into [lukerVen].[hpvo].[BaseEstadisticaHistoria]&#xA;SELECT Parametros.PeriodoAAMM&#xA;, CategoriaMarcaCanal.Cod_Negocio&#xA;, Facturas.Cod_OrgVentas&#xA;, CASE Clientes.Cod_Zona_Ventas WHEN '' THEN CASE isnull(EquivalenciaJerarquiaOrph.Cod_Cliente, '') WHEN '' THEN Facturas.Cod_Cliente ELSE isnull(EquivalenciaJerarquiaOrph.Cod_Cliente, '') END ELSE Facturas.Cod_Cliente END AS Cod_Cliente&#xA;, Productos.JerarquiaProducto&#xA;, Facturas.Cod_SKU&#xA;, max(Facturas.FechaFactura) FechaFactura&#xA;, sum(Facturas.Kilos) as Kilos&#xA;, sum(Facturas.ValorNeto) as ValorNeto&#xA;FROM        SD.FacturasW AS Facturas INNER JOIN&#xA;                  SD.CanalDistribucion ON Facturas.Cod_Canal = SD.CanalDistribucion.Cod_Canal INNER JOIN&#xA;                  SD.Productos ON Facturas.Cod_SKU = SD.Productos.Cod_SKU INNER JOIN&#xA;                  SD.CategoriaMarcaCanal ON SD.Productos.Aliado = SD.CategoriaMarcaCanal.Aliado AND SD.Productos.Categoria = SD.CategoriaMarcaCanal.Categoria AND SD.Productos.Marca = SD.CategoriaMarcaCanal.Marca AND &#xA;                  Facturas.Cod_Canal = SD.CategoriaMarcaCanal.Cod_Canal AND Facturas.Cod_OrgVentas = SD.CategoriaMarcaCanal.Cod_OrgVentas INNER JOIN&#xA;                  SD.MotivosNoVenta ON Facturas.Cod_MotivoNoVenta = SD.MotivosNoVenta.Cod_Motivo LEFT OUTER JOIN&#xA;                  SD.Clientes ON Facturas.Cod_Cliente = SD.Clientes.Cod_Cliente LEFT OUTER JOIN&#xA;                  SD.AliasSKU ON Facturas.Cod_SKU = SD.AliasSKU.Cod_SKU LEFT OUTER JOIN&#xA;                  SD.EquivalenciaJerarquiaOrph AS EquivalenciaJerarquiaOrph ON EquivalenciaJerarquiaOrph.Cod_Canal = Facturas.Cod_Canal AND EquivalenciaJerarquiaOrph.Cod_GCliente = Facturas.Cod_GCliente AND &#xA;                  Facturas.SalesOffice = EquivalenciaJerarquiaOrph.Cod_Oficina_Ventas&#xA;&#x9;&#x9;&#x9;&#x9;  inner join lukerVen.SD.TipoDocumento TipoDocumento  on TipoDocumento.Cod_TipoFactura = Facturas.Cod_TipoFactura &#xA;, lukerVen.PVOF.Parametros Parametros&#xA;&#xA;where  ( (Parametros.EstadoProceso=1)&#xA;AND (year(Facturas.FechaFactura)+1&gt;=left(@PeriodoPVO,4)) &#xA; &#xA;)&#xA;group by &#xA;Parametros.PeriodoAAMM&#xA;, CategoriaMarcaCanal.Cod_Negocio&#xA;, Facturas.Cod_OrgVentas&#xA;, CASE Clientes.Cod_Zona_Ventas WHEN '' THEN CASE isnull(EquivalenciaJerarquiaOrph.Cod_Cliente, '') WHEN '' THEN Facturas.Cod_Cliente ELSE isnull(EquivalenciaJerarquiaOrph.Cod_Cliente, '') END ELSE Facturas.Cod_Cliente END &#xA;, Productos.JerarquiaProducto&#xA;, Facturas.Cod_SKU&#xA;, year(Facturas.FechaFactura)&#xA;, month(Facturas.FechaFactura)&#xA;having sum(Facturas.Kilos) &lt;&gt;0 or  sum(Facturas.ValorNeto)  &lt;&gt;0&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          SQLTask:SqlStatementSource="truncate table  [lukerVen].[hpvo].[BaseEstadisticaHistoria]&#xA;&#xA;&#xA;declare @PeriodoPVO varchar(6), @PeriodoEstI date, @PeriodoEstF date&#xA;&#xA;SELECT &#xA;  @PeriodoPVO  = Parametros.PeriodoAAMM&#xA;, @PeriodoEstI = Parametros.PeriodoEstI&#xA;, @PeriodoEstF = Parametros.PeriodoEstF&#xA;FROM lukerVen.PVOF.Parametros Parametros&#xA;WHERE (Parametros.EstadoProceso='1')&#xA;&#xA;insert into [lukerVen].[hpvo].[BaseEstadisticaHistoria]&#xA;SELECT Parametros.PeriodoAAMM&#xA;, CategoriaMarcaCanal.Cod_Negocio&#xA;, Facturas.Cod_OrgVentas&#xA;, CASE Clientes.Cod_Zona_Ventas WHEN '' THEN CASE isnull(EquivalenciaJerarquiaOrph.Cod_Cliente, '') WHEN '' THEN Facturas.Cod_Cliente ELSE isnull(EquivalenciaJerarquiaOrph.Cod_Cliente, '') END ELSE Facturas.Cod_Cliente END AS Cod_Cliente&#xA;, Productos.JerarquiaProducto&#xA;, Facturas.Cod_SKU&#xA;, max(Facturas.FechaFactura) FechaFactura&#xA;, sum(Facturas.Kilos) as Kilos&#xA;, sum(Facturas.ValorNeto) as ValorNeto&#xA;, 'Fct'&#xA;FROM        SD.FacturasW AS Facturas INNER JOIN&#xA;                  SD.CanalDistribucion ON Facturas.Cod_Canal = SD.CanalDistribucion.Cod_Canal INNER JOIN&#xA;                  SD.Productos ON Facturas.Cod_SKU = SD.Productos.Cod_SKU INNER JOIN&#xA;                  SD.CategoriaMarcaCanal ON SD.Productos.Aliado = SD.CategoriaMarcaCanal.Aliado AND SD.Productos.Categoria = SD.CategoriaMarcaCanal.Categoria AND SD.Productos.Marca = SD.CategoriaMarcaCanal.Marca AND &#xA;                  Facturas.Cod_Canal = SD.CategoriaMarcaCanal.Cod_Canal AND Facturas.Cod_OrgVentas = SD.CategoriaMarcaCanal.Cod_OrgVentas INNER JOIN&#xA;                  SD.MotivosNoVenta ON Facturas.Cod_MotivoNoVenta = SD.MotivosNoVenta.Cod_Motivo LEFT OUTER JOIN&#xA;                  SD.Clientes ON Facturas.Cod_Cliente = SD.Clientes.Cod_Cliente LEFT OUTER JOIN&#xA;                  SD.AliasSKU ON Facturas.Cod_SKU = SD.AliasSKU.Cod_SKU LEFT OUTER JOIN&#xA;                  SD.EquivalenciaJerarquiaOrph AS EquivalenciaJerarquiaOrph ON EquivalenciaJerarquiaOrph.Cod_Canal = Facturas.Cod_Canal AND EquivalenciaJerarquiaOrph.Cod_GCliente = Facturas.Cod_GCliente AND &#xA;                  Facturas.SalesOffice = EquivalenciaJerarquiaOrph.Cod_Oficina_Ventas&#xA;&#x9;&#x9;&#x9;&#x9;  inner join lukerVen.SD.TipoDocumento TipoDocumento  on TipoDocumento.Cod_TipoFactura = Facturas.Cod_TipoFactura &#xA;, lukerVen.PVOF.Parametros Parametros&#xA;&#xA;where  ( (Parametros.EstadoProceso=1)&#xA;AND (year(Facturas.FechaFactura)+1&gt;=left(@PeriodoPVO,4)) &#xA; &#xA;)&#xA;group by &#xA;Parametros.PeriodoAAMM&#xA;, CategoriaMarcaCanal.Cod_Negocio&#xA;, Facturas.Cod_OrgVentas&#xA;, CASE Clientes.Cod_Zona_Ventas WHEN '' THEN CASE isnull(EquivalenciaJerarquiaOrph.Cod_Cliente, '') WHEN '' THEN Facturas.Cod_Cliente ELSE isnull(EquivalenciaJerarquiaOrph.Cod_Cliente, '') END ELSE Facturas.Cod_Cliente END &#xA;, Productos.JerarquiaProducto&#xA;, Facturas.Cod_SKU&#xA;, year(Facturas.FechaFactura)&#xA;, month(Facturas.FechaFactura)&#xA;having sum(Facturas.Kilos) &lt;&gt;0 or  sum(Facturas.ValorNeto)  &lt;&gt;0&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
@@ -64,7 +64,7 @@
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{C506684D-3787-4769-AEE6-43F1D50F46AF}"
-          SQLTask:SqlStatementSource="insert into lukerVen.hpvo.BaseEstadisticaHistoria&#xA;SELECT left(BaseEstadisticaHistoria.Periodo,5)+'b', BaseEstadisticaHistoria.Cod_Negocio, BaseEstadisticaHistoria.Cod_OrgVentas, xppt_cambiodistriatat.Cod_Cliente_Nueva_Razon, BaseEstadisticaHistoria.JerarquiaProducto, BaseEstadisticaHistoria.Cod_SKU, BaseEstadisticaHistoria.FechaFactura&#xA;, sum(BaseEstadisticaHistoria.Kilos* xppt_cambiodistriatat.Porcentaje)&#xA;, sum(BaseEstadisticaHistoria.ValorNeto* xppt_cambiodistriatat.Porcentaje)&#xA;FROM lukerVen.hpvo.BaseEstadisticaHistoria BaseEstadisticaHistoria, lukerVen.tmp.xppt_cambiodistriatat xppt_cambiodistriatat&#xA;WHERE xppt_cambiodistriatat.Cod_Cliente = BaseEstadisticaHistoria.Cod_Cliente&#xA;group by&#xA;left(BaseEstadisticaHistoria.Periodo,5)+'b', BaseEstadisticaHistoria.Cod_Negocio, BaseEstadisticaHistoria.Cod_OrgVentas, xppt_cambiodistriatat.Cod_Cliente_Nueva_Razon, BaseEstadisticaHistoria.JerarquiaProducto, BaseEstadisticaHistoria.Cod_SKU, BaseEstadisticaHistoria.FechaFactura&#xA;GO&#xA;&#xA;update BaseEstadisticaHistoria set&#xA;BaseEstadisticaHistoria.Periodo= 'toTAT'&#xA;FROM lukerVen.hpvo.BaseEstadisticaHistoria BaseEstadisticaHistoria, lukerVen.tmp.xppt_cambiodistriatat xppt_cambiodistriatat&#xA;WHERE xppt_cambiodistriatat.Cod_Cliente = BaseEstadisticaHistoria.Cod_Cliente&#xA;go&#xA;&#xA;-- Espejo&#xA;update BaseEstadisticaHistoria set&#xA;BaseEstadisticaHistoria.Cod_Cliente= ClientesEspejo.Cod_Cliente_Espejo&#xA;FROM lukerVen.hpvo.BaseEstadisticaHistoria BaseEstadisticaHistoria, lukerVen.SD.ClientesEspejo ClientesEspejo, lukerVen.SD.Productos Productos, lukerVen.dbo.xppt_portafolio_marca xppt_portafolio_marca&#xA;WHERE BaseEstadisticaHistoria.Cod_Cliente = ClientesEspejo.Cod_Cliente_Base &#xA;AND Productos.Cod_SKU = BaseEstadisticaHistoria.Cod_SKU &#xA;AND Productos.Marca = xppt_portafolio_marca.Marca &#xA;AND ClientesEspejo.Cod_Portafolio_Espejo = xppt_portafolio_marca.Portafolio&#xA;and BaseEstadisticaHistoria.FechaFactura&lt;'2020-03-01'" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          SQLTask:SqlStatementSource="declare @PeriodoPVO varchar(6), @PeriodoEstI date, @PeriodoEstF date&#xA;SELECT &#xA;  @PeriodoPVO  = Parametros.PeriodoAAMM&#xA;, @PeriodoEstI = Parametros.PeriodoEstI&#xA;, @PeriodoEstF = Parametros.PeriodoEstF&#xA;FROM lukerVen.PVOF.Parametros Parametros&#xA;WHERE (Parametros.EstadoProceso='1')&#xA;&#xA;&#xA;insert into lukerVen.hpvo.BaseEstadisticaHistoria&#xA;SELECT left(BaseEstadisticaHistoria.Periodo,5)+'b', BaseEstadisticaHistoria.Cod_Negocio, BaseEstadisticaHistoria.Cod_OrgVentas, xppt_cambiodistriatat.Cod_Cliente_Nueva_Razon, BaseEstadisticaHistoria.JerarquiaProducto, BaseEstadisticaHistoria.Cod_SKU, BaseEstadisticaHistoria.FechaFactura&#xA;, sum(BaseEstadisticaHistoria.Kilos* xppt_cambiodistriatat.Porcentaje)&#xA;, sum(BaseEstadisticaHistoria.ValorNeto* xppt_cambiodistriatat.Porcentaje)&#xA;, 'DaT'&#xA;FROM lukerVen.hpvo.BaseEstadisticaHistoria BaseEstadisticaHistoria, lukerVen.tmp.xppt_cambiodistriatat xppt_cambiodistriatat&#xA;WHERE xppt_cambiodistriatat.Cod_Cliente = BaseEstadisticaHistoria.Cod_Cliente&#xA;group by&#xA;left(BaseEstadisticaHistoria.Periodo,5)+'b', BaseEstadisticaHistoria.Cod_Negocio, BaseEstadisticaHistoria.Cod_OrgVentas, xppt_cambiodistriatat.Cod_Cliente_Nueva_Razon, BaseEstadisticaHistoria.JerarquiaProducto, BaseEstadisticaHistoria.Cod_SKU, BaseEstadisticaHistoria.FechaFactura&#xA;GO&#xA;&#xA;update BaseEstadisticaHistoria set&#xA;BaseEstadisticaHistoria.Periodo= 'toTAT'&#xA;FROM lukerVen.hpvo.BaseEstadisticaHistoria BaseEstadisticaHistoria, lukerVen.tmp.xppt_cambiodistriatat xppt_cambiodistriatat&#xA;WHERE xppt_cambiodistriatat.Cod_Cliente = BaseEstadisticaHistoria.Cod_Cliente&#xA;go&#xA;&#xA;-- Espejo&#xA;update BaseEstadisticaHistoria set&#xA;BaseEstadisticaHistoria.Cod_Cliente= ClientesEspejo.Cod_Cliente_Espejo&#xA;, origen='Esp'+left(origen,1)&#xA;FROM lukerVen.hpvo.BaseEstadisticaHistoria BaseEstadisticaHistoria, lukerVen.SD.ClientesEspejo ClientesEspejo, lukerVen.SD.Productos Productos, lukerVen.dbo.xppt_portafolio_marca xppt_portafolio_marca&#xA;WHERE BaseEstadisticaHistoria.Cod_Cliente = ClientesEspejo.Cod_Cliente_Base &#xA;AND Productos.Cod_SKU = BaseEstadisticaHistoria.Cod_SKU &#xA;AND Productos.Marca = xppt_portafolio_marca.Marca &#xA;AND ClientesEspejo.Cod_Portafolio_Espejo = xppt_portafolio_marca.Portafolio&#xA;and BaseEstadisticaHistoria.Periodo= @PeriodoPVO&#xA;--and BaseEstadisticaHistoria.FechaFactura&lt;'2020-03-01'" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
@@ -716,71 +716,59 @@ having sum(Facturas.Kilos) &lt;&gt;0 or  sum(Facturas.ValorNeto)  &lt;&gt;0</pro
       <GraphLayout
         Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
+          Size="97.6,41.6"
+          Id="Package\bulk"
+          TopLeft="75.9999969800315,115.786667586857" />
+        <NodeLayout
           Size="176.8,41.6"
           Id="Package\distri to TAT y Espejo"
-          TopLeft="56.0000009536743,211.670591203895" />
+          TopLeft="38.00000166893,209.590591187365" />
         <NodeLayout
           Size="161.6,41.6"
           Id="Package\load Periodo base"
-          TopLeft="43.6734701315099,126.373111016033" />
+          TopLeft="255.006795067211,38.3197769829146" />
         <NodeLayout
           Size="166.4,41.6"
           Id="Package\trctbl Estadistica H"
           TopLeft="44.5714293304755,44.6588241557349" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Restricción]"
-          TopLeft="126.122449730993,86.2588241557349">
+          TopLeft="210.971429330476,62.2893005693248">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,40.1142868602977"
+              EndConnector="44.0353657367359,0"
               Start="0,0"
-              End="0,32.6142868602977">
+              End="36.5353657367359,0">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,32.6142868602977" />
+                    End="36.5353657367359,0" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-11.52869140625,11.5962059301489,23.0573828125,9.421875"
+              BoundingBox="6.73899146211793,5,23.0573828125,9.421875"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="97.6,41.6"
-          Id="Package\bulk"
-          TopLeft="289.999988476436,148.373334512499" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Restricción 1]"
-          TopLeft="154.171429330476,86.2588241557349">
+          TopLeft="126.285713155253,86.2588241557349">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="184.62855914596,62.1145103567638"
+              EndConnector="0,29.5278434311219"
               Start="0,0"
-              End="184.62855914596,54.6145103567638">
+              End="0,22.0278434311219">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,21.200744201887" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,21.200744201887"
-                    Point2="0,25.200744201887"
-                    Point3="4,25.200744201887" />
-                  <mssgle:LineSegment
-                    End="180.62855914596,25.200744201887" />
-                  <mssgle:CubicBezierSegment
-                    Point1="180.62855914596,25.200744201887"
-                    Point2="184.62855914596,25.200744201887"
-                    Point3="184.62855914596,29.200744201887" />
-                  <mssgle:LineSegment
-                    End="184.62855914596,54.6145103567638" />
+                    End="0,22.0278434311219" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -791,30 +779,18 @@ having sum(Facturas.Kilos) &lt;&gt;0 or  sum(Facturas.ValorNeto)  &lt;&gt;0</pro
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Restricción 2]"
-          TopLeft="289.999988476436,169.173334512499">
+          TopLeft="125.599999324481,157.386667586857">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-57.1999875227616,63.2972566913963"
+              EndConnector="0,52.2039236005079"
               Start="0,0"
-              End="-49.6999875227616,63.2972566913963">
+              End="0,44.7039236005079">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="-24.5999937613808,0" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-24.5999937613808,0"
-                    Point2="-28.5999937613808,0"
-                    Point3="-28.5999937613808,4" />
-                  <mssgle:LineSegment
-                    End="-28.5999937613808,59.2972566913963" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-28.5999937613808,59.2972566913963"
-                    Point2="-28.5999937613808,63.2972566913963"
-                    Point3="-32.5999937613808,63.2972566913963" />
-                  <mssgle:LineSegment
-                    End="-49.6999875227616,63.2972566913963" />
+                    End="0,44.7039236005079" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -830,7 +806,7 @@ having sum(Facturas.Kilos) &lt;&gt;0 or  sum(Facturas.ValorNeto)  &lt;&gt;0</pro
     design-time-name="Package\load Periodo base">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="124.8,41.6"
           Id="Package\load Periodo base\Sel FactW"
@@ -870,7 +846,9 @@ having sum(Facturas.Kilos) &lt;&gt;0 or  sum(Facturas.ValorNeto)  &lt;&gt;0</pro
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
