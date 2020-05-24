@@ -7,12 +7,12 @@
   DTS:CreatorName="LAPTOP-MFGK5CPU\fvalb"
   DTS:DTSID="{0379904A-2B72-4387-AA9D-109FC311227E}"
   DTS:ExecutableType="Microsoft.Package"
-  DTS:LastModifiedProductVersion="15.0.1300.371"
+  DTS:LastModifiedProductVersion="14.0.3002.113"
   DTS:LocaleID="1033"
   DTS:ObjectName="X01 ExploPVOF OfiLid"
   DTS:PackageType="5"
-  DTS:VersionBuild="14"
-  DTS:VersionGUID="{8703BDBE-1C2C-43DD-87EC-83C2F4309EC8}">
+  DTS:VersionBuild="15"
+  DTS:VersionGUID="{4F3B72B1-14B0-432C-A4DE-53F8261B6DDB}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -27,7 +27,7 @@
           <DTS:Password
             DTS:Name="Password"
             Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAuR1Gdsnx50KES8/66vqaKwAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAAAb4G12/cgpIWVN6WcH6VXom3uxBEWflapXwZS9M3vyVwAAAAAOgAAAAAIAACAAAACWo0YLMn7N4LISFNq1AXe5Dkh1j9brZqwJGn4uLmrfbyAAAAD4/CH4aJWi65iNkE7eMTROAigak1yAs4ywh9nSaRy7hUAAAABF3W/rpX9IdyU9PI0jJvOLxyCnl814WtpqvjGzfbWRtDJmAiVNcwPCC2gec8KJvI+Cye3R6Y1Vk5lV93fm5tQq</DTS:Password>
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAaGo1T2UrwUKdb1vvJFw8pwAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAABYArJFU8nhKEFICw/28LZVB+yO2z2CL4gLVrKqldfwvwAAAAAOgAAAAAIAACAAAADWMgGpXLEuX74AGpZ4WIzWyvBUv9CE0j09i2wkCddaECAAAAD3ny85aENXkPmSc4kaSXfyJoCQsqNYVQZ0nxK+WhmCY0AAAACc8RqpIEuQOUW6xfztLoebzzvleGhyO3rwayD+7pCoRv89fFFiUgzwLTEQNFP04tKoK1MerSDT49U3B/9v2Q3M</DTS:Password>
         </DTS:ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
