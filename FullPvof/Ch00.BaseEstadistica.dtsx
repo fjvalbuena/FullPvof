@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="C00 BaseEstadistica"
   DTS:PackageType="5"
-  DTS:VersionBuild="27"
-  DTS:VersionGUID="{6D4DB697-7977-4566-ACB1-6C5962D9B267}">
+  DTS:VersionBuild="28"
+  DTS:VersionGUID="{7C451BEA-21B3-4221-A033-94BD8A3BF2A3}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -27,7 +27,7 @@
           <DTS:Password
             DTS:Name="Password"
             Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAaGo1T2UrwUKdb1vvJFw8pwAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAAD6hhHeVJvdI42XKbTnbxKEF4dK8InGmnK0i3lFwPZg8AAAAAAOgAAAAAIAACAAAADdJDmCMO5RMdUcanpGNbXFHZv1B5kizeGrfV7vSUB2YyAAAAD5mcOh+SSrNvXBELm27wwrrEvTKOdX67ue4S11OHOy6kAAAAD9SePqakurx88Ac9NRIw9brPqzxWwoRyudq6h5ynfOkOCGHnZR/8He/dy+70ZswlpDWjRPM3JvHYgnKbBDSoYz</DTS:Password>
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAaGo1T2UrwUKdb1vvJFw8pwAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAAAt7VMXWB2XvNrU0JauC+l7qIb3ZxQb9N7qwCtfNABlywAAAAAOgAAAAAIAACAAAABHDe6eheYAggwIXjV2WFvY5+t1dsjAHDY/qljXJrYT2yAAAABMEewT6j5D0dGllhV39e9T5SR8DdlgyQkSGaOd3wSMR0AAAADNn5Z/+GGYrwczZtp8lXX1OVXYZwtl5NxQ01xmPsn1q1//RmrqJNI6abg/GsQMpYL1rnAVKl1TPtnHfDInnYOj</DTS:Password>
         </DTS:ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
@@ -718,7 +718,7 @@ having sum(Facturas.Kilos) &lt;&gt;0 or  sum(Facturas.ValorNeto)  &lt;&gt;0</pro
         <NodeLayout
           Size="97.6,41.6"
           Id="Package\bulk"
-          TopLeft="75.9999969800315,115.786667586857" />
+          TopLeft="75.9999969800315,128.266667686039" />
         <NodeLayout
           Size="176.8,41.6"
           Id="Package\distri to TAT y Espejo"
@@ -757,18 +757,18 @@ having sum(Facturas.Kilos) &lt;&gt;0 or  sum(Facturas.ValorNeto)  &lt;&gt;0</pro
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Restricción 1]"
-          TopLeft="126.285713155253,86.2588241557349">
+          TopLeft="126.285713155254,86.2588241557349">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,29.5278434311219"
+              EndConnector="0,42.0078435303042"
               Start="0,0"
-              End="0,22.0278434311219">
+              End="0,34.5078435303042">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,22.0278434311219" />
+                    End="0,34.5078435303042" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -779,18 +779,18 @@ having sum(Facturas.Kilos) &lt;&gt;0 or  sum(Facturas.ValorNeto)  &lt;&gt;0</pro
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Restricción 2]"
-          TopLeft="125.599999324481,157.386667586857">
+          TopLeft="125.599999324481,169.866667686039">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,52.2039236005079"
+              EndConnector="0,39.7239235013259"
               Start="0,0"
-              End="0,44.7039236005079">
+              End="0,32.2239235013259">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,44.7039236005079" />
+                    End="0,32.2239235013259" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
