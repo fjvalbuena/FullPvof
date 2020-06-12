@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="C01 BaseEstadisticaConv"
   DTS:PackageType="5"
-  DTS:VersionBuild="71"
-  DTS:VersionGUID="{B74B5B48-4080-4A97-A116-EC321FC1C8CC}">
+  DTS:VersionBuild="76"
+  DTS:VersionGUID="{BC53C6AA-CC05-4F4C-AC8F-63A35865367B}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -27,7 +27,7 @@
           <DTS:Password
             DTS:Name="Password"
             Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAuR1Gdsnx50KES8/66vqaKwAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAAAJVjs2pIJV9rt6eoTlUluawuFIPI3szWayADRHOW7xNAAAAAAOgAAAAAIAACAAAABnEtQqpKNCo60F/uaIdUTy5worCsXMqSYtyuxiy1d9siAAAAANdftBvPa3c6fxcXJCIIM+ekrmeRiF4ILKyhsGWgNm7UAAAACn9MiAshb3/Qmf4GI185Z5nvwZ696kPiCg4RxiR49Bu/UKyIq6rc0Smu5/XWNVwf/cTVdzxmW7V0YNAUEahcYi</DTS:Password>
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAaGo1T2UrwUKdb1vvJFw8pwAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAACqowmMhMn5I/RXZDa+pUQ0E8y8H4OH4fqxPdBIIiePSwAAAAAOgAAAAAIAACAAAABdqLLbgiiu3B2ZMNUtie1KLUsLBXbtV+li00o7hvuwWiAAAAAIehRH4odPyikylUutWCInyQvpOBv8eSvJwlNWhAUfvkAAAAA+b+Y5ibL5FO6BMhA1HbM+MeNCK79l0cHbIvokPILAEPO26co/LIBWMT4fwMDQZ1Jc10AU7i12oLCW8NTSQNTS</DTS:Password>
         </DTS:ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
@@ -83,19 +83,20 @@
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
-      DTS:refId="Package\jerarquia ventas pos"
-      DTS:CreationName="Microsoft.ExecuteSQLTask"
-      DTS:Description="Tarea Ejecutar SQL"
-      DTS:DTSID="{302ef76f-e11a-4d9a-8625-e29b6105b149}"
-      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:refId="Package\Jerarquia Pos"
+      DTS:CreationName="Microsoft.ExecutePackageTask"
+      DTS:Description="Tarea Ejecutar paquete"
+      DTS:DTSID="{4ad94a2f-759f-4e29-bf94-5c99cd2720da}"
+      DTS:ExecutableType="Microsoft.ExecutePackageTask"
       DTS:LocaleID="-1"
-      DTS:ObjectName="jerarquia ventas pos"
-      DTS:ThreadHint="0">
+      DTS:ObjectName="Jerarquia Pos"
+      DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
       <DTS:Variables />
       <DTS:ObjectData>
-        <SQLTask:SqlTaskData
-          SQLTask:Connection="{B14F8D7C-877B-480D-B1F8-29A89D98D78C}"
-          SQLTask:SqlStatementSource="&#xA;/**&#xA;   AMIGOS DE LA CASA Y VENTAS POS&#xA;**/&#xA;update JerCliente set JerCliente.NombreNodoJerarquia= 'PULIDO CHALA MARCELA VIVIANA'&#xA;FROM lukerVen.SD.JerCliente JerCliente&#xA;WHERE (JerCliente.JerCliente = 'J1') OR (JerCliente.JerCliente = 'K1')&#xA;and JerCliente.NombreNodoJerarquia= 'PULIDO CHALA MARCELA VIVIANA'&#xA;&#xA;update Clientes set&#xA;Clientes.Director_Canal= 'PULIDO CHALA MARCELA VIVIANA'&#xA;FROM lukerVen.SD.Clientes Clientes&#xA;WHERE (Clientes.Cod_Cliente Like 'J1%')&#xA;and Clientes.Director_Canal&lt;&gt; 'PULIDO CHALA MARCELA VIVIANA'&#xA;&#xA;update Clientes set&#xA;Clientes.Director_Canal= 'PULIDO CHALA MARCELA VIVIANA'&#xA;FROM lukerVen.SD.Clientes Clientes&#xA;WHERE (Clientes.Cod_Canal='22')&#xA;and Clientes.Director_Canal&lt;&gt; 'PULIDO CHALA MARCELA VIVIANA'" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+        <ExecutePackageTask>
+          <UseProjectReference>True</UseProjectReference>
+          <PackageName>M00. Jerarquia Pos.dtsx</PackageName>
+        </ExecutePackageTask>
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
@@ -2388,6 +2389,14 @@ ORDER BY BaseEstadisticaBc.NombreCanalAgrupado</property>
       DTS:To="Package\load Periodo base"
       DTS:Value="1" />
     <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Restricción 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{AA6DA0C3-5C11-46DA-997F-D56530DC0927}"
+      DTS:From="Package\Jerarquia Pos"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Restricción 1"
+      DTS:To="Package\trctbl Estadistica base C" />
+    <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Restricción 10]"
       DTS:CreationName=""
       DTS:DTSID="{DD228B0F-5F0F-4243-856D-46A5F415D8C3}"
@@ -2468,14 +2477,6 @@ ORDER BY BaseEstadisticaBc.NombreCanalAgrupado</property>
       DTS:ObjectName="Restricción 7"
       DTS:To="Package\totales - contextos AL" />
     <DTS:PrecedenceConstraint
-      DTS:refId="Package.PrecedenceConstraints[Restricción 8]"
-      DTS:CreationName=""
-      DTS:DTSID="{009EAB23-CB11-485B-80E0-D02811535EB8}"
-      DTS:From="Package\jerarquia ventas pos"
-      DTS:LogicalAnd="True"
-      DTS:ObjectName="Restricción 8"
-      DTS:To="Package\trctbl Estadistica base C" />
-    <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Restricción 9]"
       DTS:CreationName=""
       DTS:DTSID="{D65AA529-4C5B-4B4A-9430-C52360B78E42}"
@@ -2508,10 +2509,6 @@ ORDER BY BaseEstadisticaBc.NombreCanalAgrupado</property>
           Size="227.2,41.6"
           Id="Package\Foto Canal agrupado y Jer Prod"
           TopLeft="39.8038933127622,242.072548318927" />
-        <NodeLayout
-          Size="174.4,41.6"
-          Id="Package\jerarquia ventas pos"
-          TopLeft="66.2038933127622,24.2058821384469" />
         <NodeLayout
           Size="159.2,41.6"
           Id="Package\Jerarquias clones"
@@ -2805,28 +2802,6 @@ ORDER BY BaseEstadisticaBc.NombreCanalAgrupado</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package.PrecedenceConstraints[Restricción 8]"
-          TopLeft="153.403893312762,65.8058821384469">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,28.4401961928282"
-              Start="0,0"
-              End="0,20.9401961928282">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,20.9401961928282" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
           Id="Package.PrecedenceConstraints[Restricción 9]"
           TopLeft="153.403893312762,353.712744511755">
           <EdgeLayout.Curve>
@@ -2848,6 +2823,32 @@ ORDER BY BaseEstadisticaBc.NombreCanalAgrupado</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
+        <NodeLayout
+          Size="142.4,41.6"
+          Id="Package\Jerarquia Pos"
+          TopLeft="83.99999666214,20.1600000330607" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Restricción 1]"
+          TopLeft="154.301944987451,61.7600000330607">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,32.4860782982144"
+              Start="0,0"
+              End="0,24.9860782982144">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,24.9860782982144" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </Package>
@@ -2855,7 +2856,7 @@ ORDER BY BaseEstadisticaBc.NombreCanalAgrupado</property>
     design-time-name="Package\load Periodo base">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="234.4,41.6"
           Id="Package\load Periodo base\EstCon Razon Soc y Promociones"
@@ -2883,7 +2884,9 @@ ORDER BY BaseEstadisticaBc.NombreCanalAgrupado</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
