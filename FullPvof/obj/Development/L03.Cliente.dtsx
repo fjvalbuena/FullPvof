@@ -1,0 +1,126 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="6/10/2020 10:16:04 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="LAPTOP-MFGK5CPU"
+  DTS:CreatorName="LAPTOP-MFGK5CPU\fvalb"
+  DTS:DTSID="{8AC2D598-8C42-4FA5-B89C-5DC2ED5D202E}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.1301.433"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="L03 Cliente"
+  DTS:PackageType="5"
+  DTS:VersionBuild="6"
+  DTS:VersionGUID="{B2FEA04E-781D-4144-A79C-B414A9A08729}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[192.168.5.23\B2C.lukerVen.ASSUser]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{9CA39BE0-0C5C-4241-A8FD-1222ADC552A6}"
+      DTS:ObjectName="192.168.5.23\B2C.lukerVen.ASSUser">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=192.168.5.23\B2C;User ID=ASSUser;Initial Catalog=lukerVen;Provider=SQLNCLI11.1;Persist Security Info=True;Auto Translate=False;">
+          <DTS:Password
+            DTS:Name="Password"
+            Sensitive="1"
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAokuxFVDvykSarX3P+qJVOQAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAACOMrunBndEjYcfTMHuwdo9cQdwOsOLu86U5JnNsqodZAAAAAAOgAAAAAIAACAAAAAjJpxIY6gMHtc/FW3IUNJKt4EJbZ9j4nLk/br5tZ6JfyAAAAD46EcUIggJ7mkIslz9eLED5a+A9Rj/EMklWifpqrctdkAAAACSE0hKEdvE21ZFAp3FBaPDFSEsmj/Q55pEoCBcbFxwqOtWI4Jc5TUxqRVn8m4CesO4Gw6DeQZYbqi1Te76LYcT</DTS:Password>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\LD Cliente"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{9db0cc6f-3215-455d-85c1-e8b7e30ce257}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="LD Cliente"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{9CA39BE0-0C5C-4241-A8FD-1222ADC552A6}"
+          SQLTask:SqlStatementSource=" USE [lukerVen]&#xA;GO&#xA;&#xA;--select * from [lukerVen].[PVOF].[VolumenTrimDLC_OLCli]&#xA;truncate table [lukerVen].[PVOF].[VolumenTrimDLC_OLCli]&#xA;&#xA;insert into [lukerVen].[PVOF].[VolumenTrimDLC_OLCli]&#xA;SELECT xppt_pvofconsdircalidcliente.PeriodoAAMM, xppt_pvofconsdircalidcliente.Director_Canal, xppt_pvofconsdircalidcliente.Categoria, xppt_pvofconsdircalidcliente.Marca, xppt_pvofconsdircalidcliente.Linea, xppt_pvofconsdircalidcliente.NombreCanalAgrupado, xppt_pvofconsdircalidcliente.Nombre_Oficina_Ventas, xppt_pvofconsdircalidcliente.Lider_Regional&#xA;, right('000000000'+xppt_pvofconsdircalidcliente.Cod_Cliente,10)&#xA;, sum(xppt_pvofconsdircalidcliente.Kilos1) Kilos1&#xA;, sum(xppt_pvofconsdircalidcliente.Kilos2) Kilos2&#xA;, sum(xppt_pvofconsdircalidcliente.Kilos3) Kilos3&#xA;, '' AS 'OrphEstrLin', '' AS 'OrphVol'&#xA;FROM lukerVen.dbo.xppt_pvofconsdircalidcliente xppt_pvofconsdircalidcliente&#xA;group by&#xA;xppt_pvofconsdircalidcliente.PeriodoAAMM, xppt_pvofconsdircalidcliente.Director_Canal, xppt_pvofconsdircalidcliente.Categoria&#xA;, xppt_pvofconsdircalidcliente.Marca, xppt_pvofconsdircalidcliente.Linea, xppt_pvofconsdircalidcliente.NombreCanalAgrupado&#xA;, xppt_pvofconsdircalidcliente.Nombre_Oficina_Ventas, xppt_pvofconsdircalidcliente.Lider_Regional, xppt_pvofconsdircalidcliente.Cod_Cliente&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\orph"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{24EB5854-1AAD-4286-B81F-190C38A0AE2F}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="orph"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{9CA39BE0-0C5C-4241-A8FD-1222ADC552A6}"
+          SQLTask:SqlStatementSource="update VolumenTrimDLC_OL set&#xA;  VolumenTrimDLC_OL.OrphEstrLin= 0&#xA;, VolumenTrimDLC_OL.OrphVol= 0&#xA;FROM lukerVen.tmp.BaseEstadisticaBcTDLC_ALCli BaseEstadisticaBcTDLC_AL, lukerVen.PVOF.VolumenTrimDLC_OLCli VolumenTrimDLC_OL&#xA;WHERE BaseEstadisticaBcTDLC_AL.Categoria = VolumenTrimDLC_OL.Categoria &#xA;AND BaseEstadisticaBcTDLC_AL.Director_Canal = VolumenTrimDLC_OL.Director_Canal &#xA;AND BaseEstadisticaBcTDLC_AL.Cod_Cliente = VolumenTrimDLC_OL.Cod_Cliente&#xA;AND BaseEstadisticaBcTDLC_AL.Lider_Regional = VolumenTrimDLC_OL.Lider_Regional AND BaseEstadisticaBcTDLC_AL.Linea = VolumenTrimDLC_OL.Linea AND BaseEstadisticaBcTDLC_AL.Marca = VolumenTrimDLC_OL.Marca AND BaseEstadisticaBcTDLC_AL.Nombre_Oficina_Ventas = VolumenTrimDLC_OL.Nombre_Oficina_Ventas &#xA;AND BaseEstadisticaBcTDLC_AL.NombreCanalAgrupado = VolumenTrimDLC_OL.NombreCanalAgrupado AND VolumenTrimDLC_OL.PeriodoAAMM = BaseEstadisticaBcTDLC_AL.Periodo&#xA;and BaseEstadisticaBcTDLC_AL.Kilos&lt;&gt;0" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{99323A11-9BC8-400D-A604-51CCC733341A}"
+      DTS:From="Package\LD Cliente"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\orph" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="163.5,42"
+          Id="Package\LD Cliente"
+          TopLeft="5.50000000000001,5.5" />
+        <NodeLayout
+          Size="163.5,42"
+          Id="Package\orph"
+          TopLeft="5.50000000000001,107.5" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="87.25,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

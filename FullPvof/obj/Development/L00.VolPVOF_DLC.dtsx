@@ -7,12 +7,12 @@
   DTS:CreatorName="LAPTOP-MFGK5CPU\fvalb"
   DTS:DTSID="{FBECCF27-CB76-4A5E-A75F-DA46934A4522}"
   DTS:ExecutableType="Microsoft.Package"
-  DTS:LastModifiedProductVersion="15.0.1300.371"
+  DTS:LastModifiedProductVersion="15.0.1301.433"
   DTS:LocaleID="1033"
   DTS:ObjectName="L00 VolPVOF_DLC"
   DTS:PackageType="5"
-  DTS:VersionBuild="10"
-  DTS:VersionGUID="{C8111160-C338-4299-BA61-2167439285E8}">
+  DTS:VersionBuild="14"
+  DTS:VersionGUID="{FC3747B9-E6C1-4192-B5C6-C64F0AD54350}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -27,7 +27,7 @@
           <DTS:Password
             DTS:Name="Password"
             Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAuR1Gdsnx50KES8/66vqaKwAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAAAZkiP+xaQTW9fLiWLXWhYmqZUGV4B8E0AblYmZ2H6weQAAAAAOgAAAAAIAACAAAABzIuRoHxULXBRBySVmbPaKhW7pd6Rt/cgC83gsjrhrLSAAAAAviYSPS4gvVgSGJwnfUvCQ0lchyoBCFS1A40ja05WQukAAAADRZMuE741ql88pYCDMktOvvNU9WJY8+SoWqMEpDEO+Zp/T++8A96AeuQj1LLzEkYEyjNnCj/ykQC5iELcgDI3S</DTS:Password>
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAokuxFVDvykSarX3P+qJVOQAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAACf0y71v1j6eIIouCQzedhTHDudDvrwqjGwj+FgfPQIPwAAAAAOgAAAAAIAACAAAACY8a7xFw71umsfkDQ8jzAGhv9F5sjRZfhXJugR7SDcuCAAAAAZaHNkufw0Ip9mOYkX4prhGYNTGNtop7fvs98m41FC5EAAAAAVURYq1Whsh0PYZ7o6hVK8iS/bZ2GmHheMGL62wNhNCeWD1LvUbPLEIH8ax/lbpDz51HObEXpEJly9bzUaIfJf</DTS:Password>
         </DTS:ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
@@ -51,19 +51,20 @@
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
-      DTS:refId="Package\jerarquia ventas pos"
-      DTS:CreationName="Microsoft.ExecuteSQLTask"
-      DTS:Description="Tarea Ejecutar SQL"
-      DTS:DTSID="{4863D533-44D9-4AA4-9F04-9335A2F6F259}"
-      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:refId="Package\Jerarquia Pos"
+      DTS:CreationName="Microsoft.ExecutePackageTask"
+      DTS:Description="Tarea Ejecutar paquete"
+      DTS:DTSID="{D965C631-5326-4D70-B284-7624B3032133}"
+      DTS:ExecutableType="Microsoft.ExecutePackageTask"
       DTS:LocaleID="-1"
-      DTS:ObjectName="jerarquia ventas pos"
-      DTS:ThreadHint="0">
+      DTS:ObjectName="Jerarquia Pos"
+      DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
       <DTS:Variables />
       <DTS:ObjectData>
-        <SQLTask:SqlTaskData
-          SQLTask:Connection="{1DAF96B6-B9CB-44D6-9AF8-5B50EEDF8432}"
-          SQLTask:SqlStatementSource="&#xA;/**&#xA;&#x9;&#x9;&#x9;AMIGOS DE LA CASA Y VENTAS POS&#xA;**/&#xA;update JerCliente set JerCliente.NombreNodoJerarquia= 'PULIDO CHALA MARCELA VIVIANA'&#xA;FROM lukerVen.SD.JerCliente JerCliente&#xA;WHERE (JerCliente.JerCliente = 'J1') OR (JerCliente.JerCliente = 'K1')&#xA;and JerCliente.NombreNodoJerarquia= 'PULIDO CHALA MARCELA VIVIANA'&#xA;&#xA;update Clientes set&#xA;Clientes.Director_Canal= 'PULIDO CHALA MARCELA VIVIANA'&#xA;FROM lukerVen.SD.Clientes Clientes&#xA;WHERE (Clientes.Cod_Cliente Like 'J1%')&#xA;and Clientes.Director_Canal&lt;&gt; 'PULIDO CHALA MARCELA VIVIANA'&#xA;&#xA;update Clientes set&#xA;Clientes.Director_Canal= 'PULIDO CHALA MARCELA VIVIANA'&#xA;FROM lukerVen.SD.Clientes Clientes&#xA;WHERE (Clientes.Cod_Canal='22')&#xA;and Clientes.Director_Canal&lt;&gt; 'PULIDO CHALA MARCELA VIVIANA'" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+        <ExecutePackageTask>
+          <UseProjectReference>True</UseProjectReference>
+          <PackageName>M00. Jerarquia Pos.dtsx</PackageName>
+        </ExecutePackageTask>
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
@@ -716,19 +717,19 @@ group by xppt_pvof_cons_dir_lin_can.PeriodoAAMM, xppt_pvof_cons_dir_lin_can.Dire
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Restricción 2]"
       DTS:CreationName=""
-      DTS:DTSID="{5D97B47C-9BF9-49BC-9D2E-F5054885B909}"
-      DTS:From="Package\jerarquia ventas pos"
+      DTS:DTSID="{BE17D8CD-4E67-46B5-A4C6-3CBD7EF9B3D6}"
+      DTS:From="Package\Jerarquia Pos"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Restricción 2"
       DTS:To="Package\trnc tbl" />
   </DTS:PrecedenceConstraints>
   <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
-<!--Esta sección CDATA contiene la información de diseño del paquete. Esta sección incluye información como, por ejemplo, las coordenadas (x,y), el ancho y el alto.-->
-<!--Si edita manualmente esta sección y comete un error, puede eliminarlo. -->
-<!--El paquete podrá cargarse normalmente, pero se perderá la información de diseño anterior y el diseñador reorganizará los elementos automáticamente en la superficie de diseño.-->
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
 <Objects
   Version="8">
-  <!--Cada uno de los nodos siguientes contiene propiedades que no afectan al comportamiento en tiempo de ejecución.-->
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
   <Package
     design-time-name="Package">
     <LayoutInfo>
@@ -739,9 +740,9 @@ group by xppt_pvof_cons_dir_lin_can.PeriodoAAMM, xppt_pvof_cons_dir_lin_can.Dire
           Id="Package\jeraquia huerfana"
           TopLeft="11.9,310.3" />
         <NodeLayout
-          Size="174.4,41.6"
-          Id="Package\jerarquia ventas pos"
-          TopLeft="5.5,5.49999999999995" />
+          Size="142.4,41.6"
+          Id="Package\Jerarquia Pos"
+          TopLeft="28.6666655275557,24.2666668595208" />
         <NodeLayout
           Size="164,41.6"
           Id="Package\load vol from stgn"
@@ -796,18 +797,18 @@ group by xppt_pvof_cons_dir_lin_can.PeriodoAAMM, xppt_pvof_cons_dir_lin_can.Dire
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Restricción 2]"
-          TopLeft="92.7,47.1">
+          TopLeft="96.2833327637779,65.8666668595208">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,59.9999999999999"
+              EndConnector="0,41.2333331404792"
               Start="0,0"
-              End="0,52.4999999999999">
+              End="0,33.7333331404792">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,52.4999999999999" />
+                    End="0,33.7333331404792" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -823,7 +824,7 @@ group by xppt_pvof_cons_dir_lin_can.PeriodoAAMM, xppt_pvof_cons_dir_lin_can.Dire
     design-time-name="Package\load vol from stgn">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="160,41.6"
           Id="Package\load vol from stgn\VolumenTrimDLC"
@@ -851,7 +852,9 @@ group by xppt_pvof_cons_dir_lin_can.PeriodoAAMM, xppt_pvof_cons_dir_lin_can.Dire
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>

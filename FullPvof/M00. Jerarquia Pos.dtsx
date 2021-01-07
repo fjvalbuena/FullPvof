@@ -7,12 +7,12 @@
   DTS:CreatorName="LAPTOP-MFGK5CPU\fvalb"
   DTS:DTSID="{4A7FA13E-EE73-4604-BD2A-C354434B3A6E}"
   DTS:ExecutableType="Microsoft.Package"
-  DTS:LastModifiedProductVersion="14.0.3002.113"
+  DTS:LastModifiedProductVersion="15.0.1301.433"
   DTS:LocaleID="1033"
   DTS:ObjectName="M00  Jerarquia Pos"
   DTS:PackageType="5"
-  DTS:VersionBuild="4"
-  DTS:VersionGUID="{21B4A68E-37F0-44D0-A9C9-9D2BC94838BA}">
+  DTS:VersionBuild="8"
+  DTS:VersionGUID="{C173D22C-362D-42CA-ACAC-C81C09AFC722}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -27,13 +27,29 @@
           <DTS:Password
             DTS:Name="Password"
             Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAaGo1T2UrwUKdb1vvJFw8pwAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAAAv1222Jd9zZQ2d8LDcNLuIrsz04zZgC057gWfo1/fE2wAAAAAOgAAAAAIAACAAAABml5V2oDDabgI/MZlwWUlihsTh4c7U6Mnwpypf7bsFrSAAAABF3fMUQKxCKA4hA41oFCYMzV5K1Fj3TNHPhfr5qFNhG0AAAAA2Srl4WcyFRWzdg22yNmy4YusAENURl66xrM/F9j+YNBKaHNkm7fZ7Ptpn420Zz1TW6IRbfLobLtNrOQR4jO8z</DTS:Password>
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAA4k6HQYtdmEeqU7aLZ7SeZgAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAACuDncjLkZO5oG/KoqfFsCpB02gvhqxTo2PmYQ6FwkmfgAAAAAOgAAAAAIAACAAAAAfMsxSKQVSOJs6wmfinU5Y2mIq8SrfyNawN0j0s3KPWCAAAACkW6CKO4W6D/wKcLKkNCo1Rdp8ccf/N3krkT5zDW//lEAAAAC0K1QVei7CRf9I2oq6ywdBTG23H0ntUAMhWKFN43Q+iNLrlWBT6GeEo5kw2lRgjs9ALOeTIw/WreNAJwBOLz7H</DTS:Password>
         </DTS:ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
   </DTS:ConnectionManagers>
   <DTS:Variables />
   <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\foto"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{8C5457B9-6BC7-4D9E-80DE-8CF30DDF64A9}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="foto"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{1DAF96B6-B9CB-44D6-9AF8-5B50EEDF8432}"
+          SQLTask:SqlStatementSource="&#xA;truncate table [lukerVen].[PVOF].[ClientesW]&#xA;go&#xA;insert into [lukerVen].[PVOF].[ClientesW]&#xA;select [Cod_Cliente]&#xA;           ,[Nombre_Cliente]&#xA;           ,[Cod_Canal]&#xA;           ,[Nombre_Canal]&#xA;           ,[Cod_Pais]&#xA;           ,[Cod_GCliente]&#xA;           ,[Nombre_GCliente]&#xA;           ,[Cod_Oficina_Ventas]&#xA;           ,[Nombre_Oficina_Ventas]&#xA;           ,[Cod_Zona_Ventas]&#xA;           ,[Cod_Vendedor]&#xA;           ,[Nombre_Vendedor]&#xA;           ,[Cod_Region]&#xA;           ,[Nombre_Ciudad]&#xA;           ,[Cod_Central]&#xA;           ,[Cod_GCliente_AD1]&#xA;           ,[Nombre_GCliente_AD1]&#xA;           ,[Cod_GCliente_AD2]&#xA;           ,[Nombre_GCliente_AD2]&#xA;           ,[Cod_Pagador]&#xA;           ,[Telebox]&#xA;           ,[Gerente_Comercial]&#xA;           ,[Director_Canal]&#xA;           ,[Lider_Regional]&#xA;           ,[Jefe_Ventas]&#xA;           ,[Fecha_Creacion_Cliente]&#xA;           ,[Estatus]&#xA;           ,[Cod_Ruta]&#xA;           ,[CoordenadasX]&#xA;           ,[CoordenadasY]&#xA;           ,[Cedi]&#xA;           ,[Cod_CondiPago]&#xA;           ,[Barrio]&#xA;           ,''&#xA;           ,[Poblacion]&#xA;           ,[Direccion] from [lukerVen].[SD].[ClientesVW]&#xA;GO&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;--- delta desde el dia 1&#xA;&#xA;insert into [lukerVen].[PVOF].[ClientesW]&#xA;select [Cod_Cliente]&#xA;           ,[Nombre_Cliente]&#xA;           ,[Cod_Canal]&#xA;           ,[Nombre_Canal]&#xA;           ,[Cod_Pais]&#xA;           ,[Cod_GCliente]&#xA;           ,[Nombre_GCliente]&#xA;           ,[Cod_Oficina_Ventas]&#xA;           ,[Nombre_Oficina_Ventas]&#xA;           ,[Cod_Zona_Ventas]&#xA;           ,[Cod_Vendedor]&#xA;           ,[Nombre_Vendedor]&#xA;           ,[Cod_Region]&#xA;           ,[Nombre_Ciudad]&#xA;           ,[Cod_Central]&#xA;           ,[Cod_GCliente_AD1]&#xA;           ,[Nombre_GCliente_AD1]&#xA;           ,[Cod_GCliente_AD2]&#xA;           ,[Nombre_GCliente_AD2]&#xA;           ,[Cod_Pagador]&#xA;           ,[Telebox]&#xA;           ,[Gerente_Comercial]&#xA;           ,[Director_Canal]&#xA;           ,[Lider_Regional]&#xA;           ,[Jefe_Ventas]&#xA;           ,[Fecha_Creacion_Cliente]&#xA;           ,[Estatus]&#xA;           ,[Cod_Ruta]&#xA;           ,[CoordenadasX]&#xA;           ,[CoordenadasY]&#xA;           ,[Cedi]&#xA;           ,[Cod_CondiPago]&#xA;           ,[Barrio]&#xA;           ,''&#xA;           ,[Poblacion]&#xA;           ,[Direccion] from [lukerVen].[SD].[ClientesVW]&#xA;&#x9;&#x9;   where [Cod_Cliente] not in (select [Cod_Cliente] from [lukerVen].[PVOF].[ClientesW]) &#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
     <DTS:Executable
       DTS:refId="Package\jerarquia ventas pos"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
@@ -47,26 +63,62 @@
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{1DAF96B6-B9CB-44D6-9AF8-5B50EEDF8432}"
-          SQLTask:SqlStatementSource="&#xA;/**&#xA;   AMIGOS DE LA CASA Y VENTAS POS&#xA;**/&#xA;update JerCliente set JerCliente.NombreNodoJerarquia= 'LASPRILLA CORREA CLAUDIA MARCELA'&#xA;FROM lukerVen.SD.JerCliente JerCliente&#xA;WHERE (JerCliente.JerCliente = 'J1') OR (JerCliente.JerCliente = 'K1')&#xA;and JerCliente.NombreNodoJerarquia= 'LASPRILLA CORREA CLAUDIA MARCELA'&#xA;&#xA;update Clientes set&#xA;Clientes.Director_Canal= 'LASPRILLA CORREA CLAUDIA MARCELA'&#xA;FROM lukerVen.SD.Clientes Clientes&#xA;WHERE (Clientes.Cod_Cliente Like 'J1%')&#xA;and Clientes.Director_Canal&lt;&gt; 'LASPRILLA CORREA CLAUDIA MARCELA'&#xA;&#xA;update Clientes set&#xA;Clientes.Director_Canal= 'LASPRILLA CORREA CLAUDIA MARCELA'&#xA;FROM lukerVen.SD.Clientes Clientes&#xA;WHERE (Clientes.Cod_Canal='22')&#xA;and Clientes.Director_Canal&lt;&gt; 'LASPRILLA CORREA CLAUDIA MARCELA'" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          SQLTask:SqlStatementSource="&#xA;/**&#xA;   AMIGOS DE LA CASA Y VENTAS POS&#xA;**/&#xA;update JerCliente set JerCliente.NombreNodoJerarquia= 'RUIZ GONZALEZ NICOLAS'&#xA;FROM lukerVen.SD.JerCliente JerCliente&#xA;WHERE (JerCliente.JerCliente = 'J1') OR (JerCliente.JerCliente = 'K1')&#xA;and JerCliente.NombreNodoJerarquia= 'RUIZ GONZALEZ NICOLAS'&#xA;&#xA;update Clientes set&#xA;Clientes.Director_Canal= 'RUIZ GONZALEZ NICOLAS'&#xA;FROM lukerVen.SD.Clientes Clientes&#xA;WHERE (Clientes.Cod_Cliente Like 'J1%')&#xA;and Clientes.Director_Canal&lt;&gt; 'RUIZ GONZALEZ NICOLAS'&#xA;&#xA;update Clientes set&#xA;Clientes.Director_Canal=  'RUIZ GONZALEZ NICOLAS'&#xA;FROM lukerVen.SD.Clientes Clientes&#xA;WHERE (Clientes.Cod_Canal='22')&#xA;and Clientes.Director_Canal&lt;&gt; 'RUIZ GONZALEZ NICOLAS'" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
   </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{21ADCB3B-3FB3-4F68-ABE2-45AF4C9E2F99}"
+      DTS:From="Package\jerarquia ventas pos"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\foto" />
+  </DTS:PrecedenceConstraints>
   <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
-<!--Esta sección CDATA contiene la información de diseño del paquete. Esta sección incluye información como, por ejemplo, las coordenadas (x,y), el ancho y el alto.-->
-<!--Si edita manualmente esta sección y comete un error, puede eliminarlo. -->
-<!--El paquete podrá cargarse normalmente, pero se perderá la información de diseño anterior y el diseñador reorganizará los elementos automáticamente en la superficie de diseño.-->
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
 <Objects
   Version="8">
-  <!--Cada uno de los nodos siguientes contiene propiedades que no afectan al comportamiento en tiempo de ejecución.-->
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
   <Package
     design-time-name="Package">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="96.8,41.6"
+          Id="Package\foto"
+          TopLeft="92.0000015667511,139.482354897364" />
         <NodeLayout
           Size="174.4,41.6"
           Id="Package\jerarquia ventas pos"
           TopLeft="60,60" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="143.800000783376,101.6">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,37.8823548973642"
+              Start="0,0"
+              End="0,30.3823548973642">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,30.3823548973642" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </Package>

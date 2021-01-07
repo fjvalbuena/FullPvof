@@ -7,12 +7,12 @@
   DTS:CreatorName="LAPTOP-MFGK5CPU\fvalb"
   DTS:DTSID="{65A65187-C644-4F08-A707-7BBAF81FB6EA}"
   DTS:ExecutableType="Microsoft.Package"
-  DTS:LastModifiedProductVersion="14.0.3002.113"
+  DTS:LastModifiedProductVersion="15.0.1301.433"
   DTS:LocaleID="1033"
   DTS:ObjectName="C00 BaseEstadistica"
   DTS:PackageType="5"
-  DTS:VersionBuild="19"
-  DTS:VersionGUID="{3CBE1BE2-031B-4848-84A3-C6F3455BBDC8}">
+  DTS:VersionBuild="20"
+  DTS:VersionGUID="{0FA3A194-C492-4FB8-AEEA-77B3E8DA89A6}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -27,7 +27,7 @@
           <DTS:Password
             DTS:Name="Password"
             Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAaGo1T2UrwUKdb1vvJFw8pwAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAADjy4CBgscmcBkEsxTvQVTcKDaPzXuHZdr/Cin8gPCjHwAAAAAOgAAAAAIAACAAAAD3+yJNJTPpBKgYcqfxeNSxwGbbJkWqpIsTIKfPFd8/fCAAAADT/mPezQjorzAWVpTWdUf8IRRjXzV8+vc0ca9/1SgZWEAAAAAfZsHI70sX/Ms4VSU3hftwdOXi6QRnCnBxEWD1NrYgCRAL+/+PGzANj5PGcIcEx41bHhUIDd3frjnw+Eo+vBNn</DTS:Password>
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAokuxFVDvykSarX3P+qJVOQAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAACU9CDULbQxunpO/RWhLSif4C79tQrm4R3fGjYd0NaoiQAAAAAOgAAAAAIAACAAAAA+P1oZakzvzogZveF+mt/iaiAJHgV62XHyAWskRP/uTCAAAACYkZtLqyIHCMDaEJeQ70rgXGHu846J6doSHmBe3PXiJEAAAABs7nPh5ktsONblMjhDUKg9ygBd1Y504W9l6Y8iaMZUyiv+yOvakiwIVqBmpyIXBJ8kmPdr9On+Vb89YoT24qBm</DTS:Password>
         </DTS:ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
@@ -89,7 +89,7 @@
                   dataType="System.String"
                   description="Comando SQL para ejecutar."
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
                 <property
                   dataType="System.Int32"
                   description="Especifica la página de códigos de columna para utilizar cuando la información de página de códigos no está disponible en el origen de datos."
@@ -286,7 +286,7 @@
                   dataType="System.String"
                   description="Comando SQL para ejecutar."
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">declare @PeriodoPVO varchar(6), @PeriodoEstI date, @PeriodoEstF date
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">declare @PeriodoPVO varchar(6), @PeriodoEstI date, @PeriodoEstF date
 
 SELECT 
   @PeriodoPVO  = Parametros.PeriodoAAMM
@@ -636,31 +636,31 @@ having sum(Facturas.Kilos) &lt;&gt;0</property>
       DTS:Value="1" />
   </DTS:PrecedenceConstraints>
   <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
-<!--Esta sección CDATA contiene la información de diseño del paquete. Esta sección incluye información como, por ejemplo, las coordenadas (x,y), el ancho y el alto.-->
-<!--Si edita manualmente esta sección y comete un error, puede eliminarlo. -->
-<!--El paquete podrá cargarse normalmente, pero se perderá la información de diseño anterior y el diseñador reorganizará los elementos automáticamente en la superficie de diseño.-->
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
 <Objects
   Version="8">
-  <!--Cada uno de los nodos siguientes contiene propiedades que no afectan al comportamiento en tiempo de ejecución.-->
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
   <Package
     design-time-name="Package">
     <LayoutInfo>
       <GraphLayout
         Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="97.6,41.6"
+          Size="97.5,41.5"
           Id="Package\bulk"
           TopLeft="37.5,107.1" />
         <NodeLayout
-          Size="161.6,41.6"
+          Size="161.5,41.5"
           Id="Package\load Periodo base"
           TopLeft="5.50000000000003,310.3" />
         <NodeLayout
-          Size="99.2,41.6"
+          Size="99,41.5"
           Id="Package\pass"
           TopLeft="36.7,208.7" />
         <NodeLayout
-          Size="159.2,41.6"
+          Size="159,41.5"
           Id="Package\trctbl Estadistica base0"
           TopLeft="6.7,5.49999999999995" />
         <EdgeLayout
@@ -727,7 +727,7 @@ having sum(Facturas.Kilos) &lt;&gt;0</property>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-11.52869140625,21.5390625,23.0573828125,9.421875"
+              BoundingBox="-11.52869140625,21.5390625,30.4826953125,9.7490234375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -740,11 +740,11 @@ having sum(Facturas.Kilos) &lt;&gt;0</property>
       <GraphLayout
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="124.8,41.6"
+          Size="125,41.5"
           Id="Package\load Periodo base\Sel FactW"
           TopLeft="43.1,5.49999999999995" />
         <NodeLayout
-          Size="200,41.6"
+          Size="200,41.5"
           Id="Package\load Periodo base\BaseEstadisticaB0 garnica"
           TopLeft="5.50000000000001,107.1" />
         <EdgeLayout

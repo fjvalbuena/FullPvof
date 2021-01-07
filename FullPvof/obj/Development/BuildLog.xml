@@ -2,28 +2,158 @@
 <BuildLog xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <ProjectInfo>
     <Name>FullPvof</Name>
-    <LastWriteTime>2020-02-16T19:46:59.7874122Z</LastWriteTime>
+    <LastWriteTime>2020-11-20T17:01:04Z</LastWriteTime>
     <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
   </ProjectInfo>
   <LastBuildInfos>
     <ProjectBuildItemInfo>
       <Name>C00.BaseEstadistica.dtsx</Name>
-      <LastWriteTime>2020-02-15T22:57:11.3550117Z</LastWriteTime>
+      <LastWriteTime>2020-07-01T13:52:54Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>L00.VolPVOF_DLC.dtsx</Name>
-      <LastWriteTime>2020-02-15T18:01:22.7840026Z</LastWriteTime>
+      <LastWriteTime>2020-06-20T22:02:14Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>C01.BaseEstadisticaConv.dtsx</Name>
-      <LastWriteTime>2020-02-15T23:29:03.7982756Z</LastWriteTime>
+      <LastWriteTime>2020-11-20T19:17:30Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>X00.ExploPVOF.dtsx</Name>
-      <LastWriteTime>2020-02-16T11:46:46.5484585Z</LastWriteTime>
+      <LastWriteTime>2020-11-14T01:29:08Z</LastWriteTime>
+      <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
+    </ProjectBuildItemInfo>
+    <ProjectBuildItemInfo>
+      <Name>L11.Vol A Ñ O _DLCO.dtsx</Name>
+      <LastWriteTime>2020-03-08T18:51:10Z</LastWriteTime>
+      <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
+    </ProjectBuildItemInfo>
+    <ProjectBuildItemInfo>
+      <Name>L02.VolPVOF_DLC_1423.dtsx</Name>
+      <LastWriteTime>2020-06-20T22:02:14Z</LastWriteTime>
+      <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
+    </ProjectBuildItemInfo>
+    <ProjectBuildItemInfo>
+      <Name>X01.ExploPVOF OfiLid.dtsx</Name>
+      <LastWriteTime>2020-11-22T11:27:26Z</LastWriteTime>
+      <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
+    </ProjectBuildItemInfo>
+    <ProjectBuildItemInfo>
+      <Name>Ch00.BaseEstadistica.dtsx</Name>
+      <LastWriteTime>2020-11-23T23:17:52Z</LastWriteTime>
+      <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
+    </ProjectBuildItemInfo>
+    <ProjectBuildItemInfo>
+      <Name>Z01.FotoClientePpto.dtsx</Name>
+      <LastWriteTime>2020-03-10T20:32:28Z</LastWriteTime>
+      <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
+    </ProjectBuildItemInfo>
+    <ProjectBuildItemInfo>
+      <Name>Z00.FotoClientePVOF.dtsx</Name>
+      <LastWriteTime>2020-03-10T20:36:34Z</LastWriteTime>
+      <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
+    </ProjectBuildItemInfo>
+    <ProjectBuildItemInfo>
+      <Name>zSD.2020-Lista de precios xls.dtsx</Name>
+      <LastWriteTime>2020-06-20T22:02:14Z</LastWriteTime>
+      <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
+    </ProjectBuildItemInfo>
+    <ProjectBuildItemInfo>
+      <Name>X91. PreciosPVO_Trim.dtsx</Name>
+      <LastWriteTime>2020-07-06T22:37:58Z</LastWriteTime>
+      <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
+    </ProjectBuildItemInfo>
+    <ProjectBuildItemInfo>
+      <Name>E001.EnfoqueCom.dtsx</Name>
+      <LastWriteTime>2020-10-25T17:52:18Z</LastWriteTime>
+      <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
+    </ProjectBuildItemInfo>
+    <ProjectBuildItemInfo>
+      <Name>X92. PreciosPVO_Año.dtsx</Name>
+      <LastWriteTime>2020-03-31T15:56:52Z</LastWriteTime>
+      <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
+    </ProjectBuildItemInfo>
+    <ProjectBuildItemInfo>
+      <Name>X01.ExploPVOF OfiLid 1423.dtsx</Name>
+      <LastWriteTime>2020-11-14T01:27:08Z</LastWriteTime>
+      <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
+    </ProjectBuildItemInfo>
+    <ProjectBuildItemInfo>
+      <Name>X11.ExploPPTO OfiDirCan12Mese.dtsx</Name>
+      <LastWriteTime>2020-03-20T19:20:38Z</LastWriteTime>
+      <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
+    </ProjectBuildItemInfo>
+    <ProjectBuildItemInfo>
+      <Name>X93. PreciosFIN_AñoV2.dtsx</Name>
+      <LastWriteTime>2020-03-31T15:56:56Z</LastWriteTime>
+      <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
+    </ProjectBuildItemInfo>
+    <ProjectBuildItemInfo>
+      <Name>Dafi Real 19 a mz03.dtsx</Name>
+      <LastWriteTime>2020-04-10T16:43:22Z</LastWriteTime>
+      <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
+    </ProjectBuildItemInfo>
+    <ProjectBuildItemInfo>
+      <Name>L03.Vendedor.dtsx</Name>
+      <LastWriteTime>2020-06-30T21:08:22Z</LastWriteTime>
+      <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
+    </ProjectBuildItemInfo>
+    <ProjectBuildItemInfo>
+      <Name>L03.Cliente.dtsx</Name>
+      <LastWriteTime>2020-06-30T22:42:42Z</LastWriteTime>
+      <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
+    </ProjectBuildItemInfo>
+    <ProjectBuildItemInfo>
+      <Name>M00. Jerarquia Pos.dtsx</Name>
+      <LastWriteTime>2020-10-22T14:18:40Z</LastWriteTime>
+      <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
+    </ProjectBuildItemInfo>
+    <ProjectBuildItemInfo>
+      <Name>Zz99.P2fll.dtsx</Name>
+      <LastWriteTime>2020-07-01T20:02:24Z</LastWriteTime>
+      <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
+    </ProjectBuildItemInfo>
+    <ProjectBuildItemInfo>
+      <Name>C00c.BaseEstadisticaNextMonth.dtsx</Name>
+      <LastWriteTime>2020-07-01T14:31:40Z</LastWriteTime>
+      <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
+    </ProjectBuildItemInfo>
+    <ProjectBuildItemInfo>
+      <Name>C02.inheritCliente.dtsx</Name>
+      <LastWriteTime>2020-07-02T00:42:16Z</LastWriteTime>
+      <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
+    </ProjectBuildItemInfo>
+    <ProjectBuildItemInfo>
+      <Name>Zz99.P3fll.dtsx</Name>
+      <LastWriteTime>2020-07-02T00:57:08Z</LastWriteTime>
+      <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
+    </ProjectBuildItemInfo>
+    <ProjectBuildItemInfo>
+      <Name>X03.ExploPVOF OfiLidZona.dtsx</Name>
+      <LastWriteTime>2020-07-01T23:52:00Z</LastWriteTime>
+      <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
+    </ProjectBuildItemInfo>
+    <ProjectBuildItemInfo>
+      <Name>X03.ExploPVOF OfiLidCliente.dtsx</Name>
+      <LastWriteTime>2020-07-02T00:57:20Z</LastWriteTime>
+      <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
+    </ProjectBuildItemInfo>
+    <ProjectBuildItemInfo>
+      <Name>C01.BaseEstadisticaConvTotales.dtsx</Name>
+      <LastWriteTime>2020-07-02T00:50:26Z</LastWriteTime>
+      <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
+    </ProjectBuildItemInfo>
+    <ProjectBuildItemInfo>
+      <Name>L02.VolPVOF_DLC_OL.dtsx</Name>
+      <LastWriteTime>2020-10-25T13:01:22Z</LastWriteTime>
+      <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
+    </ProjectBuildItemInfo>
+    <ProjectBuildItemInfo>
+      <Name>L02.VolPVOF_DLC_OL_GCLI.dtsx</Name>
+      <LastWriteTime>2020-11-20T19:30:04Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
   </LastBuildInfos>

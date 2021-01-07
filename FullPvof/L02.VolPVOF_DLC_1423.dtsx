@@ -7,12 +7,12 @@
   DTS:CreatorName="LAPTOP-MFGK5CPU\fvalb"
   DTS:DTSID="{3BADEE74-1F0E-4EC8-810B-CCDA989A04E5}"
   DTS:ExecutableType="Microsoft.Package"
-  DTS:LastModifiedProductVersion="14.0.3002.113"
+  DTS:LastModifiedProductVersion="15.0.1301.433"
   DTS:LocaleID="1033"
   DTS:ObjectName="L01 VolPVOF_DLC_OL"
   DTS:PackageType="5"
-  DTS:VersionBuild="27"
-  DTS:VersionGUID="{FBCCBA1E-EB16-4E38-8C54-AF4BB1E24320}">
+  DTS:VersionBuild="28"
+  DTS:VersionGUID="{F9AB0B7C-50B4-42EA-BE36-CDD0B077AF85}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -27,7 +27,7 @@
           <DTS:Password
             DTS:Name="Password"
             Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAaGo1T2UrwUKdb1vvJFw8pwAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAACNjbRx95vceR02rwuvm7e2S9ZEvJrNry6/p4h1zpgaMgAAAAAOgAAAAAIAACAAAABMMIGhuTsRyq56awq4uJfLBGs6zWgQxlCQKYXxQQ/JNSAAAAAYUgnKCLZdhZ12V9O1DBxTxcvYQ90G/wRECNcsqP91oUAAAACio7ommVnKwaJPVDikirBxha/zBmbUZHXiSJhKH+76IHQycF2QUsYVRzyiBvoIbforzYLnCZhsmWL2e94mVpW5</DTS:Password>
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAokuxFVDvykSarX3P+qJVOQAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAADc6yio5yb6uCYhJxZjfMRrLrFHnyrUF8Gg0lnQcZN9RwAAAAAOgAAAAAIAACAAAAD6lCzsQRQF+jMdogbsjWKUehX4WkEMG5dsr4KT6snrdyAAAADc9y2z3SAjqdMpf5Y9nXXKVvYLZPbqGhL5K1+Da00MqkAAAAD0kZqcf0I/k80ZaGPmIPEoZV+3AFXR2uypOQnhZAX+EiEJM8W6YSF+U7UfHrO8T9/ww3J4ii7i8xwOoEZUILM8</DTS:Password>
         </DTS:ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
@@ -126,12 +126,12 @@
       DTS:To="Package\load vol from stgn o1423 ok" />
   </DTS:PrecedenceConstraints>
   <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
-<!--Esta sección CDATA contiene la información de diseño del paquete. Esta sección incluye información como, por ejemplo, las coordenadas (x,y), el ancho y el alto.-->
-<!--Si edita manualmente esta sección y comete un error, puede eliminarlo. -->
-<!--El paquete podrá cargarse normalmente, pero se perderá la información de diseño anterior y el diseñador reorganizará los elementos automáticamente en la superficie de diseño.-->
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
 <Objects
   Version="8">
-  <!--Cada uno de los nodos siguientes contiene propiedades que no afectan al comportamiento en tiempo de ejecución.-->
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
   <Package
     design-time-name="Package">
     <LayoutInfo>

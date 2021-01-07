@@ -7,12 +7,12 @@
   DTS:CreatorName="LAPTOP-MFGK5CPU\fvalb"
   DTS:DTSID="{FBECCF27-CB76-4A5E-A75F-DA46934A4522}"
   DTS:ExecutableType="Microsoft.Package"
-  DTS:LastModifiedProductVersion="14.0.3002.113"
+  DTS:LastModifiedProductVersion="15.0.1301.433"
   DTS:LocaleID="1033"
   DTS:ObjectName="L00 VolPVOF_DLC"
   DTS:PackageType="5"
-  DTS:VersionBuild="13"
-  DTS:VersionGUID="{D9341A50-E2C6-450B-9238-B940F9675986}">
+  DTS:VersionBuild="14"
+  DTS:VersionGUID="{FC3747B9-E6C1-4192-B5C6-C64F0AD54350}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -27,7 +27,7 @@
           <DTS:Password
             DTS:Name="Password"
             Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAaGo1T2UrwUKdb1vvJFw8pwAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAAAfXMdriC/rJvFHRB8VFlck/XUAubWaA50pZD9k6YYJrAAAAAAOgAAAAAIAACAAAAAMUUEFkaNMcR+lbIoqkDxnHvBjpYUSFKn91fcZtzDG5CAAAAC/9uPEAG7Vs+YyCmlqCNJTRhD1FdCSp7rXGL53pY+Zx0AAAADFQj7KBxL9i0nTkh7r6spvr6EC69/dXNSAI47exb9/bLM5uTfRTiHTydBuV5Z1pJxMJSyEU0S2JRg94R6BeSlK</DTS:Password>
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAokuxFVDvykSarX3P+qJVOQAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAACvlVxna97JF2LG8pUtlq5YfuA+w6QfnjsK7ZTBYmCWuQAAAAAOgAAAAAIAACAAAAAXrxilHMFdGcDRhaDU1GBx9xrQWewnoJZgQVsTnz55niAAAABy1CEq1wDtCTquIfM2dduep3/ZUQGLlNjzies989dwcEAAAABRNuaAmtgyM9RviWHPAf7W34vAoLFNY3G5HSVeYTdVRO0GIgeNSNPyijKs/17yo1JNMXNh5zwEMAy6ej8SLyVU</DTS:Password>
         </DTS:ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
@@ -106,7 +106,7 @@
                   dataType="System.String"
                   description="Comando SQL para ejecutar."
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT xppt_pvof_cons_dir_lin_can.PeriodoAAMM, xppt_pvof_cons_dir_lin_can.Director_Canal, xppt_pvof_cons_dir_lin_can.Categoria, xppt_pvof_cons_dir_lin_can.Marca, xppt_pvof_cons_dir_lin_can.Linea, xppt_pvof_cons_dir_lin_can.NombreCanalAgrupado, xppt_pvof_cons_dir_lin_can.Nombre_GCliente_AD2
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">SELECT xppt_pvof_cons_dir_lin_can.PeriodoAAMM, xppt_pvof_cons_dir_lin_can.Director_Canal, xppt_pvof_cons_dir_lin_can.Categoria, xppt_pvof_cons_dir_lin_can.Marca, xppt_pvof_cons_dir_lin_can.Linea, xppt_pvof_cons_dir_lin_can.NombreCanalAgrupado, xppt_pvof_cons_dir_lin_can.Nombre_GCliente_AD2
 , sum(xppt_pvof_cons_dir_lin_can.Kilos1) Kilos1
 , sum(xppt_pvof_cons_dir_lin_can.Kilos2) Kilos2
 , sum(xppt_pvof_cons_dir_lin_can.Kilos3) Kilos3
@@ -449,7 +449,7 @@ group by xppt_pvof_cons_dir_lin_can.PeriodoAAMM, xppt_pvof_cons_dir_lin_can.Dire
                   dataType="System.String"
                   description="Comando SQL para ejecutar."
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
                 <property
                   dataType="System.Int32"
                   description="Especifica la página de códigos de columna para utilizar cuando la información de página de códigos no está disponible en el origen de datos."
@@ -724,12 +724,12 @@ group by xppt_pvof_cons_dir_lin_can.PeriodoAAMM, xppt_pvof_cons_dir_lin_can.Dire
       DTS:To="Package\trnc tbl" />
   </DTS:PrecedenceConstraints>
   <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
-<!--Esta sección CDATA contiene la información de diseño del paquete. Esta sección incluye información como, por ejemplo, las coordenadas (x,y), el ancho y el alto.-->
-<!--Si edita manualmente esta sección y comete un error, puede eliminarlo. -->
-<!--El paquete podrá cargarse normalmente, pero se perderá la información de diseño anterior y el diseñador reorganizará los elementos automáticamente en la superficie de diseño.-->
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
 <Objects
   Version="8">
-  <!--Cada uno de los nodos siguientes contiene propiedades que no afectan al comportamiento en tiempo de ejecución.-->
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
   <Package
     design-time-name="Package">
     <LayoutInfo>
@@ -739,6 +739,10 @@ group by xppt_pvof_cons_dir_lin_can.PeriodoAAMM, xppt_pvof_cons_dir_lin_can.Dire
           Size="161.6,41.6"
           Id="Package\jeraquia huerfana"
           TopLeft="11.9,310.3" />
+        <NodeLayout
+          Size="142.4,41.6"
+          Id="Package\Jerarquia Pos"
+          TopLeft="28.6666655275557,24.2666668595208" />
         <NodeLayout
           Size="164,41.6"
           Id="Package\load vol from stgn"
@@ -791,10 +795,6 @@ group by xppt_pvof_cons_dir_lin_can.PeriodoAAMM, xppt_pvof_cons_dir_lin_can.Dire
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="142.4,41.6"
-          Id="Package\Jerarquia Pos"
-          TopLeft="28.6666655275557,24.2666668595208" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Restricción 2]"
           TopLeft="96.2833327637779,65.8666668595208">

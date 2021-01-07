@@ -7,12 +7,12 @@
   DTS:CreatorName="LAPTOP-MFGK5CPU\fvalb"
   DTS:DTSID="{3BADEE74-1F0E-4EC8-810B-CCDA989A04E5}"
   DTS:ExecutableType="Microsoft.Package"
-  DTS:LastModifiedProductVersion="15.0.1300.371"
+  DTS:LastModifiedProductVersion="15.0.1301.433"
   DTS:LocaleID="1033"
   DTS:ObjectName="L01 VolPVOF_DLC_OL"
   DTS:PackageType="5"
-  DTS:VersionBuild="26"
-  DTS:VersionGUID="{43C08565-FD87-4D9D-B5FD-A480A9E69181}">
+  DTS:VersionBuild="28"
+  DTS:VersionGUID="{F9AB0B7C-50B4-42EA-BE36-CDD0B077AF85}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -27,7 +27,7 @@
           <DTS:Password
             DTS:Name="Password"
             Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAuR1Gdsnx50KES8/66vqaKwAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAAAxQMktylkf6YlauLG0XVesNYf9F/bFWzFyyds7cXGn9wAAAAAOgAAAAAIAACAAAAAaxiX9TmBCjuxQKwmxBDfF43TL/QVVyBEDGp4dZqkgdyAAAABKWXFWPpf90tNB7MZdBcz6cA77k1K45yLSiAIgIeVLjkAAAADisGAEeeSXBrNCBFKYAw/z9g2xEMx8SnKIfQtq6d502+g3f3AC2yTe29lN2vysZq8UfVW7ZvVT+JiXJxRkIbS4</DTS:Password>
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAokuxFVDvykSarX3P+qJVOQAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAADlZLIUt3xuALDTgPZ8p9qKG4Z5L4dUdLSNw+S8267mpQAAAAAOgAAAAAIAACAAAACO4q0JKKQu8QHoHQzJX79fDlKS79qUneGf9nZUwdmtnSAAAADTRKUu8OMan/76Fiss49uG807N8J0QfAeU3ZucVFi4S0AAAAAIRdAKM45CpRAvqq6rog+JzwM28UHxKtRUzKOi/x/zZtb+f84gw7qB1I3fg/w678s2ssSj6A0KnsXNc2F4p7xC</DTS:Password>
         </DTS:ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
@@ -67,772 +67,6 @@
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
-      DTS:refId="Package\load vol from stgn o1423"
-      DTS:CreationName="Microsoft.Pipeline"
-      DTS:Description="Tarea Flujo de datos"
-      DTS:DTSID="{1F2E1CCF-D0C6-4155-82B9-EF3ECC568DB0}"
-      DTS:ExecutableType="Microsoft.Pipeline"
-      DTS:LocaleID="-1"
-      DTS:ObjectName="load vol from stgn o1423"
-      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
-      <DTS:Variables />
-      <DTS:ObjectData>
-        <pipeline
-          version="1">
-          <components>
-            <component
-              refId="Package\load vol from stgn o1423\load from stgn Of 1423"
-              componentClassID="Microsoft.OLEDBSource"
-              contactInfo="Origen de OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;7"
-              description="Origen de OLE DB"
-              name="load from stgn Of 1423"
-              usesDispositions="true"
-              version="7">
-              <properties>
-                <property
-                  dataType="System.Int32"
-                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
-                  name="CommandTimeout">0</property>
-                <property
-                  dataType="System.String"
-                  description="Especifica el nombre del objeto de base de datos usado para abrir un conjunto de filas."
-                  name="OpenRowset"></property>
-                <property
-                  dataType="System.String"
-                  description="Especifica la variable que contiene el nombre del objeto de base de datos usado para abrir un conjunto de filas."
-                  name="OpenRowsetVariable"></property>
-                <property
-                  dataType="System.String"
-                  description="Comando SQL para ejecutar."
-                  name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">SELECT xppt_pvof_moderno_ofi_sku.PeriodoAAMM
-, xppt_pvof_moderno_ofi_sku.Director_Canal
-, xppt_pvof_moderno_ofi_sku.Categoria
-, xppt_pvof_moderno_ofi_sku.Marca
-, xppt_pvof_moderno_ofi_sku.Linea
-, xppt_pvof_moderno_ofi_sku.NombreCanalAgrupado
-, xppt_pvof_moderno_ofi_sku.Nombre_GCliente_AD2
-, xppt_pvof_moderno_ofi_sku.Nombre_Oficina_Ventas
-, right('0000000000000000000'+xppt_pvof_moderno_ofi_sku.Cod_SKU,18) as Cod_SKU
-, case xppt_pvof_moderno_ofi_sku.Cod_Cliente when 'nan' then ''  when '.0' then '' else right('00000000000'+replace(xppt_pvof_moderno_ofi_sku.Cod_Cliente,'.0',''),10) end  as Cod_Cliente
-, Sum(xppt_pvof_moderno_ofi_sku.Kilos1) AS 'Kilos1'
-, Sum(xppt_pvof_moderno_ofi_sku.Kilos2) AS 'Kilos2'
-, Sum(xppt_pvof_moderno_ofi_sku.Kilos3) AS 'Kilos3'
-,'' as [OrphEstrLin]
-,'' as [OrphVol]
-, right('0000000000000000000'+xppt_pvof_moderno_ofi_sku.Cod_SKU_Original,18) as Cod_SKU_Original
-FROM lukerVen.dbo.xppt_pvof_moderno_ofi_sku xppt_pvof_moderno_ofi_sku
-GROUP BY xppt_pvof_moderno_ofi_sku.PeriodoAAMM
-, xppt_pvof_moderno_ofi_sku.Director_Canal
-, xppt_pvof_moderno_ofi_sku.Categoria
-, xppt_pvof_moderno_ofi_sku.Marca
-, xppt_pvof_moderno_ofi_sku.Linea
-, xppt_pvof_moderno_ofi_sku.NombreCanalAgrupado
-, xppt_pvof_moderno_ofi_sku.Nombre_GCliente_AD2
-, xppt_pvof_moderno_ofi_sku.Nombre_Oficina_Ventas
-, xppt_pvof_moderno_ofi_sku.Cod_SKU
-, case xppt_pvof_moderno_ofi_sku.Cod_Cliente when 'nan' then ''  when '.0' then '' else right('00000000000'+replace(xppt_pvof_moderno_ofi_sku.Cod_Cliente,'.0',''),10) end
-, Cod_SKU_Original</property>
-                <property
-                  dataType="System.String"
-                  description="Variable que contiene el comando SQL para ejecutar."
-                  name="SqlCommandVariable"></property>
-                <property
-                  dataType="System.Int32"
-                  description="Especifica la página de códigos de columna para utilizar cuando la información de página de códigos no está disponible en el origen de datos."
-                  name="DefaultCodePage">1252</property>
-                <property
-                  dataType="System.Boolean"
-                  description="Fuerza el uso del valor de la propiedad DefaultCodePage al describir datos de caracteres."
-                  name="AlwaysUseDefaultCodePage">false</property>
-                <property
-                  dataType="System.Int32"
-                  description="Especifica el modo utilizado para obtener acceso a la base de datos."
-                  name="AccessMode"
-                  typeConverter="AccessMode">2</property>
-                <property
-                  dataType="System.String"
-                  description="Asignaciones entre los parámetros del comando SQL y las variables."
-                  name="ParameterMapping"></property>
-              </properties>
-              <connections>
-                <connection
-                  refId="Package\load vol from stgn o1423\load from stgn Of 1423.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[192.168.5.23\B2C.lukerVen.ASSUser]"
-                  connectionManagerRefId="Package.ConnectionManagers[192.168.5.23\B2C.lukerVen.ASSUser]"
-                  description="La conexión de tiempo de ejecución OLE DB usada para obtener acceso a la base de datos."
-                  name="OleDbConnection" />
-              </connections>
-              <outputs>
-                <output
-                  refId="Package\load vol from stgn o1423\load from stgn Of 1423.Outputs[Salida de origen de OLE DB]"
-                  name="Salida de origen de OLE DB">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\load vol from stgn o1423\load from stgn Of 1423.Outputs[Salida de origen de OLE DB].Columns[PeriodoAAMM]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Conversión"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\load vol from stgn o1423\load from stgn Of 1423.Outputs[Salida de origen de OLE DB].ExternalColumns[PeriodoAAMM]"
-                      length="6"
-                      lineageId="Package\load vol from stgn o1423\load from stgn Of 1423.Outputs[Salida de origen de OLE DB].Columns[PeriodoAAMM]"
-                      name="PeriodoAAMM"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\load vol from stgn o1423\load from stgn Of 1423.Outputs[Salida de origen de OLE DB].Columns[Director_Canal]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Conversión"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\load vol from stgn o1423\load from stgn Of 1423.Outputs[Salida de origen de OLE DB].ExternalColumns[Director_Canal]"
-                      length="40"
-                      lineageId="Package\load vol from stgn o1423\load from stgn Of 1423.Outputs[Salida de origen de OLE DB].Columns[Director_Canal]"
-                      name="Director_Canal"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\load vol from stgn o1423\load from stgn Of 1423.Outputs[Salida de origen de OLE DB].Columns[Linea]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Conversión"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\load vol from stgn o1423\load from stgn Of 1423.Outputs[Salida de origen de OLE DB].ExternalColumns[Linea]"
-                      length="40"
-                      lineageId="Package\load vol from stgn o1423\load from stgn Of 1423.Outputs[Salida de origen de OLE DB].Columns[Linea]"
-                      name="Linea"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\load vol from stgn o1423\load from stgn Of 1423.Outputs[Salida de origen de OLE DB].Columns[NombreCanalAgrupado]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Conversión"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\load vol from stgn o1423\load from stgn Of 1423.Outputs[Salida de origen de OLE DB].ExternalColumns[NombreCanalAgrupado]"
-                      length="40"
-                      lineageId="Package\load vol from stgn o1423\load from stgn Of 1423.Outputs[Salida de origen de OLE DB].Columns[NombreCanalAgrupado]"
-                      name="NombreCanalAgrupado"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\load vol from stgn o1423\load from stgn Of 1423.Outputs[Salida de origen de OLE DB].Columns[Kilos1]"
-                      dataType="r8"
-                      errorOrTruncationOperation="Conversión"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\load vol from stgn o1423\load from stgn Of 1423.Outputs[Salida de origen de OLE DB].ExternalColumns[Kilos1]"
-                      lineageId="Package\load vol from stgn o1423\load from stgn Of 1423.Outputs[Salida de origen de OLE DB].Columns[Kilos1]"
-                      name="Kilos1"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\load vol from stgn o1423\load from stgn Of 1423.Outputs[Salida de origen de OLE DB].Columns[Kilos2]"
-                      dataType="r8"
-                      errorOrTruncationOperation="Conversión"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\load vol from stgn o1423\load from stgn Of 1423.Outputs[Salida de origen de OLE DB].ExternalColumns[Kilos2]"
-                      lineageId="Package\load vol from stgn o1423\load from stgn Of 1423.Outputs[Salida de origen de OLE DB].Columns[Kilos2]"
-                      name="Kilos2"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\load vol from stgn o1423\load from stgn Of 1423.Outputs[Salida de origen de OLE DB].Columns[Kilos3]"
-                      dataType="r8"
-                      errorOrTruncationOperation="Conversión"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\load vol from stgn o1423\load from stgn Of 1423.Outputs[Salida de origen de OLE DB].ExternalColumns[Kilos3]"
-                      lineageId="Package\load vol from stgn o1423\load from stgn Of 1423.Outputs[Salida de origen de OLE DB].Columns[Kilos3]"
-                      name="Kilos3"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\load vol from stgn o1423\load from stgn Of 1423.Outputs[Salida de origen de OLE DB].Columns[OrphEstrLin]"
-                      codePage="1252"
-                      dataType="str"
-                      errorOrTruncationOperation="Conversión"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\load vol from stgn o1423\load from stgn Of 1423.Outputs[Salida de origen de OLE DB].ExternalColumns[OrphEstrLin]"
-                      length="1"
-                      lineageId="Package\load vol from stgn o1423\load from stgn Of 1423.Outputs[Salida de origen de OLE DB].Columns[OrphEstrLin]"
-                      name="OrphEstrLin"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\load vol from stgn o1423\load from stgn Of 1423.Outputs[Salida de origen de OLE DB].Columns[OrphVol]"
-                      codePage="1252"
-                      dataType="str"
-                      errorOrTruncationOperation="Conversión"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\load vol from stgn o1423\load from stgn Of 1423.Outputs[Salida de origen de OLE DB].ExternalColumns[OrphVol]"
-                      length="1"
-                      lineageId="Package\load vol from stgn o1423\load from stgn Of 1423.Outputs[Salida de origen de OLE DB].Columns[OrphVol]"
-                      name="OrphVol"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\load vol from stgn o1423\load from stgn Of 1423.Outputs[Salida de origen de OLE DB].Columns[Categoria]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Conversión"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\load vol from stgn o1423\load from stgn Of 1423.Outputs[Salida de origen de OLE DB].ExternalColumns[Categoria]"
-                      length="40"
-                      lineageId="Package\load vol from stgn o1423\load from stgn Of 1423.Outputs[Salida de origen de OLE DB].Columns[Categoria]"
-                      name="Categoria"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\load vol from stgn o1423\load from stgn Of 1423.Outputs[Salida de origen de OLE DB].Columns[Marca]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Conversión"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\load vol from stgn o1423\load from stgn Of 1423.Outputs[Salida de origen de OLE DB].ExternalColumns[Marca]"
-                      length="40"
-                      lineageId="Package\load vol from stgn o1423\load from stgn Of 1423.Outputs[Salida de origen de OLE DB].Columns[Marca]"
-                      name="Marca"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\load vol from stgn o1423\load from stgn Of 1423.Outputs[Salida de origen de OLE DB].Columns[Nombre_Oficina_Ventas]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Conversión"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\load vol from stgn o1423\load from stgn Of 1423.Outputs[Salida de origen de OLE DB].ExternalColumns[Nombre_Oficina_Ventas]"
-                      length="20"
-                      lineageId="Package\load vol from stgn o1423\load from stgn Of 1423.Outputs[Salida de origen de OLE DB].Columns[Nombre_Oficina_Ventas]"
-                      name="Nombre_Oficina_Ventas"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\load vol from stgn o1423\load from stgn Of 1423.Outputs[Salida de origen de OLE DB].Columns[Nombre_GCliente_AD2]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Conversión"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\load vol from stgn o1423\load from stgn Of 1423.Outputs[Salida de origen de OLE DB].ExternalColumns[Nombre_GCliente_AD2]"
-                      length="35"
-                      lineageId="Package\load vol from stgn o1423\load from stgn Of 1423.Outputs[Salida de origen de OLE DB].Columns[Nombre_GCliente_AD2]"
-                      name="Nombre_GCliente_AD2"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\load vol from stgn o1423\load from stgn Of 1423.Outputs[Salida de origen de OLE DB].Columns[Cod_SKU]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Conversión"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\load vol from stgn o1423\load from stgn Of 1423.Outputs[Salida de origen de OLE DB].ExternalColumns[Cod_SKU]"
-                      length="18"
-                      lineageId="Package\load vol from stgn o1423\load from stgn Of 1423.Outputs[Salida de origen de OLE DB].Columns[Cod_SKU]"
-                      name="Cod_SKU"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\load vol from stgn o1423\load from stgn Of 1423.Outputs[Salida de origen de OLE DB].Columns[Cod_Cliente]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Conversión"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\load vol from stgn o1423\load from stgn Of 1423.Outputs[Salida de origen de OLE DB].ExternalColumns[Cod_Cliente]"
-                      length="10"
-                      lineageId="Package\load vol from stgn o1423\load from stgn Of 1423.Outputs[Salida de origen de OLE DB].Columns[Cod_Cliente]"
-                      name="Cod_Cliente"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\load vol from stgn o1423\load from stgn Of 1423.Outputs[Salida de origen de OLE DB].Columns[Cod_SKU_Original]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Conversión"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\load vol from stgn o1423\load from stgn Of 1423.Outputs[Salida de origen de OLE DB].ExternalColumns[Cod_SKU_Original]"
-                      length="18"
-                      lineageId="Package\load vol from stgn o1423\load from stgn Of 1423.Outputs[Salida de origen de OLE DB].Columns[Cod_SKU_Original]"
-                      name="Cod_SKU_Original"
-                      truncationRowDisposition="FailComponent" />
-                  </outputColumns>
-                  <externalMetadataColumns
-                    isUsed="True">
-                    <externalMetadataColumn
-                      refId="Package\load vol from stgn o1423\load from stgn Of 1423.Outputs[Salida de origen de OLE DB].ExternalColumns[PeriodoAAMM]"
-                      dataType="wstr"
-                      length="6"
-                      name="PeriodoAAMM" />
-                    <externalMetadataColumn
-                      refId="Package\load vol from stgn o1423\load from stgn Of 1423.Outputs[Salida de origen de OLE DB].ExternalColumns[Director_Canal]"
-                      dataType="wstr"
-                      length="40"
-                      name="Director_Canal" />
-                    <externalMetadataColumn
-                      refId="Package\load vol from stgn o1423\load from stgn Of 1423.Outputs[Salida de origen de OLE DB].ExternalColumns[Linea]"
-                      dataType="wstr"
-                      length="40"
-                      name="Linea" />
-                    <externalMetadataColumn
-                      refId="Package\load vol from stgn o1423\load from stgn Of 1423.Outputs[Salida de origen de OLE DB].ExternalColumns[NombreCanalAgrupado]"
-                      dataType="wstr"
-                      length="40"
-                      name="NombreCanalAgrupado" />
-                    <externalMetadataColumn
-                      refId="Package\load vol from stgn o1423\load from stgn Of 1423.Outputs[Salida de origen de OLE DB].ExternalColumns[Kilos1]"
-                      dataType="r8"
-                      name="Kilos1" />
-                    <externalMetadataColumn
-                      refId="Package\load vol from stgn o1423\load from stgn Of 1423.Outputs[Salida de origen de OLE DB].ExternalColumns[Kilos2]"
-                      dataType="r8"
-                      name="Kilos2" />
-                    <externalMetadataColumn
-                      refId="Package\load vol from stgn o1423\load from stgn Of 1423.Outputs[Salida de origen de OLE DB].ExternalColumns[Kilos3]"
-                      dataType="r8"
-                      name="Kilos3" />
-                    <externalMetadataColumn
-                      refId="Package\load vol from stgn o1423\load from stgn Of 1423.Outputs[Salida de origen de OLE DB].ExternalColumns[OrphEstrLin]"
-                      codePage="1252"
-                      dataType="str"
-                      length="1"
-                      name="OrphEstrLin" />
-                    <externalMetadataColumn
-                      refId="Package\load vol from stgn o1423\load from stgn Of 1423.Outputs[Salida de origen de OLE DB].ExternalColumns[OrphVol]"
-                      codePage="1252"
-                      dataType="str"
-                      length="1"
-                      name="OrphVol" />
-                    <externalMetadataColumn
-                      refId="Package\load vol from stgn o1423\load from stgn Of 1423.Outputs[Salida de origen de OLE DB].ExternalColumns[Categoria]"
-                      dataType="wstr"
-                      length="40"
-                      name="Categoria" />
-                    <externalMetadataColumn
-                      refId="Package\load vol from stgn o1423\load from stgn Of 1423.Outputs[Salida de origen de OLE DB].ExternalColumns[Marca]"
-                      dataType="wstr"
-                      length="40"
-                      name="Marca" />
-                    <externalMetadataColumn
-                      refId="Package\load vol from stgn o1423\load from stgn Of 1423.Outputs[Salida de origen de OLE DB].ExternalColumns[Nombre_Oficina_Ventas]"
-                      dataType="wstr"
-                      length="20"
-                      name="Nombre_Oficina_Ventas" />
-                    <externalMetadataColumn
-                      refId="Package\load vol from stgn o1423\load from stgn Of 1423.Outputs[Salida de origen de OLE DB].ExternalColumns[Nombre_GCliente_AD2]"
-                      dataType="wstr"
-                      length="35"
-                      name="Nombre_GCliente_AD2" />
-                    <externalMetadataColumn
-                      refId="Package\load vol from stgn o1423\load from stgn Of 1423.Outputs[Salida de origen de OLE DB].ExternalColumns[Cod_SKU]"
-                      dataType="wstr"
-                      length="18"
-                      name="Cod_SKU" />
-                    <externalMetadataColumn
-                      refId="Package\load vol from stgn o1423\load from stgn Of 1423.Outputs[Salida de origen de OLE DB].ExternalColumns[Cod_Cliente]"
-                      dataType="wstr"
-                      length="10"
-                      name="Cod_Cliente" />
-                    <externalMetadataColumn
-                      refId="Package\load vol from stgn o1423\load from stgn Of 1423.Outputs[Salida de origen de OLE DB].ExternalColumns[Cod_SKU_Original]"
-                      dataType="wstr"
-                      length="18"
-                      name="Cod_SKU_Original" />
-                  </externalMetadataColumns>
-                </output>
-                <output
-                  refId="Package\load vol from stgn o1423\load from stgn Of 1423.Outputs[Salida de error de origen de OLE DB]"
-                  isErrorOut="true"
-                  name="Salida de error de origen de OLE DB">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\load vol from stgn o1423\load from stgn Of 1423.Outputs[Salida de error de origen de OLE DB].Columns[PeriodoAAMM]"
-                      dataType="wstr"
-                      length="6"
-                      lineageId="Package\load vol from stgn o1423\load from stgn Of 1423.Outputs[Salida de error de origen de OLE DB].Columns[PeriodoAAMM]"
-                      name="PeriodoAAMM" />
-                    <outputColumn
-                      refId="Package\load vol from stgn o1423\load from stgn Of 1423.Outputs[Salida de error de origen de OLE DB].Columns[Director_Canal]"
-                      dataType="wstr"
-                      length="40"
-                      lineageId="Package\load vol from stgn o1423\load from stgn Of 1423.Outputs[Salida de error de origen de OLE DB].Columns[Director_Canal]"
-                      name="Director_Canal" />
-                    <outputColumn
-                      refId="Package\load vol from stgn o1423\load from stgn Of 1423.Outputs[Salida de error de origen de OLE DB].Columns[Categoria]"
-                      dataType="wstr"
-                      length="40"
-                      lineageId="Package\load vol from stgn o1423\load from stgn Of 1423.Outputs[Salida de error de origen de OLE DB].Columns[Categoria]"
-                      name="Categoria" />
-                    <outputColumn
-                      refId="Package\load vol from stgn o1423\load from stgn Of 1423.Outputs[Salida de error de origen de OLE DB].Columns[Marca]"
-                      dataType="wstr"
-                      length="40"
-                      lineageId="Package\load vol from stgn o1423\load from stgn Of 1423.Outputs[Salida de error de origen de OLE DB].Columns[Marca]"
-                      name="Marca" />
-                    <outputColumn
-                      refId="Package\load vol from stgn o1423\load from stgn Of 1423.Outputs[Salida de error de origen de OLE DB].Columns[Linea]"
-                      dataType="wstr"
-                      length="40"
-                      lineageId="Package\load vol from stgn o1423\load from stgn Of 1423.Outputs[Salida de error de origen de OLE DB].Columns[Linea]"
-                      name="Linea" />
-                    <outputColumn
-                      refId="Package\load vol from stgn o1423\load from stgn Of 1423.Outputs[Salida de error de origen de OLE DB].Columns[NombreCanalAgrupado]"
-                      dataType="wstr"
-                      length="40"
-                      lineageId="Package\load vol from stgn o1423\load from stgn Of 1423.Outputs[Salida de error de origen de OLE DB].Columns[NombreCanalAgrupado]"
-                      name="NombreCanalAgrupado" />
-                    <outputColumn
-                      refId="Package\load vol from stgn o1423\load from stgn Of 1423.Outputs[Salida de error de origen de OLE DB].Columns[Nombre_GCliente_AD2]"
-                      dataType="wstr"
-                      length="35"
-                      lineageId="Package\load vol from stgn o1423\load from stgn Of 1423.Outputs[Salida de error de origen de OLE DB].Columns[Nombre_GCliente_AD2]"
-                      name="Nombre_GCliente_AD2" />
-                    <outputColumn
-                      refId="Package\load vol from stgn o1423\load from stgn Of 1423.Outputs[Salida de error de origen de OLE DB].Columns[Nombre_Oficina_Ventas]"
-                      dataType="wstr"
-                      length="20"
-                      lineageId="Package\load vol from stgn o1423\load from stgn Of 1423.Outputs[Salida de error de origen de OLE DB].Columns[Nombre_Oficina_Ventas]"
-                      name="Nombre_Oficina_Ventas" />
-                    <outputColumn
-                      refId="Package\load vol from stgn o1423\load from stgn Of 1423.Outputs[Salida de error de origen de OLE DB].Columns[Cod_SKU]"
-                      dataType="wstr"
-                      length="18"
-                      lineageId="Package\load vol from stgn o1423\load from stgn Of 1423.Outputs[Salida de error de origen de OLE DB].Columns[Cod_SKU]"
-                      name="Cod_SKU" />
-                    <outputColumn
-                      refId="Package\load vol from stgn o1423\load from stgn Of 1423.Outputs[Salida de error de origen de OLE DB].Columns[Cod_Cliente]"
-                      dataType="wstr"
-                      length="10"
-                      lineageId="Package\load vol from stgn o1423\load from stgn Of 1423.Outputs[Salida de error de origen de OLE DB].Columns[Cod_Cliente]"
-                      name="Cod_Cliente" />
-                    <outputColumn
-                      refId="Package\load vol from stgn o1423\load from stgn Of 1423.Outputs[Salida de error de origen de OLE DB].Columns[Kilos1]"
-                      dataType="r8"
-                      lineageId="Package\load vol from stgn o1423\load from stgn Of 1423.Outputs[Salida de error de origen de OLE DB].Columns[Kilos1]"
-                      name="Kilos1" />
-                    <outputColumn
-                      refId="Package\load vol from stgn o1423\load from stgn Of 1423.Outputs[Salida de error de origen de OLE DB].Columns[Kilos2]"
-                      dataType="r8"
-                      lineageId="Package\load vol from stgn o1423\load from stgn Of 1423.Outputs[Salida de error de origen de OLE DB].Columns[Kilos2]"
-                      name="Kilos2" />
-                    <outputColumn
-                      refId="Package\load vol from stgn o1423\load from stgn Of 1423.Outputs[Salida de error de origen de OLE DB].Columns[Kilos3]"
-                      dataType="r8"
-                      lineageId="Package\load vol from stgn o1423\load from stgn Of 1423.Outputs[Salida de error de origen de OLE DB].Columns[Kilos3]"
-                      name="Kilos3" />
-                    <outputColumn
-                      refId="Package\load vol from stgn o1423\load from stgn Of 1423.Outputs[Salida de error de origen de OLE DB].Columns[OrphEstrLin]"
-                      codePage="1252"
-                      dataType="str"
-                      length="1"
-                      lineageId="Package\load vol from stgn o1423\load from stgn Of 1423.Outputs[Salida de error de origen de OLE DB].Columns[OrphEstrLin]"
-                      name="OrphEstrLin" />
-                    <outputColumn
-                      refId="Package\load vol from stgn o1423\load from stgn Of 1423.Outputs[Salida de error de origen de OLE DB].Columns[OrphVol]"
-                      codePage="1252"
-                      dataType="str"
-                      length="1"
-                      lineageId="Package\load vol from stgn o1423\load from stgn Of 1423.Outputs[Salida de error de origen de OLE DB].Columns[OrphVol]"
-                      name="OrphVol" />
-                    <outputColumn
-                      refId="Package\load vol from stgn o1423\load from stgn Of 1423.Outputs[Salida de error de origen de OLE DB].Columns[Cod_SKU_Original]"
-                      dataType="wstr"
-                      length="18"
-                      lineageId="Package\load vol from stgn o1423\load from stgn Of 1423.Outputs[Salida de error de origen de OLE DB].Columns[Cod_SKU_Original]"
-                      name="Cod_SKU_Original" />
-                    <outputColumn
-                      refId="Package\load vol from stgn o1423\load from stgn Of 1423.Outputs[Salida de error de origen de OLE DB].Columns[ErrorCode]"
-                      dataType="i4"
-                      lineageId="Package\load vol from stgn o1423\load from stgn Of 1423.Outputs[Salida de error de origen de OLE DB].Columns[ErrorCode]"
-                      name="ErrorCode"
-                      specialFlags="1" />
-                    <outputColumn
-                      refId="Package\load vol from stgn o1423\load from stgn Of 1423.Outputs[Salida de error de origen de OLE DB].Columns[ErrorColumn]"
-                      dataType="i4"
-                      lineageId="Package\load vol from stgn o1423\load from stgn Of 1423.Outputs[Salida de error de origen de OLE DB].Columns[ErrorColumn]"
-                      name="ErrorColumn"
-                      specialFlags="2" />
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-              </outputs>
-            </component>
-            <component
-              refId="Package\load vol from stgn o1423\VolumenTrimDLC Of 1423"
-              componentClassID="Microsoft.OLEDBDestination"
-              contactInfo="Destino de OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;4"
-              description="Destino de OLE DB"
-              name="VolumenTrimDLC Of 1423"
-              usesDispositions="true"
-              version="4">
-              <properties>
-                <property
-                  dataType="System.Int32"
-                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
-                  name="CommandTimeout">0</property>
-                <property
-                  dataType="System.String"
-                  description="Especifica el nombre del objeto de base de datos usado para abrir un conjunto de filas."
-                  name="OpenRowset">[PVOF].[VolumenTrimDLC_1423]</property>
-                <property
-                  dataType="System.String"
-                  description="Especifica la variable que contiene el nombre del objeto de base de datos usado para abrir un conjunto de filas."
-                  name="OpenRowsetVariable"></property>
-                <property
-                  dataType="System.String"
-                  description="Comando SQL para ejecutar."
-                  name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
-                <property
-                  dataType="System.Int32"
-                  description="Especifica la página de códigos de columna para utilizar cuando la información de página de códigos no está disponible en el origen de datos."
-                  name="DefaultCodePage">1252</property>
-                <property
-                  dataType="System.Boolean"
-                  description="Fuerza el uso del valor de la propiedad DefaultCodePage al describir datos de caracteres."
-                  name="AlwaysUseDefaultCodePage">false</property>
-                <property
-                  dataType="System.Int32"
-                  description="Especifica el modo utilizado para obtener acceso a la base de datos."
-                  name="AccessMode"
-                  typeConverter="AccessMode">3</property>
-                <property
-                  dataType="System.Boolean"
-                  description="Indica si los valores proporcionados para columnas de identidad se van a copiar al destino. Si es False, los valores de las columnas de identidad se generan automáticamente en el destino. Solo se aplica si está activada la carga rápida."
-                  name="FastLoadKeepIdentity">false</property>
-                <property
-                  dataType="System.Boolean"
-                  description="Indica si las columnas que contienen NULL tendrán NULL insertado en el destino. Si es False, las columnas que contienen NULL tendrán sus valores predeterminados insertados en el destino. Solo se aplica si está activada la carga rápida."
-                  name="FastLoadKeepNulls">false</property>
-                <property
-                  dataType="System.String"
-                  description="Especifica opciones para usar con la carga rápida. Solo se aplica si está activada la carga rápida."
-                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
-                <property
-                  dataType="System.Int32"
-                  description="Especifica cuándo se emiten confirmaciones durante la inserción de datos. El valor 0 especifica que se emitirá una confirmación al final de la inserción de datos. Solo se aplica si está activada la carga rápida."
-                  name="FastLoadMaxInsertCommitSize">2147483647</property>
-              </properties>
-              <connections>
-                <connection
-                  refId="Package\load vol from stgn o1423\VolumenTrimDLC Of 1423.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[192.168.5.23\B2C.lukerVen.ASSUser]"
-                  connectionManagerRefId="Package.ConnectionManagers[192.168.5.23\B2C.lukerVen.ASSUser]"
-                  description="La conexión de tiempo de ejecución OLE DB usada para obtener acceso a la base de datos."
-                  name="OleDbConnection" />
-              </connections>
-              <inputs>
-                <input
-                  refId="Package\load vol from stgn o1423\VolumenTrimDLC Of 1423.Inputs[Entrada de destino de OLE DB]"
-                  errorOrTruncationOperation="Insertar"
-                  errorRowDisposition="FailComponent"
-                  hasSideEffects="true"
-                  name="Entrada de destino de OLE DB">
-                  <inputColumns>
-                    <inputColumn
-                      refId="Package\load vol from stgn o1423\VolumenTrimDLC Of 1423.Inputs[Entrada de destino de OLE DB].Columns[PeriodoAAMM]"
-                      cachedDataType="wstr"
-                      cachedLength="6"
-                      cachedName="PeriodoAAMM"
-                      externalMetadataColumnId="Package\load vol from stgn o1423\VolumenTrimDLC Of 1423.Inputs[Entrada de destino de OLE DB].ExternalColumns[PeriodoAAMM]"
-                      lineageId="Package\load vol from stgn o1423\load from stgn Of 1423.Outputs[Salida de origen de OLE DB].Columns[PeriodoAAMM]" />
-                    <inputColumn
-                      refId="Package\load vol from stgn o1423\VolumenTrimDLC Of 1423.Inputs[Entrada de destino de OLE DB].Columns[Director_Canal]"
-                      cachedDataType="wstr"
-                      cachedLength="40"
-                      cachedName="Director_Canal"
-                      externalMetadataColumnId="Package\load vol from stgn o1423\VolumenTrimDLC Of 1423.Inputs[Entrada de destino de OLE DB].ExternalColumns[Director_Canal]"
-                      lineageId="Package\load vol from stgn o1423\load from stgn Of 1423.Outputs[Salida de origen de OLE DB].Columns[Director_Canal]" />
-                    <inputColumn
-                      refId="Package\load vol from stgn o1423\VolumenTrimDLC Of 1423.Inputs[Entrada de destino de OLE DB].Columns[Linea]"
-                      cachedDataType="wstr"
-                      cachedLength="40"
-                      cachedName="Linea"
-                      externalMetadataColumnId="Package\load vol from stgn o1423\VolumenTrimDLC Of 1423.Inputs[Entrada de destino de OLE DB].ExternalColumns[Linea]"
-                      lineageId="Package\load vol from stgn o1423\load from stgn Of 1423.Outputs[Salida de origen de OLE DB].Columns[Linea]" />
-                    <inputColumn
-                      refId="Package\load vol from stgn o1423\VolumenTrimDLC Of 1423.Inputs[Entrada de destino de OLE DB].Columns[NombreCanalAgrupado]"
-                      cachedDataType="wstr"
-                      cachedLength="40"
-                      cachedName="NombreCanalAgrupado"
-                      externalMetadataColumnId="Package\load vol from stgn o1423\VolumenTrimDLC Of 1423.Inputs[Entrada de destino de OLE DB].ExternalColumns[NombreCanalAgrupado]"
-                      lineageId="Package\load vol from stgn o1423\load from stgn Of 1423.Outputs[Salida de origen de OLE DB].Columns[NombreCanalAgrupado]" />
-                    <inputColumn
-                      refId="Package\load vol from stgn o1423\VolumenTrimDLC Of 1423.Inputs[Entrada de destino de OLE DB].Columns[Kilos1]"
-                      cachedDataType="r8"
-                      cachedName="Kilos1"
-                      externalMetadataColumnId="Package\load vol from stgn o1423\VolumenTrimDLC Of 1423.Inputs[Entrada de destino de OLE DB].ExternalColumns[Kilos1]"
-                      lineageId="Package\load vol from stgn o1423\load from stgn Of 1423.Outputs[Salida de origen de OLE DB].Columns[Kilos1]" />
-                    <inputColumn
-                      refId="Package\load vol from stgn o1423\VolumenTrimDLC Of 1423.Inputs[Entrada de destino de OLE DB].Columns[Kilos2]"
-                      cachedDataType="r8"
-                      cachedName="Kilos2"
-                      externalMetadataColumnId="Package\load vol from stgn o1423\VolumenTrimDLC Of 1423.Inputs[Entrada de destino de OLE DB].ExternalColumns[Kilos2]"
-                      lineageId="Package\load vol from stgn o1423\load from stgn Of 1423.Outputs[Salida de origen de OLE DB].Columns[Kilos2]" />
-                    <inputColumn
-                      refId="Package\load vol from stgn o1423\VolumenTrimDLC Of 1423.Inputs[Entrada de destino de OLE DB].Columns[Kilos3]"
-                      cachedDataType="r8"
-                      cachedName="Kilos3"
-                      externalMetadataColumnId="Package\load vol from stgn o1423\VolumenTrimDLC Of 1423.Inputs[Entrada de destino de OLE DB].ExternalColumns[Kilos3]"
-                      lineageId="Package\load vol from stgn o1423\load from stgn Of 1423.Outputs[Salida de origen de OLE DB].Columns[Kilos3]" />
-                    <inputColumn
-                      refId="Package\load vol from stgn o1423\VolumenTrimDLC Of 1423.Inputs[Entrada de destino de OLE DB].Columns[OrphEstrLin]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="1"
-                      cachedName="OrphEstrLin"
-                      externalMetadataColumnId="Package\load vol from stgn o1423\VolumenTrimDLC Of 1423.Inputs[Entrada de destino de OLE DB].ExternalColumns[OrphEstrLin]"
-                      lineageId="Package\load vol from stgn o1423\load from stgn Of 1423.Outputs[Salida de origen de OLE DB].Columns[OrphEstrLin]" />
-                    <inputColumn
-                      refId="Package\load vol from stgn o1423\VolumenTrimDLC Of 1423.Inputs[Entrada de destino de OLE DB].Columns[OrphVol]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="1"
-                      cachedName="OrphVol"
-                      externalMetadataColumnId="Package\load vol from stgn o1423\VolumenTrimDLC Of 1423.Inputs[Entrada de destino de OLE DB].ExternalColumns[OrphVol]"
-                      lineageId="Package\load vol from stgn o1423\load from stgn Of 1423.Outputs[Salida de origen de OLE DB].Columns[OrphVol]" />
-                    <inputColumn
-                      refId="Package\load vol from stgn o1423\VolumenTrimDLC Of 1423.Inputs[Entrada de destino de OLE DB].Columns[Categoria]"
-                      cachedDataType="wstr"
-                      cachedLength="40"
-                      cachedName="Categoria"
-                      externalMetadataColumnId="Package\load vol from stgn o1423\VolumenTrimDLC Of 1423.Inputs[Entrada de destino de OLE DB].ExternalColumns[Categoria]"
-                      lineageId="Package\load vol from stgn o1423\load from stgn Of 1423.Outputs[Salida de origen de OLE DB].Columns[Categoria]" />
-                    <inputColumn
-                      refId="Package\load vol from stgn o1423\VolumenTrimDLC Of 1423.Inputs[Entrada de destino de OLE DB].Columns[Marca]"
-                      cachedDataType="wstr"
-                      cachedLength="40"
-                      cachedName="Marca"
-                      externalMetadataColumnId="Package\load vol from stgn o1423\VolumenTrimDLC Of 1423.Inputs[Entrada de destino de OLE DB].ExternalColumns[Marca]"
-                      lineageId="Package\load vol from stgn o1423\load from stgn Of 1423.Outputs[Salida de origen de OLE DB].Columns[Marca]" />
-                    <inputColumn
-                      refId="Package\load vol from stgn o1423\VolumenTrimDLC Of 1423.Inputs[Entrada de destino de OLE DB].Columns[Nombre_Oficina_Ventas]"
-                      cachedDataType="wstr"
-                      cachedLength="20"
-                      cachedName="Nombre_Oficina_Ventas"
-                      externalMetadataColumnId="Package\load vol from stgn o1423\VolumenTrimDLC Of 1423.Inputs[Entrada de destino de OLE DB].ExternalColumns[Nombre_Oficina_Ventas]"
-                      lineageId="Package\load vol from stgn o1423\load from stgn Of 1423.Outputs[Salida de origen de OLE DB].Columns[Nombre_Oficina_Ventas]" />
-                    <inputColumn
-                      refId="Package\load vol from stgn o1423\VolumenTrimDLC Of 1423.Inputs[Entrada de destino de OLE DB].Columns[Nombre_GCliente_AD2]"
-                      cachedDataType="wstr"
-                      cachedLength="35"
-                      cachedName="Nombre_GCliente_AD2"
-                      externalMetadataColumnId="Package\load vol from stgn o1423\VolumenTrimDLC Of 1423.Inputs[Entrada de destino de OLE DB].ExternalColumns[Nombre_GCliente_AD2]"
-                      lineageId="Package\load vol from stgn o1423\load from stgn Of 1423.Outputs[Salida de origen de OLE DB].Columns[Nombre_GCliente_AD2]" />
-                    <inputColumn
-                      refId="Package\load vol from stgn o1423\VolumenTrimDLC Of 1423.Inputs[Entrada de destino de OLE DB].Columns[Cod_SKU]"
-                      cachedDataType="wstr"
-                      cachedLength="18"
-                      cachedName="Cod_SKU"
-                      externalMetadataColumnId="Package\load vol from stgn o1423\VolumenTrimDLC Of 1423.Inputs[Entrada de destino de OLE DB].ExternalColumns[Cod_SKU]"
-                      lineageId="Package\load vol from stgn o1423\load from stgn Of 1423.Outputs[Salida de origen de OLE DB].Columns[Cod_SKU]" />
-                    <inputColumn
-                      refId="Package\load vol from stgn o1423\VolumenTrimDLC Of 1423.Inputs[Entrada de destino de OLE DB].Columns[Cod_Cliente]"
-                      cachedDataType="wstr"
-                      cachedLength="10"
-                      cachedName="Cod_Cliente"
-                      externalMetadataColumnId="Package\load vol from stgn o1423\VolumenTrimDLC Of 1423.Inputs[Entrada de destino de OLE DB].ExternalColumns[Cod_Cliente]"
-                      lineageId="Package\load vol from stgn o1423\load from stgn Of 1423.Outputs[Salida de origen de OLE DB].Columns[Cod_Cliente]" />
-                    <inputColumn
-                      refId="Package\load vol from stgn o1423\VolumenTrimDLC Of 1423.Inputs[Entrada de destino de OLE DB].Columns[Cod_SKU_Original]"
-                      cachedDataType="wstr"
-                      cachedLength="18"
-                      cachedName="Cod_SKU_Original"
-                      externalMetadataColumnId="Package\load vol from stgn o1423\VolumenTrimDLC Of 1423.Inputs[Entrada de destino de OLE DB].ExternalColumns[Cod_SKU_Original]"
-                      lineageId="Package\load vol from stgn o1423\load from stgn Of 1423.Outputs[Salida de origen de OLE DB].Columns[Cod_SKU_Original]" />
-                  </inputColumns>
-                  <externalMetadataColumns
-                    isUsed="True">
-                    <externalMetadataColumn
-                      refId="Package\load vol from stgn o1423\VolumenTrimDLC Of 1423.Inputs[Entrada de destino de OLE DB].ExternalColumns[PeriodoAAMM]"
-                      dataType="wstr"
-                      length="6"
-                      name="PeriodoAAMM" />
-                    <externalMetadataColumn
-                      refId="Package\load vol from stgn o1423\VolumenTrimDLC Of 1423.Inputs[Entrada de destino de OLE DB].ExternalColumns[Director_Canal]"
-                      dataType="wstr"
-                      length="40"
-                      name="Director_Canal" />
-                    <externalMetadataColumn
-                      refId="Package\load vol from stgn o1423\VolumenTrimDLC Of 1423.Inputs[Entrada de destino de OLE DB].ExternalColumns[Linea]"
-                      dataType="wstr"
-                      length="40"
-                      name="Linea" />
-                    <externalMetadataColumn
-                      refId="Package\load vol from stgn o1423\VolumenTrimDLC Of 1423.Inputs[Entrada de destino de OLE DB].ExternalColumns[NombreCanalAgrupado]"
-                      dataType="wstr"
-                      length="40"
-                      name="NombreCanalAgrupado" />
-                    <externalMetadataColumn
-                      refId="Package\load vol from stgn o1423\VolumenTrimDLC Of 1423.Inputs[Entrada de destino de OLE DB].ExternalColumns[Kilos1]"
-                      dataType="r8"
-                      name="Kilos1" />
-                    <externalMetadataColumn
-                      refId="Package\load vol from stgn o1423\VolumenTrimDLC Of 1423.Inputs[Entrada de destino de OLE DB].ExternalColumns[Kilos2]"
-                      dataType="r8"
-                      name="Kilos2" />
-                    <externalMetadataColumn
-                      refId="Package\load vol from stgn o1423\VolumenTrimDLC Of 1423.Inputs[Entrada de destino de OLE DB].ExternalColumns[Kilos3]"
-                      dataType="r8"
-                      name="Kilos3" />
-                    <externalMetadataColumn
-                      refId="Package\load vol from stgn o1423\VolumenTrimDLC Of 1423.Inputs[Entrada de destino de OLE DB].ExternalColumns[OrphEstrLin]"
-                      codePage="1252"
-                      dataType="str"
-                      length="1"
-                      name="OrphEstrLin" />
-                    <externalMetadataColumn
-                      refId="Package\load vol from stgn o1423\VolumenTrimDLC Of 1423.Inputs[Entrada de destino de OLE DB].ExternalColumns[OrphVol]"
-                      codePage="1252"
-                      dataType="str"
-                      length="1"
-                      name="OrphVol" />
-                    <externalMetadataColumn
-                      refId="Package\load vol from stgn o1423\VolumenTrimDLC Of 1423.Inputs[Entrada de destino de OLE DB].ExternalColumns[Categoria]"
-                      dataType="wstr"
-                      length="40"
-                      name="Categoria" />
-                    <externalMetadataColumn
-                      refId="Package\load vol from stgn o1423\VolumenTrimDLC Of 1423.Inputs[Entrada de destino de OLE DB].ExternalColumns[Marca]"
-                      dataType="wstr"
-                      length="40"
-                      name="Marca" />
-                    <externalMetadataColumn
-                      refId="Package\load vol from stgn o1423\VolumenTrimDLC Of 1423.Inputs[Entrada de destino de OLE DB].ExternalColumns[Nombre_Oficina_Ventas]"
-                      dataType="wstr"
-                      length="20"
-                      name="Nombre_Oficina_Ventas" />
-                    <externalMetadataColumn
-                      refId="Package\load vol from stgn o1423\VolumenTrimDLC Of 1423.Inputs[Entrada de destino de OLE DB].ExternalColumns[Nombre_GCliente_AD2]"
-                      dataType="wstr"
-                      length="40"
-                      name="Nombre_GCliente_AD2" />
-                    <externalMetadataColumn
-                      refId="Package\load vol from stgn o1423\VolumenTrimDLC Of 1423.Inputs[Entrada de destino de OLE DB].ExternalColumns[Cod_SKU]"
-                      dataType="wstr"
-                      length="18"
-                      name="Cod_SKU" />
-                    <externalMetadataColumn
-                      refId="Package\load vol from stgn o1423\VolumenTrimDLC Of 1423.Inputs[Entrada de destino de OLE DB].ExternalColumns[Cod_Cliente]"
-                      dataType="wstr"
-                      length="10"
-                      name="Cod_Cliente" />
-                    <externalMetadataColumn
-                      refId="Package\load vol from stgn o1423\VolumenTrimDLC Of 1423.Inputs[Entrada de destino de OLE DB].ExternalColumns[Cod_SKU_Original]"
-                      dataType="wstr"
-                      length="18"
-                      name="Cod_SKU_Original" />
-                  </externalMetadataColumns>
-                </input>
-              </inputs>
-              <outputs>
-                <output
-                  refId="Package\load vol from stgn o1423\VolumenTrimDLC Of 1423.Outputs[Salida de error de destino de OLE DB]"
-                  exclusionGroup="1"
-                  isErrorOut="true"
-                  name="Salida de error de destino de OLE DB"
-                  synchronousInputId="Package\load vol from stgn o1423\VolumenTrimDLC Of 1423.Inputs[Entrada de destino de OLE DB]">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\load vol from stgn o1423\VolumenTrimDLC Of 1423.Outputs[Salida de error de destino de OLE DB].Columns[ErrorCode]"
-                      dataType="i4"
-                      lineageId="Package\load vol from stgn o1423\VolumenTrimDLC Of 1423.Outputs[Salida de error de destino de OLE DB].Columns[ErrorCode]"
-                      name="ErrorCode"
-                      specialFlags="1" />
-                    <outputColumn
-                      refId="Package\load vol from stgn o1423\VolumenTrimDLC Of 1423.Outputs[Salida de error de destino de OLE DB].Columns[ErrorColumn]"
-                      dataType="i4"
-                      lineageId="Package\load vol from stgn o1423\VolumenTrimDLC Of 1423.Outputs[Salida de error de destino de OLE DB].Columns[ErrorColumn]"
-                      name="ErrorColumn"
-                      specialFlags="2" />
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-              </outputs>
-            </component>
-          </components>
-          <paths>
-            <path
-              refId="Package\load vol from stgn o1423.Paths[Salida de origen de OLE DB]"
-              endId="Package\load vol from stgn o1423\VolumenTrimDLC Of 1423.Inputs[Entrada de destino de OLE DB]"
-              name="Salida de origen de OLE DB"
-              startId="Package\load vol from stgn o1423\load from stgn Of 1423.Outputs[Salida de origen de OLE DB]" />
-          </paths>
-        </pipeline>
-      </DTS:ObjectData>
-    </DTS:Executable>
-    <DTS:Executable
       DTS:refId="Package\load vol from stgn o1423 ok"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="Tarea Ejecutar SQL"
@@ -867,15 +101,6 @@ GROUP BY xppt_pvof_moderno_ofi_sku.PeriodoAAMM
   </DTS:Executables>
   <DTS:PrecedenceConstraints>
     <DTS:PrecedenceConstraint
-      DTS:refId="Package.PrecedenceConstraints[Restricción]"
-      DTS:CreationName=""
-      DTS:DTSID="{DA2EA91A-2C37-4A1A-A802-59D8602FF00B}"
-      DTS:From="Package\trnc tbl Ofi 1423"
-      DTS:LogicalAnd="True"
-      DTS:ObjectName="Restricción"
-      DTS:To="Package\load vol from stgn o1423"
-      DTS:Value="1" />
-    <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Restricción 1]"
       DTS:CreationName=""
       DTS:DTSID="{7C94C6B5-50A1-42EB-8335-0C05AAA3827E}"
@@ -901,36 +126,36 @@ GROUP BY xppt_pvof_moderno_ofi_sku.PeriodoAAMM
       DTS:To="Package\load vol from stgn o1423 ok" />
   </DTS:PrecedenceConstraints>
   <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
-<!--Esta sección CDATA contiene la información de diseño del paquete. Esta sección incluye información como, por ejemplo, las coordenadas (x,y), el ancho y el alto.-->
-<!--Si edita manualmente esta sección y comete un error, puede eliminarlo. -->
-<!--El paquete podrá cargarse normalmente, pero se perderá la información de diseño anterior y el diseñador reorganizará los elementos automáticamente en la superficie de diseño.-->
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
 <Objects
   Version="8">
-  <!--Cada uno de los nodos siguientes contiene propiedades que no afectan al comportamiento en tiempo de ejecución.-->
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
   <Package
     design-time-name="Package">
     <LayoutInfo>
       <GraphLayout
-        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="161.6,41.6"
           Id="Package\jeraquia huerfana 1423"
-          TopLeft="22.7,310.3" />
+          TopLeft="29.9,310.3" />
         <NodeLayout
           Size="174.4,41.6"
           Id="Package\jerarquia ventas pos"
-          TopLeft="16.3,5.49999999999995" />
+          TopLeft="23.5,5.49999999999995" />
         <NodeLayout
-          Size="196,41.6"
-          Id="Package\load vol from stgn o1423"
+          Size="210.4,41.6"
+          Id="Package\load vol from stgn o1423 ok"
           TopLeft="5.50000000000003,208.7" />
         <NodeLayout
           Size="145.6,41.6"
           Id="Package\trnc tbl Ofi 1423"
-          TopLeft="30.7,107.1" />
+          TopLeft="37.9,107.1" />
         <EdgeLayout
-          Id="Package.PrecedenceConstraints[Restricción]"
-          TopLeft="103.5,148.7">
+          Id="Package.PrecedenceConstraints[Restricción 1]"
+          TopLeft="110.7,250.3">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -947,14 +172,12 @@ GROUP BY xppt_pvof_moderno_ofi_sku.PeriodoAAMM
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-11.52869140625,21.5390625,23.0573828125,9.421875"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Restricción 2]"
-          TopLeft="103.5,47.1">
+          TopLeft="110.7,47.1">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -974,70 +197,20 @@ GROUP BY xppt_pvof_moderno_ofi_sku.PeriodoAAMM
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="210.4,41.6"
-          Id="Package\load vol from stgn o1423 ok"
-          TopLeft="268.571433145173,218.400003062978" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Restricción 3]"
-          TopLeft="126.433333333333,148.7">
+          TopLeft="110.7,148.7">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="247.338099811839,69.7000030629776"
+              EndConnector="0,60"
               Start="0,0"
-              End="247.338099811839,62.2000030629776">
+              End="0,52.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,24.3345664625583" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,24.3345664625583"
-                    Point2="0,28.3345664625583"
-                    Point3="4,28.3345664625583" />
-                  <mssgle:LineSegment
-                    End="243.338099811839,28.3345664625583" />
-                  <mssgle:CubicBezierSegment
-                    Point1="243.338099811839,28.3345664625583"
-                    Point2="247.338099811839,28.3345664625583"
-                    Point3="247.338099811839,32.3345664625583" />
-                  <mssgle:LineSegment
-                    End="247.338099811839,62.2000030629776" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package.PrecedenceConstraints[Restricción 1]"
-          TopLeft="373.771433145173,260.000003062978">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-270.271433145173,50.2999969370225"
-              Start="0,0"
-              End="-270.271433145173,42.7999969370225">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,21.1499984685112" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,21.1499984685112"
-                    Point2="0,25.1499984685112"
-                    Point3="-4,25.1499984685112" />
-                  <mssgle:LineSegment
-                    End="-266.271433145173,25.1499984685112" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-266.271433145173,25.1499984685112"
-                    Point2="-270.271433145173,25.1499984685112"
-                    Point3="-270.271433145173,29.1499984685112" />
-                  <mssgle:LineSegment
-                    End="-270.271433145173,42.7999969370225" />
+                    End="0,52.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -1049,64 +222,5 @@ GROUP BY xppt_pvof_moderno_ofi_sku.PeriodoAAMM
       </GraphLayout>
     </LayoutInfo>
   </Package>
-  <TaskHost
-    design-time-name="Package\load vol from stgn o1423">
-    <LayoutInfo>
-      <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
-        <NodeLayout
-          Size="200.8,41.6"
-          Id="Package\load vol from stgn o1423\VolumenTrimDLC Of 1423"
-          TopLeft="80.5714299435518,178.023531908478" />
-        <NodeLayout
-          Size="188,41.6"
-          Id="Package\load vol from stgn o1423\load from stgn Of 1423"
-          TopLeft="80.0000013623919,75.8588245933031" />
-        <EdgeLayout
-          Id="Package\load vol from stgn o1423.Paths[Salida de origen de OLE DB]"
-          TopLeft="177.485715652972,117.458824593303">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,60.5647073151749"
-              Start="0,0"
-              End="0,53.0647073151749">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,53.0647073151749" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-      </GraphLayout>
-    </LayoutInfo>
-  </TaskHost>
-  <PipelineComponentMetadata
-    design-time-name="Package\load vol from stgn o1423\load from stgn Of 1423">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\load vol from stgn o1423\VolumenTrimDLC Of 1423">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
 </Objects>]]></DTS:DesignTimeProperties>
 </DTS:Executable>

@@ -1,0 +1,74 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="2/13/2020 2:32:57 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="LAPTOP-MFGK5CPU"
+  DTS:CreatorName="LAPTOP-MFGK5CPU\fvalb"
+  DTS:DTSID="{6559CD43-D93E-4870-9D4E-CC45B9937AD9}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.1301.433"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="C00c BaseEstadisticaNextMonth"
+  DTS:PackageType="5"
+  DTS:VersionBuild="23"
+  DTS:VersionGUID="{DB0F724E-4701-4F03-8FC3-1EF0443D56ED}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[192.168.5.23\B2C.lukerVen.ASSUser]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{B37D985B-C9D6-4555-832E-EE4348727CDC}"
+      DTS:ObjectName="192.168.5.23\B2C.lukerVen.ASSUser">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=192.168.5.23\B2C;User ID=ASSUser;Initial Catalog=lukerVen;Provider=SQLNCLI11.1;Persist Security Info=True;Auto Translate=False;">
+          <DTS:Password
+            DTS:Name="Password"
+            Sensitive="1"
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAokuxFVDvykSarX3P+qJVOQAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAABi8hbN4LeOnogjoVwNt9j5p7SjZM/mBe0Pm4N6+8VsLQAAAAAOgAAAAAIAACAAAACbkVcVRfg55OPfFwk0U1Vf9UoVVQ61II5galROBT4fiSAAAAApAC1yqXLAuuWUdrOvUfPQbZjez0wYqHAuy6nrNWXuuUAAAACR4fVRbGYYjFZ4NuRKGwYfpZeYUk93uG1DY6TgyMRQue/C0MBlHdg3Pcr/Y+rxtgZa6NE0LI+CnWQzlnZbuP6E</DTS:Password>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\bulk"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Tarea Ejecutar SQL"
+      DTS:DTSID="{62D994B7-CE95-4539-B302-5C5F23A826E2}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="bulk"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{B37D985B-C9D6-4555-832E-EE4348727CDC}"
+          SQLTask:SqlStatementSource=" &#xA;&#xA;truncate table [lukerVen].[PVOF].[BaseEstadisticaB0NxMnth]&#xA;&#xA;insert into [lukerVen].[PVOF].[BaseEstadisticaB0NxMnth]&#xA;SELECT Parametros.PeriodoAAMM&#xA;, CASE Clientes.Cod_Zona_Ventas WHEN '' THEN CASE isnull(EquivalenciaJerarquiaOrph.Cod_Cliente, '') WHEN '' THEN Facturas.Cod_Cliente ELSE isnull(EquivalenciaJerarquiaOrph.Cod_Cliente, '') END ELSE Facturas.Cod_Cliente END AS Cod_Cliente&#xA;, Productos.JerarquiaProducto&#xA;, Facturas.Cod_SKU&#xA;, Facturas.FechaPedido&#xA;, sum(Facturas.Kilos) as Kilos&#xA;, ROW_NUMBER() OVER (PARTITION BY  Parametros.PeriodoAAMM&#xA;, CASE Clientes.Cod_Zona_Ventas WHEN '' THEN CASE isnull(EquivalenciaJerarquiaOrph.Cod_Cliente, '') WHEN '' THEN Facturas.Cod_Cliente ELSE isnull(EquivalenciaJerarquiaOrph.Cod_Cliente, '') END ELSE Facturas.Cod_Cliente END&#xA;, Facturas.Cod_SKU ORDER BY  Productos.JerarquiaProducto,FechaPedido) AS PedidoNum  &#xA;FROM        SD.FacturasW AS Facturas INNER JOIN&#xA;                  SD.CanalDistribucion ON Facturas.Cod_Canal = SD.CanalDistribucion.Cod_Canal INNER JOIN&#xA;                  SD.Productos ON Facturas.Cod_SKU = SD.Productos.Cod_SKU INNER JOIN&#xA;                  SD.CategoriaMarcaCanal ON SD.Productos.Aliado = SD.CategoriaMarcaCanal.Aliado AND SD.Productos.Categoria = SD.CategoriaMarcaCanal.Categoria AND SD.Productos.Marca = SD.CategoriaMarcaCanal.Marca AND &#xA;                  Facturas.Cod_Canal = SD.CategoriaMarcaCanal.Cod_Canal AND Facturas.Cod_OrgVentas = SD.CategoriaMarcaCanal.Cod_OrgVentas INNER JOIN&#xA;                  SD.MotivosNoVenta ON Facturas.Cod_MotivoNoVenta = SD.MotivosNoVenta.Cod_Motivo LEFT OUTER JOIN&#xA;                  SD.Clientes ON Facturas.Cod_Cliente = SD.Clientes.Cod_Cliente LEFT OUTER JOIN&#xA;                  SD.AliasSKU ON Facturas.Cod_SKU = SD.AliasSKU.Cod_SKU LEFT OUTER JOIN&#xA;                  SD.EquivalenciaJerarquiaOrph AS EquivalenciaJerarquiaOrph ON EquivalenciaJerarquiaOrph.Cod_Canal = Facturas.Cod_Canal AND EquivalenciaJerarquiaOrph.Cod_GCliente = Facturas.Cod_GCliente AND &#xA;                  Facturas.SalesOffice = EquivalenciaJerarquiaOrph.Cod_Oficina_Ventas&#xA;&#x9;&#x9;&#x9;&#x9;  inner join lukerVen.SD.TipoDocumento TipoDocumento  on TipoDocumento.Cod_TipoFactura = Facturas.Cod_TipoFactura &#xA;, lukerVen.PVOF.Parametros Parametros&#xA;, lukerVen.tmp.xppt_mesesestadisticaMx xppt_mesesestadistica&#xA;WHERE &#xA;  Productos.Aliado = xppt_mesesestadistica.Aliado &#xA;AND ((ltrim(str(year(Facturas.FechaFactura)))+right('00'+ltrim(str(month(Facturas.FechaFactura))),2)&gt;xppt_mesesestadistica.PediodoEstadistica))&#xA;and  ( (Parametros.EstadoProceso=1)&#xA;  AND (TipoDocumento.NombreTipoDocumento Like 'Factura%') &#xA;)&#xA;&#xA;group by &#xA;  Parametros.PeriodoAAMM&#xA;, Productos.JerarquiaProducto&#xA;, Facturas.FechaPedido&#xA;, Facturas.Cod_SKU&#xA;, CASE Clientes.Cod_Zona_Ventas WHEN '' THEN CASE isnull(EquivalenciaJerarquiaOrph.Cod_Cliente, '') WHEN '' THEN Facturas.Cod_Cliente ELSE isnull(EquivalenciaJerarquiaOrph.Cod_Cliente, '') END ELSE Facturas.Cod_Cliente END &#xA;having sum(Facturas.Kilos) &lt;&gt;0" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="123,41.5"
+          Id="Package\bulk"
+          TopLeft="30.75,35.1" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

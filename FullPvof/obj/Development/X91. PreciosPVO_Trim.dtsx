@@ -7,12 +7,12 @@
   DTS:CreatorName="LAPTOP-MFGK5CPU\fvalb"
   DTS:DTSID="{D1CA78C0-C7EF-4502-A8F6-24C9264A1142}"
   DTS:ExecutableType="Microsoft.Package"
-  DTS:LastModifiedProductVersion="14.0.3002.113"
+  DTS:LastModifiedProductVersion="15.0.1301.433"
   DTS:LocaleID="1033"
   DTS:ObjectName="X91  PreciosPVO_Trim"
   DTS:PackageType="5"
-  DTS:VersionBuild="28"
-  DTS:VersionGUID="{0CFA4142-5993-40FB-A157-16869B100E55}">
+  DTS:VersionBuild="30"
+  DTS:VersionGUID="{2B25463D-365D-40D4-92B4-380AC73FC3B8}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -27,7 +27,7 @@
           <DTS:Password
             DTS:Name="Password"
             Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAaGo1T2UrwUKdb1vvJFw8pwAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAABWSgi52V/J/nRbEstq8gaIQj6szEE2rn2bu4yQwvDF2QAAAAAOgAAAAAIAACAAAACIeQg6chvZmNS1msO2eA6qNgwbvAwg2z9uHdxreBQLlSAAAABRKCLnVD8AZgxJBjhYZ7TM8quwPSTHcSyl/+pKUgvJLUAAAAAKxyLsTdjTlV8cYJRnHAcXlyIUk4lccPuahnEd1p27olWIqkrjVatuaY4YTWZWq0KUclYhHqaRTQRfBVSShDpI</DTS:Password>
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAA0dBFc/k9bUOlTDVpKVIi2QAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAABz6TuVUEbzIB7vWC/mSETpcCnDsDgLuPGKLaJe7IC0lwAAAAAOgAAAAAIAACAAAACdA04wz8eprB6bU1CjAL+w7u7yPtkPAF9BHxgH5rk9UCAAAABkilZ6Asn+WGQaM2Mz8nW+JZwcUxtPDOc54o1akaCG8UAAAABddPjMbRRQxQQeF5xTeSSiz5z+IndBMPuqCPHYc37JDB7HYN35Lf20u4Qvx6Ntt68DpTDy7BgsyUkzS5dJ0xE+</DTS:Password>
         </DTS:ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
@@ -48,7 +48,7 @@
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{D7F6CCE5-373F-49E1-9A36-280FBFC86034}"
-          SQLTask:SqlStatementSource="truncate table [lukerVen].[PVOF].[DescuentosTrim]&#xA;&#xA;&#xA;&#xA;insert into [lukerVen].[PVOF].[DescuentosTrim]&#xA;SELECT PresupuestoTRIM.FechaCorte, PresupuestoTRIM.Cod_Cliente, PresupuestoTRIM.Cod_SKU, CondicionPorcentaje.Condicion, PresupuestoTRIM.Sht_GCliente, PresupuestoTRIM.Sht_Canal, PresupuestoTRIM.Sht_Agencia, '', (PresupuestoTRIM.Valor_Lista*CondicionPorcentaje.Pordentaje), '1010', PresupuestoTRIM.Cod_Negocio, PresupuestoTRIM.origen&#xA;FROM lukerVen.PVOF.CondicionPorcentaje CondicionPorcentaje, lukerVen.PVOF.PresupuestoTRIM PresupuestoTRIM&#xA;WHERE PresupuestoTRIM.Sht_Agencia = CondicionPorcentaje.Cod_Agencia AND PresupuestoTRIM.Sht_Canal = CondicionPorcentaje.Cod_Canal AND PresupuestoTRIM.Sht_GCliente = CondicionPorcentaje.Cod_GCliente AND CondicionPorcentaje.JerarquiaProducto = PresupuestoTRIM.JerarquiaProducto &#xA;AND ((CondicionPorcentaje.ano=2020) &#xA;AND (CondicionPorcentaje.PeriodoAAMM='202005') &#xA;AND (CondicionPorcentaje.Cod_Cliente=PresupuestoTRIM.Cod_Cliente)&#xA;)&#xA;&#xA;insert into [lukerVen].[PVOF].[DescuentosTrim]&#xA;SELECT PresupuestoTRIM.FechaCorte, PresupuestoTRIM.Cod_Cliente, PresupuestoTRIM.Cod_SKU, CondicionPorcentaje.Condicion, PresupuestoTRIM.Sht_GCliente, PresupuestoTRIM.Sht_Canal, PresupuestoTRIM.Sht_Agencia, '', (PresupuestoTRIM.Valor_Lista*CondicionPorcentaje.Pordentaje), '1010', PresupuestoTRIM.Cod_Negocio, PresupuestoTRIM.origen&#xA;FROM lukerVen.PVOF.CondicionPorcentaje CondicionPorcentaje, lukerVen.PVOF.PresupuestoTRIM PresupuestoTRIM&#xA;WHERE PresupuestoTRIM.Sht_Agencia = CondicionPorcentaje.Cod_Agencia AND PresupuestoTRIM.Sht_Canal = CondicionPorcentaje.Cod_Canal AND PresupuestoTRIM.Sht_GCliente = CondicionPorcentaje.Cod_GCliente AND CondicionPorcentaje.JerarquiaProducto = PresupuestoTRIM.JerarquiaProducto &#xA;AND ((CondicionPorcentaje.ano=2020) &#xA;AND (CondicionPorcentaje.PeriodoAAMM='202005') &#xA;AND (CondicionPorcentaje.Cod_Cliente='')&#xA;)&#xA;&#xA;&#xA;&#xA;insert into [lukerVen].[PVOF].[DescuentosTrim]&#xA;SELECT PresupuestoTRIM.FechaCorte, PresupuestoTRIM.Cod_Cliente, PresupuestoTRIM.Cod_SKU, CondicionPorcentajeMes.Condicion, PresupuestoTRIM.Sht_GCliente, PresupuestoTRIM.Sht_Canal, PresupuestoTRIM.Sht_Agencia, '', (PresupuestoTRIM.Valor_Lista*CondicionPorcentajeMes.Pordentaje), '1010', PresupuestoTRIM.Cod_Negocio, PresupuestoTRIM.origen&#xA;FROM lukerVen.PVOF.CondicionPorcentajeMes CondicionPorcentajeMes, lukerVen.PVOF.PresupuestoTRIM PresupuestoTRIM&#xA;WHERE PresupuestoTRIM.Sht_Agencia = CondicionPorcentajeMes.Cod_Agencia AND PresupuestoTRIM.Sht_Canal = CondicionPorcentajeMes.Cod_Canal AND PresupuestoTRIM.Sht_GCliente = CondicionPorcentajeMes.Cod_GCliente AND CondicionPorcentajeMes.Cod_Cliente = PresupuestoTRIM.Cod_Cliente AND CondicionPorcentajeMes.FechaAplica = PresupuestoTRIM.FechaCorte AND CondicionPorcentajeMes.JerarquiaProducto = PresupuestoTRIM.JerarquiaProducto &#xA;AND ((CondicionPorcentajeMes.ano=2020) &#xA;AND (CondicionPorcentajeMes.PeriodoAAMM='202005') &#xA;)&#xA;&#xA;insert into [lukerVen].[PVOF].[DescuentosTrim]&#xA;SELECT PresupuestoTRIM.FechaCorte, PresupuestoTRIM.Cod_Cliente, PresupuestoTRIM.Cod_SKU, CondicionPorcentajeMes.Condicion, PresupuestoTRIM.Sht_GCliente, PresupuestoTRIM.Sht_Canal, PresupuestoTRIM.Sht_Agencia, '', (PresupuestoTRIM.Valor_Lista*CondicionPorcentajeMes.Pordentaje), '1010', PresupuestoTRIM.Cod_Negocio, PresupuestoTRIM.origen&#xA;FROM lukerVen.PVOF.CondicionPorcentajeMes CondicionPorcentajeMes, lukerVen.PVOF.PresupuestoTRIM PresupuestoTRIM&#xA;WHERE PresupuestoTRIM.Sht_Agencia = CondicionPorcentajeMes.Cod_Agencia &#xA;AND PresupuestoTRIM.Sht_Canal = CondicionPorcentajeMes.Cod_Canal AND PresupuestoTRIM.Sht_GCliente = CondicionPorcentajeMes.Cod_GCliente &#xA;AND CondicionPorcentajeMes.Cod_Cliente= ''&#xA;AND CondicionPorcentajeMes.FechaAplica = PresupuestoTRIM.FechaCorte AND CondicionPorcentajeMes.JerarquiaProducto = PresupuestoTRIM.JerarquiaProducto &#xA;AND ((CondicionPorcentajeMes.ano=2020) &#xA;AND (CondicionPorcentajeMes.PeriodoAAMM='202005') &#xA;)&#xA;&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          SQLTask:SqlStatementSource="truncate table [lukerVen].[PVOF].[DescuentosTrim]&#xA;&#xA;insert into [lukerVen].[PVOF].[DescuentosTrim]&#xA;SELECT PresupuestoTRIM.FechaCorte, PresupuestoTRIM.Cod_Cliente, PresupuestoTRIM.Cod_SKU, CondicionPorcentaje.Condicion, PresupuestoTRIM.Sht_GCliente, PresupuestoTRIM.Sht_Canal, PresupuestoTRIM.Sht_Agencia, '', (PresupuestoTRIM.Valor_Lista*CondicionPorcentaje.Pordentaje), '1010', PresupuestoTRIM.Cod_Negocio, PresupuestoTRIM.origen&#xA;FROM lukerVen.PVOF.CondicionPorcentaje CondicionPorcentaje, lukerVen.PVOF.PresupuestoTRIM PresupuestoTRIM&#xA;WHERE PresupuestoTRIM.Sht_Agencia = CondicionPorcentaje.Cod_Agencia AND PresupuestoTRIM.Sht_Canal = CondicionPorcentaje.Cod_Canal AND PresupuestoTRIM.Sht_GCliente = CondicionPorcentaje.Cod_GCliente AND CondicionPorcentaje.JerarquiaProducto = PresupuestoTRIM.JerarquiaProducto &#xA;AND ((CondicionPorcentaje.ano=2020) &#xA;AND (CondicionPorcentaje.PeriodoAAMM='202006') &#xA;AND (CondicionPorcentaje.Cod_Cliente=PresupuestoTRIM.Cod_Cliente)&#xA;)&#xA;&#xA;insert into [lukerVen].[PVOF].[DescuentosTrim]&#xA;SELECT PresupuestoTRIM.FechaCorte, PresupuestoTRIM.Cod_Cliente, PresupuestoTRIM.Cod_SKU, CondicionPorcentaje.Condicion, PresupuestoTRIM.Sht_GCliente, PresupuestoTRIM.Sht_Canal, PresupuestoTRIM.Sht_Agencia, '', (PresupuestoTRIM.Valor_Lista*CondicionPorcentaje.Pordentaje), '1010', PresupuestoTRIM.Cod_Negocio, PresupuestoTRIM.origen&#xA;FROM lukerVen.PVOF.CondicionPorcentaje CondicionPorcentaje, lukerVen.PVOF.PresupuestoTRIM PresupuestoTRIM&#xA;WHERE PresupuestoTRIM.Sht_Agencia = CondicionPorcentaje.Cod_Agencia AND PresupuestoTRIM.Sht_Canal = CondicionPorcentaje.Cod_Canal AND PresupuestoTRIM.Sht_GCliente = CondicionPorcentaje.Cod_GCliente AND CondicionPorcentaje.JerarquiaProducto = PresupuestoTRIM.JerarquiaProducto &#xA;AND ((CondicionPorcentaje.ano=2020) &#xA;AND (CondicionPorcentaje.PeriodoAAMM='202006') &#xA;AND (CondicionPorcentaje.Cod_Cliente='')&#xA;)&#xA;&#xA;&#xA;&#xA;insert into [lukerVen].[PVOF].[DescuentosTrim]&#xA;SELECT PresupuestoTRIM.FechaCorte, PresupuestoTRIM.Cod_Cliente, PresupuestoTRIM.Cod_SKU, CondicionPorcentajeMes.Condicion, PresupuestoTRIM.Sht_GCliente, PresupuestoTRIM.Sht_Canal, PresupuestoTRIM.Sht_Agencia, '', (PresupuestoTRIM.Valor_Lista*CondicionPorcentajeMes.Pordentaje), '1010', PresupuestoTRIM.Cod_Negocio, PresupuestoTRIM.origen&#xA;FROM lukerVen.PVOF.CondicionPorcentajeMes CondicionPorcentajeMes, lukerVen.PVOF.PresupuestoTRIM PresupuestoTRIM&#xA;WHERE PresupuestoTRIM.Sht_Agencia = CondicionPorcentajeMes.Cod_Agencia AND PresupuestoTRIM.Sht_Canal = CondicionPorcentajeMes.Cod_Canal AND PresupuestoTRIM.Sht_GCliente = CondicionPorcentajeMes.Cod_GCliente AND CondicionPorcentajeMes.Cod_Cliente = PresupuestoTRIM.Cod_Cliente AND CondicionPorcentajeMes.FechaAplica = PresupuestoTRIM.FechaCorte AND CondicionPorcentajeMes.JerarquiaProducto = PresupuestoTRIM.JerarquiaProducto &#xA;AND ((CondicionPorcentajeMes.ano=2020) &#xA;AND (CondicionPorcentajeMes.PeriodoAAMM='202006') &#xA;)&#xA;&#xA;insert into [lukerVen].[PVOF].[DescuentosTrim]&#xA;SELECT PresupuestoTRIM.FechaCorte, PresupuestoTRIM.Cod_Cliente, PresupuestoTRIM.Cod_SKU, CondicionPorcentajeMes.Condicion, PresupuestoTRIM.Sht_GCliente, PresupuestoTRIM.Sht_Canal, PresupuestoTRIM.Sht_Agencia, '', (PresupuestoTRIM.Valor_Lista*CondicionPorcentajeMes.Pordentaje), '1010', PresupuestoTRIM.Cod_Negocio, PresupuestoTRIM.origen&#xA;FROM lukerVen.PVOF.CondicionPorcentajeMes CondicionPorcentajeMes, lukerVen.PVOF.PresupuestoTRIM PresupuestoTRIM&#xA;WHERE PresupuestoTRIM.Sht_Agencia = CondicionPorcentajeMes.Cod_Agencia &#xA;AND PresupuestoTRIM.Sht_Canal = CondicionPorcentajeMes.Cod_Canal AND PresupuestoTRIM.Sht_GCliente = CondicionPorcentajeMes.Cod_GCliente &#xA;AND CondicionPorcentajeMes.Cod_Cliente= ''&#xA;AND CondicionPorcentajeMes.FechaAplica = PresupuestoTRIM.FechaCorte AND CondicionPorcentajeMes.JerarquiaProducto = PresupuestoTRIM.JerarquiaProducto &#xA;AND ((CondicionPorcentajeMes.ano=2020) &#xA;AND (CondicionPorcentajeMes.PeriodoAAMM='202006') &#xA;)&#xA;&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
@@ -153,35 +153,35 @@
       DTS:To="Package\descuentos" />
   </DTS:PrecedenceConstraints>
   <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
-<!--Esta sección CDATA contiene la información de diseño del paquete. Esta sección incluye información como, por ejemplo, las coordenadas (x,y), el ancho y el alto.-->
-<!--Si edita manualmente esta sección y comete un error, puede eliminarlo. -->
-<!--El paquete podrá cargarse normalmente, pero se perderá la información de diseño anterior y el diseñador reorganizará los elementos automáticamente en la superficie de diseño.-->
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
 <Objects
   Version="8">
-  <!--Cada uno de los nodos siguientes contiene propiedades que no afectan al comportamiento en tiempo de ejecución.-->
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
   <Package
     design-time-name="Package">
     <LayoutInfo>
       <GraphLayout
         Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="131.2,41.6"
+          Size="131,41.5"
           Id="Package\descuentos"
           TopLeft="51.3333312935299,301.600002396902" />
         <NodeLayout
-          Size="160,41.6"
+          Size="160,41.5"
           Id="Package\mae porcent desc mes"
           TopLeft="40.6666650507186,230.88000183487" />
         <NodeLayout
-          Size="170.4,49.6"
+          Size="170.5,49.5"
           Id="Package\mae porcentajes descuentos Anuales"
           TopLeft="35.9999985694885,156.000001239777" />
         <NodeLayout
-          Size="181.6,41.6"
+          Size="181.5,41.5"
           Id="Package\Replace Vbru ppto Fin"
           TopLeft="31.3333348130423,87.2784331443664" />
         <NodeLayout
-          Size="141.6,41.6"
+          Size="141.5,41.5"
           Id="Package\vbru pvo trim"
           TopLeft="50.0000003973643,21.8666663636102" />
         <EdgeLayout

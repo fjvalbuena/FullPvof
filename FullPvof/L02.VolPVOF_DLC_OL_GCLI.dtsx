@@ -5,21 +5,21 @@
   DTS:CreationName="Microsoft.Package"
   DTS:CreatorComputerName="LAPTOP-MFGK5CPU"
   DTS:CreatorName="LAPTOP-MFGK5CPU\fvalb"
-  DTS:DTSID="{3E162F54-8545-4CE3-8A11-EC6B3DDF2064}"
+  DTS:DTSID="{CE62F50C-0BC2-4CEE-99C7-C2B1ABBB89DA}"
   DTS:ExecutableType="Microsoft.Package"
-  DTS:LastModifiedProductVersion="15.0.1300.371"
+  DTS:LastModifiedProductVersion="15.0.1301.433"
   DTS:LocaleID="1033"
-  DTS:ObjectName="L01 VolPVOF_DLC_OL"
+  DTS:ObjectName="L02 VolPVOF_DLC_OL_GCLI"
   DTS:PackageType="5"
-  DTS:VersionBuild="16"
-  DTS:VersionGUID="{A5618828-297F-4E5C-A692-C53665F63510}">
+  DTS:VersionBuild="21"
+  DTS:VersionGUID="{8B167879-35F6-42B2-B1E1-DC35A610D6E0}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
     <DTS:ConnectionManager
       DTS:refId="Package.ConnectionManagers[192.168.5.23\B2C.lukerVen.ASSUser]"
       DTS:CreationName="OLEDB"
-      DTS:DTSID="{B0A6DED8-D396-4314-9395-B6A259A17D81}"
+      DTS:DTSID="{4033795A-E89F-4A04-AB6C-A49A0C2273F0}"
       DTS:ObjectName="192.168.5.23\B2C.lukerVen.ASSUser">
       <DTS:ObjectData>
         <DTS:ConnectionManager
@@ -27,7 +27,7 @@
           <DTS:Password
             DTS:Name="Password"
             Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAuR1Gdsnx50KES8/66vqaKwAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAABEiXyMx8JVs3hTz+DD98qF6psL72FM/jKalRFpBK18PQAAAAAOgAAAAAIAACAAAADGHEiWMvp6f+Id0U3r2H7eQlRs82XcM6Zx20ehoy5AhCAAAADgHHUBok/smj9hduI7ADyg31XI1G1fN1UDTM4IxYioDUAAAAAjQHHnOq2UQUey8q7hNdkrGZXGKZhjFV8SUleHt45SsOF7f6kNLvUNDhY25KxqzsRs6rcKn+eRvtRy55zTIucM</DTS:Password>
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAA4k6HQYtdmEeqU7aLZ7SeZgAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAAD7te/GdfGYL6HU9jl7EIHKjg/7XFFqmYdYXKDEUAEhVAAAAAAOgAAAAAIAACAAAACgV2gTk3qPWX0XYOMjTqOALnHGg4Tcpx2N932uxHjv3iAAAADAlsGst0/32B2Vdj4Lc6ypBX1MLFDxGdjJr2WgKCC6ZkAAAAD0fUTAIp0Zaw11xxtkLmCqP7hz7u88C3Q79PZ3Uav3y6KpUkV/HqUDYblDMrNHvDsZxndgg/lApXbciXL4/ice</DTS:Password>
         </DTS:ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
@@ -38,7 +38,7 @@
       DTS:refId="Package\jeraquia huerfana"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="Tarea Ejecutar SQL"
-      DTS:DTSID="{D3414520-56FF-4B25-9FFB-64342A245662}"
+      DTS:DTSID="{A218B524-94B3-43BF-9835-7D5793835D74}"
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="jeraquia huerfana"
@@ -46,15 +46,15 @@
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
-          SQLTask:Connection="{B0A6DED8-D396-4314-9395-B6A259A17D81}"
-          SQLTask:SqlStatementSource="update VolumenTrimDLC_OL set&#xA;VolumenTrimDLC_OL.OrphEstrLin= 0&#xA;FROM lukerVen.tmp.BaseEstadisticaBcTDLC_AL BaseEstadisticaBcTDLC_AL, lukerVen.PVOF.VolumenTrimDLC_OL VolumenTrimDLC_OL&#xA;WHERE BaseEstadisticaBcTDLC_AL.Categoria = VolumenTrimDLC_OL.Categoria AND BaseEstadisticaBcTDLC_AL.Director_Canal = VolumenTrimDLC_OL.Director_Canal AND BaseEstadisticaBcTDLC_AL.Lider_Regional = VolumenTrimDLC_OL.Lider_Regional AND BaseEstadisticaBcTDLC_AL.Linea = VolumenTrimDLC_OL.Linea AND BaseEstadisticaBcTDLC_AL.Marca = VolumenTrimDLC_OL.Marca AND BaseEstadisticaBcTDLC_AL.Nombre_Oficina_Ventas = VolumenTrimDLC_OL.Nombre_Oficina_Ventas &#xA;AND BaseEstadisticaBcTDLC_AL.NombreCanalAgrupado = VolumenTrimDLC_OL.NombreCanalAgrupado AND VolumenTrimDLC_OL.PeriodoAAMM = BaseEstadisticaBcTDLC_AL.Periodo&#xA;and BaseEstadisticaBcTDLC_AL.Kilos&lt;&gt;0" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          SQLTask:Connection="{4033795A-E89F-4A04-AB6C-A49A0C2273F0}"
+          SQLTask:SqlStatementSource="update VolumenTrimDLC_OL set&#xA;VolumenTrimDLC_OL.OrphEstrLin= 0&#xA;FROM lukerVen.tmp.BaseEstadisticaBcTDLC_AL BaseEstadisticaBcTDLC_AL, lukerVen.PVOF.VolumenTrimDLC_OL VolumenTrimDLC_OL&#xA;WHERE BaseEstadisticaBcTDLC_AL.Categoria = VolumenTrimDLC_OL.Categoria AND BaseEstadisticaBcTDLC_AL.Director_Canal = VolumenTrimDLC_OL.Director_Canal AND BaseEstadisticaBcTDLC_AL.Lider_Regional = VolumenTrimDLC_OL.Lider_Regional AND BaseEstadisticaBcTDLC_AL.Linea = VolumenTrimDLC_OL.Linea AND BaseEstadisticaBcTDLC_AL.Marca = VolumenTrimDLC_OL.Marca AND BaseEstadisticaBcTDLC_AL.Nombre_Oficina_Ventas = VolumenTrimDLC_OL.Nombre_Oficina_Ventas &#xA;AND BaseEstadisticaBcTDLC_AL.NombreCanalAgrupado = VolumenTrimDLC_OL.NombreCanalAgrupado&#xA;AND BaseEstadisticaBcTDLC_AL.Nombre_GCliente = VolumenTrimDLC_OL.Nombre_GCliente &#xA;AND VolumenTrimDLC_OL.PeriodoAAMM = BaseEstadisticaBcTDLC_AL.Periodo&#xA;and BaseEstadisticaBcTDLC_AL.Kilos&lt;&gt;0" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
       DTS:refId="Package\jerarquia ventas pos"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="Tarea Ejecutar SQL"
-      DTS:DTSID="{785C574D-49A2-4E48-BB21-DBEAD1BCA2FE}"
+      DTS:DTSID="{53C78387-DCE5-430E-89E9-A8ECAA809094}"
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="jerarquia ventas pos"
@@ -62,7 +62,7 @@
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
-          SQLTask:Connection="{B0A6DED8-D396-4314-9395-B6A259A17D81}"
+          SQLTask:Connection="{4033795A-E89F-4A04-AB6C-A49A0C2273F0}"
           SQLTask:SqlStatementSource="&#xA;/**&#xA;&#x9;&#x9;&#x9;AMIGOS DE LA CASA Y VENTAS POS&#xA;**/&#xA;update JerCliente set JerCliente.NombreNodoJerarquia= 'PULIDO CHALA MARCELA VIVIANA'&#xA;FROM lukerVen.SD.JerCliente JerCliente&#xA;WHERE (JerCliente.JerCliente = 'J1') OR (JerCliente.JerCliente = 'K1')&#xA;and JerCliente.NombreNodoJerarquia= 'PULIDO CHALA MARCELA VIVIANA'&#xA;&#xA;update Clientes set&#xA;Clientes.Director_Canal= 'PULIDO CHALA MARCELA VIVIANA'&#xA;FROM lukerVen.SD.Clientes Clientes&#xA;WHERE (Clientes.Cod_Cliente Like 'J1%')&#xA;and Clientes.Director_Canal&lt;&gt; 'PULIDO CHALA MARCELA VIVIANA'&#xA;&#xA;update Clientes set&#xA;Clientes.Director_Canal= 'PULIDO CHALA MARCELA VIVIANA'&#xA;FROM lukerVen.SD.Clientes Clientes&#xA;WHERE (Clientes.Cod_Canal='22')&#xA;and Clientes.Director_Canal&lt;&gt; 'PULIDO CHALA MARCELA VIVIANA'" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
@@ -70,7 +70,7 @@
       DTS:refId="Package\load vol from stgn ol"
       DTS:CreationName="Microsoft.Pipeline"
       DTS:Description="Tarea Flujo de datos"
-      DTS:DTSID="{B6DE4DAB-6AD0-4360-98B5-7B473F2196C8}"
+      DTS:DTSID="{E046C18C-C212-411A-8AA9-A675E4D67D3C}"
       DTS:ExecutableType="Microsoft.Pipeline"
       DTS:LocaleID="-1"
       DTS:ObjectName="load vol from stgn ol"
@@ -105,16 +105,9 @@
                   dataType="System.String"
                   description="Comando SQL para ejecutar."
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">SELECT xppt_pvofconsdirlincanoflid.PeriodoAAMM, xppt_pvofconsdirlincanoflid.Director_Canal, xppt_pvofconsdirlincanoflid.Categoria, xppt_pvofconsdirlincanoflid.Marca, xppt_pvofconsdirlincanoflid.Linea, xppt_pvofconsdirlincanoflid.NombreCanalAgrupado, xppt_pvofconsdirlincanoflid.Nombre_Oficina_Ventas, xppt_pvofconsdirlincanoflid.Lider_Regional
-, sum(xppt_pvofconsdirlincanoflid.Kilos1) Kilos1
-, sum(xppt_pvofconsdirlincanoflid.Kilos2) Kilos2
-, sum(xppt_pvofconsdirlincanoflid.Kilos3) Kilos3
-, '' AS 'OrphEstrLin', '' AS 'OrphVol'
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">SELECT xppt_pvofconsdirlincanoflid.PeriodoAAMM, xppt_pvofconsdirlincanoflid.Director_Canal, xppt_pvofconsdirlincanoflid.Categoria, xppt_pvofconsdirlincanoflid.Marca, xppt_pvofconsdirlincanoflid.Linea, xppt_pvofconsdirlincanoflid.NombreCanalAgrupado, xppt_pvofconsdirlincanoflid.Nombre_Oficina_Ventas, xppt_pvofconsdirlincanoflid.Lider_Regional, xppt_pvofconsdirlincanoflid.Nombre_GCliente, Sum(xppt_pvofconsdirlincanoflid.Kilos1) AS 'Kilos1', Sum(xppt_pvofconsdirlincanoflid.Kilos2) AS 'Kilos2', Sum(xppt_pvofconsdirlincanoflid.Kilos3) AS 'Kilos3', '' AS 'OrphEstrLin', '' AS 'OrphVol'
 FROM lukerVen.dbo.xppt_pvofconsdirlincanoflid xppt_pvofconsdirlincanoflid
-group by
-xppt_pvofconsdirlincanoflid.PeriodoAAMM, xppt_pvofconsdirlincanoflid.Director_Canal, xppt_pvofconsdirlincanoflid.Categoria
-, xppt_pvofconsdirlincanoflid.Marca, xppt_pvofconsdirlincanoflid.Linea, xppt_pvofconsdirlincanoflid.NombreCanalAgrupado
-, xppt_pvofconsdirlincanoflid.Nombre_Oficina_Ventas, xppt_pvofconsdirlincanoflid.Lider_Regional</property>
+GROUP BY xppt_pvofconsdirlincanoflid.PeriodoAAMM, xppt_pvofconsdirlincanoflid.Director_Canal, xppt_pvofconsdirlincanoflid.Categoria, xppt_pvofconsdirlincanoflid.Marca, xppt_pvofconsdirlincanoflid.Linea, xppt_pvofconsdirlincanoflid.NombreCanalAgrupado, xppt_pvofconsdirlincanoflid.Nombre_Oficina_Ventas, xppt_pvofconsdirlincanoflid.Lider_Regional, xppt_pvofconsdirlincanoflid.Nombre_GCliente</property>
                 <property
                   dataType="System.String"
                   description="Variable que contiene el comando SQL para ejecutar."
@@ -279,6 +272,16 @@ xppt_pvofconsdirlincanoflid.PeriodoAAMM, xppt_pvofconsdirlincanoflid.Director_Ca
                       lineageId="Package\load vol from stgn ol\load from stgn Of Li.Outputs[Salida de origen de OLE DB].Columns[Lider_Regional]"
                       name="Lider_Regional"
                       truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\load vol from stgn ol\load from stgn Of Li.Outputs[Salida de origen de OLE DB].Columns[Nombre_GCliente]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\load vol from stgn ol\load from stgn Of Li.Outputs[Salida de origen de OLE DB].ExternalColumns[Nombre_GCliente]"
+                      length="20"
+                      lineageId="Package\load vol from stgn ol\load from stgn Of Li.Outputs[Salida de origen de OLE DB].Columns[Nombre_GCliente]"
+                      name="Nombre_GCliente"
+                      truncationRowDisposition="FailComponent" />
                   </outputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -346,6 +349,11 @@ xppt_pvofconsdirlincanoflid.PeriodoAAMM, xppt_pvofconsdirlincanoflid.Director_Ca
                       dataType="wstr"
                       length="35"
                       name="Lider_Regional" />
+                    <externalMetadataColumn
+                      refId="Package\load vol from stgn ol\load from stgn Of Li.Outputs[Salida de origen de OLE DB].ExternalColumns[Nombre_GCliente]"
+                      dataType="wstr"
+                      length="20"
+                      name="Nombre_GCliente" />
                   </externalMetadataColumns>
                 </output>
                 <output
@@ -401,6 +409,12 @@ xppt_pvofconsdirlincanoflid.PeriodoAAMM, xppt_pvofconsdirlincanoflid.Director_Ca
                       length="35"
                       lineageId="Package\load vol from stgn ol\load from stgn Of Li.Outputs[Salida de error de origen de OLE DB].Columns[Lider_Regional]"
                       name="Lider_Regional" />
+                    <outputColumn
+                      refId="Package\load vol from stgn ol\load from stgn Of Li.Outputs[Salida de error de origen de OLE DB].Columns[Nombre_GCliente]"
+                      dataType="wstr"
+                      length="20"
+                      lineageId="Package\load vol from stgn ol\load from stgn Of Li.Outputs[Salida de error de origen de OLE DB].Columns[Nombre_GCliente]"
+                      name="Nombre_GCliente" />
                     <outputColumn
                       refId="Package\load vol from stgn ol\load from stgn Of Li.Outputs[Salida de error de origen de OLE DB].Columns[Kilos1]"
                       dataType="r8"
@@ -609,6 +623,13 @@ xppt_pvofconsdirlincanoflid.PeriodoAAMM, xppt_pvofconsdirlincanoflid.Director_Ca
                       cachedName="Lider_Regional"
                       externalMetadataColumnId="Package\load vol from stgn ol\VolumenTrimDLC Of Lid.Inputs[Entrada de destino de OLE DB].ExternalColumns[Lider_Regional]"
                       lineageId="Package\load vol from stgn ol\load from stgn Of Li.Outputs[Salida de origen de OLE DB].Columns[Lider_Regional]" />
+                    <inputColumn
+                      refId="Package\load vol from stgn ol\VolumenTrimDLC Of Lid.Inputs[Entrada de destino de OLE DB].Columns[Nombre_GCliente]"
+                      cachedDataType="wstr"
+                      cachedLength="20"
+                      cachedName="Nombre_GCliente"
+                      externalMetadataColumnId="Package\load vol from stgn ol\VolumenTrimDLC Of Lid.Inputs[Entrada de destino de OLE DB].ExternalColumns[Nombre_GCliente]"
+                      lineageId="Package\load vol from stgn ol\load from stgn Of Li.Outputs[Salida de origen de OLE DB].Columns[Nombre_GCliente]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -676,6 +697,11 @@ xppt_pvofconsdirlincanoflid.PeriodoAAMM, xppt_pvofconsdirlincanoflid.Director_Ca
                       dataType="wstr"
                       length="35"
                       name="Lider_Regional" />
+                    <externalMetadataColumn
+                      refId="Package\load vol from stgn ol\VolumenTrimDLC Of Lid.Inputs[Entrada de destino de OLE DB].ExternalColumns[Nombre_GCliente]"
+                      dataType="wstr"
+                      length="20"
+                      name="Nombre_GCliente" />
                   </externalMetadataColumns>
                 </input>
               </inputs>
@@ -719,7 +745,7 @@ xppt_pvofconsdirlincanoflid.PeriodoAAMM, xppt_pvofconsdirlincanoflid.Director_Ca
       DTS:refId="Package\trnc tbl Ofi Lid"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="Tarea Ejecutar SQL"
-      DTS:DTSID="{B07B0D40-2CA5-4880-8A5A-D1F0D4DB2840}"
+      DTS:DTSID="{5E2EE6BE-0A25-460A-BE9F-6FE9F6FBD7CE}"
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="trnc tbl Ofi Lid"
@@ -727,7 +753,7 @@ xppt_pvofconsdirlincanoflid.PeriodoAAMM, xppt_pvofconsdirlincanoflid.Director_Ca
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
-          SQLTask:Connection="{B0A6DED8-D396-4314-9395-B6A259A17D81}"
+          SQLTask:Connection="{4033795A-E89F-4A04-AB6C-A49A0C2273F0}"
           SQLTask:SqlStatementSource="USE [lukerVen]&#xA;GO&#xA;&#xA;DELETE FROM [PVOF].[VolumenTrimDLC_OL]&#xA;/**&#xA;where PeriodoAAMM = (&#xA;&#xA;SELECT Max(xppt_pvof_cons_dir_lin_can.PeriodoAAMM) AS 'PeriodoAAMM'&#xA;FROM lukerVen.dbo.xppt_pvof_cons_dir_lin_can xppt_pvof_cons_dir_lin_can&#xA;&#xA;)&#xA;**/&#xA;GO&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
@@ -736,7 +762,7 @@ xppt_pvofconsdirlincanoflid.PeriodoAAMM, xppt_pvofconsdirlincanoflid.Director_Ca
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Restricción]"
       DTS:CreationName=""
-      DTS:DTSID="{CB83C953-220E-4BC4-92E6-0AD72EB140F3}"
+      DTS:DTSID="{96280C48-5690-4CAE-A240-BE84F9DA658C}"
       DTS:From="Package\trnc tbl Ofi Lid"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Restricción"
@@ -744,7 +770,7 @@ xppt_pvofconsdirlincanoflid.PeriodoAAMM, xppt_pvofconsdirlincanoflid.Director_Ca
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Restricción 1]"
       DTS:CreationName=""
-      DTS:DTSID="{6ECF6D05-2866-4ACA-BC19-8F68DCF749A0}"
+      DTS:DTSID="{4058BD57-6438-4344-AEA4-45B7004FC744}"
       DTS:From="Package\load vol from stgn ol"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Restricción 1"
@@ -752,19 +778,19 @@ xppt_pvofconsdirlincanoflid.PeriodoAAMM, xppt_pvofconsdirlincanoflid.Director_Ca
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Restricción 2]"
       DTS:CreationName=""
-      DTS:DTSID="{8F1437CD-CD62-4752-A0F0-E2882A830895}"
+      DTS:DTSID="{8F9A1A9F-2612-478F-8642-4818F0ECE4FF}"
       DTS:From="Package\jerarquia ventas pos"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Restricción 2"
       DTS:To="Package\trnc tbl Ofi Lid" />
   </DTS:PrecedenceConstraints>
   <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
-<!--Esta sección CDATA contiene la información de diseño del paquete. Esta sección incluye información como, por ejemplo, las coordenadas (x,y), el ancho y el alto.-->
-<!--Si edita manualmente esta sección y comete un error, puede eliminarlo. -->
-<!--El paquete podrá cargarse normalmente, pero se perderá la información de diseño anterior y el diseñador reorganizará los elementos automáticamente en la superficie de diseño.-->
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
 <Objects
   Version="8">
-  <!--Cada uno de los nodos siguientes contiene propiedades que no afectan al comportamiento en tiempo de ejecución.-->
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
   <Package
     design-time-name="Package">
     <LayoutInfo>
@@ -859,7 +885,7 @@ xppt_pvofconsdirlincanoflid.PeriodoAAMM, xppt_pvofconsdirlincanoflid.Director_Ca
     design-time-name="Package\load vol from stgn ol">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="172,41.6"
           Id="Package\load vol from stgn ol\load from stgn Of Li"
@@ -899,7 +925,9 @@ xppt_pvofconsdirlincanoflid.PeriodoAAMM, xppt_pvofconsdirlincanoflid.Director_Ca
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="-10.36787945942,35.2823536575875,30.9071875,9.568359375"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>

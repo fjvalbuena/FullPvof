@@ -7,12 +7,12 @@
   DTS:CreatorName="LAPTOP-MFGK5CPU\fvalb"
   DTS:DTSID="{9A5DCD1B-5C4B-449C-B80D-6689E706C2B8}"
   DTS:ExecutableType="Microsoft.Package"
-  DTS:LastModifiedProductVersion="14.0.3002.113"
+  DTS:LastModifiedProductVersion="15.0.1301.433"
   DTS:LocaleID="1033"
   DTS:ObjectName="C00 BaseEstadistica"
   DTS:PackageType="5"
-  DTS:VersionBuild="28"
-  DTS:VersionGUID="{7C451BEA-21B3-4221-A033-94BD8A3BF2A3}">
+  DTS:VersionBuild="30"
+  DTS:VersionGUID="{533CFE23-223D-4708-9732-839DE2717E24}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -27,7 +27,7 @@
           <DTS:Password
             DTS:Name="Password"
             Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAaGo1T2UrwUKdb1vvJFw8pwAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAAAt7VMXWB2XvNrU0JauC+l7qIb3ZxQb9N7qwCtfNABlywAAAAAOgAAAAAIAACAAAABHDe6eheYAggwIXjV2WFvY5+t1dsjAHDY/qljXJrYT2yAAAABMEewT6j5D0dGllhV39e9T5SR8DdlgyQkSGaOd3wSMR0AAAADNn5Z/+GGYrwczZtp8lXX1OVXYZwtl5NxQ01xmPsn1q1//RmrqJNI6abg/GsQMpYL1rnAVKl1TPtnHfDInnYOj</DTS:Password>
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAA4k6HQYtdmEeqU7aLZ7SeZgAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAAAMuFsK5I473HM0E9diCCl9lToIrgY0GUVgdI8x1JgRcQAAAAAOgAAAAAIAACAAAAC+r7gCGeWI6NNRSNbrQLN0mULCcMu2tyEpPvOxTxNNqyAAAACLzylRgElZQEf3f8stDE5GHzCtXlJDUJM2oB8nFKjnI0AAAACFAXHhGsdwNbTkgoxN9ux+jZbVsJUsrW7sEDjA3fFaqKwNJe2nBA0pFlxR1ReqW5ZL5StnAj1Ko8PG/QCd9GcL</DTS:Password>
         </DTS:ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
@@ -48,7 +48,7 @@
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{C506684D-3787-4769-AEE6-43F1D50F46AF}"
-          SQLTask:SqlStatementSource="truncate table  [lukerVen].[hpvo].[BaseEstadisticaHistoria]&#xA;&#xA;&#xA;declare @PeriodoPVO varchar(6), @PeriodoEstI date, @PeriodoEstF date&#xA;&#xA;SELECT &#xA;  @PeriodoPVO  = Parametros.PeriodoAAMM&#xA;, @PeriodoEstI = Parametros.PeriodoEstI&#xA;, @PeriodoEstF = Parametros.PeriodoEstF&#xA;FROM lukerVen.PVOF.Parametros Parametros&#xA;WHERE (Parametros.EstadoProceso='1')&#xA;&#xA;insert into [lukerVen].[hpvo].[BaseEstadisticaHistoria]&#xA;SELECT Parametros.PeriodoAAMM&#xA;, CategoriaMarcaCanal.Cod_Negocio&#xA;, Facturas.Cod_OrgVentas&#xA;, CASE Clientes.Cod_Zona_Ventas WHEN '' THEN CASE isnull(EquivalenciaJerarquiaOrph.Cod_Cliente, '') WHEN '' THEN Facturas.Cod_Cliente ELSE isnull(EquivalenciaJerarquiaOrph.Cod_Cliente, '') END ELSE Facturas.Cod_Cliente END AS Cod_Cliente&#xA;, Productos.JerarquiaProducto&#xA;, Facturas.Cod_SKU&#xA;, max(Facturas.FechaFactura) FechaFactura&#xA;, sum(Facturas.Kilos) as Kilos&#xA;, sum(Facturas.ValorNeto) as ValorNeto&#xA;, 'Fct'&#xA;FROM        SD.FacturasW AS Facturas INNER JOIN&#xA;                  SD.CanalDistribucion ON Facturas.Cod_Canal = SD.CanalDistribucion.Cod_Canal INNER JOIN&#xA;                  SD.Productos ON Facturas.Cod_SKU = SD.Productos.Cod_SKU INNER JOIN&#xA;                  SD.CategoriaMarcaCanal ON SD.Productos.Aliado = SD.CategoriaMarcaCanal.Aliado AND SD.Productos.Categoria = SD.CategoriaMarcaCanal.Categoria AND SD.Productos.Marca = SD.CategoriaMarcaCanal.Marca AND &#xA;                  Facturas.Cod_Canal = SD.CategoriaMarcaCanal.Cod_Canal AND Facturas.Cod_OrgVentas = SD.CategoriaMarcaCanal.Cod_OrgVentas INNER JOIN&#xA;                  SD.MotivosNoVenta ON Facturas.Cod_MotivoNoVenta = SD.MotivosNoVenta.Cod_Motivo LEFT OUTER JOIN&#xA;                  SD.Clientes ON Facturas.Cod_Cliente = SD.Clientes.Cod_Cliente LEFT OUTER JOIN&#xA;                  SD.AliasSKU ON Facturas.Cod_SKU = SD.AliasSKU.Cod_SKU LEFT OUTER JOIN&#xA;                  SD.EquivalenciaJerarquiaOrph AS EquivalenciaJerarquiaOrph ON EquivalenciaJerarquiaOrph.Cod_Canal = Facturas.Cod_Canal AND EquivalenciaJerarquiaOrph.Cod_GCliente = Facturas.Cod_GCliente AND &#xA;                  Facturas.SalesOffice = EquivalenciaJerarquiaOrph.Cod_Oficina_Ventas&#xA;&#x9;&#x9;&#x9;&#x9;  inner join lukerVen.SD.TipoDocumento TipoDocumento  on TipoDocumento.Cod_TipoFactura = Facturas.Cod_TipoFactura &#xA;, lukerVen.PVOF.Parametros Parametros&#xA;&#xA;where  ( (Parametros.EstadoProceso=1)&#xA;AND (year(Facturas.FechaFactura)+1&gt;=left(@PeriodoPVO,4)) &#xA; &#xA;)&#xA;group by &#xA;Parametros.PeriodoAAMM&#xA;, CategoriaMarcaCanal.Cod_Negocio&#xA;, Facturas.Cod_OrgVentas&#xA;, CASE Clientes.Cod_Zona_Ventas WHEN '' THEN CASE isnull(EquivalenciaJerarquiaOrph.Cod_Cliente, '') WHEN '' THEN Facturas.Cod_Cliente ELSE isnull(EquivalenciaJerarquiaOrph.Cod_Cliente, '') END ELSE Facturas.Cod_Cliente END &#xA;, Productos.JerarquiaProducto&#xA;, Facturas.Cod_SKU&#xA;, year(Facturas.FechaFactura)&#xA;, month(Facturas.FechaFactura)&#xA;having sum(Facturas.Kilos) &lt;&gt;0 or  sum(Facturas.ValorNeto)  &lt;&gt;0&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          SQLTask:SqlStatementSource="truncate table  [lukerVen].[hpvo].[BaseEstadisticaHistoria]&#xA;&#xA;&#xA;declare @PeriodoPVO varchar(6), @PeriodoEstI date, @PeriodoEstF date&#xA;&#xA;SELECT &#xA;  @PeriodoPVO  = Parametros.PeriodoAAMM&#xA;, @PeriodoEstI = Parametros.PeriodoEstI&#xA;, @PeriodoEstF = Parametros.PeriodoEstF&#xA;FROM lukerVen.PVOF.Parametros Parametros&#xA;WHERE (Parametros.EstadoProceso='1')&#xA;&#xA;insert into [lukerVen].[hpvo].[BaseEstadisticaHistoria]&#xA;SELECT Parametros.PeriodoAAMM&#xA;, CategoriaMarcaCanal.Cod_Negocio&#xA;, Facturas.Cod_OrgVentas&#xA;, CASE Clientes.Cod_Zona_Ventas WHEN '' THEN CASE isnull(EquivalenciaJerarquiaOrph.Cod_Cliente, '') WHEN '' THEN Facturas.Cod_Cliente ELSE isnull(EquivalenciaJerarquiaOrph.Cod_Cliente, '') END ELSE Facturas.Cod_Cliente END AS Cod_Cliente&#xA;, Productos.JerarquiaProducto&#xA;, Facturas.Cod_SKU&#xA;, max(Facturas.FechaFactura) FechaFactura&#xA;, sum(Facturas.Kilos) as Kilos&#xA;, sum(Facturas.ValorNeto) as ValorNeto&#xA;, 'Fct'&#xA;FROM        SD.FacturasW AS Facturas INNER JOIN&#xA;                  SD.CanalDistribucion ON Facturas.Cod_Canal = SD.CanalDistribucion.Cod_Canal INNER JOIN&#xA;                  SD.Productos ON Facturas.Cod_SKU = SD.Productos.Cod_SKU INNER JOIN&#xA;                  SD.CategoriaMarcaCanal ON SD.Productos.Aliado = SD.CategoriaMarcaCanal.Aliado AND SD.Productos.Categoria = SD.CategoriaMarcaCanal.Categoria AND SD.Productos.Marca = SD.CategoriaMarcaCanal.Marca AND &#xA;                  Facturas.Cod_Canal = SD.CategoriaMarcaCanal.Cod_Canal AND Facturas.Cod_OrgVentas = SD.CategoriaMarcaCanal.Cod_OrgVentas INNER JOIN&#xA;                  SD.MotivosNoVenta ON Facturas.Cod_MotivoNoVenta = SD.MotivosNoVenta.Cod_Motivo LEFT OUTER JOIN&#xA;                  SD.Clientes ON Facturas.Cod_Cliente = SD.Clientes.Cod_Cliente LEFT OUTER JOIN&#xA;                  SD.AliasSKU ON Facturas.Cod_SKU = SD.AliasSKU.Cod_SKU LEFT OUTER JOIN&#xA;                  SD.EquivalenciaJerarquiaOrph AS EquivalenciaJerarquiaOrph ON EquivalenciaJerarquiaOrph.Cod_Canal = Facturas.Cod_Canal AND EquivalenciaJerarquiaOrph.Cod_GCliente = Facturas.Cod_GCliente AND &#xA;                  Facturas.SalesOffice = EquivalenciaJerarquiaOrph.Cod_Oficina_Ventas&#xA;&#x9;&#x9;&#x9;&#x9;  inner join lukerVen.SD.TipoDocumento TipoDocumento  on TipoDocumento.Cod_TipoFactura = Facturas.Cod_TipoFactura &#xA;, lukerVen.PVOF.Parametros Parametros&#xA;&#xA;where  ( (Parametros.EstadoProceso=1)&#xA;AND (year(Facturas.FechaFactura)+2&gt;=left(@PeriodoPVO,4)) &#xA; &#xA;)&#xA;group by &#xA;Parametros.PeriodoAAMM&#xA;, CategoriaMarcaCanal.Cod_Negocio&#xA;, Facturas.Cod_OrgVentas&#xA;, CASE Clientes.Cod_Zona_Ventas WHEN '' THEN CASE isnull(EquivalenciaJerarquiaOrph.Cod_Cliente, '') WHEN '' THEN Facturas.Cod_Cliente ELSE isnull(EquivalenciaJerarquiaOrph.Cod_Cliente, '') END ELSE Facturas.Cod_Cliente END &#xA;, Productos.JerarquiaProducto&#xA;, Facturas.Cod_SKU&#xA;, year(Facturas.FechaFactura)&#xA;, month(Facturas.FechaFactura)&#xA;having sum(Facturas.Kilos) &lt;&gt;0 or  sum(Facturas.ValorNeto)  &lt;&gt;0&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
@@ -106,7 +106,7 @@
                   dataType="System.String"
                   description="Comando SQL para ejecutar."
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
                 <property
                   dataType="System.Int32"
                   description="Especifica la página de códigos de columna para utilizar cuando la información de página de códigos no está disponible en el origen de datos."
@@ -331,7 +331,7 @@
                   dataType="System.String"
                   description="Comando SQL para ejecutar."
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">declare @PeriodoPVO varchar(6), @PeriodoEstI date, @PeriodoEstF date
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">declare @PeriodoPVO varchar(6), @PeriodoEstI date, @PeriodoEstF date
 
 SELECT 
   @PeriodoPVO  = Parametros.PeriodoAAMM
@@ -704,31 +704,31 @@ having sum(Facturas.Kilos) &lt;&gt;0 or  sum(Facturas.ValorNeto)  &lt;&gt;0</pro
       DTS:To="Package\distri to TAT y Espejo" />
   </DTS:PrecedenceConstraints>
   <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
-<!--Esta sección CDATA contiene la información de diseño del paquete. Esta sección incluye información como, por ejemplo, las coordenadas (x,y), el ancho y el alto.-->
-<!--Si edita manualmente esta sección y comete un error, puede eliminarlo. -->
-<!--El paquete podrá cargarse normalmente, pero se perderá la información de diseño anterior y el diseñador reorganizará los elementos automáticamente en la superficie de diseño.-->
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
 <Objects
   Version="8">
-  <!--Cada uno de los nodos siguientes contiene propiedades que no afectan al comportamiento en tiempo de ejecución.-->
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
   <Package
     design-time-name="Package">
     <LayoutInfo>
       <GraphLayout
         Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="97.6,41.6"
+          Size="97.7142857142858,41.7142857142858"
           Id="Package\bulk"
           TopLeft="75.9999969800315,128.266667686039" />
         <NodeLayout
-          Size="176.8,41.6"
+          Size="177.142857142858,41.7142857142858"
           Id="Package\distri to TAT y Espejo"
           TopLeft="38.00000166893,209.590591187365" />
         <NodeLayout
-          Size="161.6,41.6"
+          Size="161.714285714286,41.7142857142858"
           Id="Package\load Periodo base"
           TopLeft="255.006795067211,38.3197769829146" />
         <NodeLayout
-          Size="166.4,41.6"
+          Size="166.285714285715,41.7142857142858"
           Id="Package\trctbl Estadistica H"
           TopLeft="44.5714293304755,44.6588241557349" />
         <EdgeLayout
@@ -751,7 +751,7 @@ having sum(Facturas.Kilos) &lt;&gt;0 or  sum(Facturas.ValorNeto)  &lt;&gt;0</pro
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="6.73899146211793,5,23.0573828125,9.421875"
+              BoundingBox="6.73899146211793,5,30.4826953125,9.7490234375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>

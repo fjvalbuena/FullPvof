@@ -7,22 +7,120 @@
   DTS:CreatorName="LAPTOP-MFGK5CPU\fvalb"
   DTS:DTSID="{EF1B4A5E-DD69-4DBB-87DC-2AF6EB585CF0}"
   DTS:ExecutableType="Microsoft.Package"
-  DTS:LastModifiedProductVersion="14.0.3002.113"
+  DTS:LastModifiedProductVersion="15.0.1301.433"
   DTS:LocaleID="1033"
   DTS:ObjectName="L03 Vendedor"
   DTS:PackageType="5"
-  DTS:VersionBuild="1"
-  DTS:VersionGUID="{6B6E45DF-0DC7-46E6-9FB3-418C9D338096}">
+  DTS:VersionBuild="3"
+  DTS:VersionGUID="{7CDB4A15-428A-47EB-ACB3-DEBB629E6CB2}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[192.168.5.23\B2C.lukerVen.ASSUser]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{9CA39BE0-0C5C-4241-A8FD-1222ADC552A6}"
+      DTS:ObjectName="192.168.5.23\B2C.lukerVen.ASSUser">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=192.168.5.23\B2C;User ID=ASSUser;Initial Catalog=lukerVen;Provider=SQLNCLI11.1;Persist Security Info=True;Auto Translate=False;">
+          <DTS:Password
+            DTS:Name="Password"
+            Sensitive="1"
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAokuxFVDvykSarX3P+qJVOQAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAAApK3QBB1DosHkK091zdmq607uZZgOC6jJTa/42wKEHDwAAAAAOgAAAAAIAACAAAAAqTOuUnIgIto2lCPXebnxceD/+Fq7qiOedZozSIEN7ASAAAAB4sLfoSCwo9fjtLa4/hXvI7y8DEiOJk8BFwidHa5NbpUAAAABKkSGUzlkKgx+lJ29tjAQtI7cuxjLcqaiekjM4WBTcBmskLyu+XCiP/3++LvuUIAw9ZohP/rvA8ZZZP4CD6fwk</DTS:Password>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
   <DTS:Variables />
-  <DTS:Executables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\LD Zona"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{CD81771E-81E8-4C06-9F28-E6C2429D218F}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="LD Zona"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{9CA39BE0-0C5C-4241-A8FD-1222ADC552A6}"
+          SQLTask:SqlStatementSource=" USE [lukerVen]&#xA;GO&#xA;&#xA;--select * from [lukerVen].[PVOF].[VolumenTrimDLC_OLZon]&#xA;truncate table [lukerVen].[PVOF].[VolumenTrimDLC_OLZon]&#xA;&#xA;insert into [lukerVen].[PVOF].[VolumenTrimDLC_OLZon]&#xA;SELECT xppt_pvofconsdircalidzona.PeriodoAAMM, xppt_pvofconsdircalidzona.Director_Canal, xppt_pvofconsdircalidzona.Categoria, xppt_pvofconsdircalidzona.Marca, xppt_pvofconsdircalidzona.Linea, xppt_pvofconsdircalidzona.NombreCanalAgrupado, xppt_pvofconsdircalidzona.Nombre_Oficina_Ventas, xppt_pvofconsdircalidzona.Lider_Regional&#xA;, xppt_pvofconsdircalidzona.Cod_Zona_Ventas&#xA;, sum(xppt_pvofconsdircalidzona.Kilos1) Kilos1&#xA;, sum(xppt_pvofconsdircalidzona.Kilos2) Kilos2&#xA;, sum(xppt_pvofconsdircalidzona.Kilos3) Kilos3&#xA;, '' AS 'OrphEstrLin', '' AS 'OrphVol'&#xA;FROM lukerVen.dbo.xppt_pvofconsdircalidzona xppt_pvofconsdircalidzona&#xA;group by&#xA;xppt_pvofconsdircalidzona.PeriodoAAMM, xppt_pvofconsdircalidzona.Director_Canal, xppt_pvofconsdircalidzona.Categoria&#xA;, xppt_pvofconsdircalidzona.Marca, xppt_pvofconsdircalidzona.Linea, xppt_pvofconsdircalidzona.NombreCanalAgrupado&#xA;, xppt_pvofconsdircalidzona.Nombre_Oficina_Ventas, xppt_pvofconsdircalidzona.Lider_Regional, xppt_pvofconsdircalidzona.Cod_Zona_Ventas" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\orph zon"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{AD17F1BB-5587-41DB-AB61-9A31601A8F6A}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="orph zon"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{9CA39BE0-0C5C-4241-A8FD-1222ADC552A6}"
+          SQLTask:SqlStatementSource="update VolumenTrimDLC_OL set&#xA;  VolumenTrimDLC_OL.OrphEstrLin= 0&#xA;, VolumenTrimDLC_OL.OrphVol= 0&#xA;FROM lukerVen.tmp.BaseEstadisticaBcTDLC_ALZon BaseEstadisticaBcTDLC_AL, lukerVen.PVOF.VolumenTrimDLC_OLZon VolumenTrimDLC_OL&#xA;WHERE BaseEstadisticaBcTDLC_AL.Categoria = VolumenTrimDLC_OL.Categoria &#xA;AND BaseEstadisticaBcTDLC_AL.Director_Canal = VolumenTrimDLC_OL.Director_Canal &#xA;AND BaseEstadisticaBcTDLC_AL.Cod_Zona_Ventas = VolumenTrimDLC_OL.Cod_Zona_Ventas&#xA;AND BaseEstadisticaBcTDLC_AL.Lider_Regional = VolumenTrimDLC_OL.Lider_Regional AND BaseEstadisticaBcTDLC_AL.Linea = VolumenTrimDLC_OL.Linea AND BaseEstadisticaBcTDLC_AL.Marca = VolumenTrimDLC_OL.Marca AND BaseEstadisticaBcTDLC_AL.Nombre_Oficina_Ventas = VolumenTrimDLC_OL.Nombre_Oficina_Ventas &#xA;AND BaseEstadisticaBcTDLC_AL.NombreCanalAgrupado = VolumenTrimDLC_OL.NombreCanalAgrupado AND VolumenTrimDLC_OL.PeriodoAAMM = BaseEstadisticaBcTDLC_AL.Periodo&#xA;and BaseEstadisticaBcTDLC_AL.Kilos&lt;&gt;0" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{D088FC1D-8B75-41ED-B2E0-7E6EC3BB2C06}"
+      DTS:From="Package\LD Zona"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\orph zon" />
+  </DTS:PrecedenceConstraints>
   <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
-<!--Esta sección CDATA contiene la información de diseño del paquete. Esta sección incluye información como, por ejemplo, las coordenadas (x,y), el ancho y el alto.-->
-<!--Si edita manualmente esta sección y comete un error, puede eliminarlo. -->
-<!--El paquete podrá cargarse normalmente, pero se perderá la información de diseño anterior y el diseñador reorganizará los elementos automáticamente en la superficie de diseño.-->
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
 <Objects
   Version="8">
-  <!--Cada uno de los nodos siguientes contiene propiedades que no afectan al comportamiento en tiempo de ejecución.-->
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="163.5,42"
+          Id="Package\LD Zona"
+          TopLeft="5.50000000000001,5.5" />
+        <NodeLayout
+          Size="120.5,42"
+          Id="Package\orph zon"
+          TopLeft="27,107.5" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="87.25,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
 </Objects>]]></DTS:DesignTimeProperties>
 </DTS:Executable>
